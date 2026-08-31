@@ -9,6 +9,8 @@
     ./modules/dev
   ];
 
+  nixpkgs.config.allowUnfree = true;
+
   home.username = "r4ppz";
   home.homeDirectory = "/home/r4ppz";
 

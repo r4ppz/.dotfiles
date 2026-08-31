@@ -1,19 +1,60 @@
 local M = {}
 
 function M.setup(capabilities)
-  -- Java
   local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
   local workspace_dir = vim.fn.expand("~/.local/share/jdtls-workspace/" .. project_name)
 
   local java_home = os.getenv("JAVA_HOME")
-  local mason = require("utils.system").mason_root()
-  local lombok_jar = vim.fn.expand(mason .. "/share/jdtls/lombok.jar")
 
-  -- Find the Equinox launcher once; abort early if not found
-  local launcher =
-    vim.fn.glob(mason .. "/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar")
+  -- Resolve jdtls share directory from the binary in PATH
+  local jdtls_bin = vim.fn.exepath("jdtls")
+  if jdtls_bin == "" then
+    vim.notify("jdtls not found in PATH. Is jdt-language-server installed?", vim.log.levels.ERROR)
+    return
+  end
+
+  local jdtls_pkg = vim.fn.fnamemodify(jdtls_bin, ":h:h")
+  local jdtls_share = jdtls_pkg .. "/share/jdtls"
+
+  local launcher = vim.fn.glob(jdtls_share .. "/plugins/org.eclipse.equinox.launcher_*.jar")
   if launcher == "" then
-    vim.notify("JDT LS launcher not found under Mason. Is jdtls installed?", vim.log.levels.ERROR)
+    vim.notify("JDT LS launcher not found under " .. jdtls_share, vim.log.levels.ERROR)
+    return
+  end
+
+  local config_dir = jdtls_share .. "/config_linux"
+
+  -- Find lombok via nix profile or fall back to JAVA_HOME
+  local lombok_jar = nil
+  local nix_paths = {
+    vim.fn.expand("~/.nix-profile/share/java/lombok.jar"),
+    vim.fn.glob("/nix/store/*/lombok-*/lombok.jar"),
+  }
+  for _, p in ipairs(nix_paths) do
+    if p ~= "" and vim.fn.filereadable(p) == 1 then
+      lombok_jar = p
+      break
+    end
+  end
+
+  local cmd = {
+    "java",
+    "-Declipse.application=org.eclipse.jdt.ls.core.id1",
+    "-Dosgi.bundles.defaultStartLevel=4",
+    "-Declipse.product=org.eclipse.jdt.ls.core.product",
+    "-Dlog.protocol=false",
+    "-Dlog.level=INFO",
+    "-Xmx2G",
+    "-jar",
+    launcher,
+    "-configuration",
+    config_dir,
+    "-data",
+    workspace_dir,
+  }
+
+  if lombok_jar then
+    table.insert(cmd, 1, "-javaagent:" .. lombok_jar)
   end
 
   vim.lsp.config("jdtls", {
@@ -28,26 +69,7 @@ function M.setup(capabilities)
       ".git",
     },
 
-    cmd = {
-      "java",
-      "-Declipse.application=org.eclipse.jdt.ls.core.id1",
-      "-Dosgi.bundles.defaultStartLevel=4",
-      "-Declipse.product=org.eclipse.jdt.ls.core.product",
-      "-Dlog.protocol=false",
-      "-Dlog.level=INFO",
-      "-Xmx2G",
-      -- The following opens were historically needed for JDK 9; not required for 21. Keep only if you actually need them.
-      -- "--add-modules=ALL-SYSTEM",
-      -- "--add-opens", "java.base/java.util=ALL-UNNAMED",
-      -- "--add-opens", "java.base/java.lang=ALL-UNNAMED",
-      "-javaagent:" .. lombok_jar,
-      "-jar",
-      launcher,
-      "-configuration",
-      mason .. "/packages/jdtls/config_linux",
-      "-data",
-      workspace_dir,
-    },
+    cmd = cmd,
 
     settings = {
       java = {
@@ -84,13 +106,9 @@ function M.setup(capabilities)
           },
           runtimes = {
             { name = "JavaSE-21", path = java_home, default = true },
-            -- more
-            -- { name = "JavaSE-17", path = "/usr/lib/jvm/java-17-openjdk" },
-            -- { name = "JavaSE-11", path = "/usr/lib/jvm/java-11-openjdk" },
           },
         },
 
-        -- Conform handle formatting.
         format = {
           enabled = false,
         },
@@ -106,8 +124,6 @@ function M.setup(capabilities)
             wrapper = { enabled = true },
           },
           maven = { enabled = true },
-          -- Optionally add exclusions to avoid importing huge dirs
-          -- exclusions = { "**/node_modules/**", "**/.metadata/**", "**/archetype-resources/**", "**/META-INF/maven/**" },
         },
 
         maven = {
@@ -129,10 +145,7 @@ function M.setup(capabilities)
     },
 
     on_attach = function(client)
-      -- highlighting sucks
       client.server_capabilities.semanticTokensProvider = nil
-
-      -- Disable formatting. Conform handle it.
       client.server_capabilities.documentFormattingProvider = false
       client.server_capabilities.documentRangeFormattingProvider = false
     end,

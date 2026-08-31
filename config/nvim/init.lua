@@ -32,4 +32,4 @@ vim.schedule(function()
   require("configs.mappings.mappings")
 end)
 
-require("utils.system").setup_mason_path()
+

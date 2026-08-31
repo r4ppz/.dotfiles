@@ -34,35 +34,10 @@ function M.setup(capabilities)
     },
   })
 
-  -- Binary comes from the cssls mason package; enable directly since
-  -- "gtkcss" is not a valid lspconfig server name for mason to install
+  -- Binary comes from vscode-langservers-extracted (Nix); enable directly since
+  -- "gtkcss" is not a valid lspconfig server name
   vim.lsp.enable("gtkcss")
 
-  -- CSS Modules
-  vim.lsp.config("cssmodules_ls", {
-    capabilities = capabilities,
-    filetypes = { "typescriptreact", "javascriptreact" },
-    settings = {
-      css = {
-        validate = true,
-        lint = {
-          unknownAtRules = "ignore",
-        },
-      },
-      scss = {
-        validate = true,
-        lint = {
-          unknownAtRules = "ignore",
-        },
-      },
-      less = {
-        validate = true,
-        lint = {
-          unknownAtRules = "ignore",
-        },
-      },
-    },
-  })
 end
 
 return M

@@ -10,15 +10,8 @@ M.lsp_list = {
   "cssls",
   "jsonls",
   "yamlls",
-  -- "markdown_oxide",
   "marksman",
-  -- "eslint",
-  -- "ts_ls",
-  -- "vtsls",
-  -- "biome",
-  -- "tsgo",
   "tsc",
-  "cssmodules_ls",
   "css_variables",
   "emmet_ls",
   "astro",
@@ -32,7 +25,6 @@ M.lsp_list = {
   "docker_language_server",
   "dockerls",
   "lemminx",
-  -- "postgres_lsp",
   "sqls",
   "gopls",
 
@@ -44,12 +36,10 @@ M.lsp_list = {
   "rust_analyzer",
   "hyprls",
   "clangd",
-  -- "asm_lsp",
   "zls",
 }
 
 function M.setup(capabilities)
-  -- Filetypes fixes
   vim.filetype.add({
     pattern = {
       ["docker%-compose%.ya?ml"] = "yaml.docker-compose",

@@ -5,13 +5,6 @@ return {
     "nvim-neotest/nvim-nio",
     "theHamsta/nvim-dap-virtual-text",
     "jbyuki/one-small-step-for-vimkind",
-    {
-      "jay-babu/mason-nvim-dap.nvim",
-      opts = {
-        ensure_installed = require("configs.debuggers.debuggers").dap_list,
-        automatic_installation = true,
-      },
-    },
   },
   config = function()
     local dap = require("dap")

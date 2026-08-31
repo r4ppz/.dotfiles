@@ -1,10 +1,5 @@
 local M = {}
 
-M.dap_list = {
-  -- "local-lua-debugger-vscode",
-  "delve",
-}
-
 function M.setup()
   local config_dir = vim.fn.stdpath("config") .. "/lua/configs/debuggers"
   if vim.fn.isdirectory(config_dir) ~= 1 then

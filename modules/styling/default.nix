@@ -7,12 +7,15 @@
     noto-fonts-color-emoji
 
     qt6Packages.qt6ct
-    kdePackages.qtstyleplugin-kvantum
-    gruvbox-kvantum
     nwg-look
-    gruvbox-plus-icons
     hackneyed
     bibata-cursors
+
+    gruvbox-gtk-theme
+    gruvbox-kvantum
+    gruvbox-plus-icons
+    libsForQt5.qtstyleplugin-kvantum # For Qt5 apps
+    kdePackages.qtstyleplugin-kvantum # For Qt6 apps
   ];
 
   fonts.fontconfig = {
@@ -40,9 +43,38 @@
 
   gtk = {
     enable = true;
+    theme = {
+      name = "Gruvbox-Dark-BL";
+      package = pkgs.gruvbox-gtk-theme;
+    };
+    iconTheme = {
+      name = "Gruvbox-Plus-Dark";
+      package = pkgs.gruvbox-plus-icons;
+    };
+    font = {
+      name = "Noto Sans";
+      size = 11;
+    };
     cursorTheme = {
       package = pkgs.hackneyed;
       name = "Hackneyed";
     };
   };
+
+  # Qt / Kvantum Configuration
+  qt = {
+    enable = true;
+    platformTheme.name = "qtct";
+    style = {
+      name = "kvantum";
+      package = pkgs.gruvbox-kvantum;
+    };
+  };
+
+  # Kvantum needs to be told which specific theme to use
+  # We do this by creating the config file for it
+  xdg.configFile."Kvantum/kvantum.kvconfig".text = ''
+    [General]
+    theme=Gruvbox-Dark
+  '';
 }
