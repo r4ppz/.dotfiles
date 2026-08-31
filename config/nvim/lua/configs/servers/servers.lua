@@ -1,39 +1,7 @@
 local M = {}
 
-M.lsp_list = {
-  -- FRONTEND
-  "html",
-  "cssls",
-  "jsonls",
-  "yamlls",
-  "marksman",
-  "ts_ls",
-  "css_variables",
-  "emmet_ls",
-  "astro",
-  "svelte",
-  "prismals",
-  "intelephense",
-  "nil_ls",
-
-  -- BACKEND
-  "jdtls",
-  "docker_language_server",
-  "dockerls",
-  "lemminx",
-  "sqls",
-  "gopls",
-
-  "qmlls",
-  "taplo",
-  "lua_ls",
-  "pyright",
-  "bashls",
-  "rust_analyzer",
-  "hyprls",
-  "clangd",
-  "zls",
-}
+local ok, nix_servers = pcall(dofile, vim.fn.stdpath("data") .. "/nix-servers.lua")
+M.lsp_list = ok and nix_servers or {}
 
 function M.setup(capabilities)
   vim.filetype.add({
