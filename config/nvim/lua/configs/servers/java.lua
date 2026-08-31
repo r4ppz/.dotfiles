@@ -14,7 +14,7 @@ function M.setup(capabilities)
   end
 
   local jdtls_pkg = vim.fn.fnamemodify(jdtls_bin, ":h:h")
-  local jdtls_share = jdtls_pkg .. "/share/jdtls"
+  local jdtls_share = jdtls_pkg .. "/share/java/jdtls"
 
   local launcher = vim.fn.glob(jdtls_share .. "/plugins/org.eclipse.equinox.launcher_*.jar")
   if launcher == "" then

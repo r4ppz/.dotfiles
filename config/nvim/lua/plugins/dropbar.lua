@@ -7,7 +7,6 @@ local EXCLUDED_FILETYPES = {
   "diff",
   "Lazy",
   "text",
-  "mason",
   "grug-far",
   "copilot-chat",
   "snacks_picker_input",

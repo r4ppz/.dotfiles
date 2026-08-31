@@ -87,7 +87,6 @@ opt.shortmess:append("sI")
 opt.whichwrap:append("<>[]")
 
 opt.virtualedit = "block"
--- opt.virtualedit = "all"
 
 opt.list = true
 opt.listchars = {

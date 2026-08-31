@@ -20,7 +20,7 @@ return {
     event = "InsertEnter",
     opts = {
       fast_wrap = {},
-      disable_filetype = { "TelescopePrompt", "vim" },
+      disable_filetype = { "vim" },
     },
   },
 
@@ -83,7 +83,6 @@ return {
             ["grug-far"] = true,
             markdown = true,
             snacks_picker_input = true,
-            TelescopePrompt = true,
           }
 
           return not disabled[ft]

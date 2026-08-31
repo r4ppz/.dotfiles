@@ -51,10 +51,6 @@ return {
       for _, s in ipairs(servers.lsp_list) do
         vim.lsp.enable(s)
       end
-
-      for _, s in ipairs(servers.non_mason_lsp_list or {}) do
-        vim.lsp.enable(s)
-      end
     end,
   },
 

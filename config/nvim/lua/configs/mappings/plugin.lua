@@ -202,6 +202,4 @@ map("n", "<leader>tm", function()
 end, { desc = "Toggle markdown rendering" })
 
 ---------------------------------------------------------------------
-map({ "n", "v" }, "<leader>pm", "<cmd>Mason<CR>", { desc = "Mason UI" })
 map({ "n", "v" }, "<leader>pl", "<cmd>Lazy<CR>", { desc = "Lazy UI" })
-map({ "n", "v" }, "<leader>pi", "<cmd>MasonInstallAll<cr>", { desc = "Mason Install ALl" })

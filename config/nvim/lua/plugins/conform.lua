@@ -32,14 +32,6 @@ return {
       ["_"] = { "trim_whitespace" },
     },
 
-    formatters = {
-      qmlformat = {
-        command = "qmlformat",
-        stdin = false,
-        args = { "-i", "$FILENAME" },
-      },
-    },
-
     format_after_save = {
       timeout_ms = 1000,
       async = true,

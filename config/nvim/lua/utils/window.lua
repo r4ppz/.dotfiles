@@ -5,9 +5,7 @@ local SIDE_PANEL_FTS = {
   "copilot-chat",
   "Outline",
   "terminal",
-  -- "NvTerm_sp",
   "NvTerm_vsp",
-  -- "NvTerm_float",
   "grug-far",
   "dapui_console",
   "dap-repl",
@@ -21,7 +19,6 @@ local SIDE_PANEL_FTS = {
 local EXCLUDED_FILETYPES = {
   "copilot-chat",
   "NvimTree",
-  "neo-tree",
   "Outline",
   "grug-far",
   "trouble",

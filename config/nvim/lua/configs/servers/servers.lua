@@ -1,9 +1,5 @@
 local M = {}
 
-M.non_mason_lsp_list = {
-  -- "qml-language-server",
-}
-
 M.lsp_list = {
   -- FRONTEND
   "html",
