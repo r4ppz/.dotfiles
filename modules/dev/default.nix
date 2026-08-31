@@ -9,6 +9,7 @@
     python3
     rustup
     zig
+    tree-sitter
 
     # LSP Servers
     vscode-langservers-extracted

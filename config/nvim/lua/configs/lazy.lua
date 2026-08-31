@@ -1,6 +1,7 @@
 return {
   defaults = { lazy = true },
   install = { colorscheme = { "nvchad" } },
+  lockfile = vim.fn.stdpath("data") .. "/lazy/lazy-lock.json",
 
   dev = {
     path = "/home/r4ppz/Repositories/nvplug/",
