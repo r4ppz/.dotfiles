@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, configDir, ... }:
 
 let
   myScripts = import ../../script { inherit pkgs; };
@@ -118,8 +118,8 @@ in
     };
   };
 
-  xdg.configFile."hypr".source = ../../config/hypr;
-  xdg.configFile."waybar".source = ../../config/waybar;
-  xdg.configFile."swaync".source = ../../config/swaync;
-  xdg.configFile."rofi".source = ../../config/rofi;
+  xdg.configFile."hypr".source = configDir + "/hypr";
+  xdg.configFile."waybar".source = configDir + "/waybar";
+  xdg.configFile."swaync".source = configDir + "/swaync";
+  xdg.configFile."rofi".source = configDir + "/rofi";
 }

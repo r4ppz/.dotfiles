@@ -16,6 +16,10 @@
       homeConfigurations.r4ppz = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
 
+        extraSpecialArgs = {
+          configDir = ./config;
+        };
+
         modules = [
           ./home.nix
         ];

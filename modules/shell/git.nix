@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, configDir, ... }:
 
 {
   home.packages = with pkgs; [
@@ -10,8 +10,8 @@
     lazydocker
   ];
 
-  xdg.configFile."lazygit".source = ../../config/lazygit;
-  xdg.configFile."lazydocker".source = ../../config/lazydocker;
+  xdg.configFile."lazygit".source = configDir + "/lazygit";
+  xdg.configFile."lazydocker".source = configDir + "/lazydocker";
 
-  home.file.".gitconfig".source = ../../config/git/.gitconfig;
+  home.file.".gitconfig".source = configDir + "/git/.gitconfig";
 }
