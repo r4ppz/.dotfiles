@@ -42,8 +42,8 @@ if [[ $- == *i* ]]; then
   # Auto-attach tmux for the first intance of kitty
   if [[ "$TERM" == "xterm-kitty" && -z "$TMUX" && -n "$HYPRLAND_INSTANCE_SIGNATURE" ]]; then
     if [[ $(hyprctl clients | grep -c "class: kitty") -eq 1 ]]; then
-      if [[ -d "$DOTFILES/scripts/bin" ]]; then
-        $DOTFILES/scripts/tmux-init.sh
+      if [[ -d "$DOTFILES/script/bin" ]]; then
+        $DOTFILES/script/bin/tmux-init.sh
       fi
     fi
   fi
