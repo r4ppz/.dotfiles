@@ -7,7 +7,7 @@ M.lsp_list = {
   "jsonls",
   "yamlls",
   "marksman",
-  "tsc",
+  "ts_ls",
   "css_variables",
   "emmet_ls",
   "astro",

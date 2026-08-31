@@ -17,6 +17,7 @@
     tmux
     opencode
 
+    ripgrep
     curl
     vim
     unzip
