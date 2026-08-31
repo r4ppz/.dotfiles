@@ -3,6 +3,7 @@
 {
   home.packages = with pkgs; [
     nodejs
+    pnpm
     go
     gcc
     python3
