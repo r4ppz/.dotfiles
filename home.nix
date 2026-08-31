@@ -8,8 +8,17 @@
 
   fonts.fontconfig = {
     enable = true;
-    hinting = "full";
+
     antialiasing = true;
+    hinting = "full";
+    subpixelRendering = "rgb";
+
+    defaultFonts = {
+      serif = [ "Noto Serif" ];
+      sansSerif = [ "Noto Sans" ];
+      monospace = [ "JetBrains Mono" ];
+      emoji = [ "Noto Color Emoji" ];
+    };
   };
 
   home.packages = with pkgs; [
@@ -22,6 +31,11 @@
     # Desktop applications
     bitwarden-desktop
     thunar
+
+    # Fonts
+    nerd-fonts.jetbrains-mono
+    noto-fonts-cjk-sans
+    noto-fonts-color-emoji
 
     # Terminal / CLI
     kitty
