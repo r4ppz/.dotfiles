@@ -1,5 +1,8 @@
 { pkgs, ... }:
 
+let
+  myScripts = import ./script { inherit pkgs; };
+in
 {
   home.username = "r4ppz";
   home.homeDirectory = "/home/r4ppz";
@@ -18,6 +21,34 @@
       sansSerif = [ "Noto Sans" ];
       monospace = [ "JetBrains Mono" ];
       emoji = [ "Noto Color Emoji" ];
+    };
+  };
+
+  services.hyprpaper.enable = true;
+  services.hyprsunset.enable = true;
+  services.hyprpolkitagent.enable = true;
+  services.hypridle.enable = true;
+  services.swaync.enable = true;
+  services.blueman-applet.enable = true;
+  services.network-manager-applet.enable = true;
+
+  # Custom Systemd Service for Battery Monitor
+  systemd.user.services.battery-warn = {
+    Unit = {
+      Description = "Battery Level Monitor";
+      After = [ "graphical-session.target" ];
+      PartOf = [ "graphical-session.target" ];
+    };
+
+    Service = {
+      Type = "simple";
+      ExecStart = "${myScripts.battery-warn}/bin/battery-warn";
+      Restart = "always";
+      RestartSec = "10s";
+    };
+
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
     };
   };
 
