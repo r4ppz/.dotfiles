@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 let
   myScripts = import ./script { inherit pkgs; };
@@ -31,8 +31,55 @@ in
   services.swaync.enable = true;
   services.blueman-applet.enable = true;
   services.network-manager-applet.enable = true;
+  services.waybar.enable = true;
 
-  # Custom Systemd Service for Battery Monitor
+  # Custom Systemd Service
+  systemd.user.targets.hyprland = {
+    Unit = {
+      Description = "User services specific to Hyprland session";
+      BindsTo = [ "graphical-session.target" ];
+      After = [ "graphical-session.target" ];
+    };
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
+    };
+  };
+
+  systemd.user.services = {
+    waybar = {
+      Unit.PartOf = lib.mkForce [ "hyprland.target" ];
+      Install.WantedBy = lib.mkForce [ "hyprland.target" ];
+    };
+    hyprpaper = {
+      Unit.PartOf = lib.mkForce [ "hyprland.target" ];
+      Install.WantedBy = lib.mkForce [ "hyprland.target" ];
+    };
+    hyprsunset = {
+      Unit.PartOf = lib.mkForce [ "hyprland.target" ];
+      Install.WantedBy = lib.mkForce [ "hyprland.target" ];
+    };
+    hyprpolkitagent = {
+      Unit.PartOf = lib.mkForce [ "hyprland.target" ];
+      Install.WantedBy = lib.mkForce [ "hyprland.target" ];
+    };
+    hypridle = {
+      Unit.PartOf = lib.mkForce [ "hyprland.target" ];
+      Install.WantedBy = lib.mkForce [ "hyprland.target" ];
+    };
+    swaync = {
+      Unit.PartOf = lib.mkForce [ "hyprland.target" ];
+      Install.WantedBy = lib.mkForce [ "hyprland.target" ];
+    };
+    blueman-applet = {
+      Unit.PartOf = lib.mkForce [ "hyprland.target" ];
+      Install.WantedBy = lib.mkForce [ "hyprland.target" ];
+    };
+    network-manager-applet = {
+      Unit.PartOf = lib.mkForce [ "hyprland.target" ];
+      Install.WantedBy = lib.mkForce [ "hyprland.target" ];
+    };
+  };
+
   systemd.user.services.battery-warn = {
     Unit = {
       Description = "Battery Level Monitor";
@@ -83,6 +130,7 @@ in
     cliamp
     tmux
     opencode
+    wl-clipboard
 
     # Git
     git
@@ -93,7 +141,6 @@ in
     lazydocker
 
     # Desktop / Wayland
-    waybar
     rofi
     swaynotificationcenter
     networkmanagerapplet
