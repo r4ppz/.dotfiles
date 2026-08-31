@@ -1,0 +1,98 @@
+-- I use arrow keys and not hjkl cause I am a fucking weirdo
+
+-- Most of these mappings will only work in modern terminal emulators.
+
+require("configs.mappings.custom")
+require("configs.mappings.lsp")
+require("configs.mappings.plugin")
+require("configs.mappings.git")
+
+-- Concepts:
+-- C = Control
+-- S = Shift
+-- M = Alt
+-- Leader = Space
+--
+-- e.g.
+-- C-S-Up = Ctrl+Shift+UpArrowKey
+--
+-- Modes:
+-- n = normal
+-- v = visual
+-- i = insert
+-- t = terminal
+
+---------------------------------------------
+-- SUMMARY (not complete)
+-- MAJOR CHANGES:
+--
+-- p = Paste only
+-- y = Yank only
+-- d = Delete only
+-- x = Cut only
+--
+-- c, s, d, p = no yanking
+-- I hate the idea of delete/everything is cut/copy.
+--
+-- Arrow keys are the primary navigation, not hjkl.
+-- hjkl                 = Left/Down/Up/Right
+-- Insert below/above   = M-Down / M-Up
+-- Hover                = C-S-Up
+-- Peek Definition      = C-S-Down (n)
+-- Completion           = C-S-Down (i)
+-- Switch buffer        = M-Left / M-Right
+-- Move buffer          = C-M-Left / C-M-Right
+-- Scroll half-page     = S-Down / S-Up        == (C-d/C-u + zz)
+-- Scroll one line      = C-Down / C-Up        == (C-e/C-y)
+-- Word navigation      = C-Right / C-Left     == (b/e)
+-- WORD navigation      = S-Left / S-Right     == (W/B)
+-- Jump to line ends    = C-S-Left / C-S-Right == (^/g_)
+--
+-- Jump to line ends    = ! / @     ==  (^/g_)
+-- Match bracket        = ~         ==  (%)
+-- Highlight (no jump)  = #         ==  (Case-insensitive, works on n, v)
+-- Tab/S-Tab            = za/zR/zM  ==  Toggle fold/all fold
+--
+-- Mark                 = ;
+-- Jump to mark         = '
+--
+-- Alt is underrated:
+-- M-f = File Picker (Snacks)
+-- M-g = Git Client (LazyGit)
+-- M-e = File Manager (NvimTree)
+-- M-b = Task Manager (Btop)
+-- M-c = AI (CopilotChat)
+-- M-v = Vertical Terminal
+-- M-s = Horizontal Terminal
+-- M-w = Floating Terminal
+-- M-q = Close buffer
+-- M-a = Undo
+-- M-d = Redo
+--
+-- Nice to have:
+-- Copy all        = C-c
+-- Select all      = C-a
+-- Save (+Format)  = C-s
+-- Comment         = C-/
+--
+-- LSP:
+-- Reference              = gr
+-- Definition             = gd
+-- Implementation         = gi
+-- Incremental Selection  = enter
+-- more lsp stuff  = leader + l
+--
+-- ...and many more (leader, see plugins/)
+--
+-- Disabled default mappings/feature:
+-- - Macros (Skill issue) - Not for me
+-- - Shada (cleaner imo)
+-- - f and t (used for picker and tabs)
+-- - ; and ' (used for marks/marks.nvim)
+--
+-- Standard Vim motions/text objects still works fine (ciw, daw, yi(, ci{, etc.).
+-- I try to not remove the default mappings as much as possible for compatibility.
+--
+-- System-wide rebinds (via keyd):
+-- Esc      = Grave (`)
+-- CapsLock = Esc

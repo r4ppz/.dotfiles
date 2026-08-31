@@ -1,0 +1,49 @@
+return {
+  "stevearc/conform.nvim",
+  event = "BufReadPre",
+  opts = {
+    formatters_by_ft = {
+      javascript = { "prettierd" },
+      javascriptreact = { "prettierd" },
+      typescript = { "prettierd" },
+      typescriptreact = { "prettierd" },
+
+      css = { "prettierd" },
+      html = { "prettierd" },
+      json = { "prettierd" },
+      markdown = { "prettierd" },
+      yaml = { "prettierd" },
+
+      lua = { "stylua" },
+      sh = { "shfmt" },
+      zsh = { "shfmt" },
+      python = { "black" },
+      rust = { "rustfmt" },
+      xml = { "lemminx" },
+      java = { "google-java-format" },
+      go = { "gofmt" },
+
+      qml = { lsp_format = "fallback" },
+      php = { lsp_format = "fallback" },
+      toml = { lsp_format = "fallback" },
+      nix = { lsp_format = "fallback" },
+      zig = { "zigfmt" },
+
+      ["_"] = { "trim_whitespace" },
+    },
+
+    formatters = {
+      qmlformat = {
+        command = "qmlformat",
+        stdin = false,
+        args = { "-i", "$FILENAME" },
+      },
+    },
+
+    format_after_save = {
+      timeout_ms = 1000,
+      async = true,
+      lsp_format = "fallback",
+    },
+  },
+}

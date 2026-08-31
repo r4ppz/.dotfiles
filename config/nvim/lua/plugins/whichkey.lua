@@ -1,0 +1,72 @@
+return {
+  "folke/which-key.nvim",
+  event = "VeryLazy",
+  enabled = true,
+  cmd = "WhichKey",
+  opts = {
+    triggers = {
+      { "<leader>", mode = { "n", "v" } },
+      { "f", mode = { "n", "v" } },
+      { "t", mode = { "n", "v" } },
+    },
+
+    spec = {
+      { "<leader>l", group = "LSP Keybinds", icon = "󰒋" },
+      { "<leader>L", group = "LSP Utils", icon = "󰒋" },
+      { "<leader>g", group = "Git", icon = "󰊢" },
+      { "<leader>G", group = "GitHub", icon = "" },
+      { "<leader>c", group = "Copilot", icon = "" },
+      { "<leader>f", group = "Picker", icon = "󰭎" },
+      { "<leader>v", group = "NvChad", icon = "" },
+      { "<leader>u", group = "Utils", icon = "󰏖" },
+      { "<leader>F", group = "Grep", icon = "󰘳" },
+      { "<leader>r", group = "Grug Far", icon = "󰱼" },
+      { "<leader>s", group = "Surround", icon = "" },
+      { "<leader>d", group = "DAP", icon = "" },
+      { "<leader>p", group = "Plugin", icon = "󰍹" },
+      { "<leader>t", group = "Toggle", icon = "" },
+      { "<leader>;", group = "Winbar", icon = "" },
+
+      { "t", group = "Tabs", icon = "" },
+      { "f", group = "Picker", icon = "󰭎" },
+    },
+
+    plugins = {
+      marks = false,
+      registers = false,
+      spelling = {
+        enabled = true,
+        suggestions = 20,
+      },
+      presets = {
+        operators = false,
+        motions = false,
+        text_objects = false,
+        windows = false,
+        nav = false,
+        z = false,
+        g = false,
+      },
+    },
+
+    preset = "helix",
+    icons = {
+      group = "",
+    },
+    win = {
+      border = "rounded",
+      padding = { 1, 2 },
+      title = false,
+      title_pos = "center",
+    },
+    layout = {
+      width = { min = 25, max = 50 },
+      spacing = 4,
+      align = "center",
+    },
+
+    sort = { "local", "group", "alphanum" },
+    show_help = false,
+    show_keys = false,
+  },
+}

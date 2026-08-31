@@ -51,6 +51,7 @@
     bluetuith
     cliamp
     tmux
+    opencode
 
     # Git
     git
@@ -102,6 +103,9 @@
   xdg.configFile."waybar".source = ./config/waybar;
   xdg.configFile."yazi".source = ./config/yazi;
   xdg.configFile."atuin".source = ./config/atuin;
+  xdg.configFile."gdu".source = ./config/gdu;
+  xdg.configFile."nvim".source = ./config/nvim;
+  xdg.configFile."pgcli".source = ./config/pgcli;
 
   home.file.".tmux.conf".source = ./config/tmux/.tmux.conf;
 
