@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 
 let
   myScripts = import ./script { inherit pkgs; };
@@ -24,16 +24,30 @@ in
     };
   };
 
-  services.hyprpaper.enable = true;
-  services.hyprsunset.enable = true;
-  services.hyprpolkitagent.enable = true;
-  services.hypridle.enable = true;
+  # Modules with built-in systemd integration
+  programs.waybar = {
+    enable = true;
+    systemd = {
+      enable = true;
+      targets = [ "hyprland.target" ];
+    };
+  };
+
+  services.hyprpaper = {
+    enable = true;
+    systemdTarget = "hyprland.target";
+  };
+
+  services.hypridle = {
+    enable = true;
+    systemdTarget = "hyprland.target";
+  };
+
+  # Standard Home Manager service modules
   services.swaync.enable = true;
   services.blueman-applet.enable = true;
-  services.network-manager-applet.enable = true;
-  services.waybar.enable = true;
 
-  # Custom Systemd Service
+  # Custom Systemd Target
   systemd.user.targets.hyprland = {
     Unit = {
       Description = "User services specific to Hyprland session";
@@ -45,57 +59,73 @@ in
     };
   };
 
+  # Custom Systemd Services & Overrides
   systemd.user.services = {
-    waybar = {
-      Unit.PartOf = lib.mkForce [ "hyprland.target" ];
-      Install.WantedBy = lib.mkForce [ "hyprland.target" ];
-    };
-    hyprpaper = {
-      Unit.PartOf = lib.mkForce [ "hyprland.target" ];
-      Install.WantedBy = lib.mkForce [ "hyprland.target" ];
-    };
-    hyprsunset = {
-      Unit.PartOf = lib.mkForce [ "hyprland.target" ];
-      Install.WantedBy = lib.mkForce [ "hyprland.target" ];
-    };
-    hyprpolkitagent = {
-      Unit.PartOf = lib.mkForce [ "hyprland.target" ];
-      Install.WantedBy = lib.mkForce [ "hyprland.target" ];
-    };
-    hypridle = {
-      Unit.PartOf = lib.mkForce [ "hyprland.target" ];
-      Install.WantedBy = lib.mkForce [ "hyprland.target" ];
-    };
+    # Appending unit targets to HM-managed services without lib.mkForce
     swaync = {
-      Unit.PartOf = lib.mkForce [ "hyprland.target" ];
-      Install.WantedBy = lib.mkForce [ "hyprland.target" ];
+      Unit.PartOf = [ "hyprland.target" ];
+      Install.WantedBy = [ "hyprland.target" ];
     };
+
     blueman-applet = {
-      Unit.PartOf = lib.mkForce [ "hyprland.target" ];
-      Install.WantedBy = lib.mkForce [ "hyprland.target" ];
+      Unit.PartOf = [ "hyprland.target" ];
+      Install.WantedBy = [ "hyprland.target" ];
     };
+
+    # Full systemd definitions for applications without built-in HM systemd units
+    hyprsunset = {
+      Unit = {
+        Description = "Hyprland blue light filter";
+        PartOf = [ "hyprland.target" ];
+        After = [ "graphical-session.target" ];
+      };
+      Service = {
+        ExecStart = "${pkgs.hyprsunset}/bin/hyprsunset";
+        Restart = "on-failure";
+      };
+      Install.WantedBy = [ "hyprland.target" ];
+    };
+
+    hyprpolkitagent = {
+      Unit = {
+        Description = "Hyprland Polkit Authentication Agent";
+        PartOf = [ "hyprland.target" ];
+        After = [ "graphical-session.target" ];
+      };
+      Service = {
+        ExecStart = "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent";
+        Restart = "on-failure";
+      };
+      Install.WantedBy = [ "hyprland.target" ];
+    };
+
     network-manager-applet = {
-      Unit.PartOf = lib.mkForce [ "hyprland.target" ];
-      Install.WantedBy = lib.mkForce [ "hyprland.target" ];
-    };
-  };
-
-  systemd.user.services.battery-warn = {
-    Unit = {
-      Description = "Battery Level Monitor";
-      After = [ "graphical-session.target" ];
-      PartOf = [ "graphical-session.target" ];
-    };
-
-    Service = {
-      Type = "simple";
-      ExecStart = "${myScripts.battery-warn}/bin/battery-warn";
-      Restart = "always";
-      RestartSec = "10s";
+      Unit = {
+        Description = "NetworkManager Applet";
+        PartOf = [ "hyprland.target" ];
+        After = [ "graphical-session.target" ];
+      };
+      Service = {
+        ExecStart = "${pkgs.networkmanagerapplet}/bin/nm-applet";
+        Restart = "on-failure";
+      };
+      Install.WantedBy = [ "hyprland.target" ];
     };
 
-    Install = {
-      WantedBy = [ "graphical-session.target" ];
+    battery-warn = {
+      Unit = {
+        Description = "Battery Level Monitor";
+        After = [ "graphical-session.target" ];
+        PartOf = [ "graphical-session.target" ];
+      };
+
+      Service = {
+        Type = "simple";
+        ExecStart = "${myScripts.battery-warn}/bin/battery-warn";
+        Restart = "always";
+        RestartSec = "10s";
+      };
+      Install.WantedBy = [ "hyprland.target" ];
     };
   };
 
@@ -130,7 +160,6 @@ in
     cliamp
     tmux
     opencode
-    wl-clipboard
 
     # Git
     git
