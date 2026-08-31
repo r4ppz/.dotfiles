@@ -116,5 +116,7 @@
   home.file.".zprofile".source = ./config/zsh/.zprofile;
   home.file.".zsh_plugins.txt".source = ./config/zsh/.zsh_plugins.txt;
 
+  home.file.".gitconfig".source = ./config/git/.gitconfig;
+
   programs.home-manager.enable = true;
 }
