@@ -46,6 +46,7 @@ typeset -gA DIR_MAP=(
 typeset -gA DIR_MAP_UNIQUE=(
   # Configs
   "$HOME/Arch-dotfiles" DOTS
+  "$HOME/Nix-dotfiles" DOTS
   "$HOME/Arch-dotfiles/nvim" VDOTS
 
   "$HOME/Repositories/projects/r4ppz.github.io" PWEB

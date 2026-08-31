@@ -287,6 +287,11 @@ keymap = [
 
   { on = [
     "g",
+    "n",
+  ], run = "cd ~/Nix-dotfiles", desc = "Go ~/Nix-dotfiles" },
+
+  { on = [
+    "g",
     "a",
   ], run = "cd ~/Arch-dotfiles", desc = "Go ~/Arch-dotfiles" },
 
