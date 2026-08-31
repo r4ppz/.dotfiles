@@ -6,6 +6,12 @@
 
   home.stateVersion = "26.05";
 
+  fonts.fontconfig = {
+    enable = true;
+    hinting = "full";
+    antialiasing = true;
+  };
+
   home.packages = with pkgs; [
     # Hyprland
     hypridle
@@ -30,6 +36,7 @@
     glow
     bluetuith
     cliamp
+    tmux
 
     # Git
     git
