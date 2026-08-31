@@ -97,7 +97,6 @@
   xdg.configFile."kitty".source = ./config/kitty;
   xdg.configFile."lazydocker".source = ./config/lazydocker;
   xdg.configFile."lazygit".source = ./config/lazygit;
-  xdg.configFile."opencode".source = ./config/opencode;
   xdg.configFile."rofi".source = ./config/rofi;
   xdg.configFile."swaync".source = ./config/swaync;
   xdg.configFile."waybar".source = ./config/waybar;
@@ -107,6 +106,9 @@
   xdg.configFile."nvim".source = ./config/nvim;
   xdg.configFile."pgcli".source = ./config/pgcli;
 
+  xdg.configFile."opencode/opencode.json".source = ./config/opencode/opencode.json;
+  xdg.configFile."opencode/tui.json".source = ./config/opencode/tui.json;
+  xdg.configFile."opencode/AGENTS.md".source = ./config/opencode/AGENTS.md;
   home.file.".tmux.conf".source = ./config/tmux/.tmux.conf;
 
   programs.home-manager.enable = true;
