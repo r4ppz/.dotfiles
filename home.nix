@@ -101,6 +101,7 @@
   xdg.configFile."swaync".source = ./config/swaync;
   xdg.configFile."waybar".source = ./config/waybar;
   xdg.configFile."yazi".source = ./config/yazi;
+  xdg.configFile."atuin".source = ./config/atuin;
 
   home.file.".tmux.conf".source = ./config/tmux/.tmux.conf;
 
