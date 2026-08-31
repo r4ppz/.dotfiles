@@ -129,6 +129,22 @@ in
     };
   };
 
+  home.pointerCursor = {
+    enable = true;
+    gtk.enable = true;
+    package = pkgs.hackneyed;
+    name = "Hackneyed";
+    size = 24;
+  };
+
+  gtk = {
+    enable = true;
+    cursorTheme = {
+      package = pkgs.hackneyed;
+      name = "Hackneyed";
+    };
+  };
+
   home.packages = with pkgs; [
     # Hyprland
     hypridle
