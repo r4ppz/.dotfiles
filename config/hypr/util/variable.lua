@@ -20,17 +20,16 @@ M.apps = {
 }
 
 M.scripts = {
-  launcher = "$DOTFILES/rofi/launcher/launcher.sh",
-  powermenu = "$DOTFILES/rofi/powermenu/powermenu.sh",
-  websearch = "$DOTFILES/rofi/websearch/websearch.sh",
-  screenshot = "$DOTFILES/scripts/screenshot.sh",
-  screenshotfull = "$DOTFILES/scripts/screenshot-full.sh",
-  ocr = "$DOTFILES/scripts/ocr.sh",
-  zen = "$DOTFILES/scripts/toggle-zen.sh",
-  mediactl = "$DOTFILES/scripts/mediactl.sh",
-  zoom = "$DOTFILES/scripts/zoom.sh",
-  record = "$DOTFILES/scripts/toggle-obs.sh",
-  web_paste = "/home/r4ppz/.local/bin/webpaste",
+  launcher = "$DOTFILES/config/rofi/launcher/launcher.sh",
+  powermenu = "$DOTFILES/config/rofi/powermenu/powermenu.sh",
+  websearch = "$DOTFILES/config/rofi/websearch/websearch.sh",
+  screenshot = "$DOTFILES/script/bin/screenshot.sh",
+  screenshotfull = "$DOTFILES/script/bin/screenshot-full.sh",
+  ocr = "$DOTFILES/script/bin/ocr.sh",
+  zen = "$DOTFILES/script/bin/toggle-zen.sh",
+  mediactl = "$DOTFILES/script/bin/mediactl.sh",
+  zoom = "$DOTFILES/script/bin/zoom.sh",
+  record = "$DOTFILES/script/bin/toggle-obs.sh",
 }
 
 M.websites = {
