@@ -109,7 +109,12 @@
   xdg.configFile."opencode/opencode.json".source = ./config/opencode/opencode.json;
   xdg.configFile."opencode/tui.json".source = ./config/opencode/tui.json;
   xdg.configFile."opencode/AGENTS.md".source = ./config/opencode/AGENTS.md;
+
   home.file.".tmux.conf".source = ./config/tmux/.tmux.conf;
+
+  home.file.".zshrc".source = ./config/zsh/.zshrc;
+  home.file.".zprofile".source = ./config/zsh/.zprofile;
+  home.file.".zsh_plugins.txt".source = ./config/zsh/.zsh_plugins.txt;
 
   programs.home-manager.enable = true;
 }
