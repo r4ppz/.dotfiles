@@ -25,6 +25,18 @@ in
     gsimplecal
   ];
 
+  services.swaync.enable = true;
+  systemd.user.targets.hyprland = {
+    Unit = {
+      Description = "User services specific to Hyprland session";
+      BindsTo = [ "graphical-session.target" ];
+      After = [ "graphical-session.target" ];
+    };
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
+    };
+  };
+
   programs.waybar = {
     enable = true;
     package = inputs.waybar.packages.${pkgs.system}.waybar;
@@ -44,18 +56,14 @@ in
     systemdTarget = "hyprland.target";
   };
 
-  services.swaync.enable = true;
-  services.blueman-applet.enable = true;
+  services.blueman-applet = {
+    enable = true;
+    systemdTargets = [ "hyprland.target" ];
+  };
 
-  systemd.user.targets.hyprland = {
-    Unit = {
-      Description = "User services specific to Hyprland session";
-      BindsTo = [ "graphical-session.target" ];
-      After = [ "graphical-session.target" ];
-    };
-    Install = {
-      WantedBy = [ "graphical-session.target" ];
-    };
+  services.hyprsunset = {
+    enable = true;
+    systemdTarget = "hyprland.target";
   };
 
   systemd.user.services = {
@@ -66,19 +74,6 @@ in
 
     blueman-applet = {
       Unit.PartOf = [ "hyprland.target" ];
-      Install.WantedBy = [ "hyprland.target" ];
-    };
-
-    hyprsunset = {
-      Unit = {
-        Description = "Hyprland blue light filter";
-        PartOf = [ "hyprland.target" ];
-        After = [ "graphical-session.target" ];
-      };
-      Service = {
-        ExecStart = "${pkgs.hyprsunset}/bin/hyprsunset";
-        Restart = "on-failure";
-      };
       Install.WantedBy = [ "hyprland.target" ];
     };
 
