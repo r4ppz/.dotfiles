@@ -10,6 +10,7 @@
     rustup
     zig
     tree-sitter
+    gnumake
 
     # DAP
     delve
