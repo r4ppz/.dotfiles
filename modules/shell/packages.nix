@@ -2,6 +2,8 @@
 
 {
   home.packages = with pkgs; [
+    neovim
+
     btop
     fastfetch
     fzf
@@ -11,6 +13,10 @@
     glow
     bluetuith
     cliamp
+    tmux
+    yazi
+    opencode
+    kitty
 
     ripgrep
     curl
@@ -19,5 +25,16 @@
     wget
     nixfmt
     grim
+
+    atuin
+    gdu
+    pgcli
+
+    git
+    delta
+    diff-so-fancy
+    difftastic
+    lazygit
+    lazydocker
   ];
 }
