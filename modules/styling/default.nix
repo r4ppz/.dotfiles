@@ -44,7 +44,7 @@
   gtk = {
     enable = true;
     theme = {
-      name = "Gruvbox-Dark-BL";
+      name = "Gruvbox-Dark";
       package = pkgs.gruvbox-gtk-theme;
     };
     iconTheme = {
@@ -52,8 +52,8 @@
       package = pkgs.gruvbox-plus-icons;
     };
     font = {
-      name = "Noto Sans";
-      size = 11;
+      name = "JetBrainsMono Nerd Font Semi-Bold";
+      size = 9;
     };
     cursorTheme = {
       package = pkgs.hackneyed;
