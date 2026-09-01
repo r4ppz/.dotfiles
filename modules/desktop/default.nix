@@ -17,6 +17,7 @@ in
     swaynotificationcenter
     networkmanagerapplet
     blueman
+    gsimplecal
   ];
 
   programs.waybar = {
