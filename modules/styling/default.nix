@@ -22,12 +22,12 @@
     enable = true;
 
     antialiasing = true;
-    hinting = "full";
+    hinting = "medium";
     subpixelRendering = "rgb";
 
     defaultFonts = {
-      serif = [ "Noto Serif" ];
-      sansSerif = [ "Noto Sans" ];
+      serif = [ "JetBrains Mono" ];
+      sansSerif = [ "JetBrains Mono" ];
       monospace = [ "JetBrains Mono" ];
       emoji = [ "Noto Color Emoji" ];
     };
@@ -70,11 +70,4 @@
       package = pkgs.gruvbox-kvantum;
     };
   };
-
-  # Kvantum needs to be told which specific theme to use
-  # We do this by creating the config file for it
-  xdg.configFile."Kvantum/kvantum.kvconfig".text = ''
-    [General]
-    theme=Gruvbox-Dark
-  '';
 }
