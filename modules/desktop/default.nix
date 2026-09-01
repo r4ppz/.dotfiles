@@ -1,4 +1,9 @@
-{ pkgs, configDir, ... }:
+{
+  pkgs,
+  configDir,
+  inputs,
+  ...
+}:
 
 let
   myScripts = import ../../script { inherit pkgs; };
@@ -22,6 +27,7 @@ in
 
   programs.waybar = {
     enable = true;
+    package = inputs.waybar.packages.${pkgs.system}.waybar;
     systemd = {
       enable = true;
       targets = [ "hyprland.target" ];
