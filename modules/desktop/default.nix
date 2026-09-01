@@ -21,8 +21,9 @@ in
     rofi
     swaynotificationcenter
     networkmanagerapplet
-    blueman
     gsimplecal
+    impala
+    bluetui
   ];
 
   services.swaync.enable = true;
