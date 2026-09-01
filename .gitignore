@@ -1,15 +1,8 @@
-opencode/node_modules/
-opencode/.gitignore
-opencode/bun.lock
-opencode/package-lock.json
-opencode/package.json
-
-gtk-3.0/colors.css
-gtk-3.0/gtk.css
-
-gtk-4.0/gtk.css
-gtk-4.0/assets/
-gtk-4.0/assets
+configs/opencode/node_modules/
+configs/opencode/.gitignore
+configs/opencode/bun.lock
+configs/opencode/package-lock.json
+configs/opencode/package.json
 
 # sshhhh!
 .env*
