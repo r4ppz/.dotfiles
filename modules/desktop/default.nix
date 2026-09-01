@@ -1,12 +1,13 @@
 {
   pkgs,
   configDir,
+  scriptDir,
   inputs,
   ...
 }:
 
 let
-  myScripts = import ../../script { inherit pkgs; };
+  myScripts = import scriptDir { inherit pkgs; };
 in
 {
   home.packages = with pkgs; [

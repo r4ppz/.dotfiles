@@ -22,7 +22,7 @@ if [[ $- == *i* ]]; then
 
   # Source Configuration Files
   export DOTFILES="${DOTFILES:-$HOME/Nix-dotfiles}"
-  local zsh_config_dir="$DOTFILES/config/zsh/"
+  local zsh_config_dir="$DOTFILES/configs/zsh/"
 
   if [[ -d "$zsh_config_dir" ]]; then
     source "$zsh_config_dir/setopt.zsh"
@@ -42,8 +42,8 @@ if [[ $- == *i* ]]; then
   # Auto-attach tmux for the first intance of kitty
   if [[ "$TERM" == "xterm-kitty" && -z "$TMUX" && -n "$HYPRLAND_INSTANCE_SIGNATURE" ]]; then
     if [[ $(hyprctl clients | grep -c "class: kitty") -eq 1 ]]; then
-      if [[ -d "$DOTFILES/script/bin" ]]; then
-        $DOTFILES/script/bin/tmux-init.sh
+      if [[ -d "$DOTFILES/scripts/bin" ]]; then
+        $DOTFILES/scripts/bin/tmux-init.sh
       fi
     fi
   fi

@@ -27,7 +27,8 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
 
         extraSpecialArgs = {
-          configDir = ./config;
+          configDir = ./configs;
+          scriptDir = ./scripts;
           inherit inputs;
         };
 

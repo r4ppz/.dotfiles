@@ -53,7 +53,7 @@
     };
     font = {
       name = "JetBrainsMono Nerd Font Semi-Bold";
-      size = 9;
+      size = 10;
     };
     cursorTheme = {
       package = pkgs.hackneyed;

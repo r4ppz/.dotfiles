@@ -31,7 +31,7 @@ alias music='cliamp'
 alias slg='sudo LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml" GIT_CONFIG_GLOBAL="$HOME/.gitconfig" EDITOR="nvim -R -n" lazygit'
 
 # script
-alias t="$DOTFILES/script/bin/tmux-init.sh"
+alias t="$DOTFILES/scripts/bin/tmux-init.sh"
 
 alias of="$DOTFILES/scripts/open-file.sh"
 alias sm="$DOTFILES/scripts/tmux-session-manager.py"
