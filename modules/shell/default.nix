@@ -27,6 +27,7 @@
     unzip
     wget
     nixfmt
+    grim
   ];
 
   xdg.configFile."kitty".source = configDir + "/kitty";
