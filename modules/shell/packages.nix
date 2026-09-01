@@ -25,6 +25,10 @@
     wget
     nixfmt
     grim
+    slurp
+    tesseract
+    libnotify
+    bc
 
     atuin
     gdu
