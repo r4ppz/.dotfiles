@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
     noto-fonts-cjk-sans
@@ -15,10 +13,10 @@
     subpixelRendering = "rgb";
 
     defaultFonts = {
-      serif = [ "JetBrains Mono" ];
-      sansSerif = [ "JetBrains Mono" ];
-      monospace = [ "JetBrains Mono" ];
-      emoji = [ "Noto Color Emoji" ];
+      serif = ["JetBrains Mono"];
+      sansSerif = ["JetBrains Mono"];
+      monospace = ["JetBrains Mono"];
+      emoji = ["Noto Color Emoji"];
     };
   };
 }

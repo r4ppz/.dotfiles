@@ -1,12 +1,15 @@
-{ pkgs, inputs, configDir, ... }:
-
 {
+  pkgs,
+  inputs,
+  configDir,
+  ...
+}: {
   programs.waybar = {
     enable = true;
     package = inputs.waybar.packages.${pkgs.system}.waybar;
     systemd = {
       enable = true;
-      targets = [ "hyprland.target" ];
+      targets = ["hyprland.target"];
     };
   };
 

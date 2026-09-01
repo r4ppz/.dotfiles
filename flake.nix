@@ -15,32 +15,29 @@
     };
   };
 
-  outputs =
-    {
-      nixpkgs,
-      home-manager,
-      ...
-    }@inputs:
-    let
-      system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
-    in
-    {
-      homeConfigurations.r4ppz = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-
-        extraSpecialArgs = {
-          configDir = ./configs;
-          scriptDir = ./scripts;
-          inherit inputs;
-        };
-
-        modules = [
-          ./home.nix
-        ];
-      };
+  outputs = {
+    nixpkgs,
+    home-manager,
+    ...
+  } @ inputs: let
+    system = "x86_64-linux";
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
     };
+  in {
+    homeConfigurations.r4ppz = home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
+
+      extraSpecialArgs = {
+        configDir = ./configs;
+        scriptDir = ./scripts;
+        inherit inputs;
+      };
+
+      modules = [
+        ./home.nix
+      ];
+    };
+  };
 }

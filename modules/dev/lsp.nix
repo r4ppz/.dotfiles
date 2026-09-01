@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-let
+{pkgs, ...}: let
   servers = {
     # Frontend
     html = pkgs.vscode-langservers-extracted;
@@ -36,8 +34,7 @@ let
     clangd = pkgs.clang-tools;
     zls = pkgs.zls;
   };
-in
-{
+in {
   home.packages = builtins.attrValues servers;
 
   home.file.".local/share/nvim/nix-servers.lua".text =

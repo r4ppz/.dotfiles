@@ -1,14 +1,15 @@
-{ pkgs, scriptDir, ... }:
-
-let
-  myScripts = import scriptDir { inherit pkgs; };
-in
 {
+  pkgs,
+  scriptDir,
+  ...
+}: let
+  myScripts = import scriptDir {inherit pkgs;};
+in {
   systemd.user.services.battery-warn = {
     Unit = {
       Description = "Battery Level Monitor";
-      After = [ "graphical-session.target" ];
-      PartOf = [ "graphical-session.target" ];
+      After = ["graphical-session.target"];
+      PartOf = ["graphical-session.target"];
     };
     Service = {
       Type = "simple";
@@ -16,6 +17,6 @@ in
       Restart = "always";
       RestartSec = "10s";
     };
-    Install.WantedBy = [ "hyprland.target" ];
+    Install.WantedBy = ["hyprland.target"];
   };
 }
