@@ -71,6 +71,8 @@ M.websites = {
   movie = "https://www.fmovies.gd",
   manga = "https://mangakatana.com",
   medium = "https://medium.com",
+  discord = "https://discord.com/channels/@me",
+  reddit = "https://reddit.com",
 
   -- dev stuff
   backblaze = "https://secure.backblaze.com/b2_buckets.htm",

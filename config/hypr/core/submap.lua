@@ -136,6 +136,8 @@ hl.define_submap("Media", "reset", function()
   bind_site(var.apps.browser, "V", var.websites.movie)
   bind_site(var.apps.browser, "G", var.websites.manga)
   bind_site(var.apps.browser, "I", var.websites.medium)
+  bind_site(var.apps.browser, "D", var.websites.discord)
+  bind_site(var.apps.browser, "R", var.websites.reddit)
 
   bind_exits()
 end)
