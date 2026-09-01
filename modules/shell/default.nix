@@ -9,6 +9,7 @@
     ./opencode.nix
     ./utils.nix
     ./packages.nix
+    ./tmux.nix
     ./zsh.nix
   ];
 }

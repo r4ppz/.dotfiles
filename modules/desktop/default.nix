@@ -1,4 +1,4 @@
-{ ... }:
+{ configDir, ... }:
 
 {
   imports = [
@@ -15,6 +15,8 @@
     ./rofi.nix
     ./packages.nix
   ];
+
+  xdg.configFile."hypr".source = configDir + "/hypr";
 
   systemd.user.targets.hyprland = {
     Unit = {
