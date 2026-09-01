@@ -92,7 +92,7 @@ floating_rule({
 
 -- Workspace assignments
 workspace_rule("brave-browser", { class = "brave-browser" }, 1)
-workspace_rule("brave-browser", { class = "brave-origin-nightly" }, 1)
+workspace_rule("brave-browser", { class = "brave-origin-nightly|brave-origin" }, 1)
 workspace_rule("helium", { class = "helium" }, 5)
 workspace_rule("musicplayer", { class = "musicplayer" }, "special:window2")
 workspace_rule("google-classroom", { initial_class = "^chrome-classroom.google.com__-Default$" }, 5)
