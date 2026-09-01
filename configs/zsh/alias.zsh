@@ -27,15 +27,12 @@ alias copy='wl-copy'
 alias blue='bluetuith'
 alias music='cliamp'
 
-# require sudo
-alias slg='sudo LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml" GIT_CONFIG_GLOBAL="$HOME/.gitconfig" EDITOR="nvim -R -n" lazygit'
+# Nix
+alias hms='home-manager switch --flake ~/Nix-dotfiles'
+alias nrs='sudo nixos-rebuild switch'
+alias nedit='sudoedit /etc/nixos/configuration.nix'
 
-# script
+# Script
 alias t="$DOTFILES/scripts/bin/tmux-init.sh"
-
 alias of="$DOTFILES/scripts/open-file.sh"
-alias sm="$DOTFILES/scripts/tmux-session-manager.py"
-alias vo="$DOTFILES/scripts/vault.sh open"
-alias vc="$DOTFILES/scripts/vault.sh close"
 alias ytdl="$DOTFILES/scripts/yt-audio-dl.sh"
-alias apm="$DOTFILES/scripts/arch-package-manager.sh"
