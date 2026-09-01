@@ -19,12 +19,18 @@
     {
       nixpkgs,
       home-manager,
-      waybar,
       ...
     }@inputs:
+    let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
+    in
     {
       homeConfigurations.r4ppz = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        inherit pkgs;
 
         extraSpecialArgs = {
           configDir = ./configs;
