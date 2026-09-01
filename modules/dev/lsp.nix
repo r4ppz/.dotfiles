@@ -15,7 +15,7 @@ let
     svelte = pkgs.svelte-language-server;
     prismals = pkgs.prisma-language-server;
     intelephense = pkgs.intelephense;
-    nil_ls = pkgs.nil;
+    nixd = pkgs.nixd;
 
     # Backend
     jdtls = pkgs.jdt-language-server;

@@ -22,11 +22,11 @@ return {
       xml = { "lemminx" },
       java = { "google-java-format" },
       go = { "gofmt" },
+      nix = { "alejandra" },
 
       qml = { lsp_format = "fallback" },
       php = { lsp_format = "fallback" },
       toml = { lsp_format = "fallback" },
-      nix = { lsp_format = "fallback" },
       zig = { "zigfmt" },
 
       ["_"] = { "trim_whitespace" },

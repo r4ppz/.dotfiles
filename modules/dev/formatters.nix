@@ -7,5 +7,6 @@
     shfmt
     black
     google-java-format
+    alejandra
   ];
 }
