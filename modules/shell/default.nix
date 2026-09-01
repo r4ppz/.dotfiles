@@ -1,6 +1,10 @@
 { pkgs, configDir, ... }:
 
 {
+  imports = [
+    ./git.nix
+  ];
+
   home.packages = with pkgs; [
     kitty
     neovim

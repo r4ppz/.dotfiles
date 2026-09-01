@@ -3,9 +3,14 @@
     ./modules/styling
     ./modules/desktop
     ./modules/shell
-    ./modules/shell/git.nix
     ./modules/dev
   ];
+
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d";
+  };
 
   nixpkgs.config.allowUnfree = true;
 
