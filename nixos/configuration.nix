@@ -94,11 +94,6 @@
     EDITOR = "nvim";
     VISUAL = "nvim";
     BROWSER = "brave-origin";
-    QT_QPA_PLATFORMTHEME = "qt6ct";
-    QT_STYLE_OVERRIDE = "kvantum";
-    XCURSOR_SIZE = "24";
-    LIBVA_DRIVER_NAME = "iHD";
-    NIXOS_OZONE_WL = "1";
   };
 
   environment.systemPackages = with pkgs; [
