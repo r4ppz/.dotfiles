@@ -28,9 +28,7 @@ alias blue='bluetuith'
 alias music='cliamp'
 
 # Nix
-alias hms='home-manager switch --flake ~/Nix-dotfiles'
-alias nrs='sudo nixos-rebuild switch'
-alias nedit='sudoedit /etc/nixos/configuration.nix'
+alias nsw='sudo nixos-rebuild switch --flake "$HOME/Nix-dotfiles#nixos"'
 
 # Script
 alias t="$DOTFILES/scripts/bin/tmux-init.sh"
