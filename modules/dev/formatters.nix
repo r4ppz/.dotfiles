@@ -7,6 +7,6 @@
     shfmt
     black
     google-java-format
-    nixfmt-rfc-style
+    nixfmt
   ];
 }
