@@ -24,6 +24,8 @@
     slurp
     tesseract
     bc
+    dua
+    ncdu
 
     atuin
     gdu
