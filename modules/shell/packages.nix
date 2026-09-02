@@ -18,13 +18,11 @@
 
     ripgrep
     curl
-    vim
     unzip
     wget
     grim
     slurp
     tesseract
-    libnotify
     bc
 
     atuin

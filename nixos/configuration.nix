@@ -86,12 +86,9 @@
   };
 
   environment.systemPackages = with pkgs; [
-    git
     vim
-    wget
-    curl
-    nixfmt
     wl-clipboard
+    libnotify
   ];
 
   programs.nh = {
