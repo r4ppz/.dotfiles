@@ -10,13 +10,13 @@
     enable = true;
 
     antialiasing = true;
-    hinting = "medium";
+    hinting = "full";
     subpixelRendering = "rgb";
 
     defaultFonts = {
-      serif = ["JetBrains Mono"];
-      sansSerif = ["JetBrains Mono"];
-      monospace = ["JetBrains Mono"];
+      serif = ["Noto Serif"];
+      sansSerif = ["Noto Sans"];
+      monospace = ["JetBrainsMono Nerd Font Mono"];
       emoji = ["Noto Color Emoji"];
     };
   };
