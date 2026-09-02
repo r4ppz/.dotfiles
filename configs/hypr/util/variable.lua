@@ -73,7 +73,7 @@ M.websites = {
   reddit = "https://reddit.com",
 
   -- dev stuff
-  backblaze = "https://secure.backblaze.com/b2_buckets.htm",
+  codeberg = "https://codeberg.org",
   github = "https://github.com/r4ppz",
   devdocs = "https://devdocs.io",
   arch = "https://archlinux.org",
