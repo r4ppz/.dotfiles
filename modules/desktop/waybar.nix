@@ -1,7 +1,6 @@
 {
   pkgs,
   inputs,
-  configDir,
   ...
 }:
 
@@ -14,6 +13,4 @@
       targets = [ "hyprland.target" ];
     };
   };
-
-  xdg.configFile."waybar".source = configDir + "/waybar";
 }

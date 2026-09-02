@@ -9,5 +9,6 @@
     impala
     bluetui
     imv
+    rofi
   ];
 }

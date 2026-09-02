@@ -1,5 +1,3 @@
-{ configDir, ... }:
-
 {
   imports = [
     ./hypr.nix
@@ -8,7 +6,6 @@
     ./blueman.nix
     ./network-manager.nix
     ./battery-warn.nix
-    ./rofi.nix
     ./packages.nix
   ];
 }

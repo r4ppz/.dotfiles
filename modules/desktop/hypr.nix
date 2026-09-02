@@ -1,4 +1,7 @@
-{ configDir, pkgs, ... }:
+{
+  pkgs,
+  ...
+}:
 
 let
   hyprService = {
@@ -7,8 +10,6 @@ let
   };
 in
 {
-  xdg.configFile."hypr".source = configDir + "/hypr";
-
   systemd.user.targets.hyprland = {
     Unit = {
       Description = "User services specific to Hyprland session";
