@@ -13,7 +13,6 @@
     svelte = pkgs.svelte-language-server;
     prismals = pkgs.prisma-language-server;
     intelephense = pkgs.intelephense;
-    nixd = pkgs.nixd;
 
     # Backend
     jdtls = pkgs.jdt-language-server;
@@ -33,6 +32,7 @@
     hyprls = pkgs.hyprls;
     clangd = pkgs.clang-tools;
     zls = pkgs.zls;
+    nixd = pkgs.nixd;
   };
 in {
   home.packages = builtins.attrValues servers;
