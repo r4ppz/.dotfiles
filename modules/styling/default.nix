@@ -1,4 +1,6 @@
-{...}: {
+{ ... }:
+
+{
   imports = [
     ./fonts.nix
     ./cursor.nix

@@ -1,10 +1,12 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+
+{
   home.packages = with pkgs; [
     prettierd
     stylua
     shfmt
     black
     google-java-format
-    alejandra
+    nixfmt-rfc-style
   ];
 }

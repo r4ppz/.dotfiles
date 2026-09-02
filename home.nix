@@ -6,10 +6,11 @@
     ./modules/dev
   ];
 
-  home.username = "r4ppz";
-  home.homeDirectory = "/home/r4ppz";
-
-  home.stateVersion = "26.05";
+  home = {
+    username = "r4ppz";
+    homeDirectory = "/home/r4ppz";
+    stateVersion = "26.05";
+  };
 
   programs.home-manager.enable = true;
 }

@@ -15,30 +15,32 @@
     };
   };
 
-  outputs = {
-    nixpkgs,
-    home-manager,
-    ...
-  } @ inputs: {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./nixos/configuration.nix
+  outputs =
+    {
+      nixpkgs,
+      home-manager,
+      ...
+    }@inputs:
+    {
+      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./nixos/configuration.nix
 
-        home-manager.nixosModules.home-manager
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            extraSpecialArgs = {
-              configDir = ./configs;
-              scriptDir = ./scripts;
-              inherit inputs;
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              extraSpecialArgs = {
+                configDir = ./configs;
+                scriptDir = ./scripts;
+                inherit inputs;
+              };
+              users.r4ppz = import ./home.nix;
             };
-            users.r4ppz = import ./home.nix;
-          };
-        }
-      ];
+          }
+        ];
+      };
     };
-  };
 }

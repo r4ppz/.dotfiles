@@ -1,4 +1,14 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+
+let
+  xftConfig = {
+    gtk-xft-antialias = 1;
+    gtk-xft-hinting = 1;
+    gtk-xft-hintstyle = "hintfull";
+    gtk-xft-rgba = "rgb";
+  };
+in
+{
   gtk = {
     enable = true;
 
@@ -22,25 +32,14 @@
       name = "Hackneyed";
     };
 
-    gtk3.extraConfig = {
-      gtk-xft-antialias = 1;
-      gtk-xft-hinting = 1;
-      gtk-xft-hintstyle = "hintfull";
-      gtk-xft-rgba = "rgb";
-    };
-
-    gtk4.extraConfig = {
-      gtk-xft-antialias = 1;
-      gtk-xft-hinting = 1;
-      gtk-xft-hintstyle = "hintfull";
-      gtk-xft-rgba = "rgb";
-    };
-
     gtk2.extraConfig = ''
       gtk-xft-antialias=1
       gtk-xft-hinting=1
       gtk-xft-hintstyle="hintfull"
       gtk-xft-rgba="rgb"
     '';
+
+    gtk3.extraConfig = xftConfig;
+    gtk4.extraConfig = xftConfig;
   };
 }

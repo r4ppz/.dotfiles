@@ -1,9 +1,7 @@
+{ pkgs, configDir, ... }:
+
 {
-  pkgs,
-  configDir,
-  ...
-}: {
-  home.packages = [pkgs.rofi];
+  home.packages = [ pkgs.rofi ];
 
   xdg.configFile."rofi".source = configDir + "/rofi";
 }

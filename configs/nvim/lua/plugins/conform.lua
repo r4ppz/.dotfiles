@@ -22,7 +22,7 @@ return {
       xml = { "lemminx" },
       java = { "google-java-format" },
       go = { "gofmt" },
-      nix = { "alejandra" },
+      nix = { "nixfmt-rfc-style" },
 
       qml = { lsp_format = "fallback" },
       php = { lsp_format = "fallback" },

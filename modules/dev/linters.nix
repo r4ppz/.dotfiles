@@ -1,6 +1,9 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+
+{
   home.packages = with pkgs; [
     eslint_d
     checkmake
+    statix
   ];
 }

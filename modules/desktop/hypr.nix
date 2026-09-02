@@ -1,54 +1,49 @@
+{ configDir, pkgs, ... }:
+
+let
+  hyprService = {
+    enable = true;
+    systemdTarget = "hyprland.target";
+  };
+in
 {
-  configDir,
-  pkgs,
-  ...
-}: {
   xdg.configFile."hypr".source = configDir + "/hypr";
 
   systemd.user.targets.hyprland = {
     Unit = {
       Description = "User services specific to Hyprland session";
-      BindsTo = ["graphical-session.target"];
-      After = ["graphical-session.target"];
+      BindsTo = [ "graphical-session.target" ];
+      After = [ "graphical-session.target" ];
     };
     Install = {
-      WantedBy = ["graphical-session.target"];
+      WantedBy = [ "graphical-session.target" ];
     };
   };
 
-  home.packages = [
-    pkgs.hypridle
-    pkgs.hyprlock
-    pkgs.hyprpaper
-    pkgs.hyprsunset
+  home.packages = with pkgs; [
+    hypridle
+    hyprlock
+    hyprpaper
+    hyprsunset
   ];
 
-  services.hypridle = {
-    enable = true;
-    systemdTarget = "hyprland.target";
-  };
-
-  services.hyprpaper = {
-    enable = true;
-    systemdTarget = "hyprland.target";
-  };
-
-  services.hyprsunset = {
-    enable = true;
-    systemdTarget = "hyprland.target";
+  services = {
+    hypridle = hyprService;
+    hyprpaper = hyprService;
+    hyprsunset = hyprService;
   };
 
   systemd.user.services.hyprpolkitagent = {
     Unit = {
       Description = "Hyprland Polkit Authentication Agent";
-      PartOf = ["hyprland.target"];
-      After = ["graphical-session.target"];
+      PartOf = [ "hyprland.target" ];
+      After = [ "graphical-session.target" ];
     };
     Service = {
       ExecStart = "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent";
       Restart = "on-failure";
     };
-    Install.WantedBy = ["hyprland.target"];
+    Install.WantedBy = [ "hyprland.target" ];
   };
 
   programs.obs-studio.enable = true;

@@ -1,4 +1,6 @@
-{configDir, ...}: {
+{ configDir, ... }:
+
+{
   imports = [
     ./hypr.nix
     ./waybar.nix

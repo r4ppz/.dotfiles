@@ -1,4 +1,6 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+
+{
   home.packages = with pkgs; [
     qt6Packages.qt6ct
     nwg-look

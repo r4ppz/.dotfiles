@@ -1,28 +1,55 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+
+{
   imports = [
     ./hardware-configuration.nix
   ];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.systemd-boot.configurationLimit = 5;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  # boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot = {
+    loader = {
+      systemd-boot = {
+        enable = true;
+        configurationLimit = 5;
+      };
+      efi.canTouchEfiVariables = true;
+    };
+    kernelPackages = pkgs.linuxPackages_latest;
+    # boot.kernelPackages = pkgs.linuxPackages_zen;
 
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
+    kernel.sysctl = {
+      # ZRAM optimizations
+      "vm.swappiness" = 180;
+      "vm.watermark_boost_factor" = 0;
+      "vm.watermark_scale_factor" = 125;
+      "vm.page-cluster" = 0;
 
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = false;
-    extraPackages = with pkgs; [
-      intel-media-driver
-      vpl-gpu-rt
-    ];
+      # Network latency & throughput improvements (BBR + FQ)
+      "net.core.default_qdisc" = "fq";
+      "net.ipv4.tcp_congestion_control" = "bbr";
+    };
   };
 
-  networking.networkmanager.enable = true;
-  networking.hostName = "nixos";
+  hardware = {
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
+
+    graphics = {
+      enable = true;
+      enable32Bit = false;
+      extraPackages = with pkgs; [
+        intel-media-driver
+        vpl-gpu-rt
+      ];
+    };
+  };
+
+  networking = {
+    networkmanager.enable = true;
+    hostName = "nixos";
+  };
+
   security.rtkit.enable = true;
   nixpkgs.config.allowUnfree = true;
 
@@ -32,37 +59,24 @@
     memoryPercent = 100;
   };
 
-  boot.kernel.sysctl = {
-    # ZRAM optimizations
-    "vm.swappiness" = 180;
-    "vm.watermark_boost_factor" = 0;
-    "vm.watermark_scale_factor" = 125;
-    "vm.page-cluster" = 0;
-
-    # Network latency & throughput improvements (BBR + FQ)
-    "net.core.default_qdisc" = "fq";
-    "net.ipv4.tcp_congestion_control" = "bbr";
-  };
-
-  fileSystems."/".options = ["noatime"];
+  fileSystems."/".options = [ "noatime" ];
 
   documentation.nixos.enable = false;
-  nix = {
-    settings = {
-      experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
-      auto-optimise-store = true;
-      max-jobs = "auto";
-      cores = 0;
-    };
+
+  nix.settings = {
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+    auto-optimise-store = true;
+    max-jobs = "auto";
+    cores = 0;
   };
 
   time.timeZone = "Asia/Manila";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  users.users."r4ppz" = {
+  users.users.r4ppz = {
     isNormalUser = true;
     description = "John Rey Rabosa";
     extraGroups = [
@@ -71,7 +85,7 @@
       "input"
     ];
     shell = pkgs.zsh;
-    packages = [];
+    packages = [ ];
   };
 
   environment.sessionVariables = {
@@ -100,48 +114,54 @@
     };
   };
 
-  programs.ydotool = {
-    enable = true;
-    group = "input";
-  };
-  programs.fzf = {
-    fuzzyCompletion = true;
-    keybindings = true;
-  };
-  programs.zsh.enable = true;
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
+  programs = {
+    ydotool = {
+      enable = true;
+      group = "input";
+    };
+    fzf = {
+      fuzzyCompletion = true;
+      keybindings = true;
+    };
+    zsh.enable = true;
+    hyprland = {
+      enable = true;
+      xwayland.enable = true;
+    };
   };
 
-  services.thermald.enable = true;
-  services.fstrim.enable = true;
-  services.auto-cpufreq.enable = true;
-  services.blueman.enable = true;
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = false;
-  };
-  services.keyd = {
-    enable = true;
-    keyboards = {
-      default = {
-        ids = ["*"];
-        settings = {
-          main = {
-            capslock = "esc";
-            esc = "grave";
-            grave = "home";
-            delete = "power";
-            # home = "power";
-            rightalt = "leftmeta";
-            kp8 = "up";
-            kp5 = "down";
-            kp4 = "left";
-            kp6 = "right";
-            # space = "overload(meta, space)";
+  services = {
+    thermald.enable = true;
+    fstrim.enable = true;
+    auto-cpufreq.enable = true;
+    blueman.enable = true;
+
+    pipewire = {
+      enable = true;
+      pulse.enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = false;
+    };
+
+    keyd = {
+      enable = true;
+      keyboards = {
+        default = {
+          ids = [ "*" ];
+          settings = {
+            main = {
+              capslock = "esc";
+              esc = "grave";
+              grave = "home";
+              # delete = "power";
+              # home = "power";
+              rightalt = "leftmeta";
+              kp8 = "up";
+              kp5 = "down";
+              kp4 = "left";
+              kp6 = "right";
+              # space = "overload(meta, space)";
+            };
           };
         };
       };
