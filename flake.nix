@@ -1,5 +1,5 @@
 {
-  description = "r4ppz's Home Manager configuration";
+  description = "r4ppz's Full System Flake";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -19,24 +19,25 @@
     nixpkgs,
     home-manager,
     ...
-  } @ inputs: let
-    system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      inherit system;
-      config.allowUnfree = true;
-    };
-  in {
-    homeConfigurations.r4ppz = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
-
-      extraSpecialArgs = {
-        configDir = ./configs;
-        scriptDir = ./scripts;
-        inherit inputs;
-      };
-
+  } @ inputs: {
+    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+      specialArgs = {inherit inputs;};
       modules = [
-        ./home.nix
+        ./nixos/configuration.nix
+
+        home-manager.nixosModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            extraSpecialArgs = {
+              configDir = ./configs;
+              scriptDir = ./scripts;
+              inherit inputs;
+            };
+            users.r4ppz = import ./home.nix;
+          };
+        }
       ];
     };
   };
