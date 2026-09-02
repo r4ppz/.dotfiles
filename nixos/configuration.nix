@@ -156,7 +156,7 @@
               esc = "grave";
               grave = "home";
               # delete = "power";
-              # home = "power";
+              home = "power";
               rightalt = "leftmeta";
               kp8 = "up";
               kp5 = "down";
