@@ -6,12 +6,6 @@
     ./modules/dev
   ];
 
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 7d";
-  };
-
   home.username = "r4ppz";
   home.homeDirectory = "/home/r4ppz";
 

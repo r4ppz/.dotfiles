@@ -29,12 +29,6 @@
 
       auto-optimise-store = true;
     };
-
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 7d";
-    };
   };
 
   time.timeZone = "Asia/Manila";
@@ -85,6 +79,16 @@
     nixfmt
     wl-clipboard
   ];
+
+  programs.nh = {
+    enable = true;
+    flake = "/home/r4ppz/Nix-dotfiles";
+    clean = {
+      enable = true;
+      extraArgs = "--keep-since 7d --keep 3";
+    };
+  };
+
   programs.ydotool = {
     enable = true;
     group = "input";
