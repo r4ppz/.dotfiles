@@ -4,7 +4,7 @@
     ./modules/desktop
     ./modules/shell
     ./modules/dev
-    ./modules/dotfiles.nix
+    ./modules/home
   ];
 
   home = {
