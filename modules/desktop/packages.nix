@@ -8,5 +8,6 @@
     gsimplecal
     impala
     bluetui
+    imv
   ];
 }
