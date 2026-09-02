@@ -16,6 +16,8 @@
     kernelPackages = pkgs.linuxPackages_latest;
     # boot.kernelPackages = pkgs.linuxPackages_zen;
 
+    kernelModules = [ "tcp_bbr" ];
+
     kernel.sysctl = {
       # ZRAM optimizations
       "vm.swappiness" = 180;
