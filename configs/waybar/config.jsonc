@@ -112,7 +112,7 @@
     "format-critical": "   {temperatureC}°C"
   },
   "custom/cputemp": {
-    "exec": "$DOTFILES/scripts/cputemp.sh",
+    "exec": "$DOTFILES/scripts/bin/cputemp.sh",
     "interval": 2,
     "format": "  {}",
     "return-type": "json",
