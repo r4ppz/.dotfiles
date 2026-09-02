@@ -27,9 +27,6 @@ alias copy='wl-copy'
 alias blue='bluetuith'
 alias music='cliamp'
 
-# Nix
-alias nsw='sudo nixos-rebuild switch --flake "$HOME/Nix-dotfiles#nixos"'
-
 # Script
 alias t="$DOTFILES/scripts/bin/tmux-init.sh"
 alias of="$DOTFILES/scripts/open-file.sh"
