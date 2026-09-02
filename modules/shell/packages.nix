@@ -21,7 +21,6 @@
     vim
     unzip
     wget
-    nixfmt
     grim
     slurp
     tesseract
