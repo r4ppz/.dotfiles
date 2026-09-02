@@ -7,15 +7,42 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.configurationLimit = 5;
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.kernelPackages = pkgs.linuxPackages_zen;
 
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
 
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = false;
+    extraPackages = with pkgs; [
+      intel-media-driver
+      vpl-gpu-rt
+    ];
+  };
+
   networking.networkmanager.enable = true;
   networking.hostName = "nixos";
-  zramSwap.enable = true;
   security.rtkit.enable = true;
   nixpkgs.config.allowUnfree = true;
+
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+    memoryPercent = 100;
+  };
+
+  boot.kernel.sysctl = {
+    # ZRAM optimizations
+    "vm.swappiness" = 180;
+    "vm.watermark_boost_factor" = 0;
+    "vm.watermark_scale_factor" = 125;
+    "vm.page-cluster" = 0;
+
+    # Network latency & throughput improvements (BBR + FQ)
+    "net.core.default_qdisc" = "fq";
+    "net.ipv4.tcp_congestion_control" = "bbr";
+  };
 
   fileSystems."/".options = ["noatime"];
 
@@ -26,8 +53,9 @@
         "nix-command"
         "flakes"
       ];
-
       auto-optimise-store = true;
+      max-jobs = "auto";
+      cores = 0;
     };
   };
 
@@ -69,6 +97,8 @@
     QT_QPA_PLATFORMTHEME = "qt6ct";
     QT_STYLE_OVERRIDE = "kvantum";
     XCURSOR_SIZE = "24";
+    LIBVA_DRIVER_NAME = "iHD";
+    NIXOS_OZONE_WL = "1";
   };
 
   environment.systemPackages = with pkgs; [
@@ -103,6 +133,7 @@
     xwayland.enable = true;
   };
 
+  services.thermald.enable = true;
   services.fstrim.enable = true;
   services.auto-cpufreq.enable = true;
   services.blueman.enable = true;
@@ -110,7 +141,7 @@
     enable = true;
     pulse.enable = true;
     alsa.enable = true;
-    alsa.support32Bit = true;
+    alsa.support32Bit = false;
   };
   services.keyd = {
     enable = true;
