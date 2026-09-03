@@ -4,7 +4,7 @@ let
   xftConfig = {
     gtk-xft-antialias = 1;
     gtk-xft-hinting = 1;
-    gtk-xft-hintstyle = "hintfull";
+    gtk-xft-hintstyle = "hintslight";
     gtk-xft-rgba = "rgb";
   };
 in
@@ -23,7 +23,7 @@ in
     };
 
     font = {
-      name = "JetBrainsMono Nerd Font Semi-Bold";
+      name = "Inter";
       size = 10;
     };
 
@@ -35,7 +35,7 @@ in
     gtk2.extraConfig = ''
       gtk-xft-antialias=1
       gtk-xft-hinting=1
-      gtk-xft-hintstyle="hintfull"
+      gtk-xft-hintstyle="hintslight"
       gtk-xft-rgba="rgb"
     '';
 

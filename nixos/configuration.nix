@@ -94,6 +94,11 @@
     EDITOR = "nvim";
     VISUAL = "nvim";
     BROWSER = "brave-origin";
+    FREETYPE_PROPERTIES = "cff:no-stem-darkening=0 autofitter:no-stem-darkening=0 autofitter:warping=1";
+
+    # FREETYPE_PROPERTIES = "cff:no-stem-darkening=0 autofitter:no-stem-darkening=0";
+    # FREETYPE_PROPERTIES = "cff:no-stem-darkening=0 autofitter:no-stem-darkening=0 autofitter:warping=1
+    # truetype:interpreter-version=35"; # hint can full
   };
 
   environment.systemPackages = with pkgs; [

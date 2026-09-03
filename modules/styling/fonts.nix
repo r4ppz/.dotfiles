@@ -4,6 +4,10 @@
   home.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
     noto-fonts
+    inter
+    liberation_ttf
+    carlito
+    caladea
     noto-fonts-cjk-sans
     noto-fonts-color-emoji
   ];
@@ -12,7 +16,7 @@
     enable = true;
 
     antialiasing = true;
-    hinting = "full";
+    hinting = "slight";
     subpixelRendering = "rgb";
 
     defaultFonts = {
