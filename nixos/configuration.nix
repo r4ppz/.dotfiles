@@ -14,6 +14,9 @@ in
   ];
 
   boot = {
+    tmp.useTmpfs = true;
+    initrd.systemd.enable = true;
+
     loader = {
       systemd-boot = {
         enable = true;
@@ -27,14 +30,13 @@ in
 
     kernelModules = [ "tcp_bbr" ];
 
+    kernelParams = [ "intel_pstate=active" ];
+
     kernel.sysctl = {
-      # ZRAM optimizations
-      "vm.swappiness" = 180;
-      "vm.watermark_boost_factor" = 0;
-      "vm.watermark_scale_factor" = 125;
+      "vm.swappiness" = 100;
+      "vm.vfs_cache_pressure" = 50;
       "vm.page-cluster" = 0;
 
-      # Network latency & throughput improvements (BBR + FQ)
       "net.core.default_qdisc" = "fq";
       "net.ipv4.tcp_congestion_control" = "bbr";
     };
@@ -54,12 +56,19 @@ in
         vpl-gpu-rt
       ];
     };
+
+    enableAllFirmware = true;
   };
 
   networking = {
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+      wifi.backend = "iwd";
+    };
     hostName = "nixos";
   };
+
+  systemd.services.NetworkManager-wait-online.enable = false;
 
   security.rtkit.enable = true;
   nixpkgs.config.allowUnfree = true;
@@ -82,6 +91,7 @@ in
     auto-optimise-store = true;
     max-jobs = "auto";
     cores = 0;
+    warn-dirty = false;
   };
 
   time.timeZone = "Asia/Manila";
@@ -103,6 +113,7 @@ in
     EDITOR = "nvim";
     VISUAL = "nvim";
     BROWSER = "brave-origin";
+    NIXOS_OZONE_WL = "1";
     FREETYPE_PROPERTIES = "cff:no-stem-darkening=0 autofitter:no-stem-darkening=0 autofitter:warping=1";
   };
 
@@ -140,9 +151,31 @@ in
   };
 
   services = {
+    irqbalance.enable = true;
     thermald.enable = true;
     fstrim.enable = true;
-    auto-cpufreq.enable = true;
+
+    ananicy = {
+      enable = true;
+      package = pkgs.ananicy-cpp;
+      rulesProvider = pkgs.ananicy-rules-cachyos;
+    };
+
+    auto-cpufreq = {
+      enable = true;
+      settings = {
+        charger = {
+          governor = "performance";
+          turbo = "always";
+          energy_performance_preference = "performance";
+        };
+        battery = {
+          governor = "powersave";
+          turbo = "auto";
+          energy_performance_preference = "balance_power";
+        };
+      };
+    };
     blueman.enable = true;
 
     pipewire = {
