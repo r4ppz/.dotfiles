@@ -6,6 +6,7 @@
     libnotify
     brave-origin
     bitwarden-desktop
+    playerctl
     thunar
     gsimplecal
     impala
