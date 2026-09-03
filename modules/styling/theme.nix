@@ -9,6 +9,17 @@ let
   };
 in
 {
+  qt = {
+    enable = true;
+
+    platformTheme.name = "kvantum";
+
+    style = {
+      name = "kvantum";
+      package = pkgs.kdePackages.qtstyleplugin-kvantum;
+    };
+  };
+
   gtk = {
     enable = true;
 
@@ -42,4 +53,9 @@ in
     gtk3.extraConfig = xftConfig;
     gtk4.extraConfig = xftConfig;
   };
+
+  xdg.configFile."Kvantum/kvantum.kvconfig".text = ''
+    [General]
+    theme=Gruvbox-Dark-Brown
+  '';
 }
