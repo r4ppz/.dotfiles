@@ -10,7 +10,7 @@
     Unit = {
       Description = "Swaync notification daemon";
       PartOf = [ "hyprland.target" ];
-      After = [ "graphical-session.target" ];
+      After = [ "hyprland.target" ];
       ConditionEnvironment = "WAYLAND_DISPLAY";
     };
     Service = {

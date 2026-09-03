@@ -38,7 +38,7 @@ in
     Unit = {
       Description = "Hyprland Polkit Authentication Agent";
       PartOf = [ "hyprland.target" ];
-      After = [ "graphical-session.target" ];
+      After = [ "hyprland.target" ];
     };
     Service = {
       ExecStart = "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent";

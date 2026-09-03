@@ -8,8 +8,8 @@ in
   systemd.user.services.battery-warn = {
     Unit = {
       Description = "Battery Level Monitor";
-      After = [ "graphical-session.target" ];
-      PartOf = [ "graphical-session.target" ];
+      After = [ "hyprland.target" ];
+      PartOf = [ "hyprland.target" ];
     };
     Service = {
       Type = "simple";

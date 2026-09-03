@@ -5,7 +5,7 @@
     Unit = {
       Description = "NetworkManager Applet";
       PartOf = [ "hyprland.target" ];
-      After = [ "graphical-session.target" ];
+      After = [ "hyprland.target" ];
     };
     Service = {
       ExecStart = "${pkgs.networkmanagerapplet}/bin/nm-applet";

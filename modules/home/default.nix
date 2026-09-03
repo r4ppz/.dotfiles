@@ -14,8 +14,12 @@ in
   };
 
   xdg.configFile = {
+    "hypr" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${configDir}/hypr";
+      recursive = true;
+    };
+
     "rofi".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/rofi";
-    "hypr".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/hypr";
     "swaync".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/swaync";
     "waybar".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/waybar";
 
