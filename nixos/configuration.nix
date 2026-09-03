@@ -1,4 +1,12 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  username,
+  ...
+}:
+
+let
+  dotfilesPath = "/home/${username}/Nix-dotfiles";
+in
 
 {
   imports = [
@@ -78,7 +86,7 @@
   time.timeZone = "Asia/Manila";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  users.users.r4ppz = {
+  users.users.${username} = {
     isNormalUser = true;
     description = "John Rey Rabosa";
     extraGroups = [
@@ -109,7 +117,7 @@
 
   programs.nh = {
     enable = true;
-    flake = "/home/r4ppz/Nix-dotfiles";
+    flake = dotfilesPath;
     clean = {
       enable = true;
       extraArgs = "--keep-since 7d --keep 3";

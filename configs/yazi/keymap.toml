@@ -292,11 +292,6 @@ keymap = [
 
   { on = [
     "g",
-    "a",
-  ], run = "cd ~/Arch-dotfiles", desc = "Go ~/Arch-dotfiles" },
-
-  { on = [
-    "g",
     "h",
   ], run = "cd ~", desc = "Go home" },
 

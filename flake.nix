@@ -1,5 +1,5 @@
 {
-  description = "r4ppz's Full System Flake";
+  description = "I'm going crazy";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -21,9 +21,12 @@
       home-manager,
       ...
     }@inputs:
+    let
+      username = "r4ppz";
+    in
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
+        specialArgs = { inherit inputs username; };
         modules = [
           ./nixos/configuration.nix
 
@@ -35,9 +38,9 @@
               extraSpecialArgs = {
                 configDir = ./configs;
                 scriptDir = ./scripts;
-                inherit inputs;
+                inherit inputs username;
               };
-              users.r4ppz = import ./home.nix;
+              users.${username} = import ./home.nix;
             };
           }
         ];

@@ -44,10 +44,9 @@ typeset -gA DIR_MAP=(
 )
 
 typeset -gA DIR_MAP_UNIQUE=(
-  # Configs
-  "$HOME/Arch-dotfiles" DOTS
-  "$HOME/Nix-dotfiles" DOTS
-  "$HOME/Arch-dotfiles/nvim" VDOTS
+  # Configs - portable via $HOME / $DOTFILES
+  "${DOTFILES:-$HOME/Nix-dotfiles}" DOTS
+  "${DOTFILES:-$HOME/Nix-dotfiles}/nvim" VDOTS
 
   "$HOME/Repositories/projects/r4ppz.github.io" PWEB
   "$HOME/Repositories/projects/minidm" MINIDM
@@ -93,7 +92,6 @@ typeset -gA DIR_MAP_PREFIX=(
 
   "$HOME/Repositories" REPOS
   "$HOME/.config" DOTS
-  "$HOME/Arch-dotfiles" DOTS
 
   "$HOME/Repositories/projects/mini-capstone" CAPTS
 )

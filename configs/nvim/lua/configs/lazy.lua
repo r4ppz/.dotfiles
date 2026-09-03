@@ -4,7 +4,7 @@ return {
   lockfile = vim.fn.stdpath("data") .. "/lazy/lazy-lock.json",
 
   dev = {
-    path = "/home/r4ppz/Repositories/nvplug/",
+    path = vim.fn.expand("~/Repositories/nvplug/"),
     fallback = false,
   },
 

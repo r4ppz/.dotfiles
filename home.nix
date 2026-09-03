@@ -1,3 +1,4 @@
+{ username, ... }:
 {
   imports = [
     ./modules/styling
@@ -8,8 +9,8 @@
   ];
 
   home = {
-    username = "r4ppz";
-    homeDirectory = "/home/r4ppz";
+    inherit username;
+    homeDirectory = "/home/${username}";
     stateVersion = "26.05";
   };
 

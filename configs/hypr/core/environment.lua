@@ -19,4 +19,4 @@ hl.env("XDG_SESSION_DESKTOP", "Hyprland")
 hl.env("XCURSOR_THEME", "Hackneyed-24px")
 hl.env("XCURSOR_SIZE", "24")
 
-hl.env("DOTFILES", os.getenv("HOME") .. "/Nix-dotfiles")
+hl.env("DOTFILES", os.getenv("DOTFILES") or os.getenv("HOME") .. "/Nix-dotfiles")

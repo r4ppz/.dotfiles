@@ -21,6 +21,8 @@ if [[ $- == *i* ]]; then
   source ${zsh_plugins}.zsh
 
   # Source Configuration Files
+  # DOTFILES is set centrally via home-manager (modules/home/paths.nix) > DOTFILES sessionVariable
+  # Fallback keeps non-Nix shells portable
   export DOTFILES="${DOTFILES:-$HOME/Nix-dotfiles}"
   local zsh_config_dir="$DOTFILES/configs/zsh/"
 
