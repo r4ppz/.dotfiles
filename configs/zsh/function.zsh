@@ -58,7 +58,7 @@ dockeroff() {
 }
 
 open_file() {
-  "$DOTFILES/scripts/open-file.sh"
+  "$DOTFILES/scripts/bin/open-file.sh"
 }
 
 rcopy() {
