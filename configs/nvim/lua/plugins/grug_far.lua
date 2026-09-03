@@ -37,7 +37,7 @@ end
 
 return {
   "MagicDuck/grug-far.nvim",
-  -- dev = true,
+  dev = true,
   init = function()
     vim.api.nvim_create_autocmd("FileType", {
       pattern = "grug-far",
