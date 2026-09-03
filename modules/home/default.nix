@@ -5,6 +5,14 @@ let
 in
 
 {
+  home.sessionVariables = {
+    DOTFILES = "${config.home.homeDirectory}/Nix-dotfiles";
+  };
+
+  systemd.user.sessionVariables = {
+    DOTFILES = "${config.home.homeDirectory}/Nix-dotfiles";
+  };
+
   home.file = {
     ".gitconfig".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/git/.gitconfig";
     ".tmux.conf".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/tmux/.tmux.conf";
