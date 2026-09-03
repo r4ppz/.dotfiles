@@ -21,6 +21,7 @@ in
       };
       efi.canTouchEfiVariables = true;
     };
+
     kernelPackages = pkgs.linuxPackages_latest;
     # boot.kernelPackages = pkgs.linuxPackages_zen;
 
@@ -110,28 +111,31 @@ in
     git
   ];
 
-  programs.nh = {
-    enable = true;
-    flake = dotfilesPath;
-    clean = {
-      enable = true;
-      extraArgs = "--keep-since 7d --keep 3";
-    };
-  };
-
   programs = {
     ydotool = {
       enable = true;
       group = "input";
     };
+
     fzf = {
       fuzzyCompletion = true;
       keybindings = true;
     };
+
     zsh.enable = true;
+
     hyprland = {
       enable = true;
       xwayland.enable = true;
+    };
+
+    nh = {
+      enable = true;
+      flake = dotfilesPath;
+      clean = {
+        enable = true;
+        extraArgs = "--keep-since 7d --keep 3";
+      };
     };
   };
 
