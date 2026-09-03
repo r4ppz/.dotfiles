@@ -110,9 +110,8 @@ in
   };
 
   environment.systemPackages = with pkgs; [
-    vim
-    wl-clipboard
-    libnotify
+    neovim
+    git
   ];
 
   programs.nh = {
