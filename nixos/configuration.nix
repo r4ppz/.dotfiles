@@ -186,6 +186,10 @@ in
     thermald.enable = true;
     fstrim.enable = true;
 
+    logind.settings.Login = {
+      HandlePowerKey = "ignore";
+    };
+
     ananicy = {
       enable = true;
       package = pkgs.ananicy-cpp;
