@@ -27,7 +27,6 @@
     tesseract
     bc
     dua
-    ncdu
     rsync
 
     atuin
