@@ -2,6 +2,7 @@
 
 {
   home.packages = with pkgs; [
+    trash-cli
     pulseaudio
     wl-clipboard
     libnotify
