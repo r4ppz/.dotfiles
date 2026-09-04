@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   username,
   ...
@@ -28,7 +29,19 @@ in
     # kernelPackages = pkgs.linuxPackages_latest;
     kernelPackages = pkgs.linuxPackages_zen;
 
-    kernelModules = [ "tcp_bbr" ];
+    extraModulePackages = with config.boot.kernelPackages; [
+      acer-wmi-battery
+    ];
+
+    kernelModules = [
+      "tcp_bbr"
+      "acer-wmi-battery"
+    ];
+
+    # Set the 80% charge limit automatically when the module loads
+    extraModprobeConfig = ''
+      options acer-wmi-battery enable_health_mode=1
+    '';
 
     kernelParams = [ "intel_pstate=active" ];
 
