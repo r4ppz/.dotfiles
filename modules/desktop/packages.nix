@@ -2,6 +2,7 @@
 
 {
   home.packages = with pkgs; [
+    pulseaudio
     wl-clipboard
     libnotify
     brave-origin
