@@ -60,6 +60,21 @@ in
     enableAllFirmware = true;
   };
 
+  fileSystems."/mnt/SHARED" = {
+    device = "/dev/disk/by-uuid/2AFE9FF83A7A94B4";
+    fsType = "ntfs3";
+    options = [
+      "rw"
+      "uid=1000"
+      "gid=1000"
+      "umask=0022"
+      "noatime"
+      "nofail"
+      "x-systemd.automount"
+      "x-systemd.device-timeout=15s"
+    ];
+  };
+
   networking = {
     networkmanager = {
       enable = true;
@@ -78,8 +93,6 @@ in
     algorithm = "zstd";
     memoryPercent = 100;
   };
-
-  fileSystems."/".options = [ "noatime" ];
 
   documentation.nixos.enable = false;
 
