@@ -9,6 +9,7 @@ return {
     vim.g.matchup_matchparen_deferred = 1
     vim.g.matchup_delim_noskips = 1
     vim.g.matchup_treesitter_disable_virtual_text = true
+    vim.g.matchup_treesitter_enable = 0
 
     vim.keymap.set({ "n", "x", "o" }, "~", "<Plug>(matchup-%)", { desc = "Jump to matching pair" })
   end,
