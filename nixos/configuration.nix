@@ -104,6 +104,7 @@ in
       "networkmanager"
       "wheel"
       "input"
+      "docker"
     ];
     shell = pkgs.zsh;
     packages = [ ];
@@ -207,6 +208,15 @@ in
           };
         };
       };
+    };
+  };
+
+  virtualisation.docker = {
+    enable = true;
+    enableOnBoot = false;
+    autoPrune = {
+      enable = true;
+      dates = "weekly";
     };
   };
 
