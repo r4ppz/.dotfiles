@@ -28,6 +28,7 @@
     bc
     dua
     ncdu
+    rsync
 
     atuin
     gdu
