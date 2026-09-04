@@ -26,6 +26,7 @@ alias pac='pacseek'
 alias copy='wl-copy'
 alias blue='bluetuith'
 alias music='cliamp'
+alias pn='pnpm'
 
 # Script
 alias t="$DOTFILES/scripts/bin/tmux-init.sh"
