@@ -14,6 +14,7 @@ return {
       javascriptreact = { "eslint_d" },
       typescriptreact = { "eslint_d" },
       make = { "checkmake" },
+      nix = { "statix" },
     }
 
     local lint_augroup = vim.api.nvim_create_augroup("nvim-lint", { clear = true })
