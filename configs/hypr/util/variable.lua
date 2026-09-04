@@ -72,6 +72,10 @@ M.websites = {
   discord = "https://discord.com/channels/@me",
   reddit = "https://reddit.com",
 
+  -- nix stuff
+  nixossearch = "https://search.nixos.org/packages",
+  hmoptsearch = "https://home-manager-options.extranix.com",
+
   -- dev stuff
   codeberg = "https://codeberg.org",
   github = "https://github.com/r4ppz",
