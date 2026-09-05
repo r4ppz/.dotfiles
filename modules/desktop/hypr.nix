@@ -26,6 +26,7 @@ in
     hyprlock
     hyprpaper
     hyprsunset
+    hyprpicker
   ];
 
   services = {

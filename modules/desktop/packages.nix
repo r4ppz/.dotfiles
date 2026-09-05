@@ -7,6 +7,7 @@
     thunar
     gsimplecal
 
+    obs-cmd
     trash-cli
     pulseaudio
     wl-clipboard
