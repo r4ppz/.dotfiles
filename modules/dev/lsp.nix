@@ -8,7 +8,7 @@ let
     html = vsc-langservers;
     cssls = vsc-langservers;
     jsonls = vsc-langservers;
-    css_variables = vsc-langservers;
+    css_variables = pkgs.css-variables-language-server;
     yamlls = pkgs.yaml-language-server;
     ts_ls = pkgs.typescript-language-server;
     emmet_ls = pkgs.emmet-ls;
