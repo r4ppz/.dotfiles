@@ -8,16 +8,16 @@
 
   home.packages = with pkgs; [
     nodejs
-    pnpm
     go
     gcc
     python3
     rustup
     zig
+
+    # smh
+    pnpm
     tree-sitter
     gnumake
-
-    # DAP
     delve
   ];
 }
