@@ -131,6 +131,8 @@ in
       "wheel"
       "input"
       "docker"
+      "libvirtd"
+      "kvm"
     ];
     shell = pkgs.zsh;
     packages = [ ];
@@ -179,6 +181,9 @@ in
         extraArgs = "--keep-since 7d --keep 3";
       };
     };
+
+    virt-manager.enable = true;
+    dconf.enable = true;
   };
 
   services = {
@@ -245,13 +250,28 @@ in
     };
   };
 
-  virtualisation.docker = {
-    enable = true;
-    enableOnBoot = false;
-    autoPrune = {
+  virtualisation = {
+    docker = {
       enable = true;
-      dates = "weekly";
+      enableOnBoot = false;
+      autoPrune = {
+        enable = true;
+        dates = "weekly";
+      };
     };
+
+    libvirtd = {
+      enable = true;
+      qemu = {
+        package = pkgs.qemu_kvm;
+        runAsRoot = true;
+        swtpm.enable = true;
+      };
+      onBoot = "ignore";
+      onShutdown = "shutdown";
+    };
+
+    spiceUSBRedirection.enable = true;
   };
 
   xdg.portal = {
