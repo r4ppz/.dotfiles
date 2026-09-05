@@ -9,7 +9,12 @@
     sleuthkit
     hexdump
     xxd
-    jq
     file
+    cfr
+
+    radare2
+    pwntools
+    cyberchef
+    bitwise
   ];
 }

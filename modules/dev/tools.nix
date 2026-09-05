@@ -18,10 +18,9 @@
     atuin
     gdu
     dua
-    curl
-    wget
     rsync
     glow
+    bat
 
     git
     delta
@@ -30,7 +29,16 @@
     lazygit
     lazydocker
 
+    curl
+    wget
     openssl
+    jq
+    tesseract
+    imagemagick
+    bc
+    poppler
+    resvg
+    chafa
 
     p7zip
     unzip

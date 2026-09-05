@@ -7,10 +7,15 @@
   };
 
   home.packages = with pkgs; [
+    (python3.withPackages (
+      ps: with ps; [
+        cryptography
+      ]
+    ))
+
     nodejs
     go
     gcc
-    python3
     rustup
     zig
 
