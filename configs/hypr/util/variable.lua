@@ -24,7 +24,6 @@ M.scripts = {
   powermenu = "$DOTFILES/configs/rofi/powermenu/powermenu.sh",
   websearch = "$DOTFILES/configs/rofi/websearch/websearch.sh",
   screenshot = "$DOTFILES/scripts/bin/screenshot.sh",
-  screenshotfull = "$DOTFILES/scripts/bin/screenshot-full.sh",
   ocr = "$DOTFILES/scripts/bin/ocr.sh",
   mediactl = "$DOTFILES/scripts/bin/mediactl.sh",
   record = "$DOTFILES/scripts/bin/toggle-obs.sh",
