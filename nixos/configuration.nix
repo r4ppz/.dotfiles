@@ -200,6 +200,12 @@ in
   };
 
   services = {
+    openssh = {
+      enable = true;
+      settings.PasswordAuthentication = true;
+      settings.PermitRootLogin = "no";
+    };
+
     tumbler.enable = true;
     gvfs.enable = true;
 

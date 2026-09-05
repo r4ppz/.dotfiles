@@ -30,6 +30,8 @@
     lazygit
     lazydocker
 
+    openssl
+
     p7zip
     unzip
     zip

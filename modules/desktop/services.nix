@@ -6,9 +6,15 @@ in
 {
   home.packages = [ pkgs.swaynotificationcenter ];
 
-  services.blueman-applet = {
-    enable = true;
-    systemdTargets = [ "hyprland.target" ];
+  services = {
+    ssh-agent = {
+      enable = true;
+    };
+
+    blueman-applet = {
+      enable = true;
+      systemdTargets = [ "hyprland.target" ];
+    };
   };
 
   systemd.user.services = {
