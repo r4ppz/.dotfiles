@@ -3,7 +3,6 @@
   imports = [
     ./modules/styling
     ./modules/desktop
-    ./modules/shell
     ./modules/dev
     ./modules/home
   ];

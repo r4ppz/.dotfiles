@@ -1,8 +1,12 @@
 { pkgs, ... }:
-
 {
   home.packages = with pkgs; [
     neovim
+    kitty
+    tmux
+    yazi
+    opencode
+    pgcli
 
     btop
     fastfetch
@@ -10,28 +14,16 @@
     fd
     zoxide
     eza
-    glow
-    bluetuith
-    cliamp
-    tmux
-    yazi
-    opencode
-    kitty
-
     ripgrep
-    curl
-    unzip
-    wget
-    grim
-    slurp
-    tesseract
-    bc
-    dua
-    rsync
-
     atuin
     gdu
-    pgcli
+    dua
+    curl
+    wget
+    unzip
+    rsync
+    bc
+    glow
 
     git
     delta

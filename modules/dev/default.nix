@@ -6,5 +6,6 @@
     ./lsp.nix
     ./formatters.nix
     ./linters.nix
+    ./tools.nix
   ];
 }

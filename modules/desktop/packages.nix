@@ -2,19 +2,25 @@
 
 {
   home.packages = with pkgs; [
+    bitwarden-desktop
+    brave-origin
+    thunar
+    gsimplecal
+
     trash-cli
     pulseaudio
     wl-clipboard
     libnotify
-    brave-origin
-    bitwarden-desktop
     playerctl
-    thunar
-    gsimplecal
     impala
     bluetui
     imv
     mpv
     rofi
+    grim
+    slurp
+    tesseract
+    bluetuith
+    cliamp
   ];
 }

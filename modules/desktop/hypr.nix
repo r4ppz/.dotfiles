@@ -46,12 +46,4 @@ in
     };
     Install.WantedBy = [ "hyprland.target" ];
   };
-
-  programs.obs-studio.enable = true;
-  wayland.windowManager.hyprland.xdph.settings = {
-    screencopy = {
-      max_fps = 60;
-      cursor_mode = 2;
-    };
-  };
 }
