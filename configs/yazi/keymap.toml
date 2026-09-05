@@ -288,7 +288,7 @@ keymap = [
   { on = [
     "g",
     "n",
-  ], run = "cd ~/Nix-dotfiles", desc = "Go ~/Nix-dotfiles" },
+  ], run = "cd ~/.dotfiles", desc = "Go ~/.dotfiles" },
 
   { on = [
     "g",

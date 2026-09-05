@@ -14,6 +14,7 @@
     impala
     bluetui
     imv
+    mpv
     rofi
   ];
 }

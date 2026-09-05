@@ -1,6 +1,6 @@
 { config, ... }:
 let
-  dotfiles = "${config.home.homeDirectory}/Nix-dotfiles";
+  dotfiles = "${config.home.homeDirectory}/.dotfiles";
 in
 {
   home.sessionVariables = {

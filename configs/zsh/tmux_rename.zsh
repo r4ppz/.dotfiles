@@ -45,8 +45,8 @@ typeset -gA DIR_MAP=(
 
 typeset -gA DIR_MAP_UNIQUE=(
   # Configs - portable via $HOME / $DOTFILES
-  "${DOTFILES:-$HOME/Nix-dotfiles}" DOTS
-  "${DOTFILES:-$HOME/Nix-dotfiles}/nvim" VDOTS
+  "${DOTFILES:-$HOME/.dotfiles}" DOTS
+  "${DOTFILES:-$HOME/.dotfiles}/nvim" VDOTS
 
   "$HOME/Repositories/projects/r4ppz.github.io" PWEB
   "$HOME/Repositories/projects/minidm" MINIDM

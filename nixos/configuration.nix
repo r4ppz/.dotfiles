@@ -6,7 +6,7 @@
 }:
 
 let
-  dotfilesPath = "/home/${username}/Nix-dotfiles";
+  dotfilesPath = "/home/${username}/.dotfiles";
 in
 
 {

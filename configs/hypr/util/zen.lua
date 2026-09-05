@@ -4,7 +4,7 @@ local M = {}
 
 local zen = false
 
-local dotfiles = os.getenv("DOTFILES") or os.getenv("HOME") .. "/Nix-dotfiles"
+local dotfiles = os.getenv("DOTFILES") or os.getenv("HOME") .. "/.dotfiles"
 
 local config = {
   normal = {
