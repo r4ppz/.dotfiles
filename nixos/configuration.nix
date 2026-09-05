@@ -147,6 +147,8 @@ in
   };
 
   environment.systemPackages = with pkgs; [
+    file-roller
+    ffmpegthumbnailer
     neovim
     git
   ];
@@ -184,9 +186,23 @@ in
 
     virt-manager.enable = true;
     dconf.enable = true;
+
+    thunar = {
+      enable = true;
+      plugins = with pkgs; [
+        thunar-archive-plugin
+        thunar-volman
+        thunar-media-tags-plugin
+      ];
+    };
+
+    xfconf.enable = true;
   };
 
   services = {
+    tumbler.enable = true;
+    gvfs.enable = true;
+
     irqbalance.enable = true;
     thermald.enable = true;
     fstrim.enable = true;

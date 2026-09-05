@@ -4,7 +4,6 @@
   home.packages = with pkgs; [
     bitwarden-desktop
     brave-origin
-    thunar
     gsimplecal
 
     obs-cmd
