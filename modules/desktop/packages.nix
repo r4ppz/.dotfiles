@@ -21,6 +21,8 @@
     grim
     slurp
     tesseract
+    imagemagick
+    bc
     bluetuith
     cliamp
   ];

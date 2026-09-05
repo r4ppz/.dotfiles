@@ -22,7 +22,6 @@
     wget
     unzip
     rsync
-    bc
     glow
 
     git
