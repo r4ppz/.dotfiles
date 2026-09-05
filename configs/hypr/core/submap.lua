@@ -3,6 +3,7 @@ local mouse = require("util.mouse")
 local eyetemp = require("util.eyetemp")
 local notify = require("util.notify")
 local zen = require("util.zen")
+local record = require("util.record")
 
 --- Starts or restarts a 2-second inactivity timer.
 local submap_timer = nil
@@ -171,10 +172,11 @@ hl.bind(var.mod .. " + U", function()
 end)
 
 hl.define_submap("Util", "reset", function()
-  hl.bind("SHIFT + S", hl.dsp.exec_cmd(var.scripts.screenshot .. " --full --copy"))
+  hl.bind("SHIFT + S", hl.dsp.exec_cmd(var.scripts.screenshot .. " --full"))
   hl.bind("S", hl.dsp.exec_cmd(var.scripts.screenshot .. " --region --copy"))
   hl.bind("T", hl.dsp.exec_cmd(var.scripts.screenshot .. " --region --tmp --copy"))
   hl.bind("O", hl.dsp.exec_cmd(var.scripts.ocr))
+  hl.bind("R", record.toggle)
   hl.bind("C", hl.dsp.exec_cmd(var.apps.colorpicker))
   hl.bind("E", eyetemp.toggle)
   bind_exits()

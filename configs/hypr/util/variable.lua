@@ -26,7 +26,6 @@ M.scripts = {
   screenshot = "$DOTFILES/scripts/bin/screenshot.sh",
   ocr = "$DOTFILES/scripts/bin/ocr.sh",
   mediactl = "$DOTFILES/scripts/bin/mediactl.sh",
-  record = "$DOTFILES/scripts/bin/toggle-obs.sh",
 }
 
 M.websites = {
