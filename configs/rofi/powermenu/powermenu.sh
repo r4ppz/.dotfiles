@@ -5,8 +5,7 @@ dir="$HOME/.config/rofi/powermenu"
 theme='main'
 
 # Get system info
-uptime="$(uptime -p | sed -e 's/up //g')"
-host="$(cat /proc/sys/kernel/hostname)"
+uptime="$(awk '{ s=int($1); h=int(s/3600); m=int((s%3600)/60); printf "%02d:%02d", h, m }' /proc/uptime)"
 
 # Icons (Nerd Fonts)
 shutdown='󰐥'
