@@ -7,5 +7,6 @@
     ./network-manager.nix
     ./battery-warn.nix
     ./packages.nix
+    ./helium.nix
   ];
 }
