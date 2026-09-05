@@ -1,6 +1,17 @@
 { pkgs, ... }:
 
 let
+  # Colloid Gruvbox Theme
+  colloidGruvbox = pkgs.colloid-gtk-theme.override {
+    colorVariants = [ "dark" ];
+    themeVariants = [ "default" ];
+    tweaks = [
+      "gruvbox"
+      "rimless"
+    ];
+  };
+
+  # Shared font rendering tweaks
   xftConfig = {
     gtk-xft-antialias = 1;
     gtk-xft-hinting = 1;
@@ -11,9 +22,7 @@ in
 {
   qt = {
     enable = true;
-
     platformTheme.name = "kvantum";
-
     style = {
       name = "kvantum";
       package = pkgs.kdePackages.qtstyleplugin-kvantum;
@@ -24,8 +33,8 @@ in
     enable = true;
 
     theme = {
-      name = "Gruvbox-Dark";
-      package = pkgs.gruvbox-gtk-theme;
+      name = "Colloid-Dark-Gruvbox";
+      package = colloidGruvbox;
     };
 
     iconTheme = {
@@ -35,12 +44,14 @@ in
 
     font = {
       name = "Inter";
+      package = pkgs.inter;
       size = 10;
     };
 
     cursorTheme = {
-      package = pkgs.hackneyed;
       name = "Hackneyed";
+      package = pkgs.hackneyed;
+      size = 24;
     };
 
     gtk2.extraConfig = ''
@@ -54,8 +65,19 @@ in
     gtk4.extraConfig = xftConfig;
   };
 
-  xdg.configFile."Kvantum/kvantum.kvconfig".text = ''
-    [General]
-    theme=Gruvbox-Dark-Brown
-  '';
+  xdg = {
+    configFile = {
+      "gtk-4.0/assets".source = "${colloidGruvbox}/share/themes/Colloid-Dark-Gruvbox/gtk-4.0/assets";
+
+      "gtk-4.0/gtk.css".source = "${colloidGruvbox}/share/themes/Colloid-Dark-Gruvbox/gtk-4.0/gtk.css";
+
+      "gtk-4.0/gtk-dark.css".source =
+        "${colloidGruvbox}/share/themes/Colloid-Dark-Gruvbox/gtk-4.0/gtk-dark.css";
+
+      "Kvantum/kvantum.kvconfig".text = ''
+        [General]
+        theme=Gruvbox-Dark-Brown
+      '';
+    };
+  };
 }
