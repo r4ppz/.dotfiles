@@ -7,7 +7,6 @@
     steghide
     zsteg
     sleuthkit
-    gzip
     hexdump
     xxd
     jq

@@ -20,7 +20,6 @@
     dua
     curl
     wget
-    unzip
     rsync
     glow
 
@@ -30,5 +29,10 @@
     difftastic
     lazygit
     lazydocker
+
+    p7zip
+    unzip
+    zip
+    unrar
   ];
 }
