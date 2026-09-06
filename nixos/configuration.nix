@@ -98,7 +98,11 @@ in
 
   systemd.services.NetworkManager-wait-online.enable = false;
 
-  security.rtkit.enable = true;
+  security = {
+    rtkit.enable = true;
+    pam.services.login.enableGnomeKeyring = true;
+  };
+
   nixpkgs.config.allowUnfree = true;
 
   zramSwap = {
@@ -200,6 +204,8 @@ in
   };
 
   services = {
+    gnome.gnome-keyring.enable = true;
+
     openssh = {
       enable = true;
       settings.PasswordAuthentication = true;
