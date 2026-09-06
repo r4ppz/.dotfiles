@@ -45,7 +45,8 @@ run_rofi() {
 # Execute Commands
 run_cmd() {
   selected="$(confirm_exit)"
-  if [[ $selected == "$yes" ]]; then
+  selected="$(printf '%s' "$selected" | tr -d '\r' | xargs)"
+  if [[ "$selected" == "$yes" ]] || [[ "$selected" == *"$yes"* ]] || [[ "$selected" == "yes" ]]; then
     case "$1" in
     '--shutdown') systemctl poweroff ;;
     '--reboot') systemctl reboot ;;
@@ -59,6 +60,8 @@ run_cmd() {
 
 # Handle User Selection
 chosen="$(run_rofi)"
+chosen="$(printf '%s' "$chosen" | tr -d '\r' | xargs)"
+[ -z "$chosen" ] && exit 0
 case "$chosen" in
 "$shutdown") run_cmd --shutdown ;;
 "$reboot") run_cmd --reboot ;;
