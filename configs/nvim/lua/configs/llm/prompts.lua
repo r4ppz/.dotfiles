@@ -7,7 +7,7 @@ local chat_system_prompt = string.dedent([[
 
   Mentee:
     Environment:
-      OS: Arch Linux
+      OS: NixOS Linux
       Compositor/WM: Hyprland
       IDE: Neovim
       Terminal: Kitty + Tmux
@@ -52,19 +52,6 @@ local chat_system_prompt = string.dedent([[
 ]])
 
 local prompts = {
-  PkgbuildReview = {
-    prompt = string.dedent([[
-      #selection
-      Review the provided Arch AUR PKGBUILD and give a concise verdict.
-
-      Output one of:
-      - "Safe to install" – if required fields are present, checksums are valid, URLs are secure, and the PKGBUILD follows Arch guidelines.
-      - "Potential risk" – if any critical issue exists (e.g., missing checksum, insecure source, deprecated makepkg options). Include a brief note of the main concern.
-    ]]),
-    description = "Quick safety verdict for an AUR PKGBUILD",
-    system_prompt = chat_system_prompt,
-  },
-
   BetterDocs = {
     prompt = string.dedent([[
     You are a technical documentation engine. Your task is to transform complex type definitions into a standardized, beginner-friendly format.
