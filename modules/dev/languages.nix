@@ -24,5 +24,7 @@
     tree-sitter
     gnumake
     delve
+    maven
+    lombok
   ];
 }

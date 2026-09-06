@@ -1,28 +1,47 @@
 local M = {}
 
+local function find_lombok_jar()
+  local candidates = {
+    vim.fn.expand("~/.nix-profile/share/java/lombok.jar"),
+    "/etc/profiles/per-user/" .. (os.getenv("USER") or "") .. "/share/java/lombok.jar",
+    "/run/current-system/sw/share/java/lombok.jar",
+  }
+
+  -- Check direct profile symlinks first
+  for _, path in ipairs(candidates) do
+    if vim.fn.filereadable(path) == 1 then
+      return path
+    end
+  end
+
+  -- Fallback: search nix store safely (returns a table)
+  local nix_store_jars = vim.fn.glob("/nix/store/*-lombok-*/share/java/lombok.jar", false, true)
+  if #nix_store_jars > 0 and vim.fn.filereadable(nix_store_jars[1]) == 1 then
+    return nix_store_jars[1]
+  end
+
+  return nil
+end
+
 function M.setup(capabilities)
-  local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
-  local workspace_dir = vim.fn.expand("~/.local/share/jdtls-workspace/" .. project_name)
-
-  local java_home = os.getenv("JAVA_HOME")
-
   if vim.fn.exepath("jdtls") == "" then
     vim.notify("jdtls not found in PATH. Is jdt-language-server installed?", vim.log.levels.ERROR)
     return
   end
 
-  -- Use nix-provided jdtls wrapper (handles -Dosgi.sharedConfiguration.area.readOnly=true etc.)
-  local lombok_jar = nil
-  local nix_paths = {
-    vim.fn.expand("~/.nix-profile/share/java/lombok.jar"),
-    vim.fn.glob("/nix/store/*/lombok-*/lombok.jar"),
-  }
-  for _, p in ipairs(nix_paths) do
-    if p ~= "" and vim.fn.filereadable(p) == 1 then
-      lombok_jar = p
-      break
-    end
+  local java_home = os.getenv("JAVA_HOME")
+  local lombok_jar = find_lombok_jar()
+
+  if not lombok_jar then
+    vim.notify("Lombok jar not found! JDTLS will start without Lombok agent.", vim.log.levels.WARN)
   end
+
+  -- Workspace directory based on current working directory hash to avoid name collisions
+  local cwd = vim.fn.getcwd()
+  local project_name = vim.fn.fnamemodify(cwd, ":p:h:t")
+  local hash = vim.fn.sha256(cwd):sub(1, 8)
+  local workspace_dir =
+    vim.fn.expand("~/.local/share/jdtls-workspace/" .. project_name .. "-" .. hash)
 
   local cmd = { "jdtls", "-data", workspace_dir }
   if lombok_jar then
@@ -30,6 +49,7 @@ function M.setup(capabilities)
   end
 
   vim.lsp.config("jdtls", {
+    filetypes = { "java" },
     capabilities = capabilities,
     root_markers = {
       "pom.xml",
@@ -47,7 +67,7 @@ function M.setup(capabilities)
       java = {
         home = java_home,
         autobuild = { enabled = true },
-        contentProvider = { preferred = { "fernflower" } },
+        contentProvider = { preferred = "fernflower" },
         completion = {
           favoriteStaticMembers = {
             "org.junit.jupiter.api.Assertions.*",
@@ -76,9 +96,13 @@ function M.setup(capabilities)
             userSettings = vim.fn.expand("~/.m2/settings.xml"),
             globalSettings = "/etc/maven/settings.xml",
           },
-          runtimes = {
-            { name = "JavaSE-21", path = java_home, default = true },
-          },
+          runtimes = java_home and {
+            {
+              name = "JavaSE-21",
+              path = java_home,
+              default = true,
+            },
+          } or nil,
         },
 
         format = {
@@ -91,8 +115,7 @@ function M.setup(capabilities)
         import = {
           gradle = {
             enabled = true,
-            offline = { enabled = true },
-            version = "8.5",
+            offline = { enabled = false },
             wrapper = { enabled = true },
           },
           maven = { enabled = true },
@@ -116,7 +139,7 @@ function M.setup(capabilities)
       },
     },
 
-    on_attach = function(client)
+    on_attach = function(client, _)
       client.server_capabilities.semanticTokensProvider = nil
       client.server_capabilities.documentFormattingProvider = false
       client.server_capabilities.documentRangeFormattingProvider = false
