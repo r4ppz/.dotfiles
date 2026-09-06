@@ -3,7 +3,6 @@ export PNPM_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/pnpm"
 export BUN_INSTALL="$HOME/.bun"
 export BUN_INSTALL_CACHE_DIR="$BUN_INSTALL/install/cache"
 export GOPATH="$HOME/.go"
-export NH_FLAKE="${DOTFILES:-$HOME/.dotfiles}"
 
 export MANPAGER="nvim +Man!"
 

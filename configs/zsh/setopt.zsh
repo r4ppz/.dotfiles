@@ -8,5 +8,4 @@ setopt HIST_IGNORE_ALL_DUPS # If a new command duplicates an older one, remove t
 
 # Shell Operations
 setopt INTERACTIVE_COMMENTS # Allow `#` to act as an execution comment interactively
-setopt EXTENDED_GLOB        # Enable powerful pattern matching features (`^`, `~`, `**/`)
 setopt NOTIFY               # Immediately broadcast status updates for background processes
