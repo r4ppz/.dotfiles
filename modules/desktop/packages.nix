@@ -2,6 +2,7 @@
 
 {
   home.packages = with pkgs; [
+    quickshell
     bitwarden-desktop
     brave-origin
     gsimplecal
