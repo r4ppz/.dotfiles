@@ -8,7 +8,7 @@ configuration {
 
 
 * {
-    font: "JetBrains Mono Nerd Font 12";
+    font: "JetBrainsMono Nerd Font 12";
     box-spacing:                 30px;
     box-margin:                  340px;
     message-margin:              0px 200px;
@@ -18,7 +18,7 @@ configuration {
     element-padding:             40px 8px;
     element-radius:              15px;
     general-radius:              80%;
-    element-font:                "feather 36";
+    element-font:                "JetBrainsMono Nerd Font 38";
 }
 
 /*****----- Main Window -----*****/
