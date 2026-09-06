@@ -15,6 +15,7 @@ return {
       typescriptreact = { "eslint_d" },
       make = { "checkmake" },
       nix = { "statix" },
+      zsh = { "zsh" },
     }
 
     local lint_augroup = vim.api.nvim_create_augroup("nvim-lint", { clear = true })
