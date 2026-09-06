@@ -74,6 +74,8 @@ M.websites = {
   nixossearch = "https://search.nixos.org/packages",
   hmoptsearch = "https://home-manager-options.extranix.com",
 
+  picoctf = "https://learn.cylabacademy.org/dashboard",
+
   -- dev stuff
   codeberg = "https://codeberg.org",
   github = "https://github.com/r4ppz",

@@ -118,6 +118,7 @@ hl.define_submap("Dev Tools", "reset", function()
   bind_site(var.apps.browser, "X", var.websites.learnxinyminutes)
   bind_site(var.apps.browser, "N", var.websites.nixossearch)
   bind_site(var.apps.browser, "M", var.websites.hmoptsearch)
+  bind_site(var.apps.browser, "T", var.websites.picoctf)
 
   bind_exits()
 end)
