@@ -43,6 +43,7 @@
     "active-only": false,
     "all-outputs": true,
     "warp-on-scroll": false,
+    "tooltip": false,
     "format": "{icon}",
     "format-icons": {
       "1": "",
@@ -58,10 +59,14 @@
       "special": ""
     },
     "persistent-workspaces": {
-      "HDMI-A-1": [1, 2, 3]
-    }
-    // "on-scroll-up": "hyprctl dispatch workspace e+1",
-    // "on-scroll-down": "hyprctl dispatch workspace e-1"
+      "HDMI-A-1": [
+        1,
+        2,
+        3
+      ]
+    },
+    "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({workspace=\"e+1\"})'",
+    "on-scroll-down": "hyprctl dispatch 'hl.dsp.focus({workspace=\"e-1\"})'"
   },
   // Hyprland window
   "hyprland/window": {
