@@ -6,8 +6,9 @@ path=(
   $GOPATH/bin
   $HOME/.cargo/bin
   $DOTFILES/scripts
-  $HOME/.local/share/gem/ruby/3.4.0/bin/
+  $HOME/.local/share/gem/ruby/3.4.0/bin
   $HOME/.npm-global/bin
+  $HOME/.dotfiles/scripts/bin
   $path[@]
 )
 export PATH
