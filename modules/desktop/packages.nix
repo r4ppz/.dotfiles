@@ -14,6 +14,7 @@
     wl-clipboard
     libnotify
     playerctl
+    brightnessctl
     impala
     bluetui
     imv
