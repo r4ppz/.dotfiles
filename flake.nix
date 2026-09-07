@@ -28,10 +28,11 @@
     }@inputs:
     let
       username = "r4ppz";
+      dotfilesPath = "/home/${username}/.dotfiles";
     in
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs username; };
+        specialArgs = { inherit inputs username dotfilesPath; };
         modules = [
           ./nixos/configuration.nix
 
@@ -43,7 +44,7 @@
               extraSpecialArgs = {
                 configDir = ./configs;
                 scriptDir = ./scripts;
-                inherit inputs username;
+                inherit inputs username dotfilesPath;
               };
               users.${username} = import ./home.nix;
             };

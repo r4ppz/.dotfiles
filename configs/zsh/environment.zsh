@@ -1,15 +1,11 @@
 # environment variables
+
 export PNPM_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/pnpm"
 export BUN_INSTALL="$HOME/.bun"
 export BUN_INSTALL_CACHE_DIR="$BUN_INSTALL/install/cache"
 export GOPATH="$HOME/.go"
 
-export MANPAGER="nvim +Man!"
-
-export EDITOR='nvim'
-export VISUAL='nvim'
-export SYSTEMD_EDITOR='nvim'
-
+# History
 export KEYTIMEOUT=1
 export HISTFILE=~/.zsh_history
 export HISTSIZE=100000

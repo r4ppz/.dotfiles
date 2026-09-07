@@ -1,6 +1,6 @@
 {
   imports = [
-    ./paths.nix
+    ./env.nix
     ./links.nix
     ./mime.nix
   ];

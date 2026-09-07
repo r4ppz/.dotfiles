@@ -2,12 +2,9 @@
   config,
   pkgs,
   username,
+  dotfilesPath,
   ...
 }:
-
-let
-  dotfilesPath = "/home/${username}/.dotfiles";
-in
 
 {
   imports = [
@@ -145,7 +142,7 @@ in
   environment.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
-    BROWSER = "brave-origin";
+    SYSTEMD_EDITOR = "nvim";
     NIXOS_OZONE_WL = "1";
     FREETYPE_PROPERTIES = "cff:no-stem-darkening=0 autofitter:no-stem-darkening=0 autofitter:warping=1";
   };
