@@ -49,6 +49,9 @@ in
   };
 
   wayland.windowManager.hyprland = {
+    enable = false;
+    systemd.enable = false;
+
     xdph.settings = {
       screencopy = {
         max_fps = 60;
