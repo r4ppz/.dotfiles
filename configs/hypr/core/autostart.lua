@@ -1,6 +1,7 @@
 hl.on("hyprland.start", function()
-  hl.exec_cmd("systemctl --user import-environment")
-  hl.exec_cmd("dbus-update-activation-environment --systemd --all")
+  if os.getenv("UWSM_WAIT_VARNAMES") == nil then
+    hl.exec_cmd("dbus-update-activation-environment --systemd --all")
+  end
   hl.exec_cmd("systemctl --user start hyprland.target")
 end)
 
