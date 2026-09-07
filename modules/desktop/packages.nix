@@ -6,6 +6,7 @@
     bitwarden-desktop
     brave-origin
     gsimplecal
+    onlyoffice-desktopeditors
 
     obs-cmd
     trash-cli
