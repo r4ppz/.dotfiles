@@ -202,6 +202,7 @@
   };
 
   services = {
+    dbus.implementation = "broker";
     gnome.gnome-keyring.enable = true;
 
     openssh = {

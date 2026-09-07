@@ -48,11 +48,13 @@ in
     Install.WantedBy = [ "hyprland.target" ];
   };
 
-  wayland.windowManager.hyprland.xdph.settings = {
-    screencopy = {
-      max_fps = 60;
-      cursor_mode = 2;
-      allow_token_by_default = true;
+  wayland.windowManager.hyprland = {
+    xdph.settings = {
+      screencopy = {
+        max_fps = 60;
+        cursor_mode = 2;
+        allow_token_by_default = true;
+      };
     };
   };
 }
