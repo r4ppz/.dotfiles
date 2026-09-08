@@ -5,6 +5,7 @@ require("io.monitor")
 require("io.input")
 
 require("core.keybind")
+require("core.workspace")
 require("core.submap")
 require("core.permission")
 

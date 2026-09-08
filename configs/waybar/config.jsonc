@@ -1,7 +1,10 @@
 // r4ppz
 {
   // General Waybar configuration
-  "output": "HDMI-A-1", // external monitor
+  "output": [
+    "HDMI-A-1",
+    "eDP-1"
+  ],
   "position": "top",
   "layer": "top",
   "height": 23,
@@ -41,7 +44,7 @@
     "special-visible-only": false,
     "show-special": true,
     "active-only": false,
-    "all-outputs": true,
+    "all-outputs": false,
     "warp-on-scroll": false,
     "tooltip": false,
     "format": "{icon}",

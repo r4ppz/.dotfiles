@@ -100,9 +100,6 @@ end)
 -- Power menu
 hl.bind("XF86PowerOff", hl.dsp.exec_cmd(var.scripts.powermenu))
 
--- Go to previous workspace
-hl.bind(var.mod .. " + TAB", hl.dsp.focus({ workspace = "previous" }))
-
 -- Move focus with arrow keys
 hl.bind(var.mod .. " + LEFT", hl.dsp.focus({ direction = "l" }))
 hl.bind(var.mod .. " + RIGHT", hl.dsp.focus({ direction = "r" }))
@@ -133,21 +130,6 @@ hl.config({
 hl.bind(var.mod .. " + mouse:272", hl.dsp.window.drag())
 hl.bind(var.mod .. " + mouse:273", hl.dsp.window.resize())
 
--- Scroll through workspaces with mouse wheel
-hl.bind(var.mod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
-hl.bind(var.mod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
-
--- Page up/down for workspace navigation
-hl.bind("Page_Up", hl.dsp.focus({ workspace = "e-1" }))
-hl.bind("Page_Down", hl.dsp.focus({ workspace = "e+1" }))
-
--- Switch workspaces with vars.mainMod + [0-9]
-for i = 1, 10 do
-  local key = i % 10
-  hl.bind(var.mod .. " + " .. key, hl.dsp.focus({ workspace = i }))
-  hl.bind(var.mod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
-end
-
 -- Media keys
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(var.scripts.mediactl .. " volume-up"), { repeating = true })
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(var.scripts.mediactl .. " volume-down"), { repeating = true })
@@ -171,33 +153,3 @@ hl.bind(var.mod .. "+ CTRL + 6", hl.dsp.exec_cmd(var.scripts.mediactl .. " brigh
 hl.bind(var.mod .. "+ CTRL + 7", hl.dsp.exec_cmd("playerctl previous"))
 hl.bind(var.mod .. "+ CTRL + 8", hl.dsp.exec_cmd("playerctl next"))
 hl.bind(var.mod .. "+ CTRL + 9", hl.dsp.exec_cmd("playerctl play-pause"))
-
--- Special workspace (scratchpad)
-hl.workspace_rule({
-  workspace = "special:window2",
-  gaps_in = 3,
-  gaps_out = { top = 180, right = 350, bottom = 180, left = 350 },
-})
-
-hl.bind(var.mod .. " + BACKSLASH", hl.dsp.workspace.toggle_special("window2"))
-hl.bind(var.mod .. " + SHIFT + BACKSLASH", hl.dsp.window.move({ workspace = "special:window2" }))
-
-hl.workspace_rule({
-  workspace = "special:window1",
-  gaps_in = 3,
-  gaps_out = { top = 180, right = 350, bottom = 180, left = 350 },
-})
-
-hl.bind(var.mod .. " + W", hl.dsp.workspace.toggle_special("window1"))
-hl.bind(var.mod .. " + SHIFT + W", hl.dsp.window.move({ workspace = "special:window1" }))
-
--- Minimize workspace
-hl.workspace_rule({
-  workspace = "special:minimize",
-  gaps_in = 2,
-  gaps_out = { top = 5, right = 5, bottom = 5, left = 5 },
-  border_size = 0,
-})
-
-hl.bind(var.mod .. " + grave", hl.dsp.workspace.toggle_special("minimize"))
-hl.bind(var.mod .. " + X", hl.dsp.window.move({ workspace = "special:minimize" }))
