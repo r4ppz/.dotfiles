@@ -1,11 +1,11 @@
-local var = require("util.variable")
-local displays = require("io.displays")
+local var = require("util.constants")
+local monitors = require("io.monitors")
 
 -- Go to previous workspace
 hl.bind(var.mod .. " + TAB", hl.dsp.focus({ workspace = "previous" }))
 
-hl.bind(var.mod .. " + COMMA", hl.dsp.focus({ monitor = displays.external }))
-hl.bind(var.mod .. " + PERIOD", hl.dsp.focus({ monitor = displays.internal }))
+hl.bind(var.mod .. " + COMMA", hl.dsp.focus({ monitor = monitors.external }))
+hl.bind(var.mod .. " + PERIOD", hl.dsp.focus({ monitor = monitors.internal }))
 
 -- Page up/down for workspace navigation
 hl.bind("Page_Up", hl.dsp.focus({ workspace = "e-1" }))
@@ -27,7 +27,7 @@ end
 -- -----------------------------------------------------------
 
 hl.workspace_rule({
-  monitor = displays.external,
+  monitor = monitors.external,
   workspace = "special:window2",
   gaps_in = 3,
   gaps_out = { top = 180, right = 350, bottom = 180, left = 350 },
@@ -37,7 +37,7 @@ hl.bind(var.mod .. " + BACKSLASH", hl.dsp.workspace.toggle_special("window2"))
 hl.bind(var.mod .. " + SHIFT + BACKSLASH", hl.dsp.window.move({ workspace = "special:window2" }))
 
 hl.workspace_rule({
-  monitor = displays.external,
+  monitor = monitors.external,
   workspace = "special:window1",
   gaps_in = 3,
   gaps_out = { top = 180, right = 350, bottom = 180, left = 350 },
@@ -48,7 +48,7 @@ hl.bind(var.mod .. " + SHIFT + W", hl.dsp.window.move({ workspace = "special:win
 
 -- Minimize workspace
 hl.workspace_rule({
-  monitor = displays.external,
+  monitor = monitors.external,
   workspace = "special:minimize",
   gaps_in = 2,
   gaps_out = { top = 5, right = 5, bottom = 5, left = 5 },

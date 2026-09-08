@@ -28,6 +28,11 @@ hl.config({
     inactive_timeout = 20,
     no_hardware_cursors = true,
   },
+
+  binds = {
+    drag_threshold = 5,
+    scroll_event_delay = 0,
+  },
 })
 
 hl.gesture({

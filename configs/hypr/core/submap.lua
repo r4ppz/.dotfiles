@@ -1,4 +1,4 @@
-local var = require("util.variable")
+local var = require("util.constants")
 local mouse = require("util.mouse")
 local eyetemp = require("util.eyetemp")
 local notify = require("util.notify")

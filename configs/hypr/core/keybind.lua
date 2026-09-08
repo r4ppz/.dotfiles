@@ -1,7 +1,7 @@
-local var = require("util.variable")
+local var = require("util.constants")
 local zen = require("util.zen")
 local zoom = require("util.zoom")
-local layout = require("appearance.layout")
+local layout = require("appearance.tiling")
 
 -- Application launching
 hl.bind(var.mod .. " + SHIFT + RETURN", hl.dsp.exec_cmd(var.apps.browser))
@@ -117,14 +117,6 @@ hl.bind(var.mod .. " + CTRL + LEFT", hl.dsp.window.move({ direction = "l" }), { 
 hl.bind(var.mod .. " + CTRL + RIGHT", hl.dsp.window.move({ direction = "r" }), { repeating = true })
 hl.bind(var.mod .. " + CTRL + UP", hl.dsp.window.move({ direction = "u" }), { repeating = true })
 hl.bind(var.mod .. " + CTRL + DOWN", hl.dsp.window.move({ direction = "d" }), { repeating = true })
-
--- Mouse
-hl.config({
-  binds = {
-    drag_threshold = 5,
-    scroll_event_delay = 0, -- snappy zooming
-  },
-})
 
 -- Mouse window movement and resizing
 hl.bind(var.mod .. " + mouse:272", hl.dsp.window.drag())

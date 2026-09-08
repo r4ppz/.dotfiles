@@ -1,29 +1,37 @@
-local displays = require("io.displays")
+local M = {}
+
+M.internal = "eDP-1"
+M.external = "HDMI-A-1"
+
+M.specs = {
+  [M.external] = { mode = "1920x1080@100", scale = 1 },
+  [M.internal] = { mode = "1366x768@60", scale = 1 },
+}
 
 local function isExternalConnected()
-  return hl.get_monitor(displays.external) ~= nil
+  return hl.get_monitor(M.external) ~= nil
 end
 
 local function applyMonitors(connected)
   if connected then
     hl.monitor({
-      output = displays.external,
-      mode = displays.specs[displays.external].mode,
+      output = M.external,
+      mode = M.specs[M.external].mode,
       position = "0x0",
-      scale = displays.specs[displays.external].scale,
+      scale = M.specs[M.external].scale,
     })
     hl.monitor({
-      output = displays.internal,
-      mode = displays.specs[displays.internal].mode,
+      output = M.internal,
+      mode = M.specs[M.internal].mode,
       position = "1920x0",
-      scale = displays.specs[displays.internal].scale,
+      scale = M.specs[M.internal].scale,
     })
   else
     hl.monitor({
-      output = displays.internal,
-      mode = displays.specs[displays.internal].mode,
+      output = M.internal,
+      mode = M.specs[M.internal].mode,
       position = "0x0",
-      scale = displays.specs[displays.internal].scale,
+      scale = M.specs[M.internal].scale,
     })
     hl.monitor({
       output = "",
@@ -39,20 +47,20 @@ local function applyWorkspaces(connected)
     for i = 1, 9 do
       hl.workspace_rule({
         workspace = tostring(i),
-        monitor = displays.external,
+        monitor = M.external,
         default = (i == 1),
       })
     end
     hl.workspace_rule({
       workspace = "10",
-      monitor = displays.internal,
+      monitor = M.internal,
       default = true,
     })
   else
     for i = 1, 10 do
       hl.workspace_rule({
         workspace = tostring(i),
-        monitor = displays.internal,
+        monitor = M.internal,
         default = (i == 1),
       })
     end
@@ -69,12 +77,14 @@ syncLayout()
 
 hl.on("hyprland.start", syncLayout)
 hl.on("monitor.added", function(m)
-  if m.name == displays.external then
+  if m.name == M.external then
     syncLayout()
   end
 end)
 hl.on("monitor.removed", function(m)
-  if m.name == displays.external then
+  if m.name == M.external then
     syncLayout()
   end
 end)
+
+return M

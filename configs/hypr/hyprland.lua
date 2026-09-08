@@ -1,7 +1,7 @@
 require("core.environment")
 require("core.autostart")
 
-require("io.layout")
+require("io.monitors")
 require("io.input")
 
 require("core.keybind")
@@ -10,6 +10,6 @@ require("core.submap")
 require("core.permission")
 
 require("appearance.general")
-require("appearance.layout")
+require("appearance.tiling")
 require("appearance.windowrule")
 require("appearance.animation")
