@@ -1,7 +1,7 @@
 require("core.environment")
 require("core.autostart")
 
-require("io.monitor")
+require("io.layout")
 require("io.input")
 
 require("core.keybind")
