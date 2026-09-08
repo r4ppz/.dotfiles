@@ -18,6 +18,7 @@
     gcc
     rustup
     zig
+    luajit
 
     # smh
     pnpm
