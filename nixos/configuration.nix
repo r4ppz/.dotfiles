@@ -98,6 +98,19 @@
   security = {
     rtkit.enable = true;
     pam.services.login.enableGnomeKeyring = true;
+    polkit = {
+      enable = true;
+      extraConfig = ''
+        polkit.addRule(function(action, subject) {
+          if (
+            subject.isInGroup("wheel") &&
+            action.id.indexOf("org.freedesktop.login1.") === 0
+          ) {
+            return polkit.Result.YES;
+          }
+        });
+      '';
+    };
   };
 
   nixpkgs.config.allowUnfree = true;

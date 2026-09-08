@@ -22,6 +22,7 @@ in
   };
 
   home.packages = with pkgs; [
+    hyprpolkitagent
     hypridle
     hyprlock
     hyprpaper
