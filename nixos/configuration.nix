@@ -207,8 +207,10 @@
 
     openssh = {
       enable = true;
-      settings.PasswordAuthentication = true;
-      settings.PermitRootLogin = "no";
+      settings = {
+        PasswordAuthentication = true;
+        PermitRootLogin = "no";
+      };
     };
 
     tumbler.enable = true;
