@@ -147,6 +147,7 @@
       "docker"
       "libvirtd"
       "kvm"
+      "video"
     ];
     shell = pkgs.zsh;
     packages = [ ];
@@ -291,6 +292,10 @@
         };
       };
     };
+    udev.extraRules = ''
+      SUBSYSTEM=="backlight", ACTION=="add", RUN+="${pkgs.coreutils}/bin/chmod g+w /sys/class/backlight/%k/brightness"
+      SUBSYSTEM=="backlight", ACTION=="add", RUN+="${pkgs.coreutils}/bin/chgrp video /sys/class/backlight/%k/brightness"
+    '';
   };
 
   virtualisation = {
