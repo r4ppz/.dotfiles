@@ -1,8 +1,12 @@
 {
   "workspace": {
-    "library": ["/usr/share/hypr/stubs"]
+    "library": [
+      "/usr/share/hypr/stubs"
+    ]
   },
   "diagnostics": {
-    "globals": ["hl"]
+    "globals": [
+      "hl"
+    ]
   }
 }
