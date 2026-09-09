@@ -46,7 +46,7 @@
                 scriptDir = ./scripts;
                 inherit inputs username dotfilesPath;
               };
-              users.${username} = import ./home.nix;
+              users.${username} = ./home.nix;
             };
           }
         ];
