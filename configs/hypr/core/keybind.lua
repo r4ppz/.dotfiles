@@ -1,37 +1,45 @@
-local var = require("util.constants")
+local const = require("util.constants")
 local zen = require("util.zen")
 local zoom = require("util.zoom")
 local layout = require("appearance.tiling")
 
 -- Application launching
-hl.bind(var.mod .. " + SHIFT + RETURN", hl.dsp.exec_cmd(var.apps.browser))
-hl.bind(var.mod .. " + RETURN", hl.dsp.exec_cmd(var.apps.terminal))
-hl.bind(var.mod .. " + T", hl.dsp.exec_cmd(var.apps.terminal))
-hl.bind(var.mod .. " + L", hl.dsp.exec_cmd(var.apps.lockscreen))
-hl.bind(var.mod .. " + N", hl.dsp.exec_cmd(var.apps.notifpanel))
-hl.bind(var.mod .. " + SLASH", hl.dsp.exec_cmd(var.scripts.websearch))
-hl.bind(var.mod .. " + V", hl.dsp.exec_cmd(var.apps.ide))
-hl.bind(var.mod .. " + E", hl.dsp.exec_cmd(var.apps.filemanager_gui))
-hl.bind(var.mod .. " + P", hl.dsp.exec_cmd(var.apps.passmanager))
+hl.bind(const.mod .. " + SHIFT + RETURN", hl.dsp.exec_cmd(const.apps.browser))
+hl.bind(const.mod .. " + RETURN", hl.dsp.exec_cmd(const.apps.terminal))
+hl.bind(const.mod .. " + T", hl.dsp.exec_cmd(const.apps.terminal))
+hl.bind(const.mod .. " + L", hl.dsp.exec_cmd(const.apps.lockscreen))
+hl.bind(const.mod .. " + N", hl.dsp.exec_cmd(const.apps.notifpanel))
+hl.bind(const.mod .. " + SLASH", hl.dsp.exec_cmd(const.scripts.websearch))
+hl.bind(const.mod .. " + V", hl.dsp.exec_cmd(const.apps.ide))
+hl.bind(const.mod .. " + E", hl.dsp.exec_cmd(const.apps.filemanager_gui))
+hl.bind(const.mod .. " + P", hl.dsp.exec_cmd(const.apps.passmanager))
 
 -- TUIs
-hl.bind(var.mod .. " + SHIFT + B", hl.dsp.exec_cmd(var.apps.terminal .. " -e --class bluetooth " .. var.apps.bluetooth))
-hl.bind(var.mod .. " + SHIFT + N", hl.dsp.exec_cmd(var.apps.terminal .. " -e --class network " .. var.apps.network))
 hl.bind(
-  var.mod .. " + SHIFT + E",
-  hl.dsp.exec_cmd(var.apps.terminal .. " -e --class filemanager_tui " .. var.apps.filemanager_tui)
+  const.mod .. " + SHIFT + B",
+  hl.dsp.exec_cmd(const.apps.terminal .. " -e --class bluetooth " .. const.apps.bluetooth)
 )
 hl.bind(
-  var.mod .. " + SHIFT + T",
-  hl.dsp.exec_cmd(var.apps.terminal .. " -e --class taskmanager " .. var.apps.taskmanager)
+  const.mod .. " + SHIFT + N",
+  hl.dsp.exec_cmd(const.apps.terminal .. " -e --class network " .. const.apps.network)
 )
 hl.bind(
-  var.mod .. " + SHIFT + M",
-  hl.dsp.exec_cmd(var.apps.terminal .. " -d ~/Music/Better/OLD --class musicplayer " .. var.apps.musicplayer .. " .")
+  const.mod .. " + SHIFT + E",
+  hl.dsp.exec_cmd(const.apps.terminal .. " -e --class filemanager_tui " .. const.apps.filemanager_tui)
+)
+hl.bind(
+  const.mod .. " + SHIFT + T",
+  hl.dsp.exec_cmd(const.apps.terminal .. " -e --class taskmanager " .. const.apps.taskmanager)
+)
+hl.bind(
+  const.mod .. " + SHIFT + M",
+  hl.dsp.exec_cmd(
+    const.apps.terminal .. " -d ~/Music/Better/OLD --class musicplayer " .. const.apps.musicplayer .. " ."
+  )
 )
 
 hl.bind(
-  var.mod .. " + B",
+  const.mod .. " + B",
   hl.dsp.exec_cmd([[
   if systemctl --user is-active --quiet waybar.service; then
       systemctl --user disable --now waybar.service
@@ -42,11 +50,11 @@ hl.bind(
 )
 
 -- Window management
-hl.bind(var.mod .. " + SHIFT + K", hl.dsp.window.kill())
-hl.bind(var.mod .. " + SHIFT + Q", hl.dsp.window.close())
-hl.bind(var.mod .. " + SHIFT + SPACE", hl.dsp.window.float({ action = "toggle" }))
+hl.bind(const.mod .. " + SHIFT + K", hl.dsp.window.kill())
+hl.bind(const.mod .. " + SHIFT + Q", hl.dsp.window.close())
+hl.bind(const.mod .. " + SHIFT + SPACE", hl.dsp.window.float({ action = "toggle" }))
 
-hl.bind(var.mod .. " + SHIFT + P", function()
+hl.bind(const.mod .. " + SHIFT + P", function()
   hl.dispatch(hl.dsp.window.float({ action = "toggle" }))
   hl.dispatch(hl.dsp.window.pin())
 end)
@@ -68,12 +76,12 @@ hl.bind("CTRL + SHIFT + TAB", function()
 end)
 
 -- Center floating window
-hl.bind(var.mod .. " + C", hl.dsp.window.center())
+hl.bind(const.mod .. " + C", hl.dsp.window.center())
 
 -- Fullscreen
-hl.bind(var.mod .. " + F", hl.dsp.window.fullscreen({ action = "toggle" }))
+hl.bind(const.mod .. " + F", hl.dsp.window.fullscreen({ action = "toggle" }))
 hl.bind(
-  var.mod .. " + SHIFT + F",
+  const.mod .. " + SHIFT + F",
   hl.dsp.window.fullscreen_state({
     internal = 0,
     client = 2,
@@ -82,7 +90,7 @@ hl.bind(
 )
 
 -- Toggle zen mode
-hl.bind(var.mod .. "+ SHIFT + Z", function()
+hl.bind(const.mod .. "+ SHIFT + Z", function()
   zen.toggle()
 end)
 
@@ -98,37 +106,37 @@ hl.bind("SUPER + ALT + mouse:272", function()
 end)
 
 -- Power menu
-hl.bind("XF86PowerOff", hl.dsp.exec_cmd(var.scripts.powermenu))
+hl.bind("XF86PowerOff", hl.dsp.exec_cmd(const.scripts.powermenu))
 
 -- Move focus with arrow keys
-hl.bind(var.mod .. " + LEFT", hl.dsp.focus({ direction = "l" }))
-hl.bind(var.mod .. " + RIGHT", hl.dsp.focus({ direction = "r" }))
-hl.bind(var.mod .. " + UP", hl.dsp.focus({ direction = "u" }))
-hl.bind(var.mod .. " + DOWN", hl.dsp.focus({ direction = "d" }))
+hl.bind(const.mod .. " + LEFT", hl.dsp.focus({ direction = "l" }))
+hl.bind(const.mod .. " + RIGHT", hl.dsp.focus({ direction = "r" }))
+hl.bind(const.mod .. " + UP", hl.dsp.focus({ direction = "u" }))
+hl.bind(const.mod .. " + DOWN", hl.dsp.focus({ direction = "d" }))
 
 -- Move windows with arrow keys
-hl.bind(var.mod .. " + SHIFT + LEFT", hl.dsp.window.move({ direction = "l" }))
-hl.bind(var.mod .. " + SHIFT + RIGHT", hl.dsp.window.move({ direction = "r" }))
-hl.bind(var.mod .. " + SHIFT + UP", hl.dsp.window.move({ direction = "u" }))
-hl.bind(var.mod .. " + SHIFT + DOWN", hl.dsp.window.move({ direction = "d" }))
+hl.bind(const.mod .. " + SHIFT + LEFT", hl.dsp.window.move({ direction = "l" }))
+hl.bind(const.mod .. " + SHIFT + RIGHT", hl.dsp.window.move({ direction = "r" }))
+hl.bind(const.mod .. " + SHIFT + UP", hl.dsp.window.move({ direction = "u" }))
+hl.bind(const.mod .. " + SHIFT + DOWN", hl.dsp.window.move({ direction = "d" }))
 
 -- Move floating windows
-hl.bind(var.mod .. " + CTRL + LEFT", hl.dsp.window.move({ direction = "l" }), { repeating = true })
-hl.bind(var.mod .. " + CTRL + RIGHT", hl.dsp.window.move({ direction = "r" }), { repeating = true })
-hl.bind(var.mod .. " + CTRL + UP", hl.dsp.window.move({ direction = "u" }), { repeating = true })
-hl.bind(var.mod .. " + CTRL + DOWN", hl.dsp.window.move({ direction = "d" }), { repeating = true })
+hl.bind(const.mod .. " + CTRL + LEFT", hl.dsp.window.move({ direction = "l" }), { repeating = true })
+hl.bind(const.mod .. " + CTRL + RIGHT", hl.dsp.window.move({ direction = "r" }), { repeating = true })
+hl.bind(const.mod .. " + CTRL + UP", hl.dsp.window.move({ direction = "u" }), { repeating = true })
+hl.bind(const.mod .. " + CTRL + DOWN", hl.dsp.window.move({ direction = "d" }), { repeating = true })
 
 -- Mouse window movement and resizing
-hl.bind(var.mod .. " + mouse:272", hl.dsp.window.drag())
-hl.bind(var.mod .. " + mouse:273", hl.dsp.window.resize())
+hl.bind(const.mod .. " + mouse:272", hl.dsp.window.drag())
+hl.bind(const.mod .. " + mouse:273", hl.dsp.window.resize())
 
 -- Media keys
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(var.scripts.mediactl .. " volume-up"), { repeating = true })
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(var.scripts.mediactl .. " volume-down"), { repeating = true })
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(var.scripts.mediactl .. " brightness-up"), { repeating = true })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(var.scripts.mediactl .. " brightness-down"), { repeating = true })
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd(var.scripts.mediactl .. " mute"))
-hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd(var.scripts.mediactl .. " mic-mute"))
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(const.scripts.mediactl .. " volume-up"), { repeating = true })
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(const.scripts.mediactl .. " volume-down"), { repeating = true })
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(const.scripts.mediactl .. " brightness-up"), { repeating = true })
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(const.scripts.mediactl .. " brightness-down"), { repeating = true })
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd(const.scripts.mediactl .. " mute"))
+hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd(const.scripts.mediactl .. " mic-mute"))
 
 hl.bind("XF86AudioStop", hl.dsp.exec_cmd("playerctl stop"))
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"))
@@ -136,12 +144,12 @@ hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"))
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"))
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"))
 
-hl.bind(var.mod .. "+ CTRL + 1", hl.dsp.exec_cmd(var.scripts.mediactl .. " mute"))
-hl.bind(var.mod .. "+ CTRL + 2", hl.dsp.exec_cmd(var.scripts.mediactl .. " mic-mute"))
-hl.bind(var.mod .. "+ CTRL + 3", hl.dsp.exec_cmd(var.scripts.mediactl .. " volume-down"), { repeating = true })
-hl.bind(var.mod .. "+ CTRL + 4", hl.dsp.exec_cmd(var.scripts.mediactl .. " volume-up"), { repeating = true })
-hl.bind(var.mod .. "+ CTRL + 5", hl.dsp.exec_cmd(var.scripts.mediactl .. " brightness-down"), { repeating = true })
-hl.bind(var.mod .. "+ CTRL + 6", hl.dsp.exec_cmd(var.scripts.mediactl .. " brightness-up"), { repeating = true })
-hl.bind(var.mod .. "+ CTRL + 7", hl.dsp.exec_cmd("playerctl previous"))
-hl.bind(var.mod .. "+ CTRL + 8", hl.dsp.exec_cmd("playerctl next"))
-hl.bind(var.mod .. "+ CTRL + 9", hl.dsp.exec_cmd("playerctl play-pause"))
+hl.bind(const.mod .. "+ CTRL + 1", hl.dsp.exec_cmd(const.scripts.mediactl .. " mute"))
+hl.bind(const.mod .. "+ CTRL + 2", hl.dsp.exec_cmd(const.scripts.mediactl .. " mic-mute"))
+hl.bind(const.mod .. "+ CTRL + 3", hl.dsp.exec_cmd(const.scripts.mediactl .. " volume-down"), { repeating = true })
+hl.bind(const.mod .. "+ CTRL + 4", hl.dsp.exec_cmd(const.scripts.mediactl .. " volume-up"), { repeating = true })
+hl.bind(const.mod .. "+ CTRL + 5", hl.dsp.exec_cmd(const.scripts.mediactl .. " brightness-down"), { repeating = true })
+hl.bind(const.mod .. "+ CTRL + 6", hl.dsp.exec_cmd(const.scripts.mediactl .. " brightness-up"), { repeating = true })
+hl.bind(const.mod .. "+ CTRL + 7", hl.dsp.exec_cmd("playerctl previous"))
+hl.bind(const.mod .. "+ CTRL + 8", hl.dsp.exec_cmd("playerctl next"))
+hl.bind(const.mod .. "+ CTRL + 9", hl.dsp.exec_cmd("playerctl play-pause"))
