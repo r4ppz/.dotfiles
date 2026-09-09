@@ -8,11 +8,11 @@ hl.bind(const.mod .. " + PERIOD", hl.dsp.focus({ monitor = monitors.internal }))
 -- Go to previous workspace
 hl.bind(const.mod .. " + TAB", hl.dsp.focus({ workspace = "previous" }))
 
--- Page up/down for workspace navigation
+-- Workspace navigation
 hl.bind("Page_Up", hl.dsp.focus({ workspace = "e-1" }))
 hl.bind("Page_Down", hl.dsp.focus({ workspace = "e+1" }))
-
--- Scroll through workspaces with mouse wheel
+hl.bind(const.mod .. "+ bracketleft", hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(const.mod .. "+ bracketright", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(const.mod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
 hl.bind(const.mod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 
