@@ -166,6 +166,7 @@
     ffmpegthumbnailer
     neovim
     git
+    keyd
   ];
 
   programs = {
@@ -272,26 +273,33 @@
     keyd = {
       enable = true;
       keyboards = {
-        default = {
-          ids = [ "*" ];
+        external = {
+          ids = [ "258a:002a" ];
           settings = {
             main = {
               capslock = "esc";
               esc = "grave";
               grave = "home";
-              # delete = "power";
               home = "power";
               rightalt = "leftmeta";
+            };
+          };
+        };
+        laptop = {
+          ids = [ "0001:0001" ];
+          settings = {
+            main = {
+              capslock = "esc";
               kp8 = "up";
               kp5 = "down";
               kp4 = "left";
               kp6 = "right";
-              # space = "overload(meta, space)";
             };
           };
         };
       };
     };
+
     udev.extraRules = ''
       SUBSYSTEM=="backlight", ACTION=="add", RUN+="${pkgs.coreutils}/bin/chmod g+w /sys/class/backlight/%k/brightness"
       SUBSYSTEM=="backlight", ACTION=="add", RUN+="${pkgs.coreutils}/bin/chgrp video /sys/class/backlight/%k/brightness"
