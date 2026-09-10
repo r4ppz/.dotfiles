@@ -1,9 +1,9 @@
-local const = require("util.constants")
-local monitors = require("io.monitors")
+local const = require("util.constant")
+local monitor = require("io.monitor")
 
 -- Switch focus between monitors
-hl.bind(const.mod .. " + COMMA", hl.dsp.focus({ monitor = monitors.external }))
-hl.bind(const.mod .. " + PERIOD", hl.dsp.focus({ monitor = monitors.internal }))
+hl.bind(const.mod .. " + COMMA", hl.dsp.focus({ monitor = monitor.external }))
+hl.bind(const.mod .. " + PERIOD", hl.dsp.focus({ monitor = monitor.internal }))
 
 -- Go to previous workspace
 hl.bind(const.mod .. " + TAB", hl.dsp.focus({ workspace = "previous" }))
@@ -28,10 +28,10 @@ end
 -- -----------------------------------------------------------
 
 hl.workspace_rule({
-  monitor = monitors.isExternalConnected() and monitors.external or monitors.internal,
+  monitor = monitor.isExternalConnected() and monitor.external or monitor.internal,
   workspace = "special:window2",
   gaps_in = 3,
-  gaps_out = (monitors.isExternalConnected() and {
+  gaps_out = (monitor.isExternalConnected() and {
     top = 180,
     right = 350,
     bottom = 180,
@@ -48,10 +48,10 @@ hl.bind(const.mod .. " + BACKSLASH", hl.dsp.workspace.toggle_special("window2"))
 hl.bind(const.mod .. " + SHIFT + BACKSLASH", hl.dsp.window.move({ workspace = "special:window2" }))
 
 hl.workspace_rule({
-  monitor = monitors.isExternalConnected() and monitors.external or monitors.internal,
+  monitor = monitor.isExternalConnected() and monitor.external or monitor.internal,
   workspace = "special:window1",
   gaps_in = 3,
-  gaps_out = (monitors.isExternalConnected() and {
+  gaps_out = (monitor.isExternalConnected() and {
     top = 180,
     right = 350,
     bottom = 180,
@@ -69,10 +69,10 @@ hl.bind(const.mod .. " + SHIFT + W", hl.dsp.window.move({ workspace = "special:w
 
 -- Minimize workspace
 hl.workspace_rule({
-  monitor = monitors.isExternalConnected() and monitors.external or monitors.internal,
+  monitor = monitor.isExternalConnected() and monitor.external or monitor.internal,
   workspace = "special:minimize",
   gaps_in = 2,
-  gaps_out = (monitors.isExternalConnected() and {
+  gaps_out = (monitor.isExternalConnected() and {
     top = 5,
     right = 5,
     bottom = 5,

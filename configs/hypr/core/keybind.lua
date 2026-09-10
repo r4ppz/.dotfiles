@@ -1,4 +1,4 @@
-local const = require("util.constants")
+local const = require("util.constant")
 local zen = require("util.zen")
 local zoom = require("util.zoom")
 local layout = require("appearance.tiling")
