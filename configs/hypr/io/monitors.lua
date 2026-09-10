@@ -8,7 +8,7 @@ M.specs = {
   [M.internal] = { mode = "1366x768@60", scale = 1 },
 }
 
-local function isExternalConnected()
+M.isExternalConnected = function()
   return hl.get_monitor(M.external) ~= nil
 end
 
@@ -68,7 +68,7 @@ local function applyWorkspaces(connected)
 end
 
 local function syncLayout()
-  local connected = isExternalConnected()
+  local connected = M.isExternalConnected()
   applyMonitors(connected)
   applyWorkspaces(connected)
 end

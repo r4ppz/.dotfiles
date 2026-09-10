@@ -12,7 +12,7 @@ floating_rule({
   match = {
     initial_class = "^.*(xdg-desktop-portal-gtk).*$",
   },
-  size = { 700, 500 },
+  size = { "monitor_w * 0.3646", "monitor_h * 0.4630" },
 })
 
 floating_rule({
@@ -20,7 +20,7 @@ floating_rule({
   match = {
     initial_class = "^.*(DesktopEditors).*$",
   },
-  size = { 570, 120 },
+  size = { "monitor_w * 0.2969", "monitor_h * 0.1111" },
 })
 
 floating_rule({
@@ -28,7 +28,7 @@ floating_rule({
   match = {
     initial_title = "^.*(Open File|Open Files|Save File|Open Folder|Choose Files|Choose Folder|Create Folder|Select Folder|Open Document|Save As).*$",
   },
-  size = { 700, 500 },
+  size = { "monitor_w * 0.3646", "monitor_h * 0.4630" },
 })
 
 floating_rule({
@@ -36,7 +36,7 @@ floating_rule({
   match = {
     initial_title = "^(Rename|Move|File Operation Progress).*$",
   },
-  size = { 350, 130 },
+  size = { "monitor_w * 0.1823", "monitor_h * 0.1204" },
 })
 
 -- Web / specific popups
@@ -46,13 +46,13 @@ floating_rule({
     initial_title = "^.*(export-download|codeload|wants to).*$",
     modal = true,
   },
-  size = { 700, 500 },
+  size = { "monitor_w * 0.3646", "monitor_h * 0.4630" },
 })
 
 floating_rule({
   name = "task, network and bluetooth managers",
   match = { initial_class = "taskmanager|network|bluetooth" },
-  size = { 1000, 700 },
+  size = { "monitor_w * 0.5208", "monitor_h * 0.6481" },
 })
 
 floating_rule({
@@ -60,13 +60,13 @@ floating_rule({
   match = {
     initial_class = "^.*(nm-connection-editor|blueman-manager).*$",
   },
-  size = { 800, 500 },
+  size = { "monitor_w * 0.4167", "monitor_h * 0.4630" },
 })
 
 floating_rule({
   name = "bitwarden",
   match = { initial_class = "Bitwarden" },
-  size = { 1000, 700 },
+  size = { "monitor_w * 0.5208", "monitor_h * 0.6481" },
 })
 
 floating_rule({
@@ -74,7 +74,7 @@ floating_rule({
   match = {
     initial_class = "^brave-duck.ai__chat-Default|brave-chatgpt.com__-Default$",
   },
-  size = { 800, 600 },
+  size = { "monitor_w * 0.4167", "monitor_h * 0.5556" },
 })
 
 floating_rule({
