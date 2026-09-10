@@ -73,3 +73,54 @@ hl.workspace_rule({
 
 hl.bind(const.mod .. " + grave", hl.dsp.workspace.toggle_special("minimize"))
 hl.bind(const.mod .. " + X", hl.dsp.window.move({ workspace = "special:minimize" }))
+
+-- -----------------------------------------------------------
+-- rules
+-- -----------------------------------------------------------
+hl.window_rule({
+  name = "brave-browser",
+  match = { class = "brave-browser" },
+  workspace = 1,
+})
+hl.window_rule({
+  name = "brave-browser",
+  match = { class = "brave-origin-nightly|brave-origin" },
+  workspace = 1,
+})
+hl.window_rule({
+  name = "helium",
+  match = { class = "helium" },
+  workspace = 5,
+})
+hl.window_rule({
+  name = "musicplayer",
+  match = { class = "musicplayer" },
+  workspace = "special:window2",
+})
+hl.window_rule({
+  name = "google-classroom",
+  match = {
+    initial_class = "^chrome-classroom.google.com__-Default$",
+  },
+  workspace = 5,
+})
+hl.window_rule({
+  name = "youtube-music",
+  match = { initial_class = "^brave-music.youtube.com__-Default$" },
+  workspace = 4,
+})
+hl.window_rule({
+  name = "obs",
+  match = { initial_class = "^com.obsproject.Studio$" },
+  workspace = 3,
+})
+hl.window_rule({
+  name = "vscode",
+  match = { initial_title = "^(Visual Studio Code)$" },
+  workspace = 3,
+})
+hl.window_rule({
+  name = "onlyoffice",
+  match = { class = "ONLYOFFICE" },
+  workspace = 3,
+})
