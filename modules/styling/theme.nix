@@ -20,13 +20,17 @@ let
   };
 in
 {
+  home.packages = with pkgs; [
+    nwg-look
+    gruvbox-kvantum
+    libsForQt5.qtstyleplugin-kvantum
+    kdePackages.qtstyleplugin-kvantum
+  ];
+
   qt = {
     enable = true;
     platformTheme.name = "kvantum";
-    style = {
-      name = "kvantum";
-      package = pkgs.kdePackages.qtstyleplugin-kvantum;
-    };
+    style.name = "kvantum";
   };
 
   gtk = {
@@ -73,6 +77,8 @@ in
 
       "gtk-4.0/gtk-dark.css".source =
         "${colloidGruvbox}/share/themes/Colloid-Dark-Gruvbox/gtk-4.0/gtk-dark.css";
+
+      "Kvantum/Gruvbox-Dark-Brown".source = "${pkgs.gruvbox-kvantum}/share/Kvantum/Gruvbox-Dark-Brown";
 
       "Kvantum/kvantum.kvconfig".text = ''
         [General]

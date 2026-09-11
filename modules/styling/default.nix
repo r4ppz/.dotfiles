@@ -5,6 +5,5 @@
     ./fonts.nix
     ./cursor.nix
     ./theme.nix
-    ./packages.nix
   ];
 }
