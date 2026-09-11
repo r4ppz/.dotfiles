@@ -4,8 +4,16 @@ M.internal = "eDP-1"
 M.external = "HDMI-A-1"
 
 M.specs = {
-  [M.external] = { mode = "1920x1080@100", scale = 1 },
-  [M.internal] = { mode = "1366x768@60", scale = 1 },
+  [M.external] = {
+    mode = "1920x1080@100",
+    scale = 1,
+    position = "0x0",
+  },
+  [M.internal] = {
+    mode = "1366x768@60",
+    scale = 1,
+    position = "1920x0",
+  },
 }
 
 M.isExternalConnected = function()
@@ -17,20 +25,20 @@ local function applyMonitors(connected)
     hl.monitor({
       output = M.external,
       mode = M.specs[M.external].mode,
-      position = "0x0",
+      position = M.specs[M.external].position,
       scale = M.specs[M.external].scale,
     })
     hl.monitor({
       output = M.internal,
       mode = M.specs[M.internal].mode,
-      position = "1920x0",
+      position = M.specs[M.internal].position,
       scale = M.specs[M.internal].scale,
     })
   else
     hl.monitor({
       output = M.internal,
       mode = M.specs[M.internal].mode,
-      position = "0x0",
+      position = M.specs[M.internal].position,
       scale = M.specs[M.internal].scale,
     })
     hl.monitor({
@@ -76,14 +84,17 @@ end
 syncLayout()
 
 hl.on("hyprland.start", syncLayout)
+
 hl.on("monitor.added", function(m)
   if m.name == M.external then
     syncLayout()
+    hl.exec_cmd("hyprctl reload")
   end
 end)
 hl.on("monitor.removed", function(m)
   if m.name == M.external then
     syncLayout()
+    hl.exec_cmd("hyprctl reload")
   end
 end)
 
