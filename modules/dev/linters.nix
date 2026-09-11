@@ -5,5 +5,6 @@
     eslint_d
     checkmake
     statix
+    shellcheck
   ];
 }

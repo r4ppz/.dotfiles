@@ -22,6 +22,7 @@
     glow
     bat
 
+    gh
     git
     delta
     diff-so-fancy
