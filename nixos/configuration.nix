@@ -167,6 +167,7 @@
     neovim
     git
     keyd
+    cloudflare-warp
   ];
 
   programs = {
@@ -217,6 +218,8 @@
   };
 
   services = {
+    cloudflare-warp.enable = true;
+
     dbus.implementation = "broker";
     gnome.gnome-keyring.enable = true;
 
