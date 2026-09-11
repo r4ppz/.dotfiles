@@ -62,8 +62,7 @@ typeset -gA DIR_MAP_UNIQUE=(
   "$HOME/Repositories/projects/research-repository/frontend" FRONT
 
   # Project 2
-  "$HOME/Repositories/projects/mini-capstone/law-firm-management-system" LFMS
-  "$HOME/Repositories/projects/mini-capstone/documentation" DOCS
+  "$HOME/Repositories/projects/law-firm-management-system" LFMS
 
   # Project 3
   "$HOME/Repositories/projects/pacy" PACY
@@ -92,8 +91,6 @@ typeset -gA DIR_MAP_PREFIX=(
 
   "$HOME/Repositories" REPOS
   "$HOME/.config" DOTS
-
-  "$HOME/Repositories/projects/mini-capstone" CAPTS
 )
 
 # Helpers
