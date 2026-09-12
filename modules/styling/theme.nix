@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  # Colloid Gruvbox Theme
+  # Colloid Gruvbox GTK Theme
   colloidGruvbox = pkgs.colloid-gtk-theme.override {
     colorVariants = [ "dark" ];
     themeVariants = [ "default" ];
@@ -11,6 +11,10 @@ let
     ];
   };
 
+  gruvboxKvantum = pkgs.gruvbox-kvantum.override {
+    variant = "Gruvbox-Dark-Blue";
+  };
+
   # Shared font rendering tweaks
   xftConfig = {
     gtk-xft-antialias = 1;
@@ -18,19 +22,32 @@ let
     gtk-xft-hintstyle = "hintslight";
     gtk-xft-rgba = "rgb";
   };
+
+  qtctAppearance = {
+    Appearance = {
+      style = "kvantum";
+      icon_theme = "Gruvbox-Plus-Dark";
+      standard_dialogs = "xdgdesktopportal";
+    };
+    Fonts = {
+      general = ''"Inter,10"'';
+      fixed = ''"Inter,10"'';
+    };
+  };
 in
 {
   home.packages = with pkgs; [
     nwg-look
-    gruvbox-kvantum
     libsForQt5.qtstyleplugin-kvantum
     kdePackages.qtstyleplugin-kvantum
   ];
 
   qt = {
     enable = true;
-    platformTheme.name = "kvantum";
+    platformTheme.name = "qtct";
     style.name = "kvantum";
+    qt5ctSettings = qtctAppearance;
+    qt6ctSettings = qtctAppearance;
   };
 
   gtk = {
@@ -69,21 +86,16 @@ in
     gtk4.extraConfig = xftConfig;
   };
 
-  xdg = {
-    configFile = {
-      "gtk-4.0/assets".source = "${colloidGruvbox}/share/themes/Colloid-Dark-Gruvbox/gtk-4.0/assets";
+  xdg.configFile = {
+    "gtk-4.0/assets".source = "${colloidGruvbox}/share/themes/Colloid-Dark-Gruvbox/gtk-4.0/assets";
+    "gtk-4.0/gtk.css".source = "${colloidGruvbox}/share/themes/Colloid-Dark-Gruvbox/gtk-4.0/gtk.css";
+    "gtk-4.0/gtk-dark.css".source =
+      "${colloidGruvbox}/share/themes/Colloid-Dark-Gruvbox/gtk-4.0/gtk-dark.css";
+  };
 
-      "gtk-4.0/gtk.css".source = "${colloidGruvbox}/share/themes/Colloid-Dark-Gruvbox/gtk-4.0/gtk.css";
-
-      "gtk-4.0/gtk-dark.css".source =
-        "${colloidGruvbox}/share/themes/Colloid-Dark-Gruvbox/gtk-4.0/gtk-dark.css";
-
-      "Kvantum/Gruvbox-Dark-Brown".source = "${pkgs.gruvbox-kvantum}/share/Kvantum/Gruvbox-Dark-Brown";
-
-      "Kvantum/kvantum.kvconfig".text = ''
-        [General]
-        theme=Gruvbox-Dark-Brown
-      '';
-    };
+  qt.kvantum = {
+    enable = true;
+    themes = [ gruvboxKvantum ];
+    settings.General.theme = "Gruvbox-Dark-Blue";
   };
 }
