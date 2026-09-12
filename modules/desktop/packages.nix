@@ -2,11 +2,22 @@
 
 {
   home.packages = with pkgs; [
+    kdePackages.okular
     quickshell
     bitwarden-desktop
     brave-origin
     gsimplecal
     onlyoffice-desktopeditors
+
+    imv
+    mpv
+    rofi
+    grim
+    slurp
+
+    impala
+    bluetui
+    cliamp
 
     obs-cmd
     trash-cli
@@ -15,14 +26,5 @@
     libnotify
     playerctl
     brightnessctl
-    impala
-    bluetui
-    imv
-    mpv
-    rofi
-    grim
-    slurp
-    bluetuith
-    cliamp
   ];
 }
