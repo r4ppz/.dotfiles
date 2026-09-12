@@ -17,6 +17,7 @@
     grim
     slurp
 
+    circumflex
     impala
     bluetui
     cliamp
