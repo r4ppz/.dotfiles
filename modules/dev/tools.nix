@@ -40,6 +40,7 @@
     poppler
     resvg
     chafa
+    pkg-config
 
     p7zip
     unzip

@@ -25,8 +25,8 @@ let
     qmlls = pkgs.qt6.qtdeclarative;
     lua_ls = pkgs.lua-language-server;
     bashls = pkgs.bash-language-server;
-    rust_analyzer = pkgs.rustup;
     clangd = pkgs.clang-tools;
+    rust_analyzer = pkgs.rust-analyzer;
 
     inherit (pkgs)
       marksman

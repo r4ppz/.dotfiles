@@ -16,9 +16,13 @@
     nodejs
     go
     gcc
-    rustup
     zig
     luajit
+
+    rustc
+    cargo
+    clippy
+    rustfmt
 
     # smh
     pnpm
