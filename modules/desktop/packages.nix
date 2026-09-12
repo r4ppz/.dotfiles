@@ -8,6 +8,8 @@
     brave-origin
     gsimplecal
     onlyoffice-desktopeditors
+    foliate
+    papers
 
     imv
     mpv
