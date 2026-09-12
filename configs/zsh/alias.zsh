@@ -16,7 +16,7 @@ alias nv='nvim'
 alias lg='lazygit'
 alias ld='lazydocker'
 alias top='btop'
-alias news='clx -n --indent 3 --article-width 100 --comment-width 100 --reader-mode-images --pages 5'
+alias news='clx -n --indent 3 --article-width 100 --comment-width 100 --graphics=always --pages 5'
 alias rss='bulletty'
 alias restore="gtrash r"
 alias bm="bashmount"
