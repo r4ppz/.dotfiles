@@ -18,7 +18,6 @@ function M.setup(capabilities)
       gotmpl = "gotmpl",
       xsl = "xsl",
       mdx = "markdown.mdx",
-      qmljs = "qmljs",
     },
   })
 

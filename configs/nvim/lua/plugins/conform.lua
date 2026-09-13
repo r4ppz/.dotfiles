@@ -23,10 +23,10 @@ return {
       go = { "gofmt" },
       nix = { "nixfmt" },
       zig = { "zigfmt" },
+      qml = { "qmlformat" },
 
       json = { lsp_format = "fallback" },
       jsonc = { lsp_format = "fallback" },
-      qml = { lsp_format = "fallback" },
       php = { lsp_format = "fallback" },
       toml = { lsp_format = "fallback" },
 
