@@ -22,6 +22,7 @@
     glow
     bat
 
+    git-lfs
     gh
     git
     delta

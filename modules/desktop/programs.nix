@@ -36,6 +36,9 @@
     helium = {
       enable = true;
     };
+    firefox = {
+      enable = true;
+    };
   };
 
 }
