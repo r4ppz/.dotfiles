@@ -276,6 +276,14 @@
     keyd = {
       enable = true;
       keyboards = {
+        default = {
+          ids = [ "*" ];
+          settings = {
+            main = {
+              capslock = "esc";
+            };
+          };
+        };
         external = {
           ids = [ "258a:002a" ];
           settings = {
