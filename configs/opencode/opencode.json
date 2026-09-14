@@ -4,7 +4,7 @@
     "ignore": ["node_modules/**", "dist/**", ".git/**"]
   },
 
-  "instructions": ["AGENTS.md", "AGENTS.md"],
+  "instructions": ["AGENTS.md"],
 
   "autoupdate": true,
   "lsp": true,
@@ -24,10 +24,10 @@
     "edit": "ask",
 
     "bash": {
-      "*": "ask",
       "ls *": "allow",
       "cat *": "allow",
       "grep *": "allow",
+      "rg *": "allow",
       "find *": "allow",
       "head *": "allow",
       "tail *": "allow",
@@ -41,28 +41,57 @@
       "mv *": "ask",
       "cp *": "ask",
 
-      "git *": "ask",
       "git status *": "allow",
+      "git status": "allow",
       "git submodule status *": "allow",
       "git log *": "allow",
+      "git log": "allow",
+      "git show *": "allow",
+      "git diff *": "allow",
+      "git diff": "allow",
+      "git diff --staged *": "allow",
+      "git diff --staged": "allow",
+      "git branch *": "allow",
+      "git branch": "allow",
+      "git branch -a *": "allow",
+      "git branch -a": "allow",
+      "git remote -v *": "allow",
+      "git remote -v": "allow",
+      "git remote *": "allow",
+      "git config *": "allow",
+      "git stash list *": "allow",
+      "git stash list": "allow",
+      "git tag *": "allow",
+      "git tag": "allow",
+      "git rev-parse *": "allow",
+      "git rev-parse": "allow",
+      "git blame *": "allow",
+      "git reflog *": "allow",
+      "git reflog": "allow",
+
       "git add *": "deny",
       "git commit *": "deny",
       "git push *": "deny",
+      "git pull *": "deny",
+      "git fetch *": "deny",
+      "git checkout *": "deny",
       "git checkout -b *": "deny",
       "git merge *": "deny",
       "git rebase *": "deny",
       "git reset *": "deny",
+      "git stash *": "deny",
+      "git *": "ask",
 
-      "gh *": "ask",
       "gh browse *": "allow",
       "gh issue list *": "allow",
       "gh issue status *": "allow",
       "gh issue view *": "allow",
-      "gh pr list * ": "allow",
-      "gh pr status * ": "allow",
-      "gh pr diff * ": "allow",
-      "gh pr view * ": "allow",
-      "gh search issues *": "allow"
+      "gh pr list *": "allow",
+      "gh pr status *": "allow",
+      "gh pr diff *": "allow",
+      "gh pr view *": "allow",
+      "gh search issues *": "allow",
+      "gh *": "ask"
     }
   },
 
@@ -77,19 +106,31 @@
       "models": {
         "olm/deepseek-v4-pro": {
           "name": "DeepSeek V4 Pro",
-          "limit": { "context": 50000, "output": 32000 }
+          "limit": {
+            "context": 50000,
+            "output": 32000
+          }
         },
         "bbl/gpt-5.5-mini": {
-          "name": "GPT 5.4 Mini",
-          "limit": { "context": 80000, "output": 32000 }
+          "name": "GPT 5.5 Mini",
+          "limit": {
+            "context": 80000,
+            "output": 32000
+          }
         },
         "opc/north-mini-code-free": {
           "name": "North Mini Code Free",
-          "limit": { "context": 80000, "output": 32000 }
+          "limit": {
+            "context": 80000,
+            "output": 32000
+          }
         },
         "opc/deepseek-v4-flash-free": {
           "name": "DeepSeek V4 Flash Free",
-          "limit": { "context": 80000, "output": 32000 }
+          "limit": {
+            "context": 80000,
+            "output": 32000
+          }
         }
       }
     }
