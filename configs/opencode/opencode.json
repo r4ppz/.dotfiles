@@ -1,20 +1,22 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "watcher": {
-    "ignore": ["node_modules/**", "dist/**", ".git/**"]
+    "ignore": [
+      "node_modules/**",
+      "dist/**",
+      ".git/**"
+    ]
   },
-
-  "instructions": ["AGENTS.md"],
-
+  "instructions": [
+    "AGENTS.md"
+  ],
   "autoupdate": true,
   "lsp": true,
-
   "permission": {
     "read": "allow",
     "list": "allow",
     "glob": "allow",
     "grep": "allow",
-
     "websearch": "allow",
     "webfetch": "allow",
     "codesearch": "allow",
@@ -22,7 +24,6 @@
     "todoread": "allow",
     "todowrite": "allow",
     "edit": "ask",
-
     "bash": {
       "ls *": "allow",
       "cat *": "allow",
@@ -36,11 +37,9 @@
       "sort *": "allow",
       "uniq *": "allow",
       "du *": "allow",
-
       "rm *": "ask",
       "mv *": "ask",
       "cp *": "ask",
-
       "git status *": "allow",
       "git status": "allow",
       "git submodule status *": "allow",
@@ -68,7 +67,6 @@
       "git blame *": "allow",
       "git reflog *": "allow",
       "git reflog": "allow",
-
       "git add *": "deny",
       "git commit *": "deny",
       "git push *": "deny",
@@ -81,7 +79,6 @@
       "git reset *": "deny",
       "git stash *": "deny",
       "git *": "ask",
-
       "gh browse *": "allow",
       "gh issue list *": "allow",
       "gh issue status *": "allow",
@@ -94,7 +91,6 @@
       "gh *": "ask"
     }
   },
-
   "provider": {
     "freetheai": {
       "name": "FreeTheAi",
