@@ -38,7 +38,6 @@
     tesseract
     imagemagick
     bc
-    poppler
     resvg
     chafa
     pkg-config
