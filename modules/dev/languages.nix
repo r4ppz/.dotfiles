@@ -45,5 +45,6 @@
     delve
     maven
     lombok
+    cmake
   ];
 }
