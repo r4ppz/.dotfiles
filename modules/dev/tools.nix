@@ -7,6 +7,7 @@
     yazi
     opencode
     pgcli
+    sqlite
 
     btop
     fastfetch
