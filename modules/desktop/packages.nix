@@ -10,6 +10,7 @@
     onlyoffice-desktopeditors
     foliate
     papers
+    gnome-disk-utility
 
     imv
     mpv
