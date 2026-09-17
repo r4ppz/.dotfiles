@@ -5,9 +5,13 @@
     kitty
     tmux
     yazi
-    opencode
     pgcli
     sqlite
+
+    opencode
+    crush
+    kiro
+    codex
 
     btop
     fastfetch
