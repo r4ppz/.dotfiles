@@ -72,14 +72,14 @@ floating_rule({
 floating_rule({
   name = "tempai",
   match = {
-    initial_class = "^brave-duck.ai__chat-Default|brave-chatgpt.com__-Default$",
+    initial_class = "^brave-duck.ai__chat-Default",
   },
   size = { "monitor_w * 0.4167", "monitor_h * 0.5556" },
 })
 
 floating_rule({
-  name = "gsimplecal",
-  match = { class = "gsimplecal" },
+  name = "just float",
+  match = { class = "gsimplecal|warp-taskbar" },
 })
 
 -- Code fullscreen
