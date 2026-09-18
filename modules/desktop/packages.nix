@@ -11,6 +11,7 @@
     foliate
     papers
     gnome-disk-utility
+    obsidian
 
     imv
     mpv
