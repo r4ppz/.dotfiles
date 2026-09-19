@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "fix-opencode": {
+      "locked": {
+        "lastModified": 1789723916,
+        "narHash": "sha256-Puh9jd4kTZtE0jcQroPURRvi9iijeRk0SKlB5hrOEkQ=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "d4448fee6bab71511ac36747a98a2aad35544852",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "d4448fee6bab71511ac36747a98a2aad35544852",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -74,6 +90,7 @@
     },
     "root": {
       "inputs": {
+        "fix-opencode": "fix-opencode",
         "helium-browser": "helium-browser",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
