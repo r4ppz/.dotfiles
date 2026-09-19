@@ -85,6 +85,7 @@ hl.define_submap("Applications", "reset", function()
   bind_site(const.apps.browser, "T", const.websites.monkeytype)
   bind_site(const.apps.browser, "W", const.websites.wifi)
   bind_site(const.apps.browser, "G", const.websites.gdocs)
+  bind_site(const.apps.browser, "S", const.websites.speedtest)
 
   hl.bind(const.mod .. " + B", hl.dsp.exec_cmd(const.apps.browser))
   hl.bind(const.mod .. " + SPACE", hl.dsp.exec_cmd(const.scripts.launcher))

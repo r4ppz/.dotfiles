@@ -26,6 +26,7 @@
     rsync
     glow
     bat
+    speedtest-go
 
     git-lfs
     gh

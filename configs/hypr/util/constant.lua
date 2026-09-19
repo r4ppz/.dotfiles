@@ -51,6 +51,7 @@ M.websites = {
   getemoji = "https://getemoji.com",
   monkeytype = "https://monkeytype.com",
   wifi = "http://192.168.1.254",
+  speedtest = "https://speed.cloudflare.com",
 
   -- school
   classroom = "https://classroom.google.com",
