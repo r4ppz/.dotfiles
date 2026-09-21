@@ -2,6 +2,8 @@
 
 {
   home.packages = with pkgs; [
+    cisco-packet-tracer_9
+
     kdePackages.okular
     quickshell
     bitwarden-desktop
