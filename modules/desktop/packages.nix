@@ -13,8 +13,6 @@
     bitwarden-desktop
     gsimplecal
     onlyoffice-desktopeditors
-    foliate
-    papers
     gnome-disk-utility
     obsidian
     obs-studio
