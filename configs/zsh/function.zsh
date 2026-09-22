@@ -1,3 +1,52 @@
+mime-handlers() {
+  if [[ -z "$1" ]]; then
+    echo "usage: mime-handlers <file>" >&2
+    echo "  shows MIME type, current default, and all .desktop apps that can open it" >&2
+    return 1
+  fi
+
+  local file="$1"
+  if [[ ! -e "$file" ]]; then
+    echo "mime-handlers: no such file: $file" >&2
+    return 1
+  fi
+
+  local mimetype
+  mimetype=$(xdg-mime query filetype "$file")
+  echo "MIME type: $mimetype"
+
+  local current
+  current=$(xdg-mime query default "$mimetype")
+  echo "Current default: ${current:-none set}"
+  echo
+
+  echo "Handlers declaring MimeType=$mimetype:"
+  grep -l "$mimetype" \
+    /run/current-system/sw/share/applications/*.desktop \
+    /etc/profiles/per-user/$USER/share/applications/*.desktop \
+    ~/.local/share/applications/*.desktop \
+    2>/dev/null |
+    xargs -I{} basename {}
+}
+
+list-desktop-apps() {
+  if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+    echo "usage: list-desktop-apps [filter]" >&2
+    echo "  lists all installed .desktop app IDs, alphabetized and deduped" >&2
+    echo "  optional [filter]: case-insensitive substring match (e.g. list-desktop-apps papers)" >&2
+    return 0
+  fi
+
+  find \
+    /run/current-system/sw/share/applications \
+    /etc/profiles/per-user/$USER/share/applications \
+    ~/.local/share/applications \
+    -name "*.desktop" 2>/dev/null |
+    xargs -I{} basename {} |
+    sort -u |
+    { [[ -n "$1" ]] && grep -i "$1" || cat; }
+}
+
 tree() {
   local depth_flag=""
   [[ -n $1 ]] && depth_flag="--level=$1"
