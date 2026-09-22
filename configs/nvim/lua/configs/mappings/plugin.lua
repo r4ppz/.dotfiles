@@ -86,7 +86,7 @@ local function map_close_terminal(config, extra_key)
   end
 end
 
-map({ "n", "t" }, "<M-w>", function()
+map({ "n", "i", "v", "t" }, "<M-w>", function()
   local config = {
     pos = "float",
     id = "float_term",
@@ -97,7 +97,7 @@ map({ "n", "t" }, "<M-w>", function()
   map_close_terminal(config, "<M-g>")
 end, { desc = "Toggle Floating Terminal" })
 
-map({ "n", "t" }, "<M-b>", function()
+map({ "n", "i", "v", "t" }, "<M-b>", function()
   local config = {
     pos = "float",
     id = "btop_float",
@@ -120,7 +120,7 @@ map({ "n", "t" }, "<M-b>", function()
 end, { desc = "Toggle Btop" })
 
 -- Docker floating terminal
-map({ "n", "t" }, "<M-S-d>", function()
+map({ "n", "i", "v", "t" }, "<M-S-d>", function()
   local system = require("utils.system")
   local cwd = vim.fn.getcwd()
 
@@ -139,7 +139,7 @@ map({ "n", "t" }, "<M-S-d>", function()
   end, "snacks_terminal")
 end, { desc = "Toggle LazyDocker (Snacks)" })
 
-map({ "n", "t" }, "<M-s>", function()
+map({ "n", "i", "v", "t" }, "<M-s>", function()
   local config = {
     pos = "sp",
     id = "horizontal_term",
@@ -152,7 +152,7 @@ map({ "n", "t" }, "<M-s>", function()
   map_close_terminal(config, "<M-c>")
 end, { desc = "Toggle Horizontal Terminal" })
 
-map({ "n", "t" }, "<M-v>", function()
+map({ "n", "i", "v", "t" }, "<M-v>", function()
   local config = {
     pos = "vsp",
     id = "vertical_term",
@@ -167,7 +167,7 @@ map({ "n", "t" }, "<M-v>", function()
   map_close_terminal(config, "<M-c>")
 end, { desc = "Toggle Vertical Terminal" })
 
-map("n", "<A-t>", function()
+map({ "n", "i", "v", "t" }, "<A-t>", function()
   vim.cmd("enew")
   vim.cmd("terminal")
   vim.cmd("startinsert")
