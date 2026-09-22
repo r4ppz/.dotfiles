@@ -1,8 +1,6 @@
 { inputs, pkgs, ... }:
 
 {
-  imports = [ inputs.helium-browser.homeModules.default ];
-
   programs = {
     ssh = {
       enable = true;
@@ -20,25 +18,13 @@
       };
     };
 
-    obs-studio = {
-      enable = true;
-    };
-
     waybar = {
       enable = true;
-      package = inputs.waybar.packages.${pkgs.stdenv.hostPlatform.system}.waybar;
+      package = pkgs.waybar;
       systemd = {
         enable = true;
         targets = [ "hyprland.target" ];
       };
     };
-
-    helium = {
-      enable = true;
-    };
-    firefox = {
-      enable = true;
-    };
   };
-
 }

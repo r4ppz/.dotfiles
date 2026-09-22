@@ -4,16 +4,20 @@
   home.packages = with pkgs; [
     cisco-packet-tracer_9
 
+    helium
+    firefox
+    brave-origin
+
     kdePackages.okular
     quickshell
     bitwarden-desktop
-    brave-origin
     gsimplecal
     onlyoffice-desktopeditors
     foliate
     papers
     gnome-disk-utility
     obsidian
+    obs-studio
 
     imv
     mpv
@@ -21,6 +25,7 @@
     grim
     slurp
 
+    bookokrat
     circumflex
     impala
     bluetui

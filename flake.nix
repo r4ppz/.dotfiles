@@ -19,6 +19,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    bookokrat = {
+      url = "github:bugzmanov/bookokrat";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # temp fix
     fix-opencode.url = "github:NixOS/nixpkgs/d4448fee6bab71511ac36747a98a2aad35544852";
   };
@@ -28,6 +33,9 @@
       nixpkgs,
       home-manager,
       fix-opencode,
+      bookokrat,
+      waybar,
+      helium-browser,
       ...
     }@inputs:
     let
@@ -40,8 +48,12 @@
         modules = [
           {
             nixpkgs.overlays = [
+              waybar.overlays.default
+              helium-browser.overlays.default
+
               (final: prev: {
                 opencode = fix-opencode.legacyPackages.${prev.stdenv.hostPlatform.system}.opencode;
+                bookokrat = bookokrat.packages.${prev.stdenv.hostPlatform.system}.default;
               })
             ];
           }
