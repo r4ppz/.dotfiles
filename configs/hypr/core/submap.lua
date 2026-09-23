@@ -79,7 +79,6 @@ hl.bind(const.mod .. " + SPACE", function()
 end)
 
 hl.define_submap("Applications", "reset", function()
-  bind_site(const.apps.browser, "D", const.websites.drive)
   bind_site(const.apps.browser, "M", const.websites.mail)
   bind_site(const.apps.browser, "E", const.websites.getemoji)
   bind_site(const.apps.browser, "T", const.websites.monkeytype)
@@ -87,6 +86,7 @@ hl.define_submap("Applications", "reset", function()
   bind_site(const.apps.browser, "G", const.websites.gdocs)
   bind_site(const.apps.browser, "S", const.websites.speedtest)
 
+  hl.bind(const.mod .. " + D", hl.dsp.exec_cmd(const.apps.dictionary))
   hl.bind(const.mod .. " + B", hl.dsp.exec_cmd(const.apps.browser))
   hl.bind(const.mod .. " + SPACE", hl.dsp.exec_cmd(const.scripts.launcher))
 

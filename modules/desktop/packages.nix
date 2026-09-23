@@ -16,6 +16,7 @@
     gnome-disk-utility
     obsidian
     obs-studio
+    goldendict-ng
 
     imv
     mpv
