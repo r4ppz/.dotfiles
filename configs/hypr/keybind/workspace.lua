@@ -2,8 +2,8 @@ local const = require("util.constant")
 local monitor = require("system.monitor")
 
 -- Switch focus between monitors
-hl.bind(const.mod .. " + COMMA", hl.dsp.focus({ monitor = monitor.external }))
-hl.bind(const.mod .. " + PERIOD", hl.dsp.focus({ monitor = monitor.internal }))
+hl.bind(const.mod .. " + BRACKETLEFT", hl.dsp.focus({ monitor = monitor.external }))
+hl.bind(const.mod .. " + BRACKETRIGHT", hl.dsp.focus({ monitor = monitor.internal }))
 
 -- Go to previous workspace
 hl.bind(const.mod .. " + TAB", hl.dsp.focus({ workspace = "previous" }))
@@ -11,8 +11,8 @@ hl.bind(const.mod .. " + TAB", hl.dsp.focus({ workspace = "previous" }))
 -- Workspace navigation
 hl.bind("Page_Up", hl.dsp.focus({ workspace = "e-1" }))
 hl.bind("Page_Down", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(const.mod .. "+ bracketleft", hl.dsp.focus({ workspace = "e-1" }))
-hl.bind(const.mod .. "+ bracketright", hl.dsp.focus({ workspace = "e+1" }))
+hl.bind(const.mod .. "+ COMMA", hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(const.mod .. "+ PERIOD", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(const.mod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
 hl.bind(const.mod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 
