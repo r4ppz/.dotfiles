@@ -1,5 +1,5 @@
 local const = require("util.constant")
-local monitor = require("io.monitor")
+local monitor = require("system.monitor")
 
 -- Switch focus between monitors
 hl.bind(const.mod .. " + COMMA", hl.dsp.focus({ monitor = monitor.external }))

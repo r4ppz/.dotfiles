@@ -1,16 +1,17 @@
-require("core.environment")
-require("core.autostart")
-
-require("io.monitor")
-require("io.input")
-
-require("core.keybind")
-require("core.workspace")
-require("core.submap")
-require("core.permission")
+require("system.environment")
+require("system.autostart")
+require("system.permission")
+require("system.monitor")
+require("system.input")
 
 require("appearance.general")
 require("appearance.misc")
 require("appearance.tiling")
 require("appearance.windowrule")
 require("appearance.animation")
+
+require("keybind.key")
+require("keybind.app")
+require("keybind.submap")
+require("keybind.window")
+require("keybind.workspace")
