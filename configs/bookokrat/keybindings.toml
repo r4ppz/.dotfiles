@@ -1,0 +1,466 @@
+# Bookokrat keybindings — user overrides go here.
+#
+# Run `bookokrat --print-default-keybindings` to see every default binding
+# and available action. To override, write one line per binding using dotted
+# TOML keys, or group bindings under a `[context]` header. Examples:
+#
+#   content."j" = "scroll_up"         # reverse scroll direction
+#   global."<C-q>" = "nop"            # disable the Ctrl+Q suspend default
+#
+#   # equivalent grouped form:
+#   [content]
+#   "j" = "scroll_up"
+#
+# Groups `all`, `normal`, `popup` apply across multiple contexts.
+# Use "nop" as the action to disable a default binding.
+
+
+[global]
+"<C-l>" = "force_redraw"                # Force a full-screen redraw
+"<C-q>" = "suspend"                     # Suspend the process (job control)
+"<C-r>" = "reload_keybindings"          # Reload keybindings.toml (shows a modal with errors if any)
+"<C-s>" = "open_settings"               # Open the settings popup
+"<C-z>" = "toggle_zen_mode"             # Toggle zen mode (hide navigation panel)
+"<Space><gt>" = "reset_nav_panel_width" # Reset the navigation panel to its default width
+"<Space><lt>" = "reset_nav_panel_width" # Reset the navigation panel to its default width
+"<Space>C" = "copy_toc_item"            # Copy the selected TOC entry (PDF)
+"<Space>D" = "toggle_pdf_page_layout"   # Toggle dual layout (PDF pages / EPUB columns)
+"<Space>F" = "open_book_search_fresh"   # Start a fresh book-wide search
+"<Space>S" = "toggle_pdf_render_mode"   # Toggle scroll / page render mode (PDF)
+"<Space>a" = "toggle_comments_viewer"   # Toggle the comments viewer popup
+"<Space>b" = "toggle_zen_border"        # Toggle the border/frame in zen mode
+"<Space>c" = "copy_chapter_text"        # Copy chapter text (EPUB) / page text (PDF)
+"<Space>d" = "toggle_book_stats"        # Toggle the book statistics popup
+"<Space>f" = "open_book_search"         # Reopen the last book-wide search
+"<Space>g" = "go_to_page"               # Jump to a specific page number (PDF)
+"<Space>h" = "toggle_reading_history"   # Toggle the reading history popup
+"<Space>j" = "toggle_justify_text"      # Toggle justified text rendering (EPUB)
+"<Space>l" = "lookup_selection"         # Run the configured lookup command on the selection
+"<Space>o" = "open_external_viewer"     # Open the current book in an external viewer
+"<Space>s" = "open_settings"            # Open the settings popup
+"<Space>t" = "open_theme_selector"      # Open the theme selector popup
+"<Space>w" = "toggle_pdf_watching"      # Toggle file watching / auto-reload (PDF)
+"<Space>z" = "toggle_zen_mode"          # Toggle zen mode (hide navigation panel)
+"<gt>" = "expand_nav_panel"             # Expand the navigation panel by one step
+"<lt>" = "shrink_nav_panel"             # Shrink the navigation panel by one step
+"?" = "toggle_help"                     # Toggle the help popup
+
+[nav]
+# custom
+"<S-Down>" = "scroll_half_down" # Scroll half a screen down
+"<S-Up>" = "scroll_half_up"     # Scroll half a screen up
+
+
+"/" = "start_search"              # Start in-scope text search
+"<C-b>" = "scroll_page_up"        # Scroll one full page up
+"<C-d>" = "scroll_half_down"      # Scroll half a screen down
+"<C-f>" = "scroll_page_down"      # Scroll one full page down
+"<C-u>" = "scroll_half_up"        # Scroll half a screen up
+"<CR>" = "select"                 # Activate / open the highlighted item
+"<Down>" = "move_down"            # Move selection down one item
+"<Esc>" = "cancel"                # Close popup / clear selection / exit mode
+"<Left>" = "collapse"             # Collapse the current TOC entry
+"<PageDown>" = "scroll_page_down" # Scroll one full page down
+"<PageUp>" = "scroll_page_up"     # Scroll one full page up
+"<Right>" = "expand"              # Expand the current TOC entry
+"<S-Left>" = "collapse_all"       # Collapse all TOC entries
+"<S-Right>" = "expand_all"        # Expand all TOC entries
+"<Tab>" = "switch_focus"          # Switch focus between nav panel and reader
+"<Up>" = "move_up"                # Move selection up one item
+"G" = "go_bottom"                 # Jump to bottom of document / list
+"H" = "collapse_all"              # Collapse all TOC entries
+"L" = "expand_all"                # Expand all TOC entries
+"N" = "prev_search_match"         # Jump to the previous search match
+"S" = "toggle_sort_order"         # Toggle book list sort order
+"b" = "switch_nav_mode"           # Switch between book list and table of contents
+"gg" = "go_top"                   # Jump to top of document / list
+"h" = "collapse"                  # Collapse the current TOC entry
+"j" = "move_down"                 # Move selection down one item
+"k" = "move_up"                   # Move selection up one item
+"l" = "expand"                    # Expand the current TOC entry
+"n" = "next_search_match"         # Jump to the next search match
+
+[content]
+# custom
+"<S-Down>" = "scroll_half_down" # Scroll half a screen down
+"<S-Up>" = "scroll_half_up"     # Scroll half a screen up
+
+
+"'" = "goto_mark"                 # Jump to a previously set mark (next key picks the mark name)
+"+" = "decrease_margin"           # Decrease content margin
+"-" = "increase_margin"           # Increase content margin
+"/" = "start_search"              # Start in-scope text search
+"<C-b>" = "scroll_page_up"        # Scroll one full page up
+"<C-d>" = "scroll_half_down"      # Scroll half a screen down
+"<C-f>" = "scroll_page_down"      # Scroll one full page down
+"<C-i>" = "jump_forward"          # Jump forward in the navigation history
+"<C-o>" = "jump_backward"         # Jump backward in the navigation history
+"<C-u>" = "scroll_half_up"        # Scroll half a screen up
+"<CR>" = "follow_link"            # Follow the link under the cursor
+"<Down>" = "scroll_down"          # Scroll the reader down by one line
+"<Esc>" = "cancel"                # Close popup / clear selection / exit mode
+"<Left>" = "prev_chapter"         # Go to the previous chapter (EPUB)
+"<PageDown>" = "scroll_page_down" # Scroll one full page down
+"<PageUp>" = "scroll_page_up"     # Scroll one full page up
+"<Right>" = "next_chapter"        # Go to the next chapter (EPUB)
+"<Tab>" = "switch_focus"          # Switch focus between nav panel and reader
+"<Up>" = "scroll_up"              # Scroll the reader up by one line
+"=" = "decrease_margin"           # Decrease content margin
+"G" = "go_bottom"                 # Jump to bottom of document / list
+"H" = "open_highlight_palette"    # Add a highlight, or recolor/remove the one under the cursor
+"V" = "enter_visual_line_mode"    # Enter visual-line selection mode
+"`" = "goto_mark"                 # Jump to a previously set mark (next key picks the mark name)
+"a" = "add_comment"               # Add or edit a comment on the selection
+"c" = "copy_selection"            # Copy the current selection to the clipboard
+"dd" = "delete_comment"           # Delete the comment or highlight under the cursor
+"gg" = "go_top"                   # Jump to top of document / list
+"h" = "prev_chapter"              # Go to the previous chapter (EPUB)
+"j" = "scroll_down"               # Scroll the reader down by one line
+"k" = "scroll_up"                 # Scroll the reader up by one line
+"l" = "next_chapter"              # Go to the next chapter (EPUB)
+"m" = "set_mark"                  # Set a mark at the current position (next key picks the mark name)
+"n" = "toggle_normal_mode"        # Toggle vim normal mode in the reader
+"p" = "toggle_profiling"          # Toggle the performance profiler overlay
+"q" = "quit"                      # Quit the application
+"ss" = "toggle_raw_html"          # Toggle raw HTML view (EPUB)
+"v" = "enter_visual_mode"         # Enter visual (character) selection mode
+"y" = "start_yank"                # Start a yank (copy) motion
+"{" = "paragraph_backward"        # Jump to the previous paragraph
+"}" = "paragraph_forward"         # Jump to the next paragraph
+
+[epub_normal]
+# custom
+"<S-Down>" = "scroll_half_down" # Scroll half a screen down
+"<S-Up>" = "scroll_half_up"     # Scroll half a screen up
+
+
+"$" = "line_end"                  # Move to the end of the line
+"'" = "goto_mark"                 # Jump to a previously set mark (next key picks the mark name)
+"," = "repeat_find_reverse"       # Repeat the last find/till in the opposite direction
+"0" = "line_start"                # Move to the start of the line
+";" = "repeat_find"               # Repeat the last find/till motion
+"<C-b>" = "scroll_page_up"        # Scroll one full page up
+"<C-d>" = "scroll_half_down"      # Scroll half a screen down
+"<C-f>" = "scroll_page_down"      # Scroll one full page down
+"<C-u>" = "scroll_half_up"        # Scroll half a screen up
+"<Down>" = "move_down"            # Move selection down one item
+"<Esc>" = "cancel"                # Close popup / clear selection / exit mode
+"<Left>" = "move_left"            # Move cursor / selection left
+"<PageDown>" = "scroll_page_down" # Scroll one full page down
+"<PageUp>" = "scroll_page_up"     # Scroll one full page up
+"<Right>" = "move_right"          # Move cursor / selection right
+"<Up>" = "move_up"                # Move selection up one item
+"B" = "big_word_backward"         # Move to the beginning of the previous WORD (whitespace-delimited)
+"E" = "big_word_end"              # Move to the end of the current / next WORD (whitespace-delimited)
+"F" = "find_backward"             # Find a character backward on the line
+"G" = "go_bottom"                 # Jump to bottom of document / list
+"H" = "open_highlight_palette"    # Add a highlight, or recolor/remove the one under the cursor
+"T" = "till_backward"             # Move till before a character backward on the line
+"V" = "enter_visual_line_mode"    # Enter visual-line selection mode
+"W" = "big_word_forward"          # Move to the beginning of the next WORD (whitespace-delimited)
+"^" = "first_non_blank"           # Move to the first non-blank character on the line
+"`" = "goto_mark"                 # Jump to a previously set mark (next key picks the mark name)
+"b" = "word_backward"             # Move to the beginning of the previous word
+"dd" = "delete_comment"           # Delete the comment or highlight under the cursor
+"e" = "word_end"                  # Move to the end of the current / next word
+"f" = "find_forward"              # Find a character forward on the line
+"gg" = "go_top"                   # Jump to top of document / list
+"h" = "move_left"                 # Move cursor / selection left
+"j" = "move_down"                 # Move selection down one item
+"k" = "move_up"                   # Move selection up one item
+"l" = "move_right"                # Move cursor / selection right
+"m" = "set_mark"                  # Set a mark at the current position (next key picks the mark name)
+"n" = "toggle_normal_mode"        # Toggle vim normal mode in the reader
+"t" = "till_forward"              # Move till before a character forward on the line
+"v" = "enter_visual_mode"         # Enter visual (character) selection mode
+"w" = "word_forward"              # Move to the beginning of the next word
+"y" = "start_yank"                # Start a yank (copy) motion
+"{" = "paragraph_backward"        # Jump to the previous paragraph
+"}" = "paragraph_forward"         # Jump to the next paragraph
+
+[pdf]
+# custom
+"<S-Down>" = "scroll_half_down" # Scroll half a screen down
+"<S-Up>" = "scroll_half_up"     # Scroll half a screen up
+
+"'" = "goto_mark"                 # Jump to a previously set mark (next key picks the mark name)
+"+" = "zoom_in"                   # Zoom in (PDF)
+"-" = "zoom_out"                  # Zoom out (PDF)
+"/" = "start_search"              # Start in-scope text search
+"<C-b>" = "scroll_page_up"        # Scroll one full page up
+"<C-c>" = "copy_selection"        # Copy the current selection to the clipboard
+"<C-d>" = "scroll_half_down"      # Scroll half a screen down
+"<C-f>" = "scroll_page_down"      # Scroll one full page down
+"<C-u>" = "scroll_half_up"        # Scroll half a screen up
+"<Down>" = "scroll_down"          # Scroll the reader down by one line
+"<Esc>" = "cancel"                # Close popup / clear selection / exit mode
+"<Left>" = "prev_page"            # Go to the previous page (PDF)
+"<PageDown>" = "scroll_page_down" # Scroll one full page down
+"<PageUp>" = "scroll_page_up"     # Scroll one full page up
+"<Right>" = "next_page"           # Go to the next page (PDF)
+"<S-Tab>" = "enter_comment_nav"   # Enter comment navigation mode (PDF)
+"<Up>" = "scroll_up"              # Scroll the reader up by one line
+"=" = "zoom_in"                   # Zoom in (PDF)
+"G" = "go_bottom"                 # Jump to bottom of document / list
+"H" = "pan_left"                  # Pan the page left (PDF)
+"I" = "toggle_pdf_theming"        # Toggle themed vs original PDF rendering
+"J" = "scroll_down"               # Scroll the reader down by one line
+"K" = "scroll_up"                 # Scroll the reader up by one line
+"L" = "pan_right"                 # Pan the page right (PDF)
+"N" = "prev_search_match"         # Jump to the previous search match
+"Z" = "zoom_fit_width"            # Fit page width (PDF)
+"_" = "zoom_out"                  # Zoom out (PDF)
+"`" = "goto_mark"                 # Jump to a previously set mark (next key picks the mark name)
+"a" = "add_comment"               # Add or edit a comment on the selection
+"e" = "zoom_enhance"              # Enhance current Kitty PDF zoom render
+"f" = "toggle_pdf_link_highlight" # Toggle link clickbox underlines (PDF)
+"gd" = "synctex_inverse"          # SyncTeX inverse search: jump to LaTeX source
+"gg" = "go_top"                   # Jump to top of document / list
+"h" = "prev_page"                 # Go to the previous page (PDF)
+"i" = "toggle_invert_images"      # Toggle image inversion in themed mode (PDF)
+"j" = "scroll_down"               # Scroll the reader down by one line
+"k" = "scroll_up"                 # Scroll the reader up by one line
+"l" = "next_page"                 # Go to the next page (PDF)
+"m" = "set_mark"                  # Set a mark at the current position (next key picks the mark name)
+"n" = "toggle_normal_mode"        # Toggle vim normal mode in the reader
+"p" = "toggle_profiling"          # Toggle the performance profiler overlay
+"q" = "quit"                      # Quit the application
+"x" = "dump_debug_state"          # Dump PDF debug state to the log
+"z" = "zoom_reset"                # Reset zoom / fit-to-height (PDF)
+
+[pdf_normal]
+# custom
+"<S-Down>" = "scroll_half_down" # Scroll half a screen down
+"<S-Up>" = "scroll_half_up"     # Scroll half a screen up
+
+
+"$" = "line_end"                  # Move to the end of the line
+"'" = "goto_mark"                 # Jump to a previously set mark (next key picks the mark name)
+"," = "repeat_find_reverse"       # Repeat the last find/till in the opposite direction
+"0" = "line_start"                # Move to the start of the line
+";" = "repeat_find"               # Repeat the last find/till motion
+"<C-b>" = "scroll_page_up"        # Scroll one full page up
+"<C-d>" = "scroll_half_down"      # Scroll half a screen down
+"<C-f>" = "scroll_page_down"      # Scroll one full page down
+"<C-u>" = "scroll_half_up"        # Scroll half a screen up
+"<CR>" = "follow_link"            # Follow the link under the cursor
+"<Down>" = "move_down"            # Move selection down one item
+"<Esc>" = "cancel"                # Close popup / clear selection / exit mode
+"<Left>" = "move_left"            # Move cursor / selection left
+"<PageDown>" = "scroll_page_down" # Scroll one full page down
+"<PageUp>" = "scroll_page_up"     # Scroll one full page up
+"<Right>" = "move_right"          # Move cursor / selection right
+"<S-Tab>" = "enter_comment_nav"   # Enter comment navigation mode (PDF)
+"<Up>" = "move_up"                # Move selection up one item
+"B" = "big_word_backward"         # Move to the beginning of the previous WORD (whitespace-delimited)
+"E" = "big_word_end"              # Move to the end of the current / next WORD (whitespace-delimited)
+"F" = "find_backward"             # Find a character backward on the line
+"G" = "go_bottom"                 # Jump to bottom of document / list
+"H" = "open_highlight_palette"    # Add a highlight, or recolor/remove the one under the cursor
+"N" = "prev_search_match"         # Jump to the previous search match
+"T" = "till_backward"             # Move till before a character backward on the line
+"V" = "enter_visual_line_mode"    # Enter visual-line selection mode
+"W" = "big_word_forward"          # Move to the beginning of the next WORD (whitespace-delimited)
+"^" = "first_non_blank"           # Move to the first non-blank character on the line
+"`" = "goto_mark"                 # Jump to a previously set mark (next key picks the mark name)
+"a" = "add_comment"               # Add or edit a comment on the selection
+"b" = "word_backward"             # Move to the beginning of the previous word
+"c" = "copy_selection"            # Copy the current selection to the clipboard
+"dd" = "delete_comment"           # Delete the comment or highlight under the cursor
+"e" = "word_end"                  # Move to the end of the current / next word
+"f" = "find_forward"              # Find a character forward on the line
+"gd" = "synctex_inverse"          # SyncTeX inverse search: jump to LaTeX source
+"gg" = "go_top"                   # Jump to top of document / list
+"h" = "move_left"                 # Move cursor / selection left
+"j" = "move_down"                 # Move selection down one item
+"k" = "move_up"                   # Move selection up one item
+"l" = "move_right"                # Move cursor / selection right
+"m" = "set_mark"                  # Set a mark at the current position (next key picks the mark name)
+"n" = "toggle_normal_mode"        # Toggle vim normal mode in the reader
+"t" = "till_forward"              # Move till before a character forward on the line
+"v" = "enter_visual_mode"         # Enter visual (character) selection mode
+"w" = "word_forward"              # Move to the beginning of the next word
+"y" = "start_yank"                # Start a yank (copy) motion
+"{" = "paragraph_backward"        # Jump to the previous paragraph
+"}" = "paragraph_forward"         # Jump to the next paragraph
+
+[popup.help]
+# custom
+"<S-Down>" = "scroll_half_down" # Scroll half a screen down
+"<S-Up>" = "scroll_half_up"     # Scroll half a screen up
+
+"/" = "start_search"              # Start in-scope text search
+"<C-b>" = "scroll_page_up"        # Scroll one full page up
+"<C-d>" = "scroll_half_down"      # Scroll half a screen down
+"<C-f>" = "scroll_page_down"      # Scroll one full page down
+"<C-u>" = "scroll_half_up"        # Scroll half a screen up
+"<Down>" = "move_down"            # Move selection down one item
+"<Esc>" = "cancel"                # Close popup / clear selection / exit mode
+"<PageDown>" = "scroll_page_down" # Scroll one full page down
+"<PageUp>" = "scroll_page_up"     # Scroll one full page up
+"<Up>" = "move_up"                # Move selection up one item
+"?" = "cancel"                    # Close popup / clear selection / exit mode
+"G" = "go_bottom"                 # Jump to bottom of document / list
+"N" = "prev_search_match"         # Jump to the previous search match
+"gg" = "go_top"                   # Jump to top of document / list
+"j" = "move_down"                 # Move selection down one item
+"k" = "move_up"                   # Move selection up one item
+"n" = "next_search_match"         # Jump to the next search match
+
+[popup.history]
+# custom
+"<S-Down>" = "scroll_half_down" # Scroll half a screen down
+"<S-Up>" = "scroll_half_up"     # Scroll half a screen up
+
+"/" = "start_search"              # Start in-scope text search
+"<C-b>" = "scroll_page_up"        # Scroll one full page up
+"<C-d>" = "scroll_half_down"      # Scroll half a screen down
+"<C-f>" = "scroll_page_down"      # Scroll one full page down
+"<C-u>" = "scroll_half_up"        # Scroll half a screen up
+"<CR>" = "select"                 # Activate / open the highlighted item
+"<Down>" = "move_down"            # Move selection down one item
+"<Esc>" = "cancel"                # Close popup / clear selection / exit mode
+"<Left>" = "move_left"            # Move cursor / selection left
+"<PageDown>" = "scroll_page_down" # Scroll one full page down
+"<PageUp>" = "scroll_page_up"     # Scroll one full page up
+"<Right>" = "move_right"          # Move cursor / selection right
+"<S-Tab>" = "prev_tab"            # Switch to the previous tab / pane
+"<Tab>" = "next_tab"              # Switch to the next tab / pane
+"<Up>" = "move_up"                # Move selection up one item
+"C" = "copy_entry"                # Copy the highlighted entry to the clipboard
+"G" = "go_bottom"                 # Jump to bottom of document / list
+"N" = "prev_search_match"         # Jump to the previous search match
+"Y" = "copy_entry"                # Copy the highlighted entry to the clipboard
+"c" = "copy_entry"                # Copy the highlighted entry to the clipboard
+"dd" = "delete_entry"             # Delete the highlighted entry
+"gg" = "go_top"                   # Jump to top of document / list
+"h" = "move_left"                 # Move cursor / selection left
+"j" = "move_down"                 # Move selection down one item
+"k" = "move_up"                   # Move selection up one item
+"l" = "move_right"                # Move cursor / selection right
+"n" = "next_search_match"         # Jump to the next search match
+"y" = "copy_entry"                # Copy the highlighted entry to the clipboard
+
+[popup.search]
+# custom
+"<S-Down>" = "scroll_half_down" # Scroll half a screen down
+"<S-Up>" = "scroll_half_up"     # Scroll half a screen up
+
+"/" = "start_search"              # Start in-scope text search
+"<C-b>" = "scroll_page_up"        # Scroll one full page up
+"<C-d>" = "scroll_half_down"      # Scroll half a screen down
+"<C-f>" = "scroll_page_down"      # Scroll one full page down
+"<C-u>" = "scroll_half_up"        # Scroll half a screen up
+"<CR>" = "select"                 # Activate / open the highlighted item
+"<Down>" = "move_down"            # Move selection down one item
+"<Esc>" = "cancel"                # Close popup / clear selection / exit mode
+"<PageDown>" = "scroll_page_down" # Scroll one full page down
+"<PageUp>" = "scroll_page_up"     # Scroll one full page up
+"<Up>" = "move_up"                # Move selection up one item
+"G" = "go_bottom"                 # Jump to bottom of document / list
+"gg" = "go_top"                   # Jump to top of document / list
+"j" = "move_down"                 # Move selection down one item
+"k" = "move_up"                   # Move selection up one item
+
+[popup.stats]
+# custom
+"<S-Down>" = "scroll_half_down" # Scroll half a screen down
+"<S-Up>" = "scroll_half_up"     # Scroll half a screen up
+
+"<C-b>" = "scroll_page_up"        # Scroll one full page up
+"<C-d>" = "scroll_half_down"      # Scroll half a screen down
+"<C-f>" = "scroll_page_down"      # Scroll one full page down
+"<C-u>" = "scroll_half_up"        # Scroll half a screen up
+"<CR>" = "select"                 # Activate / open the highlighted item
+"<Down>" = "move_down"            # Move selection down one item
+"<Esc>" = "cancel"                # Close popup / clear selection / exit mode
+"<PageDown>" = "scroll_page_down" # Scroll one full page down
+"<PageUp>" = "scroll_page_up"     # Scroll one full page up
+"<Up>" = "move_up"                # Move selection up one item
+"G" = "go_bottom"                 # Jump to bottom of document / list
+"gg" = "go_top"                   # Jump to top of document / list
+"j" = "move_down"                 # Move selection down one item
+"k" = "move_up"                   # Move selection up one item
+
+[popup.comments]
+# custom
+"<S-Down>" = "scroll_half_down" # Scroll half a screen down
+"<S-Up>" = "scroll_half_up"     # Scroll half a screen up
+
+"/" = "start_search"              # Start in-scope text search
+"<C-b>" = "scroll_page_up"        # Scroll one full page up
+"<C-d>" = "scroll_half_down"      # Scroll half a screen down
+"<C-f>" = "scroll_page_down"      # Scroll one full page down
+"<C-u>" = "scroll_half_up"        # Scroll half a screen up
+"<CR>" = "select"                 # Activate / open the highlighted item
+"<Down>" = "move_down"            # Move selection down one item
+"<Esc>" = "cancel"                # Close popup / clear selection / exit mode
+"<Left>" = "move_left"            # Move cursor / selection left
+"<PageDown>" = "scroll_page_down" # Scroll one full page down
+"<PageUp>" = "scroll_page_up"     # Scroll one full page up
+"<Right>" = "move_right"          # Move cursor / selection right
+"<Space>e" = "export_comments"    # Export all comments to a Markdown file
+"<Tab>" = "next_tab"              # Switch to the next tab / pane
+"<Up>" = "move_up"                # Move selection up one item
+"?" = "toggle_global_search"      # Toggle global vs scope-local search
+"G" = "go_bottom"                 # Jump to bottom of document / list
+"N" = "prev_search_match"         # Jump to the previous search match
+"dd" = "delete_comment"           # Delete the comment or highlight under the cursor
+"gg" = "go_top"                   # Jump to top of document / list
+"h" = "move_left"                 # Move cursor / selection left
+"j" = "move_down"                 # Move selection down one item
+"k" = "move_up"                   # Move selection up one item
+"l" = "move_right"                # Move cursor / selection right
+"n" = "next_search_match"         # Jump to the next search match
+
+[popup.settings]
+# custom
+"<S-Down>" = "scroll_half_down" # Scroll half a screen down
+"<S-Up>" = "scroll_half_up"     # Scroll half a screen up
+
+"<C-b>" = "scroll_page_up"        # Scroll one full page up
+"<C-d>" = "scroll_half_down"      # Scroll half a screen down
+"<C-f>" = "scroll_page_down"      # Scroll one full page down
+"<C-u>" = "scroll_half_up"        # Scroll half a screen up
+"<CR>" = "select"                 # Activate / open the highlighted item
+"<Down>" = "move_down"            # Move selection down one item
+"<Esc>" = "cancel"                # Close popup / clear selection / exit mode
+"<Left>" = "move_left"            # Move cursor / selection left
+"<PageDown>" = "scroll_page_down" # Scroll one full page down
+"<PageUp>" = "scroll_page_up"     # Scroll one full page up
+"<Right>" = "move_right"          # Move cursor / selection right
+"<S-Tab>" = "prev_tab"            # Switch to the previous tab / pane
+"<Space>" = "select"              # Activate / open the highlighted item
+"<Tab>" = "next_tab"              # Switch to the next tab / pane
+"<Up>" = "move_up"                # Move selection up one item
+"G" = "go_bottom"                 # Jump to bottom of document / list
+"gg" = "go_top"                   # Jump to top of document / list
+"h" = "move_left"                 # Move cursor / selection left
+"j" = "move_down"                 # Move selection down one item
+"k" = "move_up"                   # Move selection up one item
+"l" = "move_right"                # Move cursor / selection right
+
+[popup.marks]
+# custom
+"<S-Down>" = "scroll_half_down" # Scroll half a screen down
+"<S-Up>" = "scroll_half_up"     # Scroll half a screen up
+
+"'" = "cancel"                    # Close popup / clear selection / exit mode
+"<C-b>" = "scroll_page_up"        # Scroll one full page up
+"<C-d>" = "scroll_half_down"      # Scroll half a screen down
+"<C-f>" = "scroll_page_down"      # Scroll one full page down
+"<C-u>" = "scroll_half_up"        # Scroll half a screen up
+"<CR>" = "select"                 # Activate / open the highlighted item
+"<Down>" = "move_down"            # Move selection down one item
+"<Esc>" = "cancel"                # Close popup / clear selection / exit mode
+"<PageDown>" = "scroll_page_down" # Scroll one full page down
+"<PageUp>" = "scroll_page_up"     # Scroll one full page up
+"<S-Tab>" = "prev_tab"            # Switch to the previous tab / pane
+"<Tab>" = "next_tab"              # Switch to the next tab / pane
+"<Up>" = "move_up"                # Move selection up one item
+"G" = "go_bottom"                 # Jump to bottom of document / list
+"`" = "cancel"                    # Close popup / clear selection / exit mode
+"dd" = "delete_entry"             # Delete the highlighted entry
+"gg" = "go_top"                   # Jump to top of document / list
+"j" = "move_down"                 # Move selection down one item
+"k" = "move_up"                   # Move selection up one item

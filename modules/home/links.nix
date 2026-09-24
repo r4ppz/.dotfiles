@@ -25,6 +25,7 @@ in
 
     "lazygit".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/lazygit";
     "lazydocker".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/lazydocker";
+
     "nvim".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/nvim";
     "yazi".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/yazi";
     "kitty".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/kitty";
@@ -32,6 +33,8 @@ in
     "atuin".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/atuin";
     "gdu".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/gdu";
     "pgcli".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/pgcli";
+
+    "bookokrat".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/bookokrat";
 
     "opencode".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/opencode";
   };
