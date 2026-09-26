@@ -1,6 +1,8 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
+    sqlitebrowser
+
     neovim
     kitty
     tmux
@@ -27,6 +29,7 @@
     glow
     bat
     speedtest-go
+    tldr
 
     git-lfs
     gh
