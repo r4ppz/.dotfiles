@@ -18,10 +18,6 @@ local function is_obs_running()
   return false
 end
 
-local function run(cmd)
-  hl.dispatch(hl.dsp.exec_cmd(cmd))
-end
-
 local function succeeded(cmd)
   local f = io.popen("timeout 1 " .. cmd .. " >/dev/null 2>&1; echo $?")
   if not f then
@@ -61,7 +57,7 @@ function M.toggle()
     transient = true,
   })
 
-  run("obs --startrecording --minimize-to-tray")
+  hl.dispatch(hl.dsp.exec_cmd("obs --startrecording --minimize-to-tray"))
 end
 
 return M

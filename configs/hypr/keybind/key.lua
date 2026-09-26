@@ -2,6 +2,9 @@ local const = require("util.constant")
 local zen = require("util.zen")
 local zoom = require("util.zoom")
 
+-- Power menu
+hl.bind("XF86PowerOff", hl.dsp.exec_cmd(const.scripts.powermenu))
+
 -- Media keys
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(const.scripts.mediactl .. " volume-up"), { repeating = true })
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(const.scripts.mediactl .. " volume-down"), { repeating = true })
@@ -26,21 +29,18 @@ hl.bind(const.mod .. "+ CTRL + 7", hl.dsp.exec_cmd("playerctl previous"))
 hl.bind(const.mod .. "+ CTRL + 8", hl.dsp.exec_cmd("playerctl next"))
 hl.bind(const.mod .. "+ CTRL + 9", hl.dsp.exec_cmd("playerctl play-pause"))
 
--- Power menu
-hl.bind("XF86PowerOff", hl.dsp.exec_cmd(const.scripts.powermenu))
-
 -- Toggle zen mode
 hl.bind(const.mod .. "+ SHIFT + Z", function()
   zen.toggle()
 end)
 
 -- Zoom in and out
-hl.bind("SUPER + ALT + mouse_up", function()
+hl.bind(const.mod .. "+ ALT + mouse_up", function()
   zoom.zoom_in()
 end)
-hl.bind("SUPER + ALT + mouse_down", function()
+hl.bind(const.mod .. "+ ALT + mouse_down", function()
   zoom.zoom_out()
 end)
-hl.bind("SUPER + ALT + mouse:272", function()
+hl.bind(const.mod .. "+ ALT + mouse:272", function()
   zoom.zoom_reset()
 end)
