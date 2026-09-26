@@ -98,7 +98,7 @@ autocmd("BufReadPost", {
 autocmd("FileType", {
   group = mygroup,
   desc = "Enable wrapping on text",
-  pattern = { "text" },
+  pattern = { "text, markdown" },
   callback = function()
     vim.opt_local.wrap = true
     vim.opt_local.linebreak = true
