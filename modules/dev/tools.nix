@@ -30,6 +30,7 @@
     bat
     speedtest-go
     tldr
+    yt-dlp
 
     git-lfs
     gh

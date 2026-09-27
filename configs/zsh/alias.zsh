@@ -31,5 +31,5 @@ alias speedtest='speedtest-go'
 
 # Script
 alias t="$DOTFILES/scripts/bin/tmux-init.sh"
-alias of="$DOTFILES/scripts/open-file.sh"
-alias ytdl="$DOTFILES/scripts/yt-audio-dl.sh"
+alias of="$DOTFILES/scripts/bin/open-file.sh"
+alias ytdl="$DOTFILES/scripts/bin/yt-audio-dl.sh"
