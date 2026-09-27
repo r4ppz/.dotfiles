@@ -46,6 +46,7 @@ local languages = {
   "xml",
   "json",
   "qmljs",
+  "qmldir",
 
   "html",
   "css",
