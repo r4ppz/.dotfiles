@@ -27,11 +27,11 @@ git:
   overrideGpg: true
 
   diffRenderers:
-    - colorArg: always
-      command: delta --features=lazygit-theme --paging=never --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
-
     - type: rawGit
     - command: diff-so-fancy
+
+    - colorArg: always
+      command: delta --features=lazygit-theme --paging=never --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
 
     - type: extDiff
       command: difft --color=always --display=inline --syntax-highlight=on --tab-width=2 --background=dark
