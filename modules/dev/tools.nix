@@ -29,7 +29,7 @@
     glow
     bat
     speedtest-go
-    tldr
+    tlrc
     yt-dlp
 
     git-lfs
