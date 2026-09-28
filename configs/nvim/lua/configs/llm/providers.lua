@@ -53,6 +53,34 @@ function M.setup()
       },
     }, builtin),
 
+    sitegen = define({
+      url = "https://gensite.tech/v1/chat/completions",
+      api_key = "SITEGEN_API_KEY",
+      disabled = false,
+      models = {
+        {
+          id = "gpt-6-luna",
+          name = "gpt-6-luna",
+          streaming = true,
+        },
+        {
+          id = "gpt-5.4-mini",
+          name = "gpt-5.4-mini",
+          streaming = true,
+        },
+        {
+          id = "gpt-6-sol",
+          name = "gpt-6-sol",
+          streaming = true,
+        },
+        {
+          id = "gpt-5.6-terra",
+          name = "gpt-5.6-terra",
+          streaming = true,
+        },
+      },
+    }, builtin),
+
     openrouter = define({
       -- models.py https://openrouter.ai/api/v1/ $OPENROUTER_API_KEY --free
       url = "https://openrouter.ai/api/v1/chat/completions",
