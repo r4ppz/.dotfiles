@@ -10,6 +10,7 @@
     pgcli
     sqlite
 
+    claude-code
     opencode
     crush
     kiro
