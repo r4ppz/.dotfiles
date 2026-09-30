@@ -79,7 +79,7 @@ floating_rule({
 
 floating_rule({
   name = "just float",
-  match = { class = "gsimplecal|warp-taskbar" },
+  match = { class = "gsimplecal|warp-taskbar|org.qbittorrent.qBittorrent" },
 })
 
 -- Code fullscreen

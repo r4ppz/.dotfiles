@@ -17,6 +17,7 @@
     obsidian
     obs-studio
     goldendict-ng
+    qbittorrent
 
     imv
     mpv
