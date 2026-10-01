@@ -7,25 +7,7 @@
   };
 
   home.packages = with pkgs; [
-    (python3.withPackages (
-      ps: with ps; [
-        requests
-        beautifulsoup4
-        flask
-        websockets
-        cryptography
-        pycryptodome
-        sympy
-        z3-solver
-        pillow
-        scapy
-        pandas
-        numpy
-        ropper
-        tqdm
-      ]
-    ))
-
+    python3
     nodejs
     go
     gcc

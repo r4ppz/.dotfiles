@@ -1,21 +1,18 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    sqlitebrowser
-
     neovim
     kitty
     tmux
     yazi
-    pgcli
-    sqlite
 
     claude-code
     opencode
     crush
-    kiro
     codex
 
+    pgcli
+    sqlite
     btop
     fastfetch
     fzf
@@ -29,7 +26,6 @@
     rsync
     glow
     bat
-    speedtest-go
     tlrc
     yt-dlp
 
