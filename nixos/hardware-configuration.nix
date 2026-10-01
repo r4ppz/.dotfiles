@@ -15,6 +15,7 @@
 
   boot = {
     initrd = {
+      kernelModules = [ ];
       availableKernelModules = [
         "xhci_pci"
         "thunderbolt"
@@ -25,19 +26,18 @@
         "usb_storage"
         "sd_mod"
       ];
-      kernelModules = [ ];
     };
     kernelModules = [ "kvm-intel" ];
     extraModulePackages = [ ];
   };
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/ae21afab-373c-41d7-b4ae-afcabf7a8c1b";
+    device = "/dev/disk/by-uuid/ff15ef06-5860-47cc-87ff-54f66095170a";
     fsType = "ext4";
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/E6CD-53E8";
+    device = "/dev/disk/by-uuid/0715-D485";
     fsType = "vfat";
     options = [
       "fmask=0077"
