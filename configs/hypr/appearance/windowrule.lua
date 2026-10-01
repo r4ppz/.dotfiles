@@ -89,6 +89,14 @@ hl.window_rule({
   fullscreen_state = 2,
 })
 
+-- Prevent kitty's cached window state from reopening it fullscreen
+-- Ref: https://github.com/kovidgoyal/kitty/issues/10442
+hl.window_rule({
+  name = "kitty-not-fullscreen",
+  match = { class = "kitty" },
+  fullscreen_state = "0 0",
+})
+
 -- Prevent screen idle/sleep
 hl.window_rule({
   match = {
