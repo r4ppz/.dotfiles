@@ -6,6 +6,7 @@ gui:
   expandFocusedSidePanel: true
   expandedSidePanelWeight: 2
   mainPanelSplitMode: flexible
+  useHunkModeInStagingView: false
 
   showListFooter: true
   showBottomLine: true
@@ -27,8 +28,9 @@ git:
   overrideGpg: true
 
   diffRenderers:
-    - type: rawGit
     - command: diff-so-fancy
+
+    - type: rawGit
 
     - colorArg: always
       command: delta --features=lazygit-theme --paging=never --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
