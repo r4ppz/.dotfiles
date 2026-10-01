@@ -5,13 +5,12 @@ set -euo pipefail
 # image, and extracts text using OCR.
 
 LOCKFILE="/tmp/screenshot_ocr.lock"
-TMPIMG="$(mktemp --suffix=.png)"
-PROCESSED="$(mktemp --suffix=.png)"
+TMPIMG=""
+PROCESSED=""
 
 cleanup() {
-  rm -f "$LOCKFILE" "$TMPIMG" "$PROCESSED"
+  rm -f "$TMPIMG" "$PROCESSED"
 }
-trap cleanup EXIT INT TERM
 
 exec 200>"$LOCKFILE"
 flock -n 200 || {
@@ -23,6 +22,10 @@ flock -n 200 || {
   exit 1
 }
 
+TMPIMG="$(mktemp --suffix=.png)"
+PROCESSED="$(mktemp --suffix=.png)"
+trap cleanup EXIT INT TERM
+
 # Check dependencies
 for cmd in grim magick slurp tesseract wl-copy notify-send bc; do
   if ! command -v "$cmd" &>/dev/null; then
@@ -32,7 +35,7 @@ for cmd in grim magick slurp tesseract wl-copy notify-send bc; do
 done
 
 # Prompt user for region
-REGION="$(slurp)"
+REGION="$(slurp || true)"
 if [[ -z $REGION ]]; then
   notify-send -h boolean:transient:true \
     "OCR failed" \
@@ -85,6 +88,7 @@ fi
 
 printf '%s' "$TEXT" | wl-copy
 
+exec 200>&-
 notify-send -h boolean:transient:true \
   "OCR copied to clipboard" \
   "Text has been successfully copied." \

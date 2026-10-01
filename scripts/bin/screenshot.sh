@@ -110,6 +110,13 @@ for arg in "$@"; do
   esac
 done
 
+# --- single instance ---
+exec 200>"$LOCKFILE"
+flock -n 200 || {
+  notify "Screenshot Already Running" "Please wait for the current process to finish." dialog-warning
+  exit 1
+}
+
 # --- resolve output path ---
 if [[ $tmp_mode == true ]]; then
   filename=""
@@ -119,13 +126,6 @@ else
   mkdir -p "$dir"
   filename="$dir/screenshot_${TIMESTAMP}.png"
 fi
-
-# --- single instance ---
-exec 200>"$LOCKFILE"
-flock -n 200 || {
-  notify "Screenshot Already Running" "Please wait for the current process to finish." dialog-warning
-  exit 1
-}
 
 # --- check deps ---
 if [[ $mode == region ]]; then
@@ -141,6 +141,7 @@ fi
 # --- capture ---
 if [[ $mode == full ]]; then
   capture "$filename"
+  exec 200>&-
   handle_result "$filename"
 fi
 
@@ -153,4 +154,5 @@ region="$(slurp || true)"
 
 sleep 0.2
 capture "$filename" "$region"
+exec 200>&-
 handle_result "$filename" "$region"
