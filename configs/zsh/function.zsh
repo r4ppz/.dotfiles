@@ -1,3 +1,10 @@
+nxs() {
+  nix shell "nixpkgs#$1"
+}
+nxr() {
+  nix run "nixpkgs#$1"
+}
+
 mime-handlers() {
   if [[ -z "$1" ]]; then
     echo "usage: mime-handlers <file>" >&2
