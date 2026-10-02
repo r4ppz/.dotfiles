@@ -1,7 +1,7 @@
 { pkgs, scriptDir, ... }:
 
 let
-  myScripts = import scriptDir { inherit pkgs; };
+  myScripts = pkgs.callPackage scriptDir { };
 in
 {
   home.packages = [ pkgs.swaynotificationcenter ];

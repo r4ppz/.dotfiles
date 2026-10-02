@@ -1,10 +1,14 @@
-{ pkgs }:
+{
+  writeShellApplication,
+  libnotify,
+  coreutils,
+}:
 
 {
-  battery-warn = pkgs.writeShellApplication {
+  battery-warn = writeShellApplication {
     name = "battery-warn";
 
-    runtimeInputs = with pkgs; [
+    runtimeInputs = [
       libnotify
       coreutils
     ];
