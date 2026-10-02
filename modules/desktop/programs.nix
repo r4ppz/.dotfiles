@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   programs = {
@@ -8,12 +8,6 @@
       settings = {
         "*" = {
           AddKeysToAgent = "yes";
-        };
-        "late.sh" = {
-          HostName = "late.sh";
-          User = "r4ppz";
-          IdentityFile = "~/.ssh/id_late_sh_ed25519";
-          IdentitiesOnly = true;
         };
       };
     };
