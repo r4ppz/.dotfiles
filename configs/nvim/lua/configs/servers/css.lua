@@ -37,7 +37,6 @@ function M.setup(capabilities)
   -- Binary comes from vscode-langservers-extracted (Nix); enable directly since
   -- "gtkcss" is not a valid lspconfig server name
   vim.lsp.enable("gtkcss")
-
 end
 
 return M

@@ -31,5 +31,3 @@ vim.schedule(function()
   require("configs.autocmds")
   require("configs.mappings.mappings")
 end)
-
-
