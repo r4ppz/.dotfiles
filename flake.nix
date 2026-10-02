@@ -37,6 +37,8 @@
     let
       username = "r4ppz";
       dotfilesPath = "/home/${username}/.dotfiles";
+      systems = [ "x86_64-linux" ];
+      forAllSystems = nixpkgs.lib.genAttrs systems;
     in
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
@@ -70,5 +72,20 @@
           }
         ];
       };
+
+      devShells = forAllSystems (
+        system:
+        import ./devshell.nix {
+          pkgs = nixpkgs.legacyPackages.${system};
+        }
+      );
+
+      checks = forAllSystems (
+        system:
+        import ./checks.nix {
+          pkgs = nixpkgs.legacyPackages.${system};
+          source = ./.;
+        }
+      );
     };
 }
