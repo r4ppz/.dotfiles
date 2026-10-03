@@ -37,5 +37,7 @@ in
     "bookokrat".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/bookokrat";
 
     "opencode".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/opencode";
+
+    "pi".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/pi";
   };
 }

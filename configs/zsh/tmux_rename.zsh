@@ -9,6 +9,7 @@ typeset -gA PROC_MAP=(
   nv NVIM
   op LLM
   ai LLM
+  pi LLM
   cline LLM
   crush LLM
   top TASK

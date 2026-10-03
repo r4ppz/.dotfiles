@@ -10,6 +10,7 @@
     opencode
     crush
     codex
+    pi-coding-agent
 
     pgcli
     sqlite

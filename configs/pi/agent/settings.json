@@ -1,0 +1,89 @@
+{
+  "lastChangelogVersion": "0.87.1",
+  "defaultProvider": "groq",
+  "defaultModel": "openai/gpt-oss-120b",
+  "defaultThinkingLevel": "low",
+  "theme": "dark/dark",
+  "editorPaddingX": 1,
+  "autocompleteMaxVisible": 10,
+  "terminal": {
+    "showTerminalProgress": true,
+    "showImages": true,
+    "imageWidthCells": 60,
+    "clearOnShrink": false,
+    "hyperlinks": "auto",
+    "images": "auto",
+    "trueColor": "auto"
+  },
+  "tuiMode": "fullscreen",
+  "hideThinkingBlock": false,
+  "showCacheMissNotices": false,
+  "cacheWarming": "streaming",
+  "steeringMode": "one-at-a-time",
+  "followUpMode": "one-at-a-time",
+  "doubleEscapeAction": "tree",
+  "treeFilterMode": "default",
+  "defaultProjectTrust": "ask",
+  "defaultTools": [
+    "read",
+    "bash",
+    "edit",
+    "write"
+  ],
+  "codemode": {
+    "mode": "on",
+    "inlineBudget": 3000
+  },
+  "compaction": {
+    "enabled": true,
+    "reserveTokens": 16384,
+    "keepRecentTokens": 20000
+  },
+  "branchSummary": {
+    "reserveTokens": 16384,
+    "skipPrompt": false
+  },
+  "quietStartup": false,
+  "fullscreenExitOutput": "transcript",
+  "fullscreenScrollbar": "auto",
+  "fullscreenCopyOnSelect": true,
+  "fullscreenWheelScrollLines": "auto",
+  "outputPad": 1,
+  "showHardwareCursor": false,
+  "images": {
+    "autoResize": true,
+    "blockImages": false
+  },
+  "markdown": {
+    "codeBlockIndent": " ",
+    "mermaid": "streaming"
+  },
+  "transport": "auto",
+  "httpIdleTimeoutMs": 300000,
+  "websocketConnectTimeoutMs": 15000,
+  "retry": {
+    "enabled": true,
+    "maxRetries": 3,
+    "baseDelayMs": 2000,
+    "maxAgentDelayMs": 60000,
+    "provider": {
+      "maxRetries": 0,
+      "maxRetryDelayMs": 60000
+    }
+  },
+  "npmCommand": [
+    "npm"
+  ],
+  "packages": [],
+  "extensions": [],
+  "skills": [],
+  "prompts": [],
+  "themes": [],
+  "enableSkillCommands": true,
+  "collapseChangelog": false,
+  "enableInstallTelemetry": true,
+  "enableAnalytics": false,
+  "warnings": {
+    "anthropicExtraUsage": true
+  }
+}

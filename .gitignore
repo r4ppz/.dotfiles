@@ -4,5 +4,11 @@ configs/opencode/bun.lock
 configs/opencode/package-lock.json
 configs/opencode/package.json
 
+configs/pi/agent/sessions/
+configs/pi/agent/auth.json
+configs/pi/agent/models-store.json
+configs/pi/agent/npm/
+configs/pi/agent/crashes.json
+
 # sshhhh!
 .env*
