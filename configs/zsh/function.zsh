@@ -60,10 +60,6 @@ tree() {
   eza -T --icons --group-directories-first --color=auto $depth_flag "${@:2}"
 }
 
-ai() {
-  tgpt --quiet "$@" | glow --pager --preserve-new-lines
-}
-
 bgc() {
   if (($# == 0)); then
     printf 'bgc: no command provided\n' >&2

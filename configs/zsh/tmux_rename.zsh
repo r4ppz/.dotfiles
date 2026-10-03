@@ -5,7 +5,6 @@
 # Skips renaming when not in tmux, NVIM is set, window is locked, or multiple panes.
 
 typeset -gA PROC_MAP=(
-  q LLM
   f FILE
   nv NVIM
   op LLM
