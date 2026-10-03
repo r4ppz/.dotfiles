@@ -43,9 +43,9 @@ M.websites = {
   claude = "https://claude.ai",
   huggingface = "https://huggingface.co/chat",
   duckduckgo = "https://duck.ai/chat",
-  mistral = "https://chat.mistral.ai/incognito",
   meta = "https://www.meta.ai",
   googleaistudio = "https://aistudio.google.com",
+  zai = "https://chat.z.ai",
 
   drive = "https://drive.google.com/drive/my-drive",
   mail = "https://mail.google.com",
