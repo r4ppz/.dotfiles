@@ -36,13 +36,21 @@
     }@inputs:
     let
       username = "r4ppz";
+      hostname = "nixos";
       dotfilesPath = "/home/${username}/.dotfiles";
       systems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
     in
     {
-      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs username dotfilesPath; };
+      nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit
+            inputs
+            username
+            dotfilesPath
+            hostname
+            ;
+        };
         modules = [
           {
             nixpkgs.overlays = [

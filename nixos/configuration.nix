@@ -3,6 +3,7 @@
   pkgs,
   username,
   dotfilesPath,
+  hostname,
   ...
 }:
 
@@ -91,7 +92,7 @@
       enable = true;
       wifi.backend = "iwd";
     };
-    hostName = "nixos";
+    hostName = hostname;
   };
 
   systemd.services.NetworkManager-wait-online.enable = false;
