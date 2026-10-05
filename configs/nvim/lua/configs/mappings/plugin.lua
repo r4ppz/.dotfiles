@@ -111,10 +111,7 @@ map({ "n", "i", "v", "t" }, "<M-b>", function()
     cmd = "btop",
   }
 
-  win_util.toggle_panel(function()
-    win_util.focus_main_window()
-    require("nvchad.term").toggle(config)
-  end, "NvTerm_float")
+  require("nvchad.term").toggle(config)
 
   map_close_terminal(config, "q")
 end, { desc = "Toggle Btop" })

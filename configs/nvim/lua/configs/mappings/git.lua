@@ -1,7 +1,12 @@
 local map = require("utils.map")
+local system = require("utils.system")
 
 -- LazyGit floating terminal
 map("n", { "<M-g>", "<leader>gg" }, function()
+  if not system.is_git_repo(vim.fn.getcwd()) then
+    return vim.notify("Current dir is not a git repo", vim.log.levels.INFO)
+  end
+
   Snacks.lazygit.open()
 end, { desc = "Lazygit (Snacks)" })
 
