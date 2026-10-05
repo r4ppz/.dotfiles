@@ -10,5 +10,9 @@ configs/pi/agent/models-store.json
 configs/pi/agent/npm/
 configs/pi/agent/crashes.json
 
+configs/pgcli/log
+
+configs/lazydocker/development.log
+
 # sshhhh!
 .env*
