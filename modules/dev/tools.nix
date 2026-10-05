@@ -12,6 +12,7 @@
     codex
     pi-coding-agent
 
+    lnav
     pgcli
     sqlite
     btop

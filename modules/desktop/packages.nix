@@ -18,6 +18,7 @@
     obs-studio
     goldendict-ng
     qbittorrent
+    ollama
 
     imv
     mpv
