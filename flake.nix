@@ -59,6 +59,15 @@
 
               (final: prev: {
                 bookokrat = bookokrat.packages.${prev.stdenv.hostPlatform.system}.default;
+                tmux = prev.tmux.overrideAttrs (old: {
+                  version = "3.8-rc3";
+                  src = prev.fetchFromGitHub {
+                    owner = "tmux";
+                    repo = "tmux";
+                    rev = "3.8-rc3";
+                    hash = "sha256-dWUD62onx4cSwngtZTlF9pggA/9Z/Vmn77nD53luld0=";
+                  };
+                });
               })
             ];
           }
