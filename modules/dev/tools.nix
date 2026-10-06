@@ -12,26 +12,43 @@
     codex
     pi-coding-agent
 
+    tailspin
     lnav
+
     pgcli
-    sqlite
     btop
     fastfetch
     fzf
-    fd
-    zoxide
-    eza
-    ripgrep
     atuin
     gdu
-    dua
+
+    curl
+    wget
+    openssl
+    fd
+    jq
+    bc
+
+    ripgrep
     rsync
-    glow
-    bat
     tlrc
     yt-dlp
+    dua
+    glow
+    bat
+    zoxide
+    eza
 
-    git-lfs
+    sqlite
+    tesseract
+    pkg-config
+    imagemagick
+
+    p7zip
+    unzip
+    zip
+    unrar
+
     gh
     git
     delta
@@ -39,21 +56,6 @@
     difftastic
     lazygit
     lazydocker
-
-    curl
-    wget
-    openssl
-    jq
-    tesseract
-    imagemagick
-    bc
-    resvg
-    chafa
-    pkg-config
-
-    p7zip
-    unzip
-    zip
-    unrar
+    git-lfs
   ];
 }
