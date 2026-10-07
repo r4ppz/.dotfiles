@@ -7,6 +7,5 @@
     ./formatters.nix
     ./linters.nix
     ./tools.nix
-    ./ctf.nix
   ];
 }

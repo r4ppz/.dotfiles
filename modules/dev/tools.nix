@@ -39,6 +39,12 @@
     zoxide
     eza
 
+    exiftool
+    xxd
+    cyberchef
+    poppler-utils
+    exiftool
+
     sqlite
     tesseract
     pkg-config
