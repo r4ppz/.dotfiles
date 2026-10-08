@@ -123,7 +123,7 @@
     memoryPercent = 100;
   };
 
-  documentation.nixos.enable = false;
+  documentation.nixos.enable = true;
 
   nix.settings = {
     experimental-features = [
