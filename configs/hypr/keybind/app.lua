@@ -11,6 +11,13 @@ hl.bind(const.mod .. " + E", hl.dsp.exec_cmd(const.apps.filemanager_gui))
 hl.bind(const.mod .. " + P", hl.dsp.exec_cmd(const.apps.passmanager))
 
 hl.bind(
+  const.mod .. " + C",
+  hl.dsp.exec_cmd(const.apps.terminal .. " -e zsh -lic 'exec pi --no-session'", {
+    tag = "+pi",
+  })
+)
+
+hl.bind(
   const.mod .. " + SHIFT + B",
   hl.dsp.exec_cmd(const.apps.terminal .. " -e --class bluetooth " .. const.apps.bluetooth)
 )

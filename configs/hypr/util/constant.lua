@@ -18,6 +18,7 @@ M.apps = {
   bluetooth = "bluetui",
   network = "impala",
   dictionary = "goldendict",
+  pi = "pi",
 }
 
 M.scripts = {

@@ -78,6 +78,12 @@ floating_rule({
 })
 
 floating_rule({
+  name = "tempai using a fucking tag",
+  match = { tag = "pi" },
+  size = { "monitor_w * 0.4167", "monitor_h * 0.5556" },
+})
+
+floating_rule({
   name = "just float",
   match = { class = "gsimplecal|warp-taskbar|org.qbittorrent.qBittorrent" },
 })
