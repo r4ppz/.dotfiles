@@ -5,8 +5,8 @@ gui:
   tabWidth: 2
   expandFocusedSidePanel: true
   expandedSidePanelWeight: 2
-  mainPanelSplitMode: flexible
-  useHunkModeInStagingView: false
+  mainPanelSplitMode: horizontal
+  useHunkModeInDiffView: false
 
   showListFooter: true
   showBottomLine: true
