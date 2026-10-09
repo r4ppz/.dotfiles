@@ -29,6 +29,7 @@
     jq
     bc
 
+    ast-grep
     ripgrep
     rsync
     tlrc
@@ -58,6 +59,7 @@
     gh
     git
     delta
+    git-filter-repo
     diff-so-fancy
     difftastic
     lazygit
