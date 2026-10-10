@@ -26,7 +26,7 @@ hl.bind("CTRL + SHIFT + TAB", function()
 end)
 
 -- Center floating window
-hl.bind(const.mod .. " + C", hl.dsp.window.center())
+hl.bind(const.mod .. " + SHIFT + C", hl.dsp.window.center())
 
 -- Fullscreen
 hl.bind(const.mod .. " + F", hl.dsp.window.fullscreen({ action = "toggle" }))
