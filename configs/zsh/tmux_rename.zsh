@@ -36,6 +36,7 @@ typeset -gA PROC_MAP=(
   witr WITR
   rss RSS
   bulletty RSS
+  concord DISCORD
 )
 
 typeset -gA DIR_MAP=(

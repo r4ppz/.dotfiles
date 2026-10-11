@@ -31,6 +31,7 @@
     impala
     bluetui
     cliamp
+    concord-tui
 
     obs-cmd
     trash-cli
