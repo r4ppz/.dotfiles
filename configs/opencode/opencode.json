@@ -100,11 +100,11 @@
         "apiKey": "{env:SITEGEN_API_KEY}"
       },
       "models": {
+        "claude-opus-5-5": {
+          "name": "claude-opus-5-5"
+        },
         "deepseek-v4-1-flash": {
           "name": "deepseek-v4-1-flash"
-        },
-        "claude-fable-5": {
-          "name": "claude-fable-5"
         },
         "gpt-6-luna": {
           "name": "gpt-6-luna"
