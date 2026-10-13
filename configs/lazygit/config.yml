@@ -65,3 +65,8 @@ keybinding:
     moveUpCommit:
       - <ctrl+k>
       - <ctrl+alt-up>
+
+customCommands:
+  - key: "<O>"
+    context: "global"
+    command: "git open"
