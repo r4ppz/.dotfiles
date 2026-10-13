@@ -59,13 +59,29 @@
 
               (final: prev: {
                 bookokrat = bookokrat.packages.${prev.stdenv.hostPlatform.system}.default;
-                tmux = prev.tmux.overrideAttrs (old: {
-                  version = "3.8-rc3";
+
+                tmux = prev.tmux.overrideAttrs (old: rec {
+                  version = "3.8";
                   src = prev.fetchFromGitHub {
                     owner = "tmux";
                     repo = "tmux";
-                    rev = "3.8-rc3";
-                    hash = "sha256-dWUD62onx4cSwngtZTlF9pggA/9Z/Vmn77nD53luld0=";
+                    tag = "${version}";
+                    hash = "sha256-pv2wlr3coo+E0pfpb58giJJQn9PGgMFqtVA6nk+9JdE=";
+                  };
+                });
+
+                concord-tui = prev.concord-tui.overrideAttrs (old: rec {
+                  version = "2.6.1";
+                  doCheck = false;
+                  src = prev.fetchFromGitHub {
+                    owner = "chojs23";
+                    repo = "concord";
+                    tag = "v${version}";
+                    hash = "sha256-aNoU83FE/+nu9OUF2oIDmGzMAxPqhmuJn9HtpWd9NhA=";
+                  };
+                  cargoDeps = prev.rustPlatform.fetchCargoVendor {
+                    inherit src;
+                    hash = "sha256-P7p0SJM5WD3rw2BbayOqw2Hl61SDTo+bO755exztAA0=";
                   };
                 });
               })
