@@ -21,6 +21,7 @@
     fzf
     atuin
     gdu
+    witr
 
     curl
     wget

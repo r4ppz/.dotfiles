@@ -18,8 +18,9 @@
     obs-studio
     goldendict-ng
     qbittorrent
-    ollama
+    authenticator
 
+    vlc
     imv
     mpv
     rofi
@@ -33,6 +34,7 @@
     cliamp
     concord-tui
 
+    ollama
     obs-cmd
     trash-cli
     pulseaudio
