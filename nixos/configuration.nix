@@ -24,11 +24,17 @@
       efi.canTouchEfiVariables = true;
     };
 
-    # kernelPackages = pkgs.linuxPackages_latest;
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages_latest;
 
-    extraModulePackages = with config.boot.kernelPackages; [
-      acer-wmi-battery
+    # local patch,
+    # waiting for https://github.com/NixOS/nixpkgs/pull/574499
+    # or similar.
+    extraModulePackages = [
+      (config.boot.kernelPackages.acer-wmi-battery.overrideAttrs (old: {
+        nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [
+          pkgs.pahole
+        ];
+      }))
     ];
 
     kernelModules = [
