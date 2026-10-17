@@ -19,6 +19,7 @@
     goldendict-ng
     qbittorrent
     authenticator
+    bottles
 
     vlc
     imv
