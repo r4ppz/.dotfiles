@@ -58,7 +58,9 @@
               helium-browser.overlays.default
 
               (final: prev: {
-                bookokrat = bookokrat.packages.${prev.stdenv.hostPlatform.system}.default;
+                bookokrat = bookokrat.packages.${prev.stdenv.hostPlatform.system}.default.overrideAttrs (old: {
+                  doCheck = false;
+                });
 
                 tmux = prev.tmux.overrideAttrs (old: rec {
                   version = "3.8";

@@ -26,9 +26,7 @@
 
     kernelPackages = pkgs.linuxPackages_latest;
 
-    # local patch,
-    # waiting for https://github.com/NixOS/nixpkgs/pull/574499
-    # or similar.
+    # waiting for https://github.com/NixOS/nixpkgs/pull/574499 or similar.
     extraModulePackages = [
       (config.boot.kernelPackages.acer-wmi-battery.overrideAttrs (old: {
         nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [
