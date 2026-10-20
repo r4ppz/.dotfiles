@@ -143,6 +143,7 @@ hl.define_submap("Media", "reset", function()
   bind_site(const.apps.browser, "I", const.websites.medium)
   bind_site(const.apps.browser, "D", const.websites.discord)
   bind_site(const.apps.browser, "R", const.websites.reddit)
+  bind_site(const.apps.browser, "P", const.websites.psypost)
 
   bind_exits()
 end)

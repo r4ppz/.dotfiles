@@ -72,6 +72,7 @@ M.websites = {
   medium = "https://medium.com",
   discord = "https://discord.com/channels/@me",
   reddit = "https://reddit.com",
+  psypost = "https://www.psypost.org",
 
   -- nix stuff
   nixossearch = "https://search.nixos.org/packages",
