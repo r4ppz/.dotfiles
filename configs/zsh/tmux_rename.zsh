@@ -54,18 +54,17 @@ typeset -gA DIR_MAP_UNIQUE=(
   "$HOME/Repositories/nvplug/lspeek.nvim" LSPEEK
   "$HOME/Repositories/projects/minidm" MINIDM
 
-  # School projects/capstone
+  # School projects
 
-  # Project 1
   "$HOME/Repositories/projects/research-repository" ACDRR
   "$HOME/Repositories/projects/research-repository/docs" DOCS
   "$HOME/Repositories/projects/research-repository/backend" BACK
   "$HOME/Repositories/projects/research-repository/frontend" FRONT
 
-  # Project 2
   "$HOME/Repositories/projects/law-firm-management-system" LFMS
 
-  # Project 3
+  "$HOME/Repositories/projects/event-registration-notification-system" ERNS
+
   "$HOME/Repositories/projects/pacy" PACY
 )
 
