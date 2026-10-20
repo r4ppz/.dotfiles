@@ -67,6 +67,6 @@ keybinding:
       - <ctrl+alt-up>
 
 customCommands:
-  - key: "<O>"
+  - key: "<ctrl+shift+o>"
     context: "global"
     command: "git open"
