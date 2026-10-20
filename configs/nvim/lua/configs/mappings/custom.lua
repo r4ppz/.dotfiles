@@ -4,6 +4,10 @@ local map = require("utils.map")
 -- Personal?!!
 --------------------------------------------------------
 
+map("n", "<leader>q", "gqap", {
+  desc = "Hard Wrap",
+})
+
 -- This is especially useful for wrapped lines
 map("n", "<Down>", "v:count == 0 ? 'gj' : 'j'", {
   expr = true,
