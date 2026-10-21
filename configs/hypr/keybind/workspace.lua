@@ -31,17 +31,12 @@ hl.workspace_rule({
   monitor = monitor.isExternalConnected() and monitor.external or monitor.internal,
   workspace = "special:window2",
   gaps_in = 3,
-  gaps_out = (monitor.isExternalConnected() and {
+  gaps_out = {
     top = 180,
-    right = 350,
     bottom = 180,
+    right = 350,
     left = 350,
-  } or {
-    top = 128,
-    right = 248,
-    bottom = 128,
-    left = 248,
-  }),
+  },
 })
 
 hl.bind(const.mod .. " + BACKSLASH", hl.dsp.workspace.toggle_special("window2"))
@@ -51,17 +46,12 @@ hl.workspace_rule({
   monitor = monitor.isExternalConnected() and monitor.external or monitor.internal,
   workspace = "special:window1",
   gaps_in = 3,
-  gaps_out = (monitor.isExternalConnected() and {
+  gaps_out = {
     top = 180,
     right = 350,
     bottom = 180,
     left = 350,
-  } or {
-    top = 128,
-    right = 248,
-    bottom = 128,
-    left = 248,
-  }),
+  },
 })
 
 hl.bind(const.mod .. " + W", hl.dsp.workspace.toggle_special("window1"))
@@ -72,17 +62,12 @@ hl.workspace_rule({
   monitor = monitor.isExternalConnected() and monitor.external or monitor.internal,
   workspace = "special:minimize",
   gaps_in = 2,
-  gaps_out = (monitor.isExternalConnected() and {
+  gaps_out = {
     top = 5,
     right = 5,
     bottom = 5,
     left = 5,
-  } or {
-    top = 4,
-    right = 4,
-    bottom = 4,
-    left = 4,
-  }),
+  },
   border_size = 0,
 })
 
