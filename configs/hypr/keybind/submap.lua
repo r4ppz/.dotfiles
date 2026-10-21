@@ -161,6 +161,7 @@ hl.define_submap("School", "reset", function()
   bind_site(const.apps.browser_school, "O", const.websites.olsis)
   bind_site(const.apps.browser_school, "D", const.websites.drive)
   bind_site(const.apps.browser_school, "G", const.websites.gdocs)
+  bind_site(const.apps.browser_school, "A", const.websites.claude)
 
   hl.bind(const.mod .. " + S", hl.dsp.exec_cmd(const.apps.browser_school))
 
