@@ -58,6 +58,11 @@
               helium-browser.overlays.default
 
               (final: prev: {
+                waybar = prev.waybar.overrideAttrs (old: {
+                  doCheck = false;
+                  mesonFlags = (old.mesonFlags or [ ]) ++ [ "-Dtests=disabled" ];
+                });
+
                 bookokrat = bookokrat.packages.${prev.stdenv.hostPlatform.system}.default.overrideAttrs (old: {
                   doCheck = false;
                 });
