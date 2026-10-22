@@ -1,5 +1,5 @@
 {
-  config,
+  # config,
   pkgs,
   username,
   dotfilesPath,
@@ -26,24 +26,19 @@
 
     kernelPackages = pkgs.linuxPackages_latest;
 
-    # waiting for https://github.com/NixOS/nixpkgs/pull/574499 or similar.
-    extraModulePackages = [
-      (config.boot.kernelPackages.acer-wmi-battery.overrideAttrs (old: {
-        nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [
-          pkgs.pahole
-        ];
-      }))
-    ];
+    # extraModulePackages = with config.boot.kernelPackages; [
+    #   acer-wmi-battery
+    # ];
 
     kernelModules = [
       "tcp_bbr"
-      "acer-wmi-battery"
+      # "acer-wmi-battery"
     ];
 
     # Set the 80% charge limit automatically when the module loads
-    extraModprobeConfig = ''
-      options acer-wmi-battery enable_health_mode=1
-    '';
+    # extraModprobeConfig = ''
+    #   options acer-wmi-battery enable_health_mode=1
+    # '';
 
     kernelParams = [ "intel_pstate=active" ];
 
