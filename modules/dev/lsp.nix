@@ -4,7 +4,6 @@ let
   vsc-langservers = pkgs.vscode-langservers-extracted;
 
   servers = {
-    # Frontend
     html = vsc-langservers;
     cssls = vsc-langservers;
     jsonls = vsc-langservers;
@@ -16,12 +15,10 @@ let
     svelte = pkgs.svelte-language-server;
     prismals = pkgs.prisma-language-server;
 
-    # Backend
     jdtls = pkgs.jdt-language-server;
     docker_language_server = pkgs.docker-compose-language-service;
     dockerls = pkgs.dockerfile-language-server;
 
-    # General
     qmlls = pkgs.qt6.qtdeclarative;
     lua_ls = pkgs.lua-language-server;
     bashls = pkgs.bash-language-server;
