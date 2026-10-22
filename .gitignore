@@ -3,6 +3,7 @@ configs/opencode/.gitignore
 configs/opencode/bun.lock
 configs/opencode/package-lock.json
 configs/opencode/package.json
+configs/opencode/service.json
 
 configs/pi/agent/sessions/
 configs/pi/agent/auth.json

@@ -1,5 +1,8 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "update": "auto",
+  "shell": "/bin/zsh",
+  "formatter": true,
   "watcher": {
     "ignore": [
       "node_modules/**",
@@ -7,95 +10,359 @@
       ".git/**"
     ]
   },
-  "instructions": [
-    "AGENTS.md"
-  ],
-  "autoupdate": true,
-  "lsp": true,
-  "permission": {
-    "read": "allow",
-    "list": "allow",
-    "glob": "allow",
-    "grep": "allow",
-    "websearch": "allow",
-    "webfetch": "allow",
-    "codesearch": "allow",
-    "lsp": "allow",
-    "todoread": "allow",
-    "todowrite": "allow",
-    "edit": "ask",
-    "bash": {
-      "ls *": "allow",
-      "cat *": "allow",
-      "grep *": "allow",
-      "rg *": "allow",
-      "find *": "allow",
-      "head *": "allow",
-      "tail *": "allow",
-      "xargs *": "allow",
-      "wc *": "allow",
-      "sort *": "allow",
-      "uniq *": "allow",
-      "du *": "allow",
-      "rm *": "ask",
-      "mv *": "ask",
-      "cp *": "ask",
-      "git status *": "allow",
-      "git status": "allow",
-      "git submodule status *": "allow",
-      "git log *": "allow",
-      "git log": "allow",
-      "git show *": "allow",
-      "git diff *": "allow",
-      "git diff": "allow",
-      "git diff --staged *": "allow",
-      "git diff --staged": "allow",
-      "git branch *": "allow",
-      "git branch": "allow",
-      "git branch -a *": "allow",
-      "git branch -a": "allow",
-      "git remote -v *": "allow",
-      "git remote -v": "allow",
-      "git remote *": "allow",
-      "git config *": "allow",
-      "git stash list *": "allow",
-      "git stash list": "allow",
-      "git tag *": "allow",
-      "git tag": "allow",
-      "git rev-parse *": "allow",
-      "git rev-parse": "allow",
-      "git blame *": "allow",
-      "git reflog *": "allow",
-      "git reflog": "allow",
-      "git add *": "deny",
-      "git commit *": "deny",
-      "git push *": "deny",
-      "git pull *": "deny",
-      "git fetch *": "deny",
-      "git checkout *": "deny",
-      "git checkout -b *": "deny",
-      "git merge *": "deny",
-      "git rebase *": "deny",
-      "git reset *": "deny",
-      "git stash *": "deny",
-      "git *": "ask",
-      "gh browse *": "allow",
-      "gh issue list *": "allow",
-      "gh issue status *": "allow",
-      "gh issue view *": "allow",
-      "gh pr list *": "allow",
-      "gh pr status *": "allow",
-      "gh pr diff *": "allow",
-      "gh pr view *": "allow",
-      "gh search issues *": "allow",
-      "gh *": "ask"
-    }
+  "websearch": {
+    "provider": "random",
   },
-  "provider": {
+  "experimental": {
+    "todo": true
+  },
+  "permissions": [
+    // =========================================================================
+    // BUILT-IN READ & SEARCH TOOLS (Allow by default)
+    // =========================================================================
+    // Read files and directories
+    {
+      "action": "read",
+      "resource": "*",
+      "effect": "allow"
+    },
+    // Search file names (glob tool) and file contents (grep tool)
+    {
+      "action": "glob",
+      "resource": "*",
+      "effect": "allow"
+    },
+    {
+      "action": "grep",
+      "resource": "*",
+      "effect": "allow"
+    },
+    // Web browsing and web search tools
+    {
+      "action": "websearch",
+      "resource": "*",
+      "effect": "allow"
+    },
+    {
+      "action": "webfetch",
+      "resource": "*",
+      "effect": "allow"
+    },
+    // Allow agent interaction prompts and skills
+    {
+      "action": "question",
+      "resource": "*",
+      "effect": "allow"
+    },
+    {
+      "action": "skill",
+      "resource": "*",
+      "effect": "allow"
+    },
+    // SENSITIVE FILE GUARD: Prompt before reading secrets/env files
+    {
+      "action": "read",
+      "resource": "*.env*",
+      "effect": "ask"
+    },
+    // =========================================================================
+    // FILE MODIFICATIONS & EXTERNAL DIRECTORIES (Ask)
+    // =========================================================================
+    // Ask before reading or modifying anything outside your workspace
+    {
+      "action": "external_directory",
+      "resource": "*",
+      "effect": "ask"
+    },
+    // In OpenCode, 'edit', 'write', and 'patch' tools all check the 'edit' action
+    {
+      "action": "edit",
+      "resource": "*",
+      "effect": "ask"
+    },
+    // =========================================================================
+    // SHELL EXECUTION (Ask by default)
+    // =========================================================================
+    // Catch-all: Ask for any shell command not explicitly allowlisted below
+    {
+      "action": "shell",
+      "resource": "*",
+      "effect": "ask"
+    },
+    // Safe Shell Inspection Commands (Allow)
+    {
+      "action": "shell",
+      "resource": "pwd",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "ls *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "cat *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "grep *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "rg *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "find *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "head *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "tail *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "wc *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "sort *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "uniq *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "du *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "tree *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "file *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "stat *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "which *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "jq *",
+      "effect": "allow"
+    },
+    // =========================================================================
+    // GIT COMMANDS (Deny all writes, Allow only inspection)
+    // =========================================================================
+    // HARD DENY on ALL git commands (blocks commits, pushes, merges, resets, etc.)
+    {
+      "action": "shell",
+      "resource": "git *",
+      "effect": "deny"
+    },
+    // Allowlist: strictly non-destructive Git inspection commands
+    {
+      "action": "shell",
+      "resource": "git status *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "git submodule status *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "git log *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "git show *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "git diff *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "git ls-files *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "git rev-parse *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "git rev-list *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "git cat-file *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "git describe *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "git blame *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "git reflog *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "git stash list *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "git check-ignore *",
+      "effect": "allow"
+    },
+    // Branch inspection only (denies creation/deletion like `git branch -D`)
+    {
+      "action": "shell",
+      "resource": "git branch",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "git branch -a *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "git branch -r *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "git branch --list *",
+      "effect": "allow"
+    },
+    // Tag inspection only (denies tag creation like `git tag v1.0`)
+    {
+      "action": "shell",
+      "resource": "git tag",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "git tag -l *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "git tag --list *",
+      "effect": "allow"
+    },
+    // Remote inspection only (denies `git remote add/rm/set-url`)
+    {
+      "action": "shell",
+      "resource": "git remote",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "git remote -v *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "git remote get-url *",
+      "effect": "allow"
+    },
+    // Config inspection only (denies `git config user.name ...`)
+    {
+      "action": "shell",
+      "resource": "git config --get *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "git config -l *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "git config --list *",
+      "effect": "allow"
+    },
+    // =========================================================================
+    // GITHUB CLI (gh) READ-ONLY INSPECTION
+    // =========================================================================
+    {
+      "action": "shell",
+      "resource": "gh browse *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "gh * list *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "gh * view *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "gh * status *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "gh * diff *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "gh search *",
+      "effect": "allow"
+    }
+  ],
+  "providers": {
     "sitegen": {
       "name": "sitegen",
-      "npm": "@ai-sdk/openai-compatible",
-      "options": {
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": {
         "baseURL": "https://gensite.tech/v1",
         "apiKey": "{env:SITEGEN_API_KEY}"
       },
@@ -122,10 +389,10 @@
     },
     "freetheai": {
       "name": "FreeTheAi",
-      "npm": "@ai-sdk/openai-compatible",
-      "options": {
-        "apiKey": "{env:FREETHEAI_API_KEY}",
-        "baseURL": "https://api.freetheai.xyz/v1"
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": {
+        "baseURL": "https://api.freetheai.xyz/v1",
+        "apiKey": "{env:FREETHEAI_API_KEY}"
       },
       "models": {
         "olm/deepseek-v4-pro": {
@@ -155,7 +422,7 @@
             "context": 80000,
             "output": 32000
           }
-        },
+        }
       }
     }
   }
