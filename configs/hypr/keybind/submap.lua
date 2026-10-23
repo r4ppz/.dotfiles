@@ -67,6 +67,7 @@ hl.define_submap("AI Slop", "reset", function()
   bind_site(const.apps.browser, "M", const.websites.meta)
   bind_site(const.apps.browser, "S", const.websites.googleaistudio)
   bind_site(const.apps.browser, "Z", const.websites.zai)
+  bind_site(const.apps.browser, "L", const.websites.lumo)
 
   bind_exits()
 end)

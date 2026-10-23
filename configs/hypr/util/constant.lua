@@ -47,6 +47,7 @@ M.websites = {
   meta = "https://www.meta.ai",
   googleaistudio = "https://aistudio.google.com",
   zai = "https://chat.z.ai",
+  lumo = "https://lumo.proton.me",
 
   drive = "https://drive.google.com/drive/my-drive",
   mail = "https://mail.google.com",
