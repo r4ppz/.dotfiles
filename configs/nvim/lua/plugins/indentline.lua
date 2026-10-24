@@ -8,7 +8,7 @@ return {
     indent = {
       char = "▏",
       tab_char = "▏",
-      highlight = "IblChar",
+      highlight = "IblIndent",
       smart_indent_cap = true,
       priority = 1,
       repeat_linebreak = true,
@@ -21,7 +21,7 @@ return {
       show_end = false,
       show_exact_scope = false,
       injected_languages = false,
-      highlight = "IblScopeChar",
+      highlight = "IblScope",
       priority = 1024,
     },
 
