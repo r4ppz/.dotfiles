@@ -21,8 +21,14 @@
     "single": false,
     "view": "unified"
   },
+  "attention": {
+    "notifications": true,
+    "sound": true,
+    "volume": 0.5,
+    "sound_pack": "opencode.default"
+  },
   "session": {
-    "sidebar": "auto",
+    "sidebar": "hide",
     "scrollbar": false,
     "thinking": "hide",
     "grouping": "auto",
