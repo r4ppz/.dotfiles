@@ -1,5 +1,6 @@
 {
-  # config,
+  config,
+  inputs,
   pkgs,
   username,
   dotfilesPath,
@@ -26,19 +27,21 @@
 
     kernelPackages = pkgs.linuxPackages_latest;
 
-    # extraModulePackages = with config.boot.kernelPackages; [
-    #   acer-wmi-battery
-    # ];
+    extraModulePackages = [
+      (config.boot.kernelPackages.callPackage (
+        inputs.acer-wmi-battery + "/pkgs/os-specific/linux/acer-wmi-battery"
+      ) { })
+    ];
 
     kernelModules = [
       "tcp_bbr"
-      # "acer-wmi-battery"
+      "acer-wmi-battery"
     ];
 
     # Set the 80% charge limit automatically when the module loads
-    # extraModprobeConfig = ''
-    #   options acer-wmi-battery enable_health_mode=1
-    # '';
+    extraModprobeConfig = ''
+      options acer-wmi-battery enable_health_mode=1
+    '';
 
     kernelParams = [ "intel_pstate=active" ];
 

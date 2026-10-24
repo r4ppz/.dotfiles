@@ -1,5 +1,22 @@
 {
   "nodes": {
+    "acer-wmi-battery": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1792780158,
+        "narHash": "sha256-L9t6hxxMSiWHooZGUYLxs9en3bWer0K2T3o+l91XuwI=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "01b91a7cb7ce5a95b12094d8a948caa8abc50c72",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "pull/577973/head",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "bookokrat": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -113,6 +130,7 @@
     },
     "root": {
       "inputs": {
+        "acer-wmi-battery": "acer-wmi-battery",
         "bookokrat": "bookokrat",
         "helium-browser": "helium-browser",
         "home-manager": "home-manager",
