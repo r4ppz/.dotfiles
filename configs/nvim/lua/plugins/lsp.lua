@@ -70,6 +70,7 @@ return {
   {
     "r4ppz/lspeek.nvim",
     event = "LspAttach",
+    dev = true,
     opts = {
       window = {
         width = 70,
