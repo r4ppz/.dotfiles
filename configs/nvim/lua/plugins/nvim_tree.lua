@@ -1,5 +1,22 @@
 return {
   "nvim-tree/nvim-tree.lua",
+  init = function()
+    local prev = { new_name = "", old_name = "" }
+
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "NvimTreeSetup",
+      callback = function()
+        local events = require("nvim-tree.api").events
+        events.subscribe(events.Event.NodeRenamed, function(data)
+          if prev.new_name ~= data.new_name or prev.old_name ~= data.old_name then
+            prev = data
+            Snacks.rename.on_rename_file(data.old_name, data.new_name)
+          end
+        end)
+      end,
+    })
+  end,
+
   opts = function()
     return {
       filters = {
@@ -65,27 +82,6 @@ return {
         local api = require("nvim-tree.api")
 
         api.map.on_attach.default(bufnr)
-
-        -- Context-aware file renaming via Snacks
-        map("n", "r", function()
-          local node = api.tree.get_node_under_cursor()
-          if not node or node.name == ".." then
-            return
-          end
-
-          local old_path = node.absolute_path
-          local old_name = vim.fs.basename(old_path)
-
-          vim.ui.input({ prompt = "Rename to: ", default = old_name }, function(input)
-            if not input or input == "" or input == old_name then
-              return
-            end
-            Snacks.rename.rename_file({
-              from = old_path,
-              to = vim.fs.joinpath(vim.fs.dirname(old_path), input),
-            })
-          end)
-        end, { buffer = bufnr })
 
         map("n", "<ESC>", "<nop>", { buffer = bufnr, desc = "fucking nothing" })
         map("n", "<C-S-Up>", api.node.show_info_popup, { buffer = bufnr, desc = "Info" })
