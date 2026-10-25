@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    cisco-packet-tracer_9
+    tetro-tui # < game :0
 
     helium
     firefox
