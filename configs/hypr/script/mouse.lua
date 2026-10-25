@@ -1,22 +1,19 @@
 local notify = require("util.notify")
+local process = require("util.process")
 
 local M = {}
 
 local state = "released"
 
-local function run(cmd)
-  hl.dispatch(hl.dsp.exec_cmd(cmd))
-end
-
 --- Mouse click
 function M.click(button)
   if button == "left" then
-    run("ydotool click 0x40 0x80")
+    process.run("ydotool click 0x40 0x80")
     hl.dispatch(hl.dsp.submap("reset"))
   elseif button == "right" then
-    run("ydotool click 0x41 0x81")
+    process.run("ydotool click 0x41 0x81")
   elseif button == "middle" then
-    run("ydotool click 0x42 0x82")
+    process.run("ydotool click 0x42 0x82")
   end
 end
 
@@ -24,14 +21,14 @@ end
 function M.toggle()
   if state == "released" then
     state = "pressed"
-    run("ydotool click 0x40")
+    process.run("ydotool click 0x40")
   else
     state = "released"
-    run("ydotool click 0x80")
+    process.run("ydotool click 0x80")
 
     hl.timer(function()
-      run("ydotool key 29:1 46:1 46:0 29:0") -- Ctrl+C
-      run("ydotool click 0x40 0x80") -- clear selection
+      process.run("ydotool key 29:1 46:1 46:0 29:0") -- Ctrl+C
+      process.run("ydotool click 0x40 0x80") -- clear selection
 
       notify.send("Copied", nil, {
         timeout = 1400,
@@ -47,7 +44,7 @@ end
 
 function M.reset()
   state = "released"
-  run("ydotool click 0x80")
+  process.run("ydotool click 0x80")
   hl.dispatch(hl.dsp.submap("reset"))
 end
 
@@ -55,13 +52,13 @@ end
 function M.move(direction, speed)
   local step = (speed == "slow") and 10 or 40
   if direction == "left" then
-    run(string.format("ydotool mousemove -- %d %d", -step, 0))
+    process.run(string.format("ydotool mousemove -- %d %d", -step, 0))
   elseif direction == "right" then
-    run(string.format("ydotool mousemove -- %d %d", step, 0))
+    process.run(string.format("ydotool mousemove -- %d %d", step, 0))
   elseif direction == "up" then
-    run(string.format("ydotool mousemove -- %d %d", 0, -step))
+    process.run(string.format("ydotool mousemove -- %d %d", 0, -step))
   elseif direction == "down" then
-    run(string.format("ydotool mousemove -- %d %d", 0, step))
+    process.run(string.format("ydotool mousemove -- %d %d", 0, step))
   end
 end
 

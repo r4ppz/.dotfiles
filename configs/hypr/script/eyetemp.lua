@@ -1,4 +1,5 @@
 local notify = require("util.notify")
+local process = require("util.process")
 
 local M = {}
 
@@ -11,13 +12,9 @@ local modes = {
 
 local idx = 1
 
-local function run(cmd)
-  hl.dispatch(hl.dsp.exec_cmd(cmd))
-end
-
 local function apply(mode)
-  run("hyprctl hyprsunset temperature " .. mode.temperature)
-  run("hyprctl hyprsunset gamma " .. mode.gamma)
+  process.run("hyprctl hyprsunset temperature " .. mode.temperature)
+  process.run("hyprctl hyprsunset gamma " .. mode.gamma)
   notify.send(mode.label, nil, {
     timeout = 1000,
     app_name = "Toggle HyprSunset",

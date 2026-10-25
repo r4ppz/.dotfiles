@@ -1,9 +1,9 @@
 local const = require("util.constant")
-local mouse = require("util.mouse")
-local eyetemp = require("util.eyetemp")
+local mouse = require("script.mouse")
+local eyetemp = require("script.eyetemp")
 local notify = require("util.notify")
-local zen = require("util.zen")
-local record = require("util.record")
+local zen = require("script.zen")
+local record = require("script.record")
 
 --- Starts or restarts a 2-second inactivity timer.
 local submap_timer = nil

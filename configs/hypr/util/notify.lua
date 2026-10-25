@@ -1,13 +1,8 @@
+local process = require("util.process")
+
 local M = {}
 
 -- notify-send lua wrapper
-
-local function shell_quote(val)
-  if type(val) ~= "string" then
-    return tostring(val)
-  end
-  return "'" .. string.gsub(val, "'", "'\\''") .. "'"
-end
 
 function M.send(summary, body, config)
   if not summary or summary == "" then
@@ -28,7 +23,7 @@ function M.send(summary, body, config)
 
   for key, flag in pairs(flag_map) do
     if config[key] then
-      table.insert(cmd_parts, string.format("%s %s", flag, shell_quote(config[key])))
+      table.insert(cmd_parts, string.format("%s %s", flag, process.shell_quote(config[key])))
     end
   end
 
@@ -36,9 +31,9 @@ function M.send(summary, body, config)
     table.insert(cmd_parts, "-e")
   end
 
-  table.insert(cmd_parts, shell_quote(summary))
+  table.insert(cmd_parts, process.shell_quote(summary))
   if body and body ~= "" then
-    table.insert(cmd_parts, shell_quote(body))
+    table.insert(cmd_parts, process.shell_quote(body))
   end
 
   local final_cmd = table.concat(cmd_parts, " ")

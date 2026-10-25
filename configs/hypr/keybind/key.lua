@@ -1,6 +1,6 @@
 local const = require("util.constant")
-local zen = require("util.zen")
-local zoom = require("util.zoom")
+local zen = require("script.zen")
+local zoom = require("script.zoom")
 
 -- Power menu
 hl.bind("XF86PowerOff", hl.dsp.exec_cmd(const.scripts.powermenu))

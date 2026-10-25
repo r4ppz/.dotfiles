@@ -1,5 +1,6 @@
 local const = require("util.constant")
-local tiling = require("appearance.tiling")
+local workspace = require("util.workspace")
+local layout = require("util.layout")
 
 hl.bind(const.mod .. " + SHIFT + K", hl.dsp.window.kill())
 hl.bind(const.mod .. " + SHIFT + Q", hl.dsp.window.close())
@@ -10,18 +11,25 @@ hl.bind(const.mod .. " + SHIFT + P", function()
   hl.dispatch(hl.dsp.window.pin())
 end)
 
+-- Focus previous window and bring to top
 hl.bind("ALT + TAB", function()
-  if tiling.has_floating_windows() then
-    hl.dispatch(hl.dsp.window.cycle_next())
+  if workspace.has_floating_windows() then
+    hl.dispatch(hl.dsp.window.cycle_next({
+      next = true,
+    }))
     hl.dispatch(hl.dsp.window.bring_to_top())
+  elseif layout.get_current() == "master" then
+    hl.dispatch(hl.dsp.layout("rollnext"))
   end
 end)
-
--- Focus previous window and bring to top
-hl.bind("CTRL + SHIFT + TAB", function()
-  if tiling.has_floating_windows() then
-    hl.dispatch(hl.dsp.window.cycle_next({ next = false }))
+hl.bind("ALT + SHIFT + TAB", function()
+  if workspace.has_floating_windows() then
+    hl.dispatch(hl.dsp.window.cycle_next({
+      next = false,
+    }))
     hl.dispatch(hl.dsp.window.bring_to_top())
+  elseif layout.get_current() == "master" then
+    hl.dispatch(hl.dsp.layout("rollprev"))
   end
 end)
 

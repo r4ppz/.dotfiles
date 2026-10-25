@@ -1,4 +1,5 @@
 local notify = require("util.notify")
+local process = require("util.process")
 
 local M = {}
 
@@ -27,8 +28,8 @@ local function apply_config(mode)
     general = conf.general,
     decoration = conf.decoration,
   })
-  hl.dispatch(hl.dsp.exec_cmd("hyprctl hyprpaper wallpaper  HDMI-A-1," .. conf.wallpaper .. ",cover"))
-  hl.dispatch(hl.dsp.exec_cmd("systemctl --user " .. conf.waybar .. " waybar.service"))
+  process.run("hyprctl hyprpaper wallpaper  HDMI-A-1," .. conf.wallpaper .. ",cover")
+  process.run("systemctl --user " .. conf.waybar .. " waybar.service")
 end
 
 function M.is_zen()
