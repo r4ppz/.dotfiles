@@ -21,6 +21,11 @@ gui:
       - blue
       - bold
 
+refresher:
+  refreshInterval: 1
+  fetchInterval: 60
+  externalChangeCheckInterval: 1
+
 git:
   autoFetch: true
   autoRefresh: true
