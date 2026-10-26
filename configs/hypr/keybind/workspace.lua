@@ -37,6 +37,7 @@ hl.workspace_rule({
     right = 350,
     left = 350,
   },
+  layout = "dwindle",
 })
 
 hl.bind(const.mod .. " + BACKSLASH", hl.dsp.workspace.toggle_special("window2"))
@@ -69,7 +70,13 @@ hl.workspace_rule({
     left = 5,
   },
   border_size = 0,
+  layout = "dwindle",
 })
 
 hl.bind(const.mod .. " + grave", hl.dsp.workspace.toggle_special("minimize"))
 hl.bind(const.mod .. " + X", hl.dsp.window.move({ workspace = "special:minimize" }))
+
+hl.workspace_rule({
+  workspace = "3",
+  layout = "scrolling",
+})

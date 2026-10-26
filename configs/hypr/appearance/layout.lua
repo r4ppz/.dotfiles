@@ -20,6 +20,12 @@ hl.config({
     new_status = "slave",
     mfact = 0.66,
   },
+
+  scrolling = {
+    fullscreen_on_one_column = true,
+    column_width = 1,
+    direction = "down",
+  },
 })
 
 return M

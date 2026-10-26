@@ -7,8 +7,8 @@ hl.window_rule({
 })
 
 hl.window_rule({
-  name = "musicplayer",
-  match = { class = "musicplayer" },
+  name = "music",
+  match = { class = "musicplayer|brave-music.youtube.com__-Default" },
   workspace = "special:window2",
 })
 
@@ -19,14 +19,8 @@ hl.window_rule({
 })
 
 hl.window_rule({
-  name = "helium",
+  name = "school stuff",
   match = { class = "helium|chrome-classroom.google.com__-Default" },
-  workspace = 5,
-})
-
-hl.window_rule({
-  name = "youtube-music",
-  match = { initial_class = "^brave-music.youtube.com__-Default$" },
   workspace = 4,
 })
 
@@ -137,7 +131,18 @@ hl.window_rule({
 
 hl.window_rule({
   name = "just float",
-  match = { class = "gsimplecal|warp-taskbar|org.qbittorrent.qBittorrent" },
+  match = {
+    title = "Select what to share",
+  },
+  float = true,
+  center = true,
+})
+
+hl.window_rule({
+  name = "just float",
+  match = {
+    class = "gsimplecal|warp-taskbar|org.qbittorrent.qBittorrent",
+  },
   pin = true,
   float = true,
   center = true,
