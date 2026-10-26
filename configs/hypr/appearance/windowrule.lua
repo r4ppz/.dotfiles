@@ -19,15 +19,17 @@ hl.window_rule({
 })
 
 hl.window_rule({
-  name = "school stuff",
-  match = { class = "helium|chrome-classroom.google.com__-Default" },
-  workspace = 4,
+  name = "random bs in workspace 3",
+  match = {
+    initial_class = "com.obsproject.Studio|Visual Studio Code|ONLYOFFICE|md.obsidian.Obsidian|com.usebottles.bottles",
+  },
+  workspace = 3,
 })
 
 hl.window_rule({
-  name = "obs",
-  match = { initial_class = "com.obsproject.Studio|Visual Studio Code|ONLYOFFICE" },
-  workspace = 3,
+  name = "school stuff in workspace 4",
+  match = { class = "helium|chrome-classroom.google.com__-Default" },
+  workspace = 4,
 })
 
 -- Floating win fules

@@ -1,5 +1,5 @@
 {
-  description = "I want to have control and understanding as much as possible";
+  description = "My system my rules!";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";

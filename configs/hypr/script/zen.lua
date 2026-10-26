@@ -37,7 +37,7 @@ function M.is_zen()
 end
 
 function M.toggle()
-  if zen then
+  if M.is_zen() then
     apply_config("normal")
     zen = false
     notify.send("Normal Mode", nil, {
@@ -45,6 +45,13 @@ function M.toggle()
       app_name = "Zen Mode",
       icon = "dialog-information",
       transient = true,
+    })
+    hl.animation({
+      leaf = "workspaces",
+      enabled = true,
+      speed = 4,
+      bezier = "bouncy",
+      style = "slide",
     })
   else
     apply_config("zen")
@@ -54,6 +61,13 @@ function M.toggle()
       app_name = "Zen Mode",
       icon = "dialog-information",
       transient = true,
+    })
+    hl.animation({
+      leaf = "workspaces",
+      enabled = true,
+      speed = 4,
+      bezier = "easeOutQuint",
+      style = "slide",
     })
   end
 end
