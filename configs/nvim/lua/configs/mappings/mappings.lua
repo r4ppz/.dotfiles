@@ -93,6 +93,6 @@ require("configs.mappings.git")
 -- Standard Vim motions/text objects still works fine (ciw, daw, yi(, ci{, etc.).
 -- I try to not remove the default mappings as much as possible for compatibility.
 --
--- System-wide rebinds (via keyd):
+-- System-wide rebinds (see: nixos/configuration.nix:282)
 -- Esc      = Grave (`)
 -- CapsLock = Esc

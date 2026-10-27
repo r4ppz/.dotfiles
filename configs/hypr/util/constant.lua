@@ -71,8 +71,6 @@ M.websites = {
   movie = "https://cinejoy.pk",
   manga = "https://mangakatana.com",
   medium = "https://medium.com",
-  discord = "https://discord.com/channels/@me",
-  reddit = "https://reddit.com",
   psypost = "https://www.psypost.org",
 
   -- nix stuff

@@ -4,7 +4,7 @@
 # in a Docker Compose service using pgcli.
 #
 # Used in LazyDocker custom cmd:
-# lazydocker/config.yml
+# configs/lazydocker/config.yml:76
 
 SERVICE_NAME="$1"
 

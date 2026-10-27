@@ -5,7 +5,7 @@ set -euo pipefail
 # session with a predefined first window.
 #
 # Used in zsh auto attach:
-# zsh/.zshrc
+# configs/zsh/.zshrc:46
 
 SESSION="${1:-main}"
 FIRST_WINDOW_NAME="CMD"

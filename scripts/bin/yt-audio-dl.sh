@@ -5,12 +5,7 @@ set -euo pipefail
 # Prefer native Opus streams (no conversion).
 # Fallback to the best available audio (e.g., AAC),
 # then convert to a opus format (for consistency).
-
-#
-# You can alias it for shorter name like
-# alias ytdl'=scriptPath'
-#
-# See: zsh/alias.zsh
+# See: configs/zsh/alias.zsh:35
 
 OUTPUT_TEMPLATE='%(artist,uploader)s - %(title)s.opus'
 

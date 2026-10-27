@@ -4,6 +4,8 @@ set -euo pipefail
 # Captures a screen region, processes the
 # image, and extracts text using OCR.
 
+# used in: configs/hypr/util/constant.lua
+
 LOCKFILE="/tmp/screenshot_ocr.lock"
 TMPIMG=""
 PROCESSED=""

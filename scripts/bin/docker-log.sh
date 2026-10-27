@@ -6,7 +6,7 @@ SERVICE="$1"
 # specified Docker Compose service.
 #
 # Used in LazyDocker custom cmd:
-# lazydocker/config.yml
+# configs/lazydocker/config.yml:76
 
 while true; do
   docker compose logs -f --no-log-prefix "$SERVICE"

@@ -2,14 +2,15 @@
 
 set -euo pipefail
 
-# ============================================================
 # Media + Brightness Control Script
 #
 # Supports:
 # - PipeWire volume/mute
 # - Microphone mute
 # - Laptop brightness via brightnessctl
-# ============================================================
+
+# used in:
+# configs/hypr/util/constant.lua
 
 # Config
 VOLUME_STEP=5

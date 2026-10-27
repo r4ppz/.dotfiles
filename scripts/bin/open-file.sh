@@ -5,8 +5,8 @@ set -euo pipefail
 # editor, with preview and exclusions.
 #
 # Used in zsh as a widget:
-# zsh/keybinding.zsh
-# zsh/function.zsh
+# configs/zsh/keybinding.zsh
+# configs/zsh/function.zsh
 
 SEARCH_DIR="${1:-$PWD}"
 EDITOR="${EDITOR:-nvim}"

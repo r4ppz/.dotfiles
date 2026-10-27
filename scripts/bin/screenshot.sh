@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# Screenshot tool
+#
+# used in:
+# configs/hypr/util/constant.lua
+
 LOCKFILE="/tmp/screenshot.lock"
 readonly LOCKFILE
 TIMESTAMP="$(date +%Y-%m-%d_%H-%M-%S)"
