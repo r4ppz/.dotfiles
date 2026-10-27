@@ -6,10 +6,7 @@
     tmux
     yazi
 
-    claude-code
     opencode
-    crush
-    codex
     pi-coding-agent
 
     tailspin
