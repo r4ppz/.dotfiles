@@ -96,11 +96,11 @@ return {
     {
       "<leader>ca",
       function()
-        local win_util = require("utils.window")
-        win_util.close_panels()
+        local window = require("utils.window")
+        window.close_panels()
 
         if vim.bo.filetype == "copilot-chat" then
-          win_util.focus_main_window()
+          window.focus_main()
         end
 
         require("utils.tree_chat").add_to_copilot()

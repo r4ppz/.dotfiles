@@ -1,4 +1,4 @@
-local win_util = require("utils.window")
+local window = require("utils.window")
 local map = require("utils.map")
 
 -- Uses plugins? (other keybinds are in the plugin Lua files)
@@ -12,7 +12,7 @@ map("n", "<leader>n", "<cmd>enew<CR>", { desc = "Buffer new" })
 map(
   { "i", "n", "v" },
   "<M-Right>",
-  win_util.safe_buf_action(function()
+  window.safe_buf_action(function()
     require("nvchad.tabufline").next()
   end),
   { desc = "Buffer goto next" }
@@ -20,7 +20,7 @@ map(
 map(
   { "i", "n", "v" },
   "<M-Left>",
-  win_util.safe_buf_action(function()
+  window.safe_buf_action(function()
     require("nvchad.tabufline").prev()
   end),
   { desc = "Buffer goto prev" }
@@ -30,7 +30,7 @@ map(
 map(
   { "i", "n", "v" },
   "<C-M-Right>",
-  win_util.safe_buf_action(function()
+  window.safe_buf_action(function()
     require("nvchad.tabufline").move_buf(1)
   end),
   { desc = "move buffer to the right" }
@@ -38,7 +38,7 @@ map(
 map(
   { "i", "n", "v" },
   "<C-M-Left>",
-  win_util.safe_buf_action(function()
+  window.safe_buf_action(function()
     require("nvchad.tabufline").move_buf(-1)
   end),
   { desc = "move buffer to the left" }
@@ -48,7 +48,7 @@ map(
 map(
   "n",
   "<M-q>",
-  win_util.safe_buf_action(function()
+  window.safe_buf_action(function()
     require("nvchad.tabufline").close_buffer()
   end),
   { desc = "Buffer close" }
@@ -57,7 +57,7 @@ map(
 map(
   "n",
   "<S-M-Q>",
-  win_util.safe_buf_action(function()
+  window.safe_buf_action(function()
     require("nvchad.tabufline").closeAllBufs(false)
   end),
   { desc = "Close all buffers except current" }
@@ -90,10 +90,9 @@ map({ "n", "i", "v", "t" }, "<M-w>", function()
   local config = {
     pos = "float",
     id = "float_term",
+    float_opts = window.center_float(0.7, 0.7),
   }
-
   require("nvchad.term").toggle(config)
-
   map_close_terminal(config, "<M-g>")
 end, { desc = "Toggle Floating Terminal" })
 
@@ -101,18 +100,10 @@ map({ "n", "i", "v", "t" }, "<M-b>", function()
   local config = {
     pos = "float",
     id = "btop_float",
-    float_opts = {
-      row = 0.05,
-      col = 0.09,
-      width = 0.8,
-      height = 0.8,
-      border = "single",
-    },
+    float_opts = window.center_float(0.8, 0.8),
     cmd = "btop",
   }
-
   require("nvchad.term").toggle(config)
-
   map_close_terminal(config, "q")
 end, { desc = "Toggle Btop" })
 
@@ -130,10 +121,7 @@ map({ "n", "i", "v", "t" }, "<M-S-d>", function()
     vim.notify("docker-compose.yml doesn't exist in CWD", vim.log.levels.WARN)
   end
 
-  win_util.toggle_panel(function()
-    win_util.focus_main_window()
-    require("utils.lazydocker").open()
-  end, "snacks_terminal")
+  require("utils.lazydocker").open()
 end, { desc = "Toggle LazyDocker (Snacks)" })
 
 map({ "n", "i", "v", "t" }, "<M-s>", function()
@@ -143,7 +131,7 @@ map({ "n", "i", "v", "t" }, "<M-s>", function()
     size = 0.5,
   }
 
-  win_util.focus_main_window()
+  window.focus_main()
   require("nvchad.term").toggle(config)
 
   map_close_terminal(config, "<M-c>")
@@ -156,8 +144,8 @@ map({ "n", "i", "v", "t" }, "<M-v>", function()
     size = 0.5,
   }
 
-  win_util.toggle_panel(function()
-    win_util.focus_main_window()
+  window.toggle_panel(function()
+    window.focus_main()
     require("nvchad.term").toggle(config)
   end, "NvTerm_vsp")
 

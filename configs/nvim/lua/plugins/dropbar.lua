@@ -1,4 +1,4 @@
-local win_util = require("utils.window")
+local window = require("utils.window")
 
 local EXCLUDED_FILETYPES = {
   "NvimTree",
@@ -30,16 +30,16 @@ local function is_valid_source(buf)
 end
 
 local function is_enable(buf, win)
-  if not win_util.is_buf_win_valid(buf, win) or not win_util.is_win_standard(win) then
+  if not window.is_buf_win_valid(buf, win) or not window.is_standard(win) then
     return false
   end
 
   local ft = vim.bo[buf].filetype
-  if ft == "" or win_util.is_ft_excluded(buf, EXCLUDED_FILETYPES) then
+  if ft == "" or window.is_ft_excluded(buf, EXCLUDED_FILETYPES) then
     return false
   end
 
-  if win_util.is_empty_scratch_buf(buf) then
+  if window.is_empty_scratch_buf(buf) then
     vim.wo[win].winbar = ""
     return false
   end

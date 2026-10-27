@@ -1,5 +1,5 @@
-local custom_prompts = require("configs.llm.prompts")
-local win_util = require("utils.window")
+local prompts = require("configs.llm.prompts")
+local window = require("utils.window")
 
 return {
   "CopilotC-Nvim/CopilotChat.nvim",
@@ -13,8 +13,8 @@ return {
 
   opts = function()
     return {
-      system_prompt = custom_prompts.system_prompt,
-      prompts = custom_prompts.prompts,
+      system_prompt = prompts.system_prompt,
+      prompts = prompts.prompts,
 
       resources = "selection",
       selection = "visual",
@@ -62,7 +62,7 @@ return {
     {
       "<leader>ci",
       function()
-        win_util.close_panels()
+        window.close_panels()
         vim.cmd("CopilotChatIdiomatic")
       end,
       mode = { "n", "v" },
@@ -72,7 +72,7 @@ return {
     {
       "<leader>ce",
       function()
-        win_util.close_panels()
+        window.close_panels()
         vim.cmd("CopilotChatExplain")
       end,
       mode = { "n", "v" },
@@ -82,7 +82,7 @@ return {
     {
       "<leader>cs",
       function()
-        win_util.close_panels()
+        window.close_panels()
         vim.cmd("CopilotChatSuggest")
       end,
       mode = { "n", "v" },
@@ -99,7 +99,7 @@ return {
     {
       "<M-c>",
       function()
-        win_util.toggle_panel(function()
+        window.toggle_panel(function()
           require("CopilotChat").toggle()
         end, "copilot-chat")
       end,
@@ -110,7 +110,7 @@ return {
     {
       "<leader>cp",
       function()
-        win_util.close_panels()
+        window.close_panels()
         local chat = require("CopilotChat")
         chat.open()
         chat.select_prompt()
@@ -123,7 +123,7 @@ return {
     {
       "<leader>cb",
       function()
-        win_util.close_panels()
+        window.close_panels()
         local chat = require("CopilotChat")
         chat.open()
         chat.chat:add_message({ role = "user", content = "#buffer:active\n" })
@@ -135,7 +135,7 @@ return {
     {
       "<leader>cB",
       function()
-        win_util.close_panels()
+        window.close_panels()
         local chat = require("CopilotChat")
         chat.open()
         chat.chat:add_message({ role = "user", content = "#buffer:listed\n" })
@@ -147,7 +147,7 @@ return {
     {
       "<leader>cf",
       function()
-        win_util.close_panels()
+        window.close_panels()
         local snacks = require("snacks")
         snacks.picker.files({
           confirm = function(picker, item)
@@ -181,7 +181,7 @@ return {
     {
       "<C-S-M-Up>",
       function()
-        win_util.close_panels()
+        window.close_panels()
         local params = vim.lsp.util.make_position_params(nil, "utf-16")
         local responses = vim.lsp.buf_request_sync(0, "textDocument/hover", params, 500)
 
@@ -212,7 +212,7 @@ return {
         local chat = require("CopilotChat")
         chat.open()
         chat.ask(
-          custom_prompts.prompts.BetterDocs.prompt .. "\n\n" .. hover_text,
+          prompts.prompts.BetterDocs.prompt .. "\n\n" .. hover_text,
           { clear_chat_on_new_prompt = true }
         )
       end,

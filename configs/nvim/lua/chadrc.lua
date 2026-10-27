@@ -44,17 +44,6 @@ M.ui = {
   },
 }
 
-M.term = {
-  float = {
-    relative = "editor",
-    row = 0.13,
-    col = 0.15,
-    width = 0.7,
-    height = 0.6,
-    border = "single",
-  },
-}
-
 M.lsp = {
   signature = false,
 }

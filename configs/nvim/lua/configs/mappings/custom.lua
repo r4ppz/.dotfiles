@@ -201,7 +201,7 @@ map("n", "<C-S-M-q>", ":only<CR>", {
 })
 
 map("n", "<C-W>q", function()
-  require("utils.window").close_window_safely()
+  require("utils.window").close_safely()
 end, { desc = "Close window safely" })
 
 --------------------------------------------------------
