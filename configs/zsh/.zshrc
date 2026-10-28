@@ -21,7 +21,7 @@ if [[ $- == *i* ]]; then
   source ${zsh_plugins}.zsh
 
   # Source Configuration Files
-  # DOTFILES is set centrally via home-manager (modules/home/env.nix)
+  # DOTFILES is set in hm (modules/home/env.nix)
   local zsh_config_dir="$DOTFILES/configs/zsh/"
 
   if [[ -d "$zsh_config_dir" ]]; then
@@ -39,20 +39,6 @@ if [[ $- == *i* ]]; then
 
   source "$zsh_config_dir/.env" 2>/dev/null
 
-  # Auto-attach tmux for the first intance of kitty
-  if [[ "$TERM" == "xterm-kitty" && -z "$TMUX" && -n "$HYPRLAND_INSTANCE_SIGNATURE" ]]; then
-    if [[ $(hyprctl clients | grep -c "class: kitty") -eq 1 ]]; then
-      if [[ -d "$DOTFILES/scripts/bin" ]]; then
-        $DOTFILES/scripts/bin/tmux-init.sh
-      fi
-    fi
-  fi
-
-  # Initialize Atuin Shell History Engine
-  if command -v atuin &>/dev/null; then
-    eval "$(atuin init zsh --disable-up-arrow)"
-  fi
-
-  # Initialize zoxide for directory navigation
+  eval "$(atuin init zsh --disable-up-arrow)"
   eval "$(zoxide init zsh --cmd cd)"
 fi
