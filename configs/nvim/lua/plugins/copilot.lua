@@ -22,9 +22,8 @@ return {
       temperature = 0.1,
 
       -- I only use FREE models cause I am poor asf
-      model = "openai/gpt-oss-120b",
-      -- model = "models/gemini-3.6-flash",
-      -- model = "models/gemini-3.5-flash-lite",
+      -- model = "openai/gpt-oss-120b",
+      model = "gemini-3.5-flash-lite",
 
       providers = require("configs.llm.providers").setup(),
 

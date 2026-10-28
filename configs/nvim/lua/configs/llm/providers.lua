@@ -82,10 +82,9 @@ function M.setup()
     }, builtin),
 
     openrouter = define({
-      -- models.py https://openrouter.ai/api/v1/ $OPENROUTER_API_KEY --free
       url = "https://openrouter.ai/api/v1/chat/completions",
       api_key = "OPENROUTER_API_KEY",
-      disabled = true,
+      disabled = false,
       models = {
         {
           id = "openrouter/free",
@@ -106,54 +105,33 @@ function M.setup()
     }, builtin),
 
     google = define({
-      -- models.py https://generativelanguage.googleapis.com/v1beta/openai/ $GEMINI_API_KEY
       url = "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions",
       api_key = "GEMINI_API_KEY",
-      disabled = true,
+      disabled = false,
       models = {
         {
-          id = "models/gemini-3.6-flash",
-          name = "Gemini 3.6 Flash",
-          streaming = true,
-        },
-        {
-          id = "models/gemini-3.5-flash",
-          name = "Gemini 3.5 Flash",
-          streaming = true,
-        },
-        {
-          id = "models/gemini-3.5-flash-lite",
+          id = "gemini-3.5-flash-lite",
           name = "Gemini 3.5 Flash Lite",
           streaming = true,
         },
         {
-          id = "models/gemini-3.1-flash-lite",
+          id = "gemini-3.1-flash-lite",
           name = "Gemini 3.1 Flash Lite",
           streaming = true,
         },
         {
-          id = "models/gemini-3-flash-preview",
+          id = "gemini-3-flash-preview",
           name = "Gemini 3 Flash Preview",
           streaming = true,
         },
         {
-          id = "models/gemini-2.5-flash-lite",
+          id = "gemini-2.5-flash-lite",
           name = "Gemini 2.5 Flash Lite",
           streaming = true,
         },
         {
-          id = "models/gemini-2.0-flash",
-          name = "Gemini 2.0 Flash",
-          streaming = true,
-        },
-        {
-          id = "models/gemini-2.0-flash-lite",
-          name = "Gemini 2.0 Flash Lite",
-          streaming = true,
-        },
-        {
-          id = "models/gemini-flash-latest",
-          name = "Gemini Flash Latest",
+          id = "gemini-3.8-flash",
+          name = "Gemini 3.8 Flash",
           streaming = true,
         },
       },
@@ -161,7 +139,6 @@ function M.setup()
 
     freetheai = define({
       disabled = true,
-      -- models.py https://api.freetheai.xyz/v1/ $FREETHEAI_API_KEY --free
       url = "https://api.freetheai.xyz/v1/chat/completions",
       api_key = "FREETHEAI_API_KEY",
       models = {
@@ -179,7 +156,6 @@ function M.setup()
     }, builtin),
 
     groq = define({
-      -- models.py https://api.groq.com/openai/v1/ $GROQ_API_KEY
       url = "https://api.groq.com/openai/v1/chat/completions",
       api_key = "GROQ_API_KEY",
       models = {
