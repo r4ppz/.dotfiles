@@ -22,7 +22,6 @@ typeset -gA PROC_MAP=(
   net NET
   lg GIT
   ld DOCKER
-  yay YAY
   npm NPM
   late LATE
   ssh SSH
@@ -36,7 +35,7 @@ typeset -gA PROC_MAP=(
   witr WITR
   rss RSS
   bulletty RSS
-  concord DISCORD
+  concord DISC
 )
 
 typeset -gA DIR_MAP=(
@@ -80,8 +79,8 @@ typeset -gA DIR_MAP_PREFIX=(
   "$HOME/Books" BOOKS
   "$HOME/School" SCHOOL
   "$HOME/Music" MUSIC
-  "$HOME/Documents" DOCUMENTS
-  "$HOME/Downloads" DOWNLOADS
+  "$HOME/Documents" DOCS
+  "$HOME/Downloads" DOWNL
   "$HOME/Games" GAMES
   "$HOME/Pictures" PICS
   "$HOME/Repositories" REPOS
