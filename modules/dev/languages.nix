@@ -34,6 +34,7 @@
     rustfmt
 
     # smh
+    luajitPackages.tiktoken_core
     pnpm
     tree-sitter
     gnumake
