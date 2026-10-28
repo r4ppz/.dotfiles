@@ -11,7 +11,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
       require("trouble").toggle({ mode = "symbols", focus = true })
     end, { desc = "Symbols (Trouble)" })
 
-    map("n", { "<S-C-Up>", "K" }, function()
+    map("n", { "<S-C-Up>", "gK" }, function()
       require("configs.hover").hover({
         max_width = 80,
         max_height = 15,
@@ -50,19 +50,31 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end, { buffer = buf, desc = "LSP References (Snacks)" })
 
     map("n", "gd", function()
-      Snacks.picker.lsp_definitions()
+      Snacks.picker.lsp_definitions({
+        include_current = false,
+        auto_confirm = false,
+      })
     end, { buffer = buf, desc = "Goto [d]efinition (Snacks)" })
 
     map("n", "gi", function()
-      Snacks.picker.lsp_implementations()
+      Snacks.picker.lsp_implementations({
+        include_current = false,
+        auto_confirm = false,
+      })
     end, { buffer = buf, desc = "Goto [I]mplementation (Snacks)" })
 
     map("n", "gy", function()
-      Snacks.picker.lsp_type_definitions()
+      Snacks.picker.lsp_type_definitions({
+        include_current = false,
+        auto_confirm = false,
+      })
     end, { buffer = buf, desc = "Goto T[y]pe Definition (Snacks)" })
 
     map("n", "ge", function()
-      Snacks.picker.lsp_declarations()
+      Snacks.picker.lsp_declarations({
+        include_current = false,
+        auto_confirm = false,
+      })
     end, { buffer = buf, desc = "Goto D[e]claration (Snacks)" })
 
     map("n", { "gD", "<S-C-Down>" }, function()

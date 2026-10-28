@@ -10,16 +10,16 @@ map("n", "<leader>n", "<cmd>enew<CR>", { desc = "Buffer new" })
 
 -- change buffer
 map(
-  { "i", "n", "v" },
-  "<M-Right>",
+  { "n", "v" },
+  { "<M-Right>", "L" },
   window.safe_buf_action(function()
     require("nvchad.tabufline").next()
   end),
   { desc = "Buffer goto next" }
 )
 map(
-  { "i", "n", "v" },
-  "<M-Left>",
+  { "n", "v" },
+  { "<M-Left>", "H" },
   window.safe_buf_action(function()
     require("nvchad.tabufline").prev()
   end),
@@ -28,16 +28,16 @@ map(
 
 -- move buffer
 map(
-  { "i", "n", "v" },
-  "<C-M-Right>",
+  { "n", "v" },
+  { "<C-M-Right>", "<C-S-l>" },
   window.safe_buf_action(function()
     require("nvchad.tabufline").move_buf(1)
   end),
   { desc = "move buffer to the right" }
 )
 map(
-  { "i", "n", "v" },
-  "<C-M-Left>",
+  { "n", "v" },
+  { "<C-M-Left>", "<C-S-h>" },
   window.safe_buf_action(function()
     require("nvchad.tabufline").move_buf(-1)
   end),

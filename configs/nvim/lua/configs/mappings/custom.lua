@@ -101,8 +101,8 @@ map("i", "<S-Right>", "<C-o>E<C-o>a", {
 })
 
 -- Ctrl+Up/Down scroll one line
-map({ "n", "v" }, "<C-Down>", "<C-e>", { desc = "Scroll window down one line" })
-map({ "n", "v" }, "<C-Up>", "<C-y>", { desc = "Scroll window up one line" })
+map({ "n", "v" }, { "<C-Down>", "J" }, "<C-e>", { desc = "Scroll window down one line" })
+map({ "n", "v" }, { "<C-Up>", "K" }, "<C-y>", { desc = "Scroll window up one line" })
 map("i", "<C-Down>", "<C-o><C-e>", { desc = "Scroll window down one line in insert mode" })
 map("i", "<C-Up>", "<C-o><C-y>", { desc = "Scroll window up one line in insert mode" })
 
