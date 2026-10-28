@@ -28,7 +28,7 @@ end
 -- -----------------------------------------------------------
 
 hl.workspace_rule({
-  monitor = monitor.isExternalConnected() and monitor.external or monitor.internal,
+  monitor = hl.get_monitor(monitor.external) and monitor.external or monitor.internal,
   workspace = "special:window2",
   gaps_in = 3,
   gaps_out = {
@@ -44,7 +44,7 @@ hl.bind(const.mod .. " + BACKSLASH", hl.dsp.workspace.toggle_special("window2"))
 hl.bind(const.mod .. " + SHIFT + BACKSLASH", hl.dsp.window.move({ workspace = "special:window2" }))
 
 hl.workspace_rule({
-  monitor = monitor.isExternalConnected() and monitor.external or monitor.internal,
+  monitor = hl.get_monitor(monitor.external) and monitor.external or monitor.internal,
   workspace = "special:window1",
   gaps_in = 3,
   gaps_out = {
@@ -60,7 +60,7 @@ hl.bind(const.mod .. " + SHIFT + W", hl.dsp.window.move({ workspace = "special:w
 
 -- Minimize workspace
 hl.workspace_rule({
-  monitor = monitor.isExternalConnected() and monitor.external or monitor.internal,
+  monitor = hl.get_monitor(monitor.external) and monitor.external or monitor.internal,
   workspace = "special:minimize",
   gaps_in = 2,
   gaps_out = {

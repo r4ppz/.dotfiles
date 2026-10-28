@@ -21,7 +21,7 @@ hl.window_rule({
 hl.window_rule({
   name = "random bs in workspace 3",
   match = {
-    initial_class = "com.obsproject.Studio|Visual Studio Code|ONLYOFFICE|md.obsidian.Obsidian|com.usebottles.bottles",
+    initial_class = "com.obsproject.Studio|Visual Studio Code|ONLYOFFICE|md.obsidian.Obsidian|com.usebottles.bottles|com.belmoussaoui.Authenticator",
   },
   workspace = 3,
 })
@@ -32,25 +32,14 @@ hl.window_rule({
   workspace = 4,
 })
 
--- Floating win fules
+-- Floating win rules
 
 hl.window_rule({
-  name = "xdg-desktop-portal-gtk",
+  name = "xdg-desktop-portal-gtk|ONLYOFFICE|etc popups",
   match = {
-    initial_class = "^.*(xdg-desktop-portal-gtk).*$",
+    initial_class = "^.*(xdg-desktop-portal-gtk|DesktopEditors).*$",
   },
   size = { "monitor_w * 0.3646", "monitor_h * 0.4630" },
-  pin = true,
-  float = true,
-  center = true,
-})
-
-hl.window_rule({
-  name = "DesktopEditors",
-  match = {
-    initial_class = "^.*(DesktopEditors).*$",
-  },
-  size = { "monitor_w * 0.2969", "monitor_h * 0.1111" },
   pin = true,
   float = true,
   center = true,
@@ -73,26 +62,22 @@ hl.window_rule({
     initial_title = "^(Rename|Move|File Operation Progress).*$",
   },
   size = { "monitor_w * 0.1823", "monitor_h * 0.1204" },
-  pin = true,
   float = true,
   center = true,
 })
 
--- Web / specific popups
 hl.window_rule({
-  name = "export-download",
+  name = "other popups",
   match = {
     initial_title = "^.*(export-download|codeload|wants to).*$",
     modal = true,
   },
-  size = { "monitor_w * 0.3646", "monitor_h * 0.4630" },
-  pin = true,
   float = true,
   center = true,
 })
 
 hl.window_rule({
-  name = "task, network and bluetooth managers",
+  name = "smt managers",
   match = { initial_class = "taskmanager|network|bluetooth" },
   size = { "monitor_w * 0.5208", "monitor_h * 0.6481" },
   pin = true,
@@ -101,7 +86,7 @@ hl.window_rule({
 })
 
 hl.window_rule({
-  name = "bluetooth-dialogs-gui",
+  name = "network dialog GUI",
   match = {
     initial_class = "^.*(nm-connection-editor|blueman-manager).*$",
   },
@@ -132,9 +117,9 @@ hl.window_rule({
 })
 
 hl.window_rule({
-  name = "just float",
+  name = "just float dont pin",
   match = {
-    title = "Select what to share",
+    title = "Select what to share|Cloudflare One Client",
   },
   float = true,
   center = true,

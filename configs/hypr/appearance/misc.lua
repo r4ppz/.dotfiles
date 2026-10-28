@@ -27,7 +27,5 @@ hl.config({
 
     enable_swallow = true,
     swallow_regex = "kitty",
-
-    vrr = 1,
   },
 })
