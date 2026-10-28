@@ -81,7 +81,7 @@ return {
 
       keymaps = {
         view = {
-          { "n", "q", "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" } },
+          { "n", "tq", "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" } },
           { "n", "<M-e>", "<cmd>DiffviewToggleFiles<cr>", { desc = "Toggle Explorer" } },
 
           { "n", "<tab>", false },
@@ -105,7 +105,7 @@ return {
           },
         },
         file_panel = {
-          { "n", "q", "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" } },
+          { "n", "tq", "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" } },
           { "n", "<M-e>", "<cmd>DiffviewToggleFiles<cr>", { desc = "Toggle Explorer" } },
           { "n", "R", "<cmd>DiffviewRefresh<cr>", { desc = "Refresh" } },
 
@@ -130,7 +130,7 @@ return {
           },
         },
         file_history_panel = {
-          { "n", "q", "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" } },
+          { "n", "tq", "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" } },
           { "n", "<M-e>", "<cmd>DiffviewToggleFiles<cr>", { desc = "Toggle Explorer" } },
 
           { "n", "<tab>", false },

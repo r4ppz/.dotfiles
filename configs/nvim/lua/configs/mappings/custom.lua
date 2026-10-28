@@ -131,16 +131,10 @@ map({ "n", "v" }, "!", "0", {
 map({ "n", "v" }, "@", "$", {
   desc = "Jump to last non-blank character of line",
 })
-map({ "n", "v" }, "g<Left>", "^", {
+map({ "n", "v" }, { "g<Left>", "gh", "<C-S-Left>" }, "^", {
   desc = "Jump to first non-blank character of the line",
 })
-map({ "n", "v" }, "g<Right>", "g_", {
-  desc = "Jump to last non-blank character of line",
-})
-map({ "n", "v" }, "<C-S-Left>", "^", {
-  desc = "Jump to first non-blank character of the line",
-})
-map({ "n", "v" }, "<C-S-Right>", "g_", {
+map({ "n", "v" }, { "g<Right>", "gl", "<C-S-Right>" }, "g_", {
   desc = "Jump to last non-blank character of line",
 })
 map({ "i" }, "<C-S-Left>", "<C-o>^", {
@@ -231,15 +225,27 @@ map({ "n", "v" }, "D", '"_D', { desc = "Delete to end of line without yanking" }
 map("n", "X", "D", { desc = "Cut line" })
 -- map("n", "xx", "dd", { desc = "Cut line" })
 
--- Highlights the word without jumping to the next occurrence.
--- Uses case-insensitive search and enables 'hlsearch'.
-map("n", "#", [[<Cmd>let @/ = '\c\<'.expand('<cword>').'\>'<CR>:set hlsearch<CR>]], {
-  desc = "Highlight word (no jump, case-insensitive)",
-})
-map("v", "#", [[y<Cmd>let @/ = '\c\V' . escape(@", '/\')<CR>:set hlsearch<CR><Esc>]], {
-  desc = "Highlight selection (no jump, case-insensitive)",
-})
+-- Highlights the word without jumping to the next occurrence (smart-case)
+map(
+  "n",
+  "#",
+  [[<Cmd>let @/ = (expand('<cword>') =~# '\u' ? '\C' : '\c') . '\<' . expand('<cword>') . '\>'<CR><Cmd>set hlsearch<CR>]],
+  {
+    desc = "Highlight word (no jump, smart-case)",
+  }
+)
 
+-- Highlights the visual selection (multiline, smart-case)
+map(
+  "x",
+  "#",
+  [["zy<Cmd>let @/ = (@z =~# '\u' ? '\C\V' : '\c\V') . substitute(escape(@z, '/\'), '\n', '\\n', 'g')<CR><Cmd>set hlsearch<CR>]],
+  {
+    desc = "Highlight selection (no jump, smart-case)",
+  }
+)
+
+-- Hide the annoying error msg
 map("n", "gx", function()
   pcall(function()
     vim.ui.open(vim.fn.expand("<cfile>"))

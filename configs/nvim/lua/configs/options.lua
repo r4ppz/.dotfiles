@@ -1,5 +1,9 @@
 local opt = vim.opt
 
+-- Native completion
+vim.opt.completeopt = { "menu", "menuone", "noselect", "popup" }
+vim.opt.pumborder = "single"
+
 -- Session
 opt.shada = ""
 

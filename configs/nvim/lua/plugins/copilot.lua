@@ -3,7 +3,7 @@ local window = require("utils.window")
 
 return {
   "CopilotC-Nvim/CopilotChat.nvim",
-  -- dev = true,
+  dev = true,
   branch = "main",
   build = "make tiktoken",
   dependencies = {
