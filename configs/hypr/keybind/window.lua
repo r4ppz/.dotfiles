@@ -1,6 +1,5 @@
 local const = require("util.constant")
 local workspace = require("util.workspace")
-local layout = require("util.layout")
 
 hl.bind(const.mod .. " + SHIFT + K", hl.dsp.window.kill())
 hl.bind(const.mod .. " + SHIFT + Q", hl.dsp.window.close())
@@ -18,7 +17,7 @@ hl.bind("ALT + TAB", function()
       next = true,
     }))
     hl.dispatch(hl.dsp.window.bring_to_top())
-  elseif layout.get_current() == "master" then
+  elseif workspace.get_layout() == "master" then
     hl.dispatch(hl.dsp.layout("rollnext"))
   end
 end)
@@ -28,7 +27,7 @@ hl.bind("ALT + SHIFT + TAB", function()
       next = false,
     }))
     hl.dispatch(hl.dsp.window.bring_to_top())
-  elseif layout.get_current() == "master" then
+  elseif workspace.get_layout() == "master" then
     hl.dispatch(hl.dsp.layout("rollprev"))
   end
 end)

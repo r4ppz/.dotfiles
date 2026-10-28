@@ -1,5 +1,9 @@
 local M = {}
 
+function M.get_layout()
+  return hl.get_active_workspace().tiled_layout
+end
+
 function M.has_floating_windows()
   local workspaces = hl.get_active_workspace()
   if not workspaces then
