@@ -83,7 +83,6 @@ M.websites = {
   codeberg = "https://codeberg.org",
   github = "https://github.com/r4ppz",
   devdocs = "https://devdocs.io",
-  arch = "https://archlinux.org",
   coderabbit = "https://app.coderabbit.ai/wizard",
   figma = "https://www.figma.com",
   vercel = "https://vercel.com/r4ppz",
@@ -96,6 +95,7 @@ M.websites = {
   zig = "https://ziglang.org/documentation/0.16.0/",
   leetcode = "https://leetcode.com",
   learnxinyminutes = "https://learnxinyminutes.com",
+  oklch = "https://www.oklch.co/generator",
 }
 
 return M

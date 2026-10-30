@@ -16,7 +16,7 @@ local monitors = {
     mode = "1366x768@60",
     position = "1920x0",
     scale = 1,
-    disabled = false,
+    disabled = true,
     -- mirror = M.external,
   },
   {
@@ -39,22 +39,22 @@ local function apply()
 
   hl.exec_scheduled_prop_refresh_immediately()
 
-  local ext_connected = hl.get_monitor(M.external) ~= nil
-  local dual = ext_connected and not internal_disabled
-  local fallback = (ext_connected and internal_disabled) and M.external or M.internal
+  local external_connected = hl.get_monitor(M.external) ~= nil
+  local dual = external_connected and not internal_disabled
+  local fallback = (external_connected and internal_disabled) and M.external or M.internal
 
   for id = 1, 10 do
-    local ws = tostring(id)
+    local workspace = tostring(id)
     local target = dual and (id == 10 and M.internal or M.external) or fallback
 
     hl.workspace_rule({
-      workspace = ws,
+      workspace = workspace,
       monitor = target,
       default = (id == 1) or (dual and id == 10),
     })
 
-    if hl.get_workspace(ws) then
-      hl.dispatch(hl.dsp.workspace.move({ workspace = ws, monitor = target }))
+    if hl.get_workspace(workspace) then
+      hl.dispatch(hl.dsp.workspace.move({ workspace = workspace, monitor = target }))
     end
   end
 end
