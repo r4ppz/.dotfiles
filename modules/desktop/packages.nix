@@ -20,6 +20,7 @@
     qbittorrent
     authenticator
     bottles
+    krita
 
     vlc
     imv

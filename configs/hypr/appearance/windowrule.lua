@@ -21,7 +21,7 @@ hl.window_rule({
 hl.window_rule({
   name = "random bs in workspace 3",
   match = {
-    initial_class = "com.obsproject.Studio|Visual Studio Code|ONLYOFFICE|md.obsidian.Obsidian|com.usebottles.bottles|com.belmoussaoui.Authenticator",
+    initial_class = "com.obsproject.Studio|Visual Studio Code|ONLYOFFICE|md.obsidian.Obsidian|com.usebottles.bottles|com.belmoussaoui.Authenticator|org.kde.krita",
   },
   workspace = 3,
 })
