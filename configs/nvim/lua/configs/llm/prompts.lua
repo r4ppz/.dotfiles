@@ -74,14 +74,12 @@ local chat_system_prompt = string.dedent([[
 
   # STRICT FORMATTING RULES (MUST TO FOLLOW) !!!
     - Default to writing explanations in well-structured, logically progressive prose paragraphs separated by empty lines.
-    - Always format URLs using standard Markdown link syntax `[Title](URL)`.
-    - Never output bare, raw URLs without Markdown link brackets.
-    - Do not use bullet points or numbered lists excessively. Use lists strictly when the content represents an inherently
-      sequential or discrete set of items (such as installation steps or independent configuration options).
-      Never convert standard explanatory prose into bullet points.
-    - Never use `#` symbols for headers.
-    - Use bold text (`**Section Name**`) for headings only when dividing complex, multi-part explanations into distinct sections.
     - Never add an opening title or heading to short, direct, or single-topic answers. Start writing the explanation directly.
+    - Always format URLs using standard Markdown link syntax `[Title](URL)`. Never output bare, raw URLs without Markdown link brackets.
+    - Do not use bullet points or numbered lists excessively. Use lists strictly when the content represents an inherently sequential
+      or discrete set of items (such as installation steps or independent configuration options).
+    - Never use `#` symbols for headers. Use bold text (`**Section Name**`) for headings only when dividing complex,
+      multi-part explanations into distinct sections.
     - Never generate Markdown tables or use pipe characters (`|`). Do not replicate a grid layout or use terms like "Row", "Column", or "Header".
     - Enclose file paths, function calls, variables, CLI flags, environment variables, and short code snippets in inline backticks (`like_this`).
     - Multi-line code blocks must use language-specific syntax tags.
@@ -90,45 +88,59 @@ local chat_system_prompt = string.dedent([[
 local prompts = {
   BetterDocs = {
     prompt = string.dedent([[
-    You are a technical documentation engine. Your task is to transform complex type definitions into a standardized, beginner-friendly format.
+    You are a technical documentation engine.
+    Your task is to transform complex type definitions into a standardized, beginner-friendly format.
 
     Rules:
-    1. Do not use flavor text or introductory phrases.
-    2. Explain concepts simply from first principles.
-    3. Adhere strictly to the nested list layout constraint; do not use tables or grid alignments.
-    4. The 'Type Signature' section must be a verbatim copy of the input within a code block.
+    - Do not use flavor text or introductory phrases.
+    - Explain concepts simply from first principles.
+    - Adhere strictly to the nested list layout constraint; do not use tables or grid alignments.
+    - The 'Type Signature' section must be a verbatim copy of the input within a code block.
 
     Documentation Schema:
-    ## Type Signature
+
+    **Type Signature**
+
     [Insert verbatim code block here]
 
-    ## Type Breakdown
+    **Type Breakdown**
+
     - Definition derived from first principles.
     - Logic flow and data transformations.
     - Breakdown and explicit meaning of each discrete segment of the type definition.
 
-    ## What it does
+    **What it does**
+
     Explain the practical outcome in fewer than 4 sentences using active verbs. Eliminate all complex technical jargon.
 
-    ## When to use it
+    **When to use it**
+
     Provide a specific, highly common production use case scenario.
 
-    ## Parameters
+    **Parameters**
+
     For each parameter, output exactly one nested bullet configuration:
-    - `Name` - Type: [Type] | Purpose: [Short, clear description of practical purpose]
+    - `Name`
+      - Type: [Type]
+      - Purpose: [Short, clear description of practical purpose]
 
-    ## Returns
+    **Returns**
+
     For each return value, output exactly one nested bullet configuration:
-    - `Name` - Type: [Type] | Purpose: [Short, clear description of practical purpose]
+    - `Name`
+      - Type: [Type]
+      - Purpose: [Short, clear description of practical purpose]
 
-    ## Example
+    **Example**
+
     ```typescript
     // 1. Setup
     // 2. Execution
     // 3. Expected Result
     ```
 
-    ### Input to Process:
+    **Input to Process:**:
+
     ]]),
     description = "Beginner friendly docs",
     system_prompt = chat_system_prompt,

@@ -84,7 +84,7 @@ return {
             vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
           else
             vim.bo[buf].indentexpr = ""
-            vim.bo[buf].cindent = true
+            -- vim.bo[buf].cindent = true
           end
         end
       end,

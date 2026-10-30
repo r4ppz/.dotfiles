@@ -1,6 +1,8 @@
 -- Code copied from Neovim core (LSP hover). I just duplicated it
 -- here to insert some custom post-parsing logic before rendering.
 
+-- waiting for: https://github.com/neovim/neovim/pull/42370
+
 local api = vim.api
 local lsp = vim.lsp
 local validate = vim.validate
