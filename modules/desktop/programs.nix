@@ -17,7 +17,7 @@
       package = pkgs.waybar;
       systemd = {
         enable = true;
-        targets = [ "hyprland.target" ];
+        targets = [ "hyprland-session.target" ];
       };
     };
 

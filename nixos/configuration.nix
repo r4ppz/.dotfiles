@@ -200,7 +200,7 @@
     hyprland = {
       enable = true;
       xwayland.enable = true;
-      withUWSM = true;
+      withUWSM = false;
     };
 
     nh = {
