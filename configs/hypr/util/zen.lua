@@ -16,7 +16,7 @@ local config = {
   },
   zen = {
     general = { gaps_out = 0, gaps_in = 1, border_size = 0 },
-    decoration = { rounding = 0, rounding_power = 0 },
+    decoration = { rounding = 0, rounding_power = 1 },
     wallpaper = dotfiles .. "/assets/plain-wallpaper.png",
     waybar = "stop",
   },

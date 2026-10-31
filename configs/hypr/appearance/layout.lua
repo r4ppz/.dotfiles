@@ -12,8 +12,8 @@ hl.config({
 
   dwindle = {
     preserve_split = true,
-    force_split = 3,
-    split_bias = 2,
+    force_split = 2,
+    split_bias = 1,
   },
 
   master = {
