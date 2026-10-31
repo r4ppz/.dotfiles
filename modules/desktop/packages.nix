@@ -6,7 +6,6 @@
 
     helium
     firefox
-    brave-origin
 
     kdePackages.okular
     quickshell
