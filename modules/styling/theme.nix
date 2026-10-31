@@ -15,12 +15,13 @@ let
     variant = "Gruvbox-Dark-Blue";
   };
 
-  # Shared font rendering tweaks
-  xftConfig = {
+  # Common GTK opts
+  gtkCommonConfig = {
     gtk-xft-antialias = 1;
     gtk-xft-hinting = 1;
     gtk-xft-hintstyle = "hintslight";
     gtk-xft-rgba = "rgb";
+    gtk-application-prefer-dark-theme = 1;
   };
 
   qtctAppearance = {
@@ -36,10 +37,18 @@ let
   };
 in
 {
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+      gtk-theme = "Colloid-Dark-Gruvbox";
+    };
+  };
+
   home.packages = with pkgs; [
     nwg-look
     libsForQt5.qtstyleplugin-kvantum
     kdePackages.qtstyleplugin-kvantum
+    glib
   ];
 
   qt = {
@@ -82,8 +91,8 @@ in
       gtk-xft-rgba="rgb"
     '';
 
-    gtk3.extraConfig = xftConfig;
-    gtk4.extraConfig = xftConfig;
+    gtk3.extraConfig = gtkCommonConfig;
+    gtk4.extraConfig = gtkCommonConfig;
   };
 
   xdg.configFile = {
