@@ -38,7 +38,7 @@
     zoxide
     eza
 
-    exiftool
+    file
     xxd
     cyberchef
     poppler-utils

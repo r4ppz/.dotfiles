@@ -174,6 +174,10 @@
   ];
 
   programs = {
+    nix-ld = {
+      enable = false; # might need later
+    };
+
     ydotool = {
       enable = true;
       group = "input";
