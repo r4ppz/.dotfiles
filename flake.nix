@@ -10,7 +10,7 @@
     };
 
     waybar = {
-      url = "github:Alexays/Waybar";
+      url = "github:Alexays/Waybar/4ff7d11a184507261aabf265b2fb81a1717e791c";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
