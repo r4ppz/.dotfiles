@@ -27,7 +27,7 @@ local monitors = {
   },
 }
 
-local function apply()
+function M.apply_config()
   local internal_disabled = false
 
   for _, cfg in ipairs(monitors) do
@@ -59,16 +59,6 @@ local function apply()
   end
 end
 
-apply()
-
-local function on_monitor_change(m)
-  if m.name == M.external then
-    apply()
-  end
-end
-
-hl.on("hyprland.start", apply)
-hl.on("monitor.added", on_monitor_change)
-hl.on("monitor.removed", on_monitor_change)
+M.apply_config()
 
 return M

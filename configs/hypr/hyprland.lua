@@ -1,5 +1,5 @@
 require("system.environment")
-require("system.autostart")
+require("system.event")
 require("system.permission")
 require("system.monitor")
 require("system.input")
