@@ -27,7 +27,6 @@ if [[ $- == *i* ]]; then
   if [[ -d "$zsh_config_dir" ]]; then
     source "$zsh_config_dir/setopt.zsh"
     source "$zsh_config_dir/environment.zsh"
-    source "$zsh_config_dir/path.zsh"
     source "$zsh_config_dir/alias.zsh"
     source "$zsh_config_dir/keybinding.zsh"
     source "$zsh_config_dir/function.zsh"

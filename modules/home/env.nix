@@ -10,6 +10,11 @@ let
     DOTFILES = dotfilesPath;
     JAVA_HOME = "${pkgs.jdk21}/lib/openjdk";
 
+    PNPM_HOME = "${config.xdg.dataHome}/pnpm";
+    BUN_INSTALL = "${config.home.homeDirectory}/.bun";
+    BUN_INSTALL_CACHE_DIR = "${config.home.homeDirectory}/.bun/install/cache";
+    GOPATH = "${config.home.homeDirectory}/.go";
+
     EDITOR = "nvim";
     VISUAL = "nvim";
     SYSTEMD_EDITOR = "nvim";
@@ -23,4 +28,15 @@ in
   xdg.enable = true;
   home.sessionVariables = sessionVars;
   systemd.user.sessionVariables = sessionVars;
+
+  home.sessionPath = [
+    "${sessionVars.PNPM_HOME}/bin"
+    "${sessionVars.BUN_INSTALL}/bin"
+    "${config.home.homeDirectory}/.local/bin"
+    "${sessionVars.GOPATH}/bin"
+    "${config.home.homeDirectory}/.cargo/bin"
+    "${config.home.homeDirectory}/.local/share/gem/ruby/3.4.0/bin"
+    "${config.home.homeDirectory}/.npm-global/bin"
+    "${dotfilesPath}/scripts/bin"
+  ];
 }
