@@ -1,7 +1,7 @@
 return {
   "mfussenegger/nvim-lint",
   enabled = true,
-  event = { "BufReadPre", "BufNewFile" },
+  event = { "BufReadPost", "BufNewFile" },
   config = function()
     local lint = require("lint")
     vim.env.ESLINT_D_PPID = vim.fn.getpid()

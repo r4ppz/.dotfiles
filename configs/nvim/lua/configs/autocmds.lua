@@ -62,7 +62,6 @@ autocmd({ "FileType", "BufEnter" }, {
   callback = function()
     vim.opt_local.relativenumber = false
     vim.opt_local.number = false
-    vim.opt_local.conceallevel = 0
   end,
 })
 
@@ -112,6 +111,9 @@ autocmd("TextYankPost", {
   group = mygroup,
   desc = "Highlight when yanking (copying) text",
   callback = function()
-    vim.hl.on_yank()
+    vim.hl.hl_op({
+      higroup = "IncSearch",
+      timeout = 150,
+    })
   end,
 })

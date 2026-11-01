@@ -222,4 +222,98 @@ function M.center_float(width_frac, height_frac)
   }
 end
 
+--- Minimal cursor-relative floating input
+function M.floating_input(opts, on_confirm)
+  opts = opts or {}
+  local prompt = opts.prompt or "Rename: "
+  local default_text = opts.default or ""
+  local width = #prompt + #default_text + 5
+
+  local buf = vim.api.nvim_create_buf(false, true)
+  vim.bo[buf].buftype = "nofile"
+  vim.bo[buf].bufhidden = "wipe"
+  vim.b[buf].completion = false
+
+  local win_opts = {
+    relative = "cursor",
+    row = 1,
+    col = 0,
+    width = width,
+    height = 1,
+    style = "minimal",
+    border = "single",
+    title = " " .. prompt,
+    title_pos = "left",
+  }
+
+  local win = vim.api.nvim_open_win(buf, true, win_opts)
+  vim.wo[win].winhighlight = "FloatTitle:Normal"
+
+  vim.api.nvim_buf_set_lines(buf, 0, -1, false, { default_text })
+
+  local closed = false
+  local function close(result)
+    if closed then
+      return
+    end
+    closed = true
+
+    if vim.api.nvim_win_is_valid(win) then
+      vim.api.nvim_win_close(win, true)
+    end
+    vim.cmd("stopinsert")
+    on_confirm(result)
+  end
+
+  -- Confirm on <CR> from either Insert or Normal mode
+  vim.keymap.set({ "i", "n" }, "<CR>", function()
+    local line = vim.api.nvim_buf_get_lines(buf, 0, 1, false)[1]
+    close(line and line ~= "" and line or nil)
+  end, { buffer = buf, silent = true, nowait = true })
+
+  -- Cancel ONLY on 'q' in Normal mode
+  vim.keymap.set("n", "q", function()
+    close(nil)
+  end, { buffer = buf, silent = true, nowait = true })
+
+  -- Cancel if user clicks away or switches window
+  vim.api.nvim_create_autocmd({ "BufLeave", "WinLeave" }, {
+    buffer = buf,
+    once = true,
+    callback = function()
+      close(nil)
+    end,
+  })
+
+  -- Start in Normal mode with cursor on the first character
+  vim.cmd("stopinsert")
+  vim.api.nvim_win_set_cursor(win, { 1, 0 })
+end
+
+--- Triggers LSP rename using M.floating_input without altering global vim.ui.input.
+function M.lsp_rename()
+  local clients = vim.lsp.get_clients({ bufnr = 0, method = "textDocument/rename" })
+  if #clients == 0 then
+    vim.notify("No LSP client with rename capability attached", vim.log.levels.WARN)
+    return
+  end
+
+  local orig_input = vim.ui.input
+
+  ---@diagnostic disable-next-line: duplicate-set-field
+  vim.ui.input = function(opts, on_confirm)
+    vim.ui.input = orig_input
+    M.floating_input(opts, on_confirm)
+  end
+
+  -- Safety cleanup in case prepareRename fails or server hangs
+  vim.defer_fn(function()
+    if vim.ui.input ~= orig_input then
+      vim.ui.input = orig_input
+    end
+  end, 1500)
+
+  vim.lsp.buf.rename()
+end
+
 return M

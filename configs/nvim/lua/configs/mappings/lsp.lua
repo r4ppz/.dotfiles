@@ -1,5 +1,6 @@
 local map = require("utils.map")
 local layout = require("utils.layout")
+local window = require("utils.window")
 
 -- LSP-dependent mappings
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -12,15 +13,15 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end, { desc = "Symbols (Trouble)" })
 
     map("n", { "<S-C-Up>", "gK" }, function()
-      require("configs.hover").hover({
+      vim.lsp.buf.hover({
         max_width = 80,
-        max_height = 15,
+        max_height = 20,
         border = "single",
       })
     end, { buffer = buf, desc = "Hover" })
 
     map("n", "<leader>lr", function()
-      require("configs.rename").rename()
+      window.lsp_rename()
     end, {
       buffer = buf,
       desc = "Rename Symbol",

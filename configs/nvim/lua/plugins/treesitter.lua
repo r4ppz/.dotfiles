@@ -11,6 +11,7 @@ local languages = {
   "udev",
   "ssh_config",
   "kitty",
+  "typst",
 
   "diff",
   "git_config",

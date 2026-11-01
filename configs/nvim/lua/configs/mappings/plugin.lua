@@ -182,9 +182,9 @@ map("n", "<leader>tw", function()
   vim.wo.wrap = not vim.wo.wrap
 end, { desc = "Toggle line wrapping" })
 
-map("n", "<leader>tm", function()
-  require("render-markdown").toggle()
-end, { desc = "Toggle markdown rendering" })
+map("n", "<leader>tm", "<cmd>Markview Toggle<CR>", {
+  desc = "Toggle markdown rendering (global)",
+})
 
 ---------------------------------------------------------------------
 map({ "n", "v" }, "<leader>pl", "<cmd>Lazy<CR>", { desc = "Lazy UI" })

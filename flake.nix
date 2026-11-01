@@ -28,6 +28,8 @@
       url = "github:NixOS/nixpkgs/pull/577973/head";
       flake = false;
     };
+
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
 
   outputs =
@@ -37,6 +39,7 @@
       bookokrat,
       waybar,
       helium-browser,
+      neovim-nightly-overlay,
       ...
     }@inputs:
     let
@@ -61,6 +64,7 @@
             nixpkgs.overlays = [
               waybar.overlays.default
               helium-browser.overlays.default
+              neovim-nightly-overlay.overlays.default
 
               (final: prev: {
                 waybar = prev.waybar.overrideAttrs (old: {

@@ -13,4 +13,9 @@ return {
       require("nvchad")
     end,
   },
+
+  {
+    "nvim-tree/nvim-web-devicons",
+    lazy = true,
+  },
 }

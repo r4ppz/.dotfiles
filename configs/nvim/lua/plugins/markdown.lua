@@ -14,55 +14,70 @@ return {
   },
 
   {
-    "MeanderingProgrammer/render-markdown.nvim",
-    enabled = true,
+    "OXY2DEV/markview.nvim",
+    lazy = false,
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "nvim-tree/nvim-web-devicons",
     },
     opts = {
-      render_modes = true,
+      preview = {
+        modes = { "n", "no", "c", "i" },
+        hybrid_modes = {},
+        filetypes = { "markdown", "copilot-chat" },
+        ignore_buftypes = {},
+      },
 
-      completions = {
-        lsp = {
-          enabled = true,
-        },
+      html = {
+        enable = true,
       },
 
       latex = {
-        enabled = true,
+        enable = true,
       },
 
-      heading = {
-        atx = false,
-        icons = { "# ", "## ", "### ", "#### ", "##### ", "###### " },
-      },
+      markdown = {
+        headings = {
+          enable = true,
+          shift_width = 0,
 
-      bullet = {
-        icons = { "-", "-", "-", "-" },
-      },
+          heading_1 = { style = "simple", icon = "# " },
+          heading_2 = { style = "simple", icon = "## " },
+          heading_3 = { style = "simple", icon = "### " },
+          heading_4 = { style = "simple", icon = "#### " },
+          heading_5 = { style = "simple", icon = "##### " },
+          heading_6 = { style = "simple", icon = "###### " },
 
-      code = {
-        enabled = false,
-        conceal_delimiters = true,
-      },
+          heading_1_sign = false,
+          heading_2_sign = false,
+          heading_3_sign = false,
+          heading_4_sign = false,
+          heading_5_sign = false,
+          heading_6_sign = false,
+        },
 
-      anti_conceal = {
-        enabled = false,
-      },
+        list_items = {
+          enable = true,
+        },
 
-      sign = {
-        enabled = false,
-      },
+        tables = {
+          enable = true,
+        },
 
-      win_options = {
-        conceallevel = { default = vim.o.conceallevel, rendered = 3 },
-      },
+        code_blocks = {
+          enable = true,
+          pad_amount = 0,
+          sign = false,
+        },
 
-      link = {
-        enabled = false,
+        block_quotes = {
+          enable = true,
+        },
+
+        horizontal_rules = {
+          enable = true,
+        },
       },
     },
-    ft = { "copilot-chat", "markdown" },
   },
 }

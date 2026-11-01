@@ -1,17 +1,23 @@
+---@diagnostic disable: assign-type-mismatch
+
 local opt = vim.opt
 
+-- Conceal
+opt.conceallevel = 2
+opt.concealcursor = "nvic"
+
 -- Native completion
-vim.opt.completeopt = { "menu", "menuone", "noselect", "popup" }
-vim.opt.pumborder = "single"
+opt.completeopt = { "menu", "menuone", "noselect", "popup" }
+opt.pumborder = "single"
 
 -- Session
-opt.shada = ""
+opt.shada = "" -- fresh session is great imo
 
 -- File Handling
 opt.autoread = true
 opt.confirm = false
 
--- UI
+-- UI stuff
 opt.relativenumber = false
 opt.number = true
 opt.numberwidth = 2
@@ -78,7 +84,7 @@ opt.smartcase = true
 opt.mouse = "a"
 opt.mousemodel = "extend"
 
--- Performance
+-- Perf
 opt.updatetime = 300
 
 opt.fdo = "search,tag,insert,undo"
