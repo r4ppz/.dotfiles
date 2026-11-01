@@ -80,6 +80,7 @@ M.websites = {
   picoctf = "https://learn.cylabacademy.org/dashboard",
 
   -- dev stuff
+
   codeberg = "https://codeberg.org",
   github = "https://github.com/r4ppz",
   devdocs = "https://devdocs.io",
@@ -89,13 +90,15 @@ M.websites = {
   cloudflare = "https://dash.cloudflare.com",
   w3school = "https://www.w3schools.com",
   google_cloud = "https://console.cloud.google.com/apis",
-  react_aria = "https://react-aria.adobe.com/getting-started",
-  hl_wiki = "https://wiki.hypr.land",
-  qs_wiki = "https://quickshell.org/docs/v0.3.2/guide/introduction/",
-  zig = "https://ziglang.org/documentation/0.16.0/",
   leetcode = "https://leetcode.com",
-  learnxinyminutes = "https://learnxinyminutes.com",
   oklch = "https://www.oklch.co/generator",
+
+  hl_wiki = "https://wiki.hypr.land",
+  qs_wiki = "https://quickshell.org/docs/v0.3.2/guide/introduction",
+  nvim_docs = "https://neovim.io/doc",
+  zig = "https://ziglang.org/documentation/0.16.0/",
+  react_aria = "https://react-aria.adobe.com/getting-started",
+  learnxinyminutes = "https://learnxinyminutes.com",
 }
 
 return M
