@@ -18,4 +18,9 @@ function M.is_file_exists(file, dir)
   return vim.fn.filereadable(path) == 1
 end
 
+function M.is_file(path)
+  local stat = (vim.uv or vim.loop).fs_stat(path)
+  return stat and stat.type == "file" or false
+end
+
 return M

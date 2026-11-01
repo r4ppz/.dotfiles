@@ -1,23 +1,26 @@
+local system = require("utils.system")
+
 local M = {}
 
 local function find_lombok_jar()
+  -- Check user/system profiles first (instant stat, bypasses scanning /nix/store)
   local candidates = {
-    vim.fn.expand("~/.nix-profile/share/java/lombok.jar"),
-    "/etc/profiles/per-user/" .. (os.getenv("USER") or "") .. "/share/java/lombok.jar",
+    (vim.env.HOME or "") .. "/.nix-profile/share/java/lombok.jar",
+    "/etc/profiles/per-user/" .. (vim.env.USER or "") .. "/share/java/lombok.jar",
     "/run/current-system/sw/share/java/lombok.jar",
   }
 
-  -- Check direct profile symlinks first
   for _, path in ipairs(candidates) do
-    if vim.fn.filereadable(path) == 1 then
+    if system.is_file(path) then
       return path
     end
   end
 
-  -- Fallback: search nix store safely (returns a table)
-  local nix_store_jars = vim.fn.glob("/nix/store/*-lombok-*/share/java/lombok.jar", false, true)
-  if #nix_store_jars > 0 and vim.fn.filereadable(nix_store_jars[1]) == 1 then
-    return nix_store_jars[1]
+  -- Fallback: only scan /nix/store if not linked in any profile
+  local nix_store_jars = vim.fn.glob("/nix/store/*-lombok-*/share/java/lombok.jar", true, true)
+  if #nix_store_jars > 0 then
+    table.sort(nix_store_jars)
+    return nix_store_jars[#nix_store_jars] -- Pick latest store entry
   end
 
   return nil
