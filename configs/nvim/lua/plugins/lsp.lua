@@ -7,6 +7,13 @@ return {
 
     config = function()
       local capabilities = vim.lsp.protocol.make_client_capabilities()
+      capabilities.workspace = capabilities.workspace or {}
+
+      -- Enable filewatcher capability
+      capabilities.workspace.didChangeWatchedFiles = {
+        dynamicRegistration = true,
+      }
+
       capabilities.textDocument.completion.completionItem = {
         documentationFormat = {
           "markdown",

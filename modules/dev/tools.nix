@@ -26,6 +26,7 @@
     fd
     jq
     bc
+    fswatch
 
     ast-grep
     ripgrep
