@@ -1,6 +1,5 @@
 {
   config,
-  inputs,
   pkgs,
   username,
   dotfilesPath,
@@ -26,10 +25,8 @@
 
     kernelPackages = pkgs.linuxPackages_latest;
 
-    extraModulePackages = [
-      (config.boot.kernelPackages.callPackage (
-        inputs.acer-wmi-battery + "/pkgs/os-specific/linux/acer-wmi-battery"
-      ) { })
+    extraModulePackages = with config.boot.kernelPackages; [
+      acer-wmi-battery
     ];
 
     kernelModules = [

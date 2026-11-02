@@ -1,22 +1,5 @@
 {
   "nodes": {
-    "acer-wmi-battery": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1792780158,
-        "narHash": "sha256-L9t6hxxMSiWHooZGUYLxs9en3bWer0K2T3o+l91XuwI=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "01b91a7cb7ce5a95b12094d8a948caa8abc50c72",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "pull/577973/head",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "bookokrat": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -100,11 +83,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793285847,
-        "narHash": "sha256-yy/fjT0bPM7Qi1q1Y+xov+Igd2AxvtgJFBzJ/PI/cFE=",
+        "lastModified": 1793456298,
+        "narHash": "sha256-BN4iu3uxY/JXBSTRytmVrLrpwt1rnuTp8Se6WWbHnk0=",
         "owner": "oxcl",
         "repo": "nix-flake-helium-browser",
-        "rev": "c9f74b5dd1dabf2d6a6c5c5a0c6fa1d9af7ddf73",
+        "rev": "0a71a74d045e82124cb69f5c590bdfcf027d52ff",
         "type": "github"
       },
       "original": {
@@ -187,11 +170,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1793345420,
-        "narHash": "sha256-e/yiZ31gXRROBDcnOtT3YwDQ73NVG9Cepccbt86LIn8=",
+        "lastModified": 1793494649,
+        "narHash": "sha256-Thn0OE71NF80ZfOMGCgJvKtbCcnnz0fToT/qsvb/Gtc=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "885ba4d038f10c3d17d7a92e8c3cc185b99c9158",
+        "rev": "d357a2b54f0b6dc4aeb4e993190a52cf151b6f24",
         "type": "github"
       },
       "original": {
@@ -203,7 +186,6 @@
     },
     "root": {
       "inputs": {
-        "acer-wmi-battery": "acer-wmi-battery",
         "bookokrat": "bookokrat",
         "helium-browser": "helium-browser",
         "home-manager": "home-manager",

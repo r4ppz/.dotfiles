@@ -24,11 +24,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    acer-wmi-battery = {
-      url = "github:NixOS/nixpkgs/pull/577973/head";
-      flake = false;
-    };
-
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
 
