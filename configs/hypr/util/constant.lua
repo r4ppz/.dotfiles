@@ -19,6 +19,7 @@ M.apps = {
   network = "impala",
   dictionary = "goldendict",
   pi = "pi",
+  calendar = "gsimplecal",
 }
 
 M.scripts = {
