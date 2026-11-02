@@ -41,7 +41,7 @@ function M.apply_config()
 
   local external_connected = hl.get_monitor(M.external) ~= nil
   local dual = external_connected and not internal_disabled
-  local fallback = (external_connected and internal_disabled) and M.external or M.internal
+  local fallback = (external_connected or internal_disabled) and M.external or M.internal
 
   for id = 1, 10 do
     local workspace = tostring(id)
