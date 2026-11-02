@@ -93,7 +93,11 @@
     hostName = hostname;
   };
 
-  systemd.services.NetworkManager-wait-online.enable = false;
+  systemd = {
+    services = {
+      NetworkManager-wait-online.enable = false;
+    };
+  };
 
   security = {
     rtkit.enable = true;
@@ -232,6 +236,11 @@
   };
 
   services = {
+    getty = {
+      autologinUser = username;
+      loginOptions = "-p -- \\\\u";
+    };
+
     cloudflare-warp.enable = true;
 
     dbus.implementation = "broker";
