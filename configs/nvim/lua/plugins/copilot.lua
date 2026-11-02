@@ -24,6 +24,7 @@ return {
       -- I only use FREE models cause I am poor asf
       -- model = "openai/gpt-oss-120b",
       model = "gemini-3.5-flash-lite",
+      -- model = "gemini-3.6-flash",
 
       providers = require("configs.llm.providers").setup(),
 

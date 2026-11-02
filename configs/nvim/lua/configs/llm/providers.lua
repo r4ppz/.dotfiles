@@ -109,6 +109,12 @@ function M.setup()
       api_key = "GEMINI_API_KEY",
       disabled = false,
       models = {
+        -- "id": "models/gemini-3.6-flash",
+        {
+          id = "gemini-3.6-flash",
+          name = "Gemini 3.6 Flash",
+          streaming = true,
+        },
         {
           id = "gemini-3.5-flash-lite",
           name = "Gemini 3.5 Flash Lite",
