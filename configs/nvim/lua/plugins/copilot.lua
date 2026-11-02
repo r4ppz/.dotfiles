@@ -34,7 +34,7 @@ return {
 
       headers = {
         user = " r4ppz",
-        assistant = "󱚝  Jarvis",
+        assistant = "󱚝  Vix",
         tool = " Tool",
       },
       separator = "─",

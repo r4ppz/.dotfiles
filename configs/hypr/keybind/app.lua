@@ -13,7 +13,8 @@ hl.bind(const.mod .. " + P", hl.dsp.exec_cmd(const.apps.passmanager))
 hl.bind(
   "ALT + SHIFT + E",
   hl.dsp.exec_cmd(
-    const.apps.terminal .. " -e zsh -lic 'exec pi --no-session \"explain this, in simple words:\n$(wl-paste -n)\"'",
+    const.apps.terminal
+      .. " -e zsh -lic 'exec pi --no-session \"explain this in simple words, do not use analogies:\n$(wl-paste -n)\"'",
     {
       tag = "+pi",
     }
