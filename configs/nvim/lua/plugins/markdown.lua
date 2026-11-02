@@ -58,6 +58,26 @@ return {
 
         list_items = {
           enable = true,
+          shift_width = 2,
+          marker_minus = {
+            add_padding = false,
+            text = "-",
+          },
+          marker_plus = {
+            add_padding = false,
+            text = "-",
+          },
+          marker_star = {
+            text = "-",
+            add_padding = false,
+          },
+          marker_dot = {
+            add_padding = false,
+          },
+          marker_parenthesis = {
+            add_padding = false,
+            conceal_on_checkboxes = true,
+          },
         },
 
         tables = {
