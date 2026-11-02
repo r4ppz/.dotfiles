@@ -1,0 +1,34 @@
+{
+	"name": "Vimium C",
+	"@time": "11/2/2026, 7:24:23 PM",
+	"time": 1793618663465,
+	"environment": {
+		"extension": "2.12.2",
+		"platform": "linux",
+		"chromium": 156
+	},
+	"keyLayout": 2,
+	"keyMappings": [
+		"#!no-check",
+		"unmapAll",
+		"",
+		"map <space> LinkHints.activate",
+		"map <s-space> LinkHints.activateOpenInNewTab",
+		"",
+		"map <c-d> passNextKey",
+		"",
+		"map gg scrollToTop",
+		"map G scrollToBottom",
+		"map <s-down> scrollPageDown",
+		"map <s-up> scrollPageUp",
+		"",
+		"map <c-left> scrollLeft",
+		"map <c-down> scrollDown",
+		"map <c-up> scrollUp",
+		"map <c-right> scrollRight",
+		""
+	],
+	"linkHintCharacters": "qwertasdfg",
+	"smoothScroll": false,
+	"vimSync": true
+}
