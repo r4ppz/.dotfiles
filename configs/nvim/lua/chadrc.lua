@@ -15,7 +15,7 @@ M.base46 = {
     ["@comment"] = { italic = true },
     FloatBorder = { fg = "#4f4f4f" },
     NormalFloat = { link = "Normal" },
-    CursorLine = { bg = "NONE" },
+    CursorLine = { bg = "#2e2e2e" },
   },
 
   integrations = {

@@ -36,7 +36,7 @@ opt.belloff = "all"
 opt.splitkeep = "screen"
 opt.winborder = "single"
 opt.clipboard = "unnamedplus"
-opt.cursorlineopt = "number"
+opt.cursorlineopt = "both"
 opt.inccommand = "nosplit"
 
 opt.foldmethod = "expr"
