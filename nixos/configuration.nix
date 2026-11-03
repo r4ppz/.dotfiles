@@ -12,6 +12,11 @@
     ./hardware-configuration.nix
   ];
 
+  # remove later
+  nixpkgs.config.problems.handlers = {
+    "gtk+".broken = "warn";
+  };
+
   boot = {
     tmp.useTmpfs = true;
 
