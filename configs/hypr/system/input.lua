@@ -1,3 +1,5 @@
+local monitor = require("system.monitor")
+
 hl.config({
   input = {
     kb_layout = "us",
@@ -27,6 +29,7 @@ hl.config({
     no_warps = true,
     inactive_timeout = 20,
     no_hardware_cursors = true,
+    default_monitor = hl.get_monitor(monitor.external) and monitor.external or monitor.internal,
   },
 
   binds = {

@@ -28,20 +28,29 @@ local monitors = {
 }
 
 function M.apply_config()
-  local internal_disabled = false
+  local external_connected = hl.get_monitor(M.external)
+  local internal_disabled = external_connected
 
   for _, cfg in ipairs(monitors) do
-    hl.monitor(cfg)
-    if cfg.output == M.internal and cfg.disabled then
-      internal_disabled = true
+    local final_cfg = {}
+
+    for k, v in pairs(cfg) do
+      final_cfg[k] = v
     end
+
+    -- Only disable the internal monitor when
+    -- the external monitor is connected.
+    if cfg.output == M.internal then
+      final_cfg.disabled = external_connected and cfg.disabled or false
+    end
+
+    hl.monitor(final_cfg)
   end
 
   hl.exec_scheduled_prop_refresh_immediately()
 
-  local external_connected = hl.get_monitor(M.external) ~= nil
   local dual = external_connected and not internal_disabled
-  local fallback = (external_connected or internal_disabled) and M.external or M.internal
+  local fallback = external_connected and M.external or M.internal
 
   for id = 1, 10 do
     local workspace = tostring(id)
@@ -54,7 +63,10 @@ function M.apply_config()
     })
 
     if hl.get_workspace(workspace) then
-      hl.dispatch(hl.dsp.workspace.move({ workspace = workspace, monitor = target }))
+      hl.dispatch(hl.dsp.workspace.move({
+        workspace = workspace,
+        monitor = target,
+      }))
     end
   end
 end
