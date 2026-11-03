@@ -1,6 +1,6 @@
 local const = require("util.constant")
 
-hl.bind(const.mod .. " + SHIFT + RETURN", hl.dsp.exec_cmd(const.apps.browser))
+hl.bind(const.mod .. " + SHIFT + RETURN", hl.dsp.exec_cmd(const.apps.terminal .. " -e zsh -lic 't'"))
 hl.bind(const.mod .. " + RETURN", hl.dsp.exec_cmd(const.apps.terminal))
 hl.bind(const.mod .. " + T", hl.dsp.exec_cmd(const.apps.terminal))
 hl.bind(const.mod .. " + L", hl.dsp.exec_cmd(const.apps.lockscreen))
