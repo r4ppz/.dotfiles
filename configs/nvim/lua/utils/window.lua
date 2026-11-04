@@ -14,6 +14,8 @@ local SIDE_PANEL_FTS = {
   "dapui_breakpoints",
   "dapui_scopes",
   "snacks_terminal",
+  "DiffviewFileHistory",
+  "DiffviewFiles",
 }
 
 local EXCLUDED_FILETYPES = {
@@ -28,6 +30,8 @@ local EXCLUDED_FILETYPES = {
   "dapui_stacks",
   "dapui_breakpoints",
   "dapui_scopes",
+  "DiffviewFileHistory",
+  "DiffviewFiles",
 }
 
 local EXCLUDED_BUFTYPES = {
@@ -36,6 +40,7 @@ local EXCLUDED_BUFTYPES = {
   "help",
   "quickfix",
   "terminal",
+  "nowrite",
 }
 
 --- Checks if a window and buffer is a main editing window.
