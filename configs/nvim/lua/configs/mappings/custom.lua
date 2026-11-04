@@ -4,17 +4,23 @@ local map = require("utils.map")
 -- Personal?!!
 --------------------------------------------------------
 
+-- cool
+map("i", "<C-h>", "<Left>", { desc = "Move left" })
+map("i", "<C-j>", "<Down>", { desc = "Move down" })
+map("i", "<C-k>", "<Up>", { desc = "Move up" })
+map("i", "<C-l>", "<Right>", { desc = "Move right" })
+
 map("n", "<leader>q", "gqap", {
   desc = "Hard Wrap",
 })
 
 -- This is especially useful for wrapped lines
-map("n", "<Down>", "v:count == 0 ? 'gj' : 'j'", {
+map("n", { "<Down>", "j" }, "v:count == 0 ? 'gj' : 'j'", {
   expr = true,
   silent = true,
   desc = "Move down by screen lines (or count lines)",
 })
-map("n", "<Up>", "v:count == 0 ? 'gk' : 'k'", {
+map("n", { "<Up>", "k" }, "v:count == 0 ? 'gk' : 'k'", {
   expr = true,
   silent = true,
   desc = "Move up by screen lines (or count lines)",
@@ -111,8 +117,7 @@ map("v", "<", "<gv", { desc = "Indent left and reselect" })
 map("v", ">", ">gv", { desc = "Indent right and reselect" })
 
 -- Save only if there are changes
-map("n", "<C-s>", "<cmd>update<cr>", { desc = "Save file" })
-map("v", "<C-s>", "<cmd>update<cr>", { desc = "Save file" })
+map({ "n", "v" }, "<C-s>", "<cmd>update<cr>", { desc = "Save file" })
 map("i", "<C-s>", "<Esc>:update<CR>", { desc = "Save file" })
 
 map("n", "<Esc>", "<cmd>noh<CR>", { desc = "Clear highlights" })
@@ -137,18 +142,12 @@ map({ "n", "v" }, { "g<Left>", "gh", "<C-S-Left>" }, "^", {
 map({ "n", "v" }, { "g<Right>", "gl", "<C-S-Right>" }, "g_", {
   desc = "Jump to last non-blank character of line",
 })
-map({ "i" }, "<C-S-Left>", "<C-o>^", {
-  desc = "Jump to first non-blank character of the line (insert)",
-})
-map({ "i" }, "<C-S-Right>", "<C-o>g_<C-o>a", {
-  desc = "Jump to last non-blank character of line (insert)",
-})
 
 -- Emacs style :p
-map("i", "<C-a>", "<C-o>^", {
+map("i", { "<C-a>", "<C-S-Left>" }, "<C-o>^", {
   desc = "Move cursor to the beginning of the line in insert mode",
 })
-map("i", "<C-e>", "<C-o>g_<C-o>a", {
+map("i", { "<C-e>", "<C-S-Right>" }, "<C-o>g_<C-o>a", {
   desc = "Move cursor to the end of the line in insert mode",
 })
 
@@ -166,8 +165,8 @@ map("n", "<C-a>", "ggVG", { desc = "Select all" })
 map("n", "tn", "<cmd>tabnew<CR>", { desc = "New tab" })
 map("n", "tQ", "<cmd>tabonly<CR>", { desc = "Close all other tabs" })
 map("n", "tq", "<cmd>tabclose<CR>", { desc = "Close tab" })
-map("n", { "t<Right>" }, "<cmd>tabnext<CR>", { desc = "Next tab" })
-map("n", { "t<Left>" }, "<cmd>tabprevious<CR>", { desc = "Previous tab" })
+map("n", { "t<Right>", "tl" }, "<cmd>tabnext<CR>", { desc = "Next tab" })
+map("n", { "t<Left>", "th" }, "<cmd>tabprevious<CR>", { desc = "Previous tab" })
 
 --------------------------------------------------------
 

@@ -51,13 +51,13 @@ end
 --- Moves the mouse cursor
 function M.move(direction, speed)
   local step = (speed == "slow") and 10 or 40
-  if direction == "left" then
+  if direction == "left" or direction == "h" then
     process.run(string.format("ydotool mousemove -- %d %d", -step, 0))
-  elseif direction == "right" then
+  elseif direction == "right" or direction == "l" then
     process.run(string.format("ydotool mousemove -- %d %d", step, 0))
-  elseif direction == "up" then
+  elseif direction == "up" or direction == "k" then
     process.run(string.format("ydotool mousemove -- %d %d", 0, -step))
-  elseif direction == "down" then
+  elseif direction == "down" or direction == "j" then
     process.run(string.format("ydotool mousemove -- %d %d", 0, step))
   end
 end

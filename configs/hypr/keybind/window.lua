@@ -1,8 +1,8 @@
 local const = require("util.constant")
 local workspace = require("util.workspace")
 
-hl.bind(const.mod .. " + SHIFT + K", hl.dsp.window.kill())
 hl.bind(const.mod .. " + SHIFT + Q", hl.dsp.window.close())
+hl.bind(const.mod .. " + SHIFT + CTRL + Q", hl.dsp.window.kill())
 hl.bind(const.mod .. " + SHIFT + SPACE", hl.dsp.window.float({ action = "toggle" }))
 
 hl.bind(const.mod .. " + SHIFT + P", function()
@@ -52,17 +52,30 @@ hl.bind(const.mod .. " + RIGHT", hl.dsp.focus({ direction = "r" }))
 hl.bind(const.mod .. " + UP", hl.dsp.focus({ direction = "u" }))
 hl.bind(const.mod .. " + DOWN", hl.dsp.focus({ direction = "d" }))
 
+hl.bind(const.mod .. " + H", hl.dsp.focus({ direction = "l" }))
+hl.bind(const.mod .. " + L", hl.dsp.focus({ direction = "r" }))
+hl.bind(const.mod .. " + K", hl.dsp.focus({ direction = "u" }))
+hl.bind(const.mod .. " + J", hl.dsp.focus({ direction = "d" }))
+
 -- Move windows with arrow keys
 hl.bind(const.mod .. " + SHIFT + LEFT", hl.dsp.window.move({ direction = "l" }))
 hl.bind(const.mod .. " + SHIFT + RIGHT", hl.dsp.window.move({ direction = "r" }))
 hl.bind(const.mod .. " + SHIFT + UP", hl.dsp.window.move({ direction = "u" }))
 hl.bind(const.mod .. " + SHIFT + DOWN", hl.dsp.window.move({ direction = "d" }))
+hl.bind(const.mod .. " + SHIFT + H", hl.dsp.window.move({ direction = "l" }))
+hl.bind(const.mod .. " + SHIFT + L", hl.dsp.window.move({ direction = "r" }))
+hl.bind(const.mod .. " + SHIFT + K", hl.dsp.window.move({ direction = "u" }))
+hl.bind(const.mod .. " + SHIFT + J", hl.dsp.window.move({ direction = "d" }))
 
 -- Move floating windows
 hl.bind(const.mod .. " + CTRL + LEFT", hl.dsp.window.move({ direction = "l" }), { repeating = true })
 hl.bind(const.mod .. " + CTRL + RIGHT", hl.dsp.window.move({ direction = "r" }), { repeating = true })
 hl.bind(const.mod .. " + CTRL + UP", hl.dsp.window.move({ direction = "u" }), { repeating = true })
 hl.bind(const.mod .. " + CTRL + DOWN", hl.dsp.window.move({ direction = "d" }), { repeating = true })
+hl.bind(const.mod .. " + CTRL + H", hl.dsp.window.move({ direction = "l" }), { repeating = true })
+hl.bind(const.mod .. " + CTRL + L", hl.dsp.window.move({ direction = "r" }), { repeating = true })
+hl.bind(const.mod .. " + CTRL + K", hl.dsp.window.move({ direction = "u" }), { repeating = true })
+hl.bind(const.mod .. " + CTRL + J", hl.dsp.window.move({ direction = "d" }), { repeating = true })
 
 -- Mouse window movement and resizing
 hl.bind(const.mod .. " + mouse:272", hl.dsp.window.drag())
