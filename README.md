@@ -1,5 +1,5 @@
-All my configuration in a single repo cause why not.
+All my configurations and scripts in a single repo cause why not.
 
-> NixOS + HomeManager
+> NixOS + Home Manager (flake-based)
 
 ![something](assets/screenshot_2026-10-17_19-48-16.png)

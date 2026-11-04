@@ -4,9 +4,10 @@ promptToReturnFromSubprocess: false
 gui:
   tabWidth: 2
   expandFocusedSidePanel: true
-  expandedSidePanelWeight: 2
+  expandedSidePanelWeight: 3
   mainPanelSplitMode: horizontal
   useHunkModeInDiffView: false
+  showFileTree: false
 
   showListFooter: true
   showBottomLine: true
