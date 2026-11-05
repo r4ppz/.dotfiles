@@ -11,6 +11,7 @@ let
     JAVA_HOME = "${pkgs.jdk21}/lib/openjdk";
 
     PNPM_HOME = "${config.xdg.dataHome}/pnpm";
+    NPM_CONFIG_PREFIX = "${config.xdg.dataHome}/npm";
     BUN_INSTALL = "${config.home.homeDirectory}/.bun";
     BUN_INSTALL_CACHE_DIR = "${config.home.homeDirectory}/.bun/install/cache";
     GOPATH = "${config.home.homeDirectory}/.go";
@@ -32,11 +33,12 @@ in
   home.sessionPath = [
     "${sessionVars.PNPM_HOME}/bin"
     "${sessionVars.BUN_INSTALL}/bin"
-    "${config.home.homeDirectory}/.local/bin"
     "${sessionVars.GOPATH}/bin"
+    "${sessionVars.NPM_CONFIG_PREFIX}/bin"
+
+    "${config.home.homeDirectory}/.local/bin"
     "${config.home.homeDirectory}/.cargo/bin"
-    "${config.home.homeDirectory}/.local/share/gem/ruby/3.4.0/bin"
-    "${config.home.homeDirectory}/.npm-global/bin"
+
     "${dotfilesPath}/scripts/bin"
   ];
 }
