@@ -1,6 +1,6 @@
 {
   "$schema": "https://opencode.ai/v2/cli.json",
-  "animations": true,
+  "animations": false,
   "mouse": true,
   "theme": {
     "name": "gruvbox"

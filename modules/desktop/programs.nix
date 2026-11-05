@@ -31,6 +31,8 @@
         "--disable-features=WaylandWpColorManagerV1"
         "--ozone-platform-hint=auto"
         "--enable-features=OverlayScrollbar,RootScrollbarFollowsBrowserTheme"
+        "--disable-smooth-scrolling"
+        "--force-prefers-reduced-motion"
       ];
     };
   };
