@@ -7,8 +7,10 @@ opt.conceallevel = 2
 opt.concealcursor = "nvic"
 
 -- Native completion
-opt.completeopt = { "menu", "menuone", "noselect", "popup" }
+opt.autocomplete = false
+opt.completeopt = ""
 opt.pumborder = "single"
+opt.complete = ""
 
 -- Session
 opt.shada = "" -- fresh session is great imo

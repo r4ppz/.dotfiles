@@ -37,6 +37,10 @@ return {
       local nv_blink = require("nvchad.blink.config")
 
       return vim.tbl_deep_extend("force", nv_blink, {
+        cmdline = {
+          keymap = { preset = "inherit" },
+        },
+
         completion = {
           documentation = {
             auto_show = true,
@@ -96,8 +100,8 @@ return {
         keymap = {
           preset = "none",
 
-          ["<C-p>"] = false,
-          ["<C-n>"] = false,
+          ["<C-p>"] = { "select_prev", "fallback" },
+          ["<C-n>"] = { "select_next", "fallback" },
 
           ["<C-Up>"] = { "select_prev", "fallback" },
           ["<C-Down>"] = { "select_next", "fallback" },
@@ -114,6 +118,9 @@ return {
 
           ["<S-Down>"] = { "scroll_documentation_down", "fallback" },
           ["<S-Up>"] = { "scroll_documentation_up", "fallback" },
+
+          ["<C-d>"] = { "scroll_documentation_down", "fallback" },
+          ["<C-u>"] = { "scroll_documentation_up", "fallback" },
 
           ["<C-S-Down>"] = { "show", "show_documentation", "hide_documentation", "fallback" },
           ["<C-Space>"] = { "show", "show_documentation", "hide_documentation", "fallback" },

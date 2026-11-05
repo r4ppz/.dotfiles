@@ -62,6 +62,10 @@ autocmd({ "FileType", "BufEnter" }, {
   callback = function()
     vim.opt_local.relativenumber = false
     vim.opt_local.number = false
+    vim.opt_local.autocomplete = true
+    vim.opt_local.completeopt = { "menu", "menuone", "noselect", "popup" }
+    vim.opt_local.pumborder = "single"
+    vim.opt_local.complete = ".,w,b,u,t"
   end,
 })
 
