@@ -4,7 +4,7 @@ local opt = vim.opt
 
 -- Conceal
 opt.conceallevel = 2
-opt.concealcursor = "nvic"
+opt.concealcursor = "nc"
 
 -- Native completion
 opt.autocomplete = false

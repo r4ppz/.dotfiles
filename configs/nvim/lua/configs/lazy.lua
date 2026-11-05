@@ -22,7 +22,7 @@ return {
   },
 
   change_detection = {
-    enabled = true,
+    enabled = false,
     notify = false,
   },
 
@@ -39,7 +39,6 @@ return {
         "netrwPlugin",
         "netrwSettings",
         "netrwFileHandlers",
-        "matchit",
         "tar",
         "tarPlugin",
         "rrhelper",
@@ -56,7 +55,6 @@ return {
         "compiler",
         "bugreport",
         "ftplugin",
-        "matchparen",
       },
     },
   },

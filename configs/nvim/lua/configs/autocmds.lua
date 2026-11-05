@@ -3,6 +3,18 @@ local autocmd = vim.api.nvim_create_autocmd
 local map = require("utils.map")
 
 autocmd("FileType", {
+  group = mygroup,
+  desc = "No conceal in gayson cause its annoying",
+  pattern = { "json", "jsonc" },
+  callback = function()
+    vim.opt_local.conceallevel = 0
+    vim.opt_local.concealcursor = ""
+  end,
+})
+
+autocmd("FileType", {
+  group = mygroup,
+  desc = "I need to enable this for some reason",
   pattern = "tmux",
   callback = function()
     vim.bo.syntax = "tmux"
