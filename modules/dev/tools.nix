@@ -6,7 +6,7 @@
     tmux
     yazi
 
-    opencode
+    # opencode
     pi-coding-agent
 
     tailspin
@@ -27,6 +27,7 @@
     jq
     bc
     fswatch
+    nvd
 
     ast-grep
     ripgrep

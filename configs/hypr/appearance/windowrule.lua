@@ -8,13 +8,13 @@ hl.window_rule({
 
 hl.window_rule({
   name = "music",
-  match = { class = "musicplayer|brave-music.youtube.com__-Default" },
+  match = { class = "musicplayer|brave-music.youtube.com__-Default|chrome-music.youtube.com__-Default" },
   workspace = "special:window2",
 })
 
 hl.window_rule({
-  name = "brave-browser",
-  match = { class = "brave-browser|brave-origin-nightly|brave-origin" },
+  name = "main browser in workspace 1",
+  match = { class = "helium" },
   workspace = 1,
 })
 
@@ -28,7 +28,7 @@ hl.window_rule({
 
 hl.window_rule({
   name = "school stuff in workspace 4",
-  match = { class = "helium|chrome-classroom.google.com__-Default" },
+  match = { class = "chromium-browser" },
   workspace = 4,
 })
 
@@ -99,7 +99,7 @@ hl.window_rule({
 hl.window_rule({
   name = "tempai",
   match = {
-    initial_class = "^brave-duck.ai__chat-Default",
+    initial_class = "brave-duck.ai__chat-Default|chrome-duck.ai__chat-Default",
   },
   size = { "monitor_w * 0.4167", "monitor_h * 0.5556" },
   pin = true,

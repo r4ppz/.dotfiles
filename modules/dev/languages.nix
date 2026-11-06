@@ -22,6 +22,7 @@
     ))
 
     nodejs
+    bun
     go
     gcc
     zig

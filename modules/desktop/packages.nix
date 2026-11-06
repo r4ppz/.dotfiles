@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
     tetro-tui # < game :0
 
+    chromium
     helium
     firefox
 
@@ -30,11 +31,14 @@
 
     bookokrat
     circumflex
+    bulletty
     impala
     bluetui
     cliamp
     concord-tui
 
+    pinentry-tty
+    rbw
     ollama
     obs-cmd
     trash-cli

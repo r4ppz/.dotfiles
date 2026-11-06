@@ -33,9 +33,9 @@ _:
 
       # Scheme handlers
       "x-scheme-handler/bitwarden" = [ "bitwarden.desktop" ];
-      "x-scheme-handler/mailto" = [ "com.brave.Origin.desktop" ];
-      "x-scheme-handler/http" = [ "com.brave.Origin.desktop" ];
-      "x-scheme-handler/https" = [ "com.brave.Origin.desktop" ];
+      "x-scheme-handler/mailto" = [ "helium.desktop" ];
+      "x-scheme-handler/http" = [ "helium.desktop" ];
+      "x-scheme-handler/https" = [ "helium.desktop" ];
 
       # Video
       "video/mp4" = [ "mpv.desktop" ];

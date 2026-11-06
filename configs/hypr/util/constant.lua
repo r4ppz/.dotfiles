@@ -4,8 +4,8 @@ M.mod = "SUPER"
 
 M.apps = {
   terminal = "kitty",
-  browser = "brave-origin",
-  browser_school = "helium",
+  browser = "helium",
+  browser_school = "chromium",
   filemanager_gui = "thunar",
   filemanager_tui = "yazi",
   lockscreen = "hyprlock",
