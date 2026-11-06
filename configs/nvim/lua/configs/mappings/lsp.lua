@@ -8,10 +8,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
     local buf = args.buf
 
-    map("n", "gO", function()
-      require("trouble").toggle({ mode = "symbols", focus = true })
-    end, { desc = "Symbols (Trouble)" })
-
     map("n", { "<S-C-Up>", "gK" }, function()
       vim.lsp.buf.hover({
         max_width = 80,

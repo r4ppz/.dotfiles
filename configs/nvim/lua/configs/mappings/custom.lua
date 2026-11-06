@@ -1,20 +1,84 @@
 local map = vim.keymap.set
 
 --------------------------------------------------------
--- Personal?!!
+-- Personal preference ?!!
 --------------------------------------------------------
 
--- cool
-map("i", "<C-h>", "<Left>", { desc = "Move left" })
-map("i", "<C-j>", "<Down>", { desc = "Move down" })
-map("i", "<C-k>", "<Up>", { desc = "Move up" })
-map("i", "<C-l>", "<Right>", { desc = "Move right" })
+-- Emacs style :p
+--
+-- command line mode
+map("c", "<C-a>", "<Home>", { desc = "Beginning of command line" })
+map("c", "<C-b>", "<Left>", { desc = "Move backward" })
+map("c", "<C-d>", "<Del>", { desc = "Delete character under cursor" })
+map("c", "<C-e>", "<End>", { desc = "End of command line" })
+map("c", "<C-f>", "<Right>", { desc = "Move forward" })
+map("c", "<C-n>", "<Down>", { desc = "Next command history" })
+map("c", "<C-p>", "<Up>", { desc = "Previous command history" })
+map("c", "<M-b>", "<S-Left>", { desc = "Move backward one word" })
+map("c", "<M-f>", "<S-Right>", { desc = "Move forward one word" })
+
+-- insert mode
+map("i", { "<C-a>", "<C-S-Left>" }, "<Home>", { desc = "Beginning of line" })
+map("i", { "<C-e>", "<C-S-Right>" }, "<End>", { desc = "End of line" })
+map("i", "<C-b>", "<Left>", { desc = "Move backward" })
+map("i", "<C-f>", "<Right>", { desc = "Move forward" })
+map("i", "<C-n>", "<Down>", { desc = "Move down" })
+map("i", "<C-p>", "<Up>", { desc = "Move up" })
+map("i", "<C-d>", "<Del>", { desc = "Delete character under cursor" })
+map("i", "<C-h>", "<BS>", { desc = "Delete character before cursor" })
+map("i", "<C-w>", "<C-o>db", { desc = "Delete word backward" })
+map("i", "<M-b>", "<C-o>b", { desc = "Move backward one word" })
+map("i", "<M-f>", "<C-o>w", { desc = "Move forward one word" })
+map("i", "<C-k>", "<C-o>D", { desc = "Delete to end of line" })
+map("i", "<C-u>", "<C-o>d0", { desc = "Delete to beginning of line" })
+map("i", "<C-j>", "<CR>", { desc = "New line" })
+
+-- Scroll half page and center
+map("n", { "<S-Up>", "<C-u>" }, "<C-u>zz", { desc = "Scroll half a page up and center" })
+map("n", { "<S-Down>", "<C-d>" }, "<C-d>zz", { desc = "Scroll half a page down and center" })
+map("i", "<S-Up>", "<C-o><C-u><C-o>zz", { desc = "Scroll half a page up and center" })
+map("i", "<S-Down>", "<C-o><C-d><C-o>zz", { desc = "Scroll half a page down and center" })
+
+-- Move line Up/Down
+map("n", { "<C-A-Up>", "<C-k>" }, ":m .-2<CR>==<C-l>", { desc = "Move line up" })
+map("n", { "<C-A-Down>", "<C-j>" }, ":m .+1<CR>==<C-l>", { desc = "Move line down" })
+map("v", { "<C-A-Up>", "<C-k>" }, ":m '<-2<CR>gv=gv<C-l>", { desc = "Move selection up" })
+map("v", { "<C-A-Down>", "<C-j>" }, ":m '>+1<CR>gv=gv<C-l>", { desc = "Move selection down" })
+
+-- Indent line
+map("v", { "<", "<C-h>" }, "<gv", { desc = "Indent left and reselect" })
+map("v", { ">", "<C-l>" }, ">gv", { desc = "Indent right and reselect" })
+
+-- Ctrl+Up/Down scroll one line
+map({ "n", "v" }, { "<C-Down>", "J" }, "<C-e>", { desc = "Scroll window down one line" })
+map({ "n", "v" }, { "<C-Up>", "K" }, "<C-y>", { desc = "Scroll window up one line" })
+map("i", "<C-Down>", "<C-o><C-e>", { desc = "Scroll window down one line in insert mode" })
+map("i", "<C-Up>", "<C-o><C-y>", { desc = "Scroll window up one line in insert mode" })
+
+-- Save only if there are changes
+map({ "n", "v" }, "<C-s>", "<cmd>update<cr>", { desc = "Save file" })
+map("i", "<C-s>", "<Esc>:update<CR>", { desc = "Save file" })
+
+map("n", "<Esc>", "<cmd>noh<CR>", { desc = "Clear highlights" })
+map("n", "<M-Esc>", "<cmd>noh<CR>", { desc = "Clear highlights" })
+
+map("t", "<C-q>", "<C-\\><C-N>", { desc = "Escape terminal mode" })
+
+-- Comment
+map("n", "<C-_>", "gcc", { desc = "toggle comment", remap = true })
+map("v", "<C-_>", "gc", { desc = "toggle comment", remap = true })
+
+-- This is mostly redundant
+-- map("i", "<C-h>", "<Left>", { desc = "Move left" })
+-- map("i", "<C-j>", "<Down>", { desc = "Move down" })
+-- map("i", "<C-k>", "<Up>", { desc = "Move up" })
+-- map("i", "<C-l>", "<Right>", { desc = "Move right" })
 
 map("n", "<leader>q", "gqap", {
   desc = "Hard Wrap",
 })
 
--- This is especially useful for wrapped lines
+-- This is useful for wrapped lines
 map("n", { "<Down>", "j" }, "v:count == 0 ? 'gj' : 'j'", {
   expr = true,
   silent = true,
@@ -34,7 +98,10 @@ map("i", "<Up>", "<C-o>gk", {
   desc = "Move up by screen lines in insert mode",
 })
 
--- Next and previous using tab/Stab
+--------------------------------------------------------
+-- Weird remaps ?!?
+--
+-- Next and previous using tab/Stab like n/N
 map({ "n", "v", "o" }, "<Tab>", "n", {
   noremap = true,
   silent = true,
@@ -45,12 +112,6 @@ map({ "n", "v", "o" }, "<S-Tab>", "N", {
   silent = true,
   desc = "Previous search result",
 })
-
--- Move line Up/Down
-map("n", "<C-A-Up>", ":m .-2<CR>==<C-l>", { desc = "Move line up" })
-map("n", "<C-A-Down>", ":m .+1<CR>==<C-l>", { desc = "Move line down" })
-map("v", "<C-A-Up>", ":m '<-2<CR>gv=gv<C-l>", { desc = "Move selection up" })
-map("v", "<C-A-Down>", ":m '>+1<CR>gv=gv<C-l>", { desc = "Move selection down" })
 
 -- Insert below and above
 map("n", "<M-Up>", "O", { desc = "Insert above" })
@@ -66,15 +127,9 @@ map("v", "<M-d>", "<C-r>", { desc = "Redo" })
 map("i", "<M-d>", "<Esc><C-r>", { desc = "Redo" })
 map("i", "<M-a>", "<Esc>u", { desc = "Undo" })
 
--- Scroll half page and center
-map("n", "<S-Up>", "<C-u>zz", { desc = "Scroll half a page up and center" })
-map("n", "<S-Down>", "<C-d>zz", { desc = "Scroll half a page down and center" })
-map("i", "<S-Up>", "<C-o><C-u><C-o>zz", { desc = "Scroll half a page up and center" })
-map("i", "<S-Down>", "<C-o><C-d><C-o>zz", { desc = "Scroll half a page down and center" })
-
--- Just for consistency
-map("n", "<C-u>", "<C-u>zz", { desc = "Scroll half a page up and center" })
-map("n", "<S-d>", "<C-d>zz", { desc = "Scroll half a page down and center" })
+-- Disable default undo/redo (this is too err prone)
+map("n", "u", "<Nop>", { desc = "Disable default undo" })
+map("n", "<C-r>", "<Nop>", { desc = "Disable default redo" })
 
 -- Jump by paragraph while selecting
 map("v", "<S-Up>", "{", { desc = "Jump to previous paragraph" })
@@ -106,29 +161,6 @@ map("i", "<S-Right>", "<C-o>E<C-o>a", {
   desc = "Move to the end of the word like E in insert mode",
 })
 
--- Ctrl+Up/Down scroll one line
-map({ "n", "v" }, { "<C-Down>", "J" }, "<C-e>", { desc = "Scroll window down one line" })
-map({ "n", "v" }, { "<C-Up>", "K" }, "<C-y>", { desc = "Scroll window up one line" })
-map("i", "<C-Down>", "<C-o><C-e>", { desc = "Scroll window down one line in insert mode" })
-map("i", "<C-Up>", "<C-o><C-y>", { desc = "Scroll window up one line in insert mode" })
-
--- Indent line
-map("v", "<", "<gv", { desc = "Indent left and reselect" })
-map("v", ">", ">gv", { desc = "Indent right and reselect" })
-
--- Save only if there are changes
-map({ "n", "v" }, "<C-s>", "<cmd>update<cr>", { desc = "Save file" })
-map("i", "<C-s>", "<Esc>:update<CR>", { desc = "Save file" })
-
-map("n", "<Esc>", "<cmd>noh<CR>", { desc = "Clear highlights" })
-map("n", "<M-Esc>", "<cmd>noh<CR>", { desc = "Clear highlights" })
-
-map("t", "<C-q>", "<C-\\><C-N>", { desc = "Escape terminal mode" })
-
--- Comment
-map("n", "<C-_>", "gcc", { desc = "toggle comment", remap = true })
-map("v", "<C-_>", "gc", { desc = "toggle comment", remap = true })
-
 -- Jump last and first char of the line
 map({ "n", "v" }, "!", "0", {
   desc = "Jump to first non-blank character of the line",
@@ -136,66 +168,16 @@ map({ "n", "v" }, "!", "0", {
 map({ "n", "v" }, "@", "$", {
   desc = "Jump to last non-blank character of line",
 })
-map({ "n", "v" }, { "g<Left>", "gh", "<C-S-Left>" }, "^", {
+map({ "n", "v" }, { "g<Left>", "gh", "H", "<C-S-Left>" }, "^", {
   desc = "Jump to first non-blank character of the line",
 })
-map({ "n", "v" }, { "g<Right>", "gl", "<C-S-Right>" }, "g_", {
+map({ "n", "v" }, { "g<Right>", "gl", "L", "<C-S-Right>" }, "g_", {
   desc = "Jump to last non-blank character of line",
-})
-
--- Emacs style :p
-map("i", { "<C-a>", "<C-S-Left>" }, "<C-o>^", {
-  desc = "Move cursor to the beginning of the line in insert mode",
-})
-map("i", { "<C-e>", "<C-S-Right>" }, "<C-o>g_<C-o>a", {
-  desc = "Move cursor to the end of the line in insert mode",
 })
 
 -- Using Alt instead of Ctrl to avoid terminal conflicts
 map("n", "<A-o>", "<C-o>", { desc = "Jump Back" })
 map("n", "<A-i>", "<C-i>", { desc = "Jump Forward" })
-
---------------------------------------------------------
--- Nice
-map({ "n", "v" }, "<C-c>", "<cmd>%y+<CR>", { desc = "Copy whole file" })
-map("n", "<C-a>", "ggVG", { desc = "Select all" })
-
---------------------------------------------------------
--- Tabs
-map("n", "tn", "<cmd>tabnew<CR>", { desc = "New tab" })
-map("n", "tQ", "<cmd>tabonly<CR>", { desc = "Close all other tabs" })
-map("n", "tq", "<cmd>tabclose<CR>", { desc = "Close tab" })
-map("n", { "t<Right>", "tl" }, "<cmd>tabnext<CR>", { desc = "Next tab" })
-map("n", { "t<Left>", "th" }, "<cmd>tabprevious<CR>", { desc = "Previous tab" })
-
---------------------------------------------------------
-
--- Window related stuff
-map({ "n", "v" }, "<C-w><S-Left>", function()
-  vim.cmd("wincmd H")
-end, { desc = "Move window to the far left" })
-map({ "n", "v" }, "<C-w><S-Right>", function()
-  vim.cmd("wincmd L")
-end, { desc = "Move window to the far left" })
-map({ "n", "v" }, "<C-w><S-Down>", function()
-  vim.cmd("wincmd J")
-end, { desc = "Move window to the far left" })
-map({ "n", "v" }, "<C-w><S-Up>", function()
-  vim.cmd("wincmd K")
-end, { desc = "Move window to the far left" })
-
-map({ "n", "v" }, "<S-M-Down>", "<CMD>resize +2<CR>", { desc = "Increase window height" })
-map({ "n", "v" }, "<S-M-Up>", "<CMD>resize -2<CR>", { desc = "Decrease window height" })
-map({ "n", "v" }, "<S-M-Right>", "<CMD>vertical resize -2<CR>", { desc = "Decrease window width" })
-map({ "n", "v" }, "<S-M-Left>", "<CMD>vertical resize +2<CR>", { desc = "Increase window width" })
-
-map("n", "<C-S-M-q>", ":only<CR>", {
-  desc = "Close all other windows",
-})
-
-map("n", "<C-W>q", function()
-  require("utils.window").close_safely()
-end, { desc = "Close window safely" })
 
 --------------------------------------------------------
 -- Disabled/Change defaults cause why not

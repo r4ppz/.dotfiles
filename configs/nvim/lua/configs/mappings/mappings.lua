@@ -1,11 +1,13 @@
--- I use arrow keys and not hjkl cause I am a fucking weirdo
+-- I use both vim and emacs style editing btw
+-- and plus my wierd arrowcentric remaps.
 
 -- Most of these mappings will only work in modern terminal emulators.
 
 require("configs.mappings.custom")
 require("configs.mappings.lsp")
-require("configs.mappings.plugin")
+require("configs.mappings.utils")
 require("configs.mappings.git")
+require("configs.mappings.bufwin")
 
 -- Concepts:
 -- C = Control
@@ -34,7 +36,7 @@ require("configs.mappings.git")
 -- c, s, d, p = no yanking
 -- I hate the idea of delete/everything is cut/copy.
 --
--- Arrow keys are the primary navigation, not hjkl.
+-- Arrow keys centric mappings.
 -- hjkl                 = Left/Down/Up/Right
 -- Insert below/above   = M-Down / M-Up
 -- Hover                = C-S-Up
@@ -51,10 +53,6 @@ require("configs.mappings.git")
 -- Jump to line ends    = ! / @     ==  (^/g_)
 -- Match bracket        = ~         ==  (%)
 -- Highlight (no jump)  = #         ==  (Case-insensitive, works on n, v)
--- Tab/S-Tab            = za/zR/zM  ==  Toggle fold/all fold
---
--- Mark                 = ;
--- Jump to mark         = '
 --
 -- Alt is underrated:
 -- M-f = File Picker (Snacks)
@@ -82,7 +80,7 @@ require("configs.mappings.git")
 -- Incremental Selection  = enter
 -- more lsp stuff  = leader + l
 --
--- ...and many more (leader, see plugins/)
+-- ...and many more (leader, see mappings/ and plugins/)
 --
 -- Disabled default mappings/feature:
 -- - Macros (Skill issue) - Not for me
@@ -91,8 +89,8 @@ require("configs.mappings.git")
 -- - ; and ' (used for marks/marks.nvim)
 --
 -- Standard Vim motions/text objects still works fine (ciw, daw, yi(, ci{, etc.).
+-- I still use vim bindings for heavy editing but arrow keys are just convinient most of the time.
 -- I try to not remove the default mappings as much as possible for compatibility.
 --
 -- System-wide rebinds (see: nixos/configuration.nix:282)
--- Esc      = Grave (`)
 -- CapsLock = Esc

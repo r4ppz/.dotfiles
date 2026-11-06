@@ -310,6 +310,9 @@
             main = {
               capslock = "esc";
             };
+            control = {
+              m = "enter";
+            };
           };
         };
         external = {
@@ -322,6 +325,9 @@
               home = "power";
               rightalt = "leftmeta";
             };
+            control = {
+              m = "enter";
+            };
           };
         };
         laptop = {
@@ -333,6 +339,9 @@
               kp5 = "down";
               kp4 = "left";
               kp6 = "right";
+            };
+            control = {
+              m = "enter";
             };
           };
         };

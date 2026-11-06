@@ -1,11 +1,11 @@
 local window = require("utils.window")
 local map = vim.keymap.set
 
--- Uses plugins? (other keybinds are in the plugin Lua files)
+-- Related to buffer, window, terminal and tabs
 
 ---------------------------------------------------------------------
--- BUFFERS MANAGEMENT
 
+-- BUFFERS MANAGEMENT
 map("n", "<leader>n", "<cmd>enew<CR>", { desc = "Buffer new" })
 
 -- change buffer
@@ -64,11 +64,6 @@ map(
 )
 
 ---------------------------------------------------------------------
--- NVCHAD
-
-map("n", "<leader>vc", "<cmd>NvCheatsheet<CR>", { desc = "Toggle nvcheatsheet" })
-
----------------------------------------------------------------------
 -- TERMINAL MANAGEMENT
 
 local function map_close_terminal(config, extra_key)
@@ -96,7 +91,7 @@ map({ "n", "i", "v", "t" }, "<M-w>", function()
   map_close_terminal(config, "<M-g>")
 end, { desc = "Toggle Floating Terminal" })
 
-map({ "n", "i", "v", "t" }, "<M-b>", function()
+map({ "n", "i", "v", "t" }, "<M-B>", function()
   local config = {
     pos = "float",
     id = "btop_float",
@@ -108,7 +103,7 @@ map({ "n", "i", "v", "t" }, "<M-b>", function()
 end, { desc = "Toggle Btop" })
 
 -- Docker floating terminal
-map({ "n", "i", "v", "t" }, "<M-S-d>", function()
+map({ "n", "i", "v", "t" }, "<M-D>", function()
   local system = require("utils.system")
   local cwd = vim.fn.getcwd()
 
@@ -158,33 +153,51 @@ map({ "n", "i", "v", "t" }, "<A-t>", function()
   vim.cmd("startinsert")
 end, { desc = "New Terminal Buffer" })
 
---------------------------------------------------------
--- Utilitys
-map("n", "<leader>y", "<CMD>CopyPathAndLine<CR>", { desc = "Copy file path & line number" })
-map("v", "<leader>y", "<CMD>CopyPathAndLine<CR>", { desc = "Copy file path & line range" })
+---------------------------------------------------------------------
+-- Window related stuff
+map({ "n", "v" }, "<C-w><S-Left>", function()
+  vim.cmd("wincmd H")
+end, { desc = "Move window to the far left" })
+map({ "n", "v" }, "<C-w><S-Right>", function()
+  vim.cmd("wincmd L")
+end, { desc = "Move window to the far left" })
+map({ "n", "v" }, "<C-w><S-Down>", function()
+  vim.cmd("wincmd J")
+end, { desc = "Move window to the far left" })
+map({ "n", "v" }, "<C-w><S-Up>", function()
+  vim.cmd("wincmd K")
+end, { desc = "Move window to the far left" })
 
-map({ "n", "v" }, "<leader>ub", "<cmd>BufInfo<CR>", { desc = "Get BufInfo" })
-map({ "n", "v" }, "<leader>uc", "<CMD>OpenConfig<CR>", { desc = "Open Neovim Config" })
-map({ "n", "v" }, "<leader>uh", "<cmd>checkhealth<cr>", { desc = "Check Health" })
-
-map({ "n", "v" }, "<leader>uf", function()
-  require("conform").format({
-    timeout_ms = 1000,
-    async = true,
-  })
-end, { desc = "Format & Autofix File" })
-
---------------------------------------------------------
--- Toggle
-map("n", "<leader>tt", "<CMD>ToggleBool<CR>", { desc = "Toggle Boolean" })
-
-map("n", "<leader>tw", function()
-  vim.wo.wrap = not vim.wo.wrap
-end, { desc = "Toggle line wrapping" })
-
-map("n", "<leader>tm", "<cmd>Markview Toggle<CR>", {
-  desc = "Toggle markdown rendering (global)",
+map({ "n", "v" }, { "<S-M-Down>", "<M-J>" }, "<CMD>resize +2<CR>", {
+  desc = "Increase window height",
+})
+map({ "n", "v" }, { "<S-M-Up>", "<M-K>" }, "<CMD>resize -2<CR>", {
+  desc = "Decrease window height",
+})
+map({ "n", "v" }, { "<S-M-Right>", "<M-L>" }, "<CMD>vertical resize -2<CR>", {
+  desc = "Decrease window width",
+})
+map({ "n", "v" }, { "<S-M-Left>", "<M-H>" }, "<CMD>vertical resize +2<CR>", {
+  desc = "Increase window width",
 })
 
+map("n", "<C-S-M-q>", ":only<CR>", {
+  desc = "Close all other windows",
+})
+
+map("n", "<C-W>q", function()
+  require("utils.window").close_safely()
+end, { desc = "Close window safely" })
+
+--------------------------------------------------------
+-- Tabs shit
+map("n", "tn", "<cmd>tabnew<CR>", { desc = "New tab" })
+map("n", "tQ", "<cmd>tabonly<CR>", { desc = "Close all other tabs" })
+map("n", "tq", "<cmd>tabclose<CR>", { desc = "Close tab" })
+map("n", { "t<Right>", "tl" }, "<cmd>tabnext<CR>", { desc = "Next tab" })
+map("n", { "t<Left>", "th" }, "<cmd>tabprevious<CR>", { desc = "Previous tab" })
+
 ---------------------------------------------------------------------
+-- Random UI popups
 map({ "n", "v" }, "<leader>pl", "<cmd>Lazy<CR>", { desc = "Lazy UI" })
+map("n", "<leader>vc", "<cmd>NvCheatsheet<CR>", { desc = "Toggle nvcheatsheet" })

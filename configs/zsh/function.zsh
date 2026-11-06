@@ -89,10 +89,6 @@ smboff() {
   fi
 }
 
-open_file() {
-  "$DOTFILES/scripts/bin/open-file.sh"
-}
-
 rcopy() {
   if (($# < 2)); then
     echo "Usage: rcopy <source> <destination>"

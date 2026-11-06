@@ -1,6 +1,12 @@
 {
-  "tui.editor.cursorUp": "up",
-  "tui.editor.cursorDown": "down",
+  "tui.editor.cursorUp": [
+    "up",
+    "ctrl+p"
+  ],
+  "tui.editor.cursorDown": [
+    "down",
+    "ctrl+n"
+  ],
   "tui.editor.historyPrevious": [],
   "tui.editor.historyNext": [],
   "tui.editor.cursorLeft": [
@@ -77,8 +83,14 @@
   ],
   "tui.altScreen.pageUp": [],
   "tui.altScreen.pageDown": [],
-  "tui.altScreen.halfPageUp": "shift+up",
-  "tui.altScreen.halfPageDown": "shift+down",
+  "tui.altScreen.halfPageUp": [
+    "shift+up",
+    "ctrl+u"
+  ],
+  "tui.altScreen.halfPageDown": [
+    "shift+down",
+    "ctrl+d"
+  ],
   "tui.altScreen.lineUp": "ctrl+up",
   "tui.altScreen.lineDown": "ctrl+down",
   "tui.altScreen.previousPrompt": "ctrl+shift+up",
@@ -91,7 +103,7 @@
   "tui.altScreen.bottom": [],
   "app.interrupt": "escape",
   "app.clear": "ctrl+c",
-  "app.exit": "ctrl+d",
+  "app.exit": [],
   "app.suspend": [],
   "app.editor.external": "ctrl+g",
   "app.clipboard.pasteImage": "ctrl+v",
@@ -103,7 +115,7 @@
   "app.session.toggleSort": "ctrl+s",
   "app.session.toggleNamedFilter": "ctrl+n",
   "app.session.rename": "ctrl+r",
-  "app.session.delete": "ctrl+d",
+  "app.session.delete": [],
   "app.session.deleteNoninvasive": "ctrl+backspace",
   "app.model.select": "ctrl+l",
   "app.model.cycleForward": [],

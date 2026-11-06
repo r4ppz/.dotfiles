@@ -79,9 +79,9 @@ autocmd({ "FileType", "BufEnter" }, {
     vim.opt_local.pumborder = "single"
     vim.opt_local.complete = ".,w,b,u,t"
 
-    map("i", "<C-l>", "<Right>", {
+    map("i", "<C-l>", "", {
       buffer = args.buf,
-      desc = "Move right",
+      desc = "Surpress reset",
     })
   end,
 })
