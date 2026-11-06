@@ -1,5 +1,5 @@
-local map = require("utils.map")
 local system = require("utils.system")
+local map = vim.keymap.set
 
 -- LazyGit floating terminal
 map("n", { "<M-g>", "<leader>gg" }, function()

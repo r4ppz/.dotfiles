@@ -1,6 +1,6 @@
-local map = require("utils.map")
 local layout = require("utils.layout")
 local window = require("utils.window")
+local map = vim.keymap.set
 
 -- LSP-dependent mappings
 vim.api.nvim_create_autocmd("LspAttach", {

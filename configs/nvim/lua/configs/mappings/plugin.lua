@@ -1,5 +1,5 @@
 local window = require("utils.window")
-local map = require("utils.map")
+local map = vim.keymap.set
 
 -- Uses plugins? (other keybinds are in the plugin Lua files)
 

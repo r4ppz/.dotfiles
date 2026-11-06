@@ -1,6 +1,6 @@
-local mygroup = vim.api.nvim_create_augroup("MyPersonalConfig", { clear = true })
+local mygroup = vim.api.nvim_create_augroup("smh", { clear = true })
 local autocmd = vim.api.nvim_create_autocmd
-local map = require("utils.map")
+local map = vim.keymap.set
 
 autocmd("FileType", {
   group = mygroup,
@@ -71,13 +71,18 @@ autocmd({
 autocmd({ "FileType", "BufEnter" }, {
   group = mygroup,
   pattern = { "copilot-chat" },
-  callback = function()
+  callback = function(args)
     vim.opt_local.relativenumber = false
     vim.opt_local.number = false
     vim.opt_local.autocomplete = true
     vim.opt_local.completeopt = { "menu", "menuone", "noselect", "popup" }
     vim.opt_local.pumborder = "single"
     vim.opt_local.complete = ".,w,b,u,t"
+
+    map("i", "<C-l>", "<Right>", {
+      buffer = args.buf,
+      desc = "Move right",
+    })
   end,
 })
 

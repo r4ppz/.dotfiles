@@ -1,4 +1,4 @@
-local map = require("utils.map")
+local map = vim.keymap.set
 
 --------------------------------------------------------
 -- Personal?!!
