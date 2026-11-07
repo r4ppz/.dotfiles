@@ -6,7 +6,7 @@
     tmux
     yazi
 
-    # opencode
+    opencode
     pi-coding-agent
 
     tailspin

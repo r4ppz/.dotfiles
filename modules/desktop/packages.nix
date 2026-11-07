@@ -18,9 +18,7 @@
     obs-studio
     goldendict-ng
     qbittorrent
-    authenticator
     bottles
-    krita
 
     vlc
     imv

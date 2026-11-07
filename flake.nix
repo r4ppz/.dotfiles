@@ -70,6 +70,22 @@
                 bookokrat = bookokrat.packages.${prev.stdenv.hostPlatform.system}.default.overrideAttrs (old: {
                   doCheck = false;
                 });
+
+                concord-tui = prev.concord-tui.overrideAttrs (old: rec {
+                  version = "2.7.0";
+                  src = prev.fetchFromGitHub {
+                    owner = "chojs23";
+                    repo = "concord";
+                    tag = "v${version}";
+                    hash = "sha256-Ck5BE1U5vajr0nE2KDeTfWZg1xBDbs0yCnpMZTIt/pU=";
+                  };
+                  cargoHash = "sha256-rupp7IH/90/QHwK4gmYPQDdlsNOwXGYiwL7ODEdUZDE=";
+                  doCheck = false;
+                  nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [
+                    prev.git
+                    prev.cmake
+                  ];
+                });
               })
             ];
           }
