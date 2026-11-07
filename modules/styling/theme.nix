@@ -42,6 +42,7 @@ in
       color-scheme = "prefer-dark";
       gtk-theme = "Colloid-Dark-Gruvbox";
       enable-animations = false;
+      gtk-key-theme = "Emacs";
     };
   };
 
