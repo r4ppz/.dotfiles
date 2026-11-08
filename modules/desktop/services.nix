@@ -4,7 +4,47 @@ let
   myScripts = pkgs.callPackage scriptDir { };
 in
 {
-  home.packages = [ pkgs.swaynotificationcenter ];
+  home.packages = with pkgs; [
+    hyprpolkitagent
+    hypridle
+    hyprlock
+    hyprpaper
+    hyprsunset
+    hyprpicker
+    swaynotificationcenter
+  ];
+
+  services = {
+    hypridle = {
+      enable = true;
+    };
+
+    hyprpaper = {
+      enable = true;
+    };
+
+    hyprsunset = {
+      enable = true;
+    };
+  };
+
+  systemd.user.services.hyprpolkitagent = {
+    Unit = {
+      Description = "Hyprland Polkit Authentication Agent";
+      PartOf = [ "hyprland-session.target" ];
+      After = [ "hyprland-session.target" ];
+    };
+    Service = {
+      ExecStart = "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent";
+      Restart = "on-failure";
+    };
+    Install.WantedBy = [ "hyprland-session.target" ];
+  };
+
+  wayland.windowManager.hyprland = {
+    enable = false;
+    systemd.enable = true;
+  };
 
   services = {
     ssh-agent = {
@@ -63,6 +103,24 @@ in
         RestartSec = "10s";
       };
       Install.WantedBy = [ "hyprland-session.target" ];
+    };
+  };
+
+  programs = {
+    ssh = {
+      enable = true;
+      enableDefaultConfig = false;
+      settings = {
+        "*" = {
+          AddKeysToAgent = "yes";
+        };
+      };
+    };
+
+    waybar = {
+      enable = true;
+      package = pkgs.waybar;
+      systemd.enable = true;
     };
   };
 }

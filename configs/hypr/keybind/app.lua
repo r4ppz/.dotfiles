@@ -1,6 +1,5 @@
 local const = require("util.constant")
 
-hl.bind(const.mod .. " + SHIFT + RETURN", hl.dsp.exec_cmd(const.apps.terminal .. " -e zsh -lic 't'"))
 hl.bind(const.mod .. " + RETURN", hl.dsp.exec_cmd(const.apps.terminal))
 hl.bind(const.mod .. " + T", hl.dsp.exec_cmd(const.apps.terminal))
 hl.bind(const.mod .. " + N", hl.dsp.exec_cmd(const.apps.notifpanel))
@@ -8,6 +7,10 @@ hl.bind(const.mod .. " + SLASH", hl.dsp.exec_cmd(const.scripts.websearch))
 hl.bind(const.mod .. " + V", hl.dsp.exec_cmd(const.apps.ide))
 hl.bind(const.mod .. " + E", hl.dsp.exec_cmd(const.apps.filemanager_gui))
 hl.bind(const.mod .. " + P", hl.dsp.exec_cmd(const.apps.passmanager))
+
+hl.bind(const.mod .. " + SHIFT + RETURN", hl.dsp.exec_cmd(const.apps.terminal .. " -e zsh -lic 't'"), {
+  tag = "+tmux",
+})
 
 hl.bind(
   "ALT + SHIFT + E",
