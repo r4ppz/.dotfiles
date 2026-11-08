@@ -2,12 +2,20 @@
 
 {
   home.packages = with pkgs; [
+    hyprpolkitagent
+    hypridle
+    hyprlock
+    hyprpaper
+    hyprsunset
+    hyprpicker
+
     tetro-tui # < game :0
 
     chromium
     helium
     firefox
 
+    swaynotificationcenter
     kdePackages.okular
     quickshell
     bitwarden-desktop

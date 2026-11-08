@@ -4,16 +4,6 @@ let
   myScripts = pkgs.callPackage scriptDir { };
 in
 {
-  home.packages = with pkgs; [
-    hyprpolkitagent
-    hypridle
-    hyprlock
-    hyprpaper
-    hyprsunset
-    hyprpicker
-    swaynotificationcenter
-  ];
-
   services = {
     hypridle = {
       enable = true;

@@ -86,9 +86,7 @@ local chat_system_prompt = string.dedent([[
       or discrete set of items (such as installation steps or independent configuration options).
     - Never use `#` symbols for headers. Use bold text (`**Section Name**`) for headings only when dividing complex,
       multi-part explanations into distinct sections.
-    - Never generate Markdown tables or use pipe characters (`|`). Do not replicate a grid layout or use terms like "Row", "Column", or "Header".
     - Enclose file paths, function calls, variables, CLI flags, environment variables, and short code snippets in inline backticks (`like_this`).
-    - Multi-line code blocks must use language-specific syntax tags.
 ]])
 
 local prompts = {
