@@ -6,5 +6,6 @@
     checkmake
     statix
     shellcheck
+    clippy
   ];
 }

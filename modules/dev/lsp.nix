@@ -41,6 +41,7 @@ let
 in
 {
   home.packages = builtins.attrValues servers;
+  # used in configs/nvim/lua/configs/servers/servers.lua
 
   home.file.".local/share/nvim/nix-servers.lua".text =
     let

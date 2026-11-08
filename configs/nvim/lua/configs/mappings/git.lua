@@ -1,6 +1,8 @@
 local system = require("utils.system")
 local map = vim.keymap.set
 
+-- Git related mappings
+
 -- LazyGit floating terminal
 map("n", { "<M-g>", "<leader>gg" }, function()
   if not system.is_git_repo(vim.fn.getcwd()) then

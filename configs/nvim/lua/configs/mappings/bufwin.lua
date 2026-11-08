@@ -4,8 +4,8 @@ local map = vim.keymap.set
 -- Related to buffer, window, terminal and tabs
 
 ---------------------------------------------------------------------
+-- Buffer management
 
--- BUFFERS MANAGEMENT
 map("n", "<leader>n", "<cmd>enew<CR>", { desc = "Buffer new" })
 
 -- change buffer
@@ -64,7 +64,7 @@ map(
 )
 
 ---------------------------------------------------------------------
--- TERMINAL MANAGEMENT
+-- Terminal management
 
 local function map_close_terminal(config, extra_key)
   local map_local = vim.keymap.set
@@ -155,6 +155,7 @@ end, { desc = "New Terminal Buffer" })
 
 ---------------------------------------------------------------------
 -- Window related stuff
+
 map({ "n", "v" }, "<C-w><S-Left>", function()
   vim.cmd("wincmd H")
 end, { desc = "Move window to the far left" })
@@ -191,6 +192,7 @@ end, { desc = "Close window safely" })
 
 --------------------------------------------------------
 -- Tabs shit
+
 map("n", "tn", "<cmd>tabnew<CR>", { desc = "New tab" })
 map("n", "tQ", "<cmd>tabonly<CR>", { desc = "Close all other tabs" })
 map("n", "tq", "<cmd>tabclose<CR>", { desc = "Close tab" })

@@ -68,7 +68,7 @@ map("t", "<C-q>", "<C-\\><C-N>", { desc = "Escape terminal mode" })
 map("n", "<C-_>", "gcc", { desc = "toggle comment", remap = true })
 map("v", "<C-_>", "gc", { desc = "toggle comment", remap = true })
 
--- This is mostly redundant
+-- Not needed now cause I use emacs on insert now
 -- map("i", "<C-h>", "<Left>", { desc = "Move left" })
 -- map("i", "<C-j>", "<Down>", { desc = "Move down" })
 -- map("i", "<C-k>", "<Up>", { desc = "Move up" })
@@ -114,10 +114,10 @@ map({ "n", "v", "o" }, "<S-Tab>", "N", {
 })
 
 -- Insert below and above
-map("n", "<M-Up>", "O", { desc = "Insert above" })
-map("n", "<M-Down>", "o", { desc = "Insert below" })
-map("i", "<M-Up>", "<C-o>O", { desc = "Insert above" })
-map("i", "<M-Down>", "<C-o>o", { desc = "Insert below" })
+map("n", { "<M-Up>", "<M-O>" }, "O", { desc = "Insert above" })
+map("n", { "<M-Down>", "<M-o>" }, "o", { desc = "Insert below" })
+map("i", { "<M-Up>", "<M-O>" }, "<C-o>O", { desc = "Insert above" })
+map("i", { "<M-Down>", "<M-o>" }, "<C-o>o", { desc = "Insert below" })
 
 -- Undo and redo (this is like 10x better)
 map("n", "<M-a>", "u", { desc = "Undo" })
@@ -174,10 +174,6 @@ map({ "n", "v" }, { "g<Left>", "gh", "H", "<C-S-Left>" }, "^", {
 map({ "n", "v" }, { "g<Right>", "gl", "L", "<C-S-Right>" }, "g_", {
   desc = "Jump to last non-blank character of line",
 })
-
--- Using Alt instead of Ctrl to avoid terminal conflicts
-map("n", "<A-o>", "<C-o>", { desc = "Jump Back" })
-map("n", "<A-i>", "<C-i>", { desc = "Jump Forward" })
 
 --------------------------------------------------------
 -- Disabled/Change defaults cause why not

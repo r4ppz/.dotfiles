@@ -1,4 +1,3 @@
-local window = require("utils.window")
 local map = vim.keymap.set
 
 --------------------------------------------------------
@@ -28,6 +27,18 @@ map("n", "<leader>tw", function()
   vim.wo.wrap = not vim.wo.wrap
 end, { desc = "Toggle line wrapping" })
 
-map("n", "<leader>tm", "<cmd>Markview Toggle<CR>", {
-  desc = "Toggle markdown rendering (global)",
+map("n", "<leader>tm", "<cmd>Markview toggle<CR>", {
+  desc = "Toggle markdown rendering (buf)",
+})
+
+map("n", "<leader>tn", function()
+  vim.wo.number = not vim.wo.number
+end, { desc = "Toggle line numbers" })
+
+map("n", "<leader>tr", function()
+  vim.wo.relativenumber = not vim.wo.relativenumber
+end, { desc = "Toggle relative line numbers" })
+
+map("n", "<leader>ts", "<CMD>Markview splitToggle<CR>", {
+  desc = "Toggle markdown rendering split",
 })

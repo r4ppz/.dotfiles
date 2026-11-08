@@ -1,5 +1,5 @@
-local prompts = require("configs.llm.prompts")
 local window = require("utils.window")
+local prompts = require("configs.llm.prompts")
 
 return {
   "CopilotC-Nvim/CopilotChat.nvim",
@@ -147,74 +147,28 @@ return {
     {
       "<leader>cf",
       function()
-        window.close_panels()
-        local snacks = require("snacks")
-        snacks.picker.files({
-          confirm = function(picker, item)
-            local items = picker:selected()
-            if #items == 0 then
-              items = { item }
-            end
-
-            picker:close()
-
-            local lines = {}
-            for _, sel in ipairs(items) do
-              local path = vim.fn.fnamemodify(sel.file, ":.")
-              table.insert(lines, "#file:" .. path)
-            end
-
-            local chat = require("CopilotChat")
-            chat.open()
-
-            vim.schedule(function()
-              vim.api.nvim_put(lines, "l", true, true)
-              vim.cmd("normal! G")
-            end)
-          end,
-        })
+        local chat = require("utils.chat")
+        chat.pick_file()
       end,
       desc = "Add files to CopilotChat",
       mode = { "n", "v" },
     },
 
     {
+      "<leader>ck",
+      function()
+        local chat = require("utils.chat")
+        chat.better_hover()
+      end,
+      desc = "Explain hover with Copilot",
+      mode = { "n", "v" },
+    },
+
+    {
       "<C-S-M-Up>",
       function()
-        window.close_panels()
-        local params = vim.lsp.util.make_position_params(nil, "utf-16")
-        local responses = vim.lsp.buf_request_sync(0, "textDocument/hover", params, 500)
-
-        if not responses or vim.tbl_isempty(responses) then
-          vim.notify("No hover information available", vim.log.levels.WARN)
-          return
-        end
-
-        local parts = {}
-        for _, resp in pairs(responses) do
-          if resp and resp.result and resp.result.contents then
-            local md = vim.lsp.util.convert_input_to_markdown_lines(resp.result.contents) or {}
-            for _, line in ipairs(md) do
-              if line and line ~= "" then
-                parts[#parts + 1] = line
-              end
-            end
-          end
-        end
-
-        if #parts == 0 then
-          vim.notify("No hover text found", vim.log.levels.WARN)
-          return
-        end
-
-        local hover_text = table.concat(parts, "\n")
-
-        local chat = require("CopilotChat")
-        chat.open()
-        chat.ask(
-          prompts.prompts.BetterDocs.prompt .. "\n\n" .. hover_text,
-          { clear_chat_on_new_prompt = true }
-        )
+        local chat = require("utils.chat")
+        chat.better_hover()
       end,
       desc = "Explain hover with Copilot",
       mode = { "n", "v" },

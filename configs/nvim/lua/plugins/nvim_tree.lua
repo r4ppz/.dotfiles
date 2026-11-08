@@ -84,9 +84,15 @@ return {
         api.map.on_attach.default(bufnr)
 
         map("n", "<ESC>", "<nop>", { buffer = bufnr, desc = "fucking nothing" })
-        map("n", "<C-S-Up>", api.node.show_info_popup, { buffer = bufnr, desc = "Info" })
+        map("n", { "<C-S-Up>", "<leader>k", "<gK>" }, api.node.show_info_popup, {
+          buffer = bufnr,
+          desc = "Info",
+        })
         map("n", "]", api.tree.change_root_to_node, { buffer = bufnr, desc = "cd" })
         map("n", "[", api.tree.change_root_to_parent, { buffer = bufnr, desc = "cd .." })
+
+        map("n", "J", "<C-e>", { buffer = bufnr, desc = "Scroll down" })
+        map("n", "K", "<C-y>", { buffer = bufnr, desc = "Scroll up" })
       end,
     }
   end,
@@ -103,7 +109,7 @@ return {
           window.focus_main()
         end
 
-        require("utils.tree_chat").add_to_copilot()
+        require("utils.chat").add_to_copilot()
       end,
       desc = "Add file/s to CopilotChat",
     },

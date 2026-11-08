@@ -22,7 +22,7 @@ return {
     },
     opts = {
       preview = {
-        modes = { "n", "no", "c", "i" },
+        modes = { "n", "no", "c" },
         hybrid_modes = {},
         filetypes = { "markdown", "copilot-chat" },
         ignore_buftypes = {},
@@ -80,8 +80,15 @@ return {
           },
         },
 
+        reference_definitions = {
+          enable = true,
+        },
+
         tables = {
           enable = true,
+          strict = false,
+          block_decorator = true,
+          use_virt_lines = true,
         },
 
         code_blocks = {

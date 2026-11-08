@@ -1,5 +1,6 @@
 local M = {}
 
+-- see configs/nvim/lua/plugins/lsp.lua
 local ok, nix_servers = pcall(dofile, vim.fn.stdpath("data") .. "/nix-servers.lua")
 M.lsp_list = ok and nix_servers or {}
 

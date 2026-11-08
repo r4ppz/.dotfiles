@@ -1,5 +1,5 @@
 -- I use both vim and emacs style editing btw
--- and plus my wierd arrowcentric remaps.
+-- and plus my wierd arrow centric remaps.
 
 -- Most of these mappings will only work in modern terminal emulators.
 

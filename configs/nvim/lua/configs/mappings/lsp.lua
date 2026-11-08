@@ -2,13 +2,14 @@ local layout = require("utils.layout")
 local window = require("utils.window")
 local map = vim.keymap.set
 
--- LSP-dependent mappings
+-- LSP related mappings
+
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("LspMappings", { clear = true }),
   callback = function(args)
     local buf = args.buf
 
-    map("n", { "<S-C-Up>", "gK" }, function()
+    map("n", { "<S-C-Up>", "gK", "<leader>k" }, function()
       vim.lsp.buf.hover({
         max_width = 80,
         max_height = 20,
@@ -49,28 +50,28 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "gd", function()
       Snacks.picker.lsp_definitions({
         include_current = false,
-        auto_confirm = false,
+        auto_confirm = true,
       })
     end, { buffer = buf, desc = "Goto [d]efinition (Snacks)" })
 
     map("n", "gi", function()
       Snacks.picker.lsp_implementations({
         include_current = false,
-        auto_confirm = false,
+        auto_confirm = true,
       })
     end, { buffer = buf, desc = "Goto [I]mplementation (Snacks)" })
 
     map("n", "gy", function()
       Snacks.picker.lsp_type_definitions({
         include_current = false,
-        auto_confirm = false,
+        auto_confirm = true,
       })
     end, { buffer = buf, desc = "Goto T[y]pe Definition (Snacks)" })
 
     map("n", "ge", function()
       Snacks.picker.lsp_declarations({
         include_current = false,
-        auto_confirm = false,
+        auto_confirm = true,
       })
     end, { buffer = buf, desc = "Goto D[e]claration (Snacks)" })
 

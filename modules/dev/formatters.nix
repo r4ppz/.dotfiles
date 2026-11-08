@@ -8,5 +8,6 @@
     black
     google-java-format
     nixfmt
+    rustfmt
   ];
 }

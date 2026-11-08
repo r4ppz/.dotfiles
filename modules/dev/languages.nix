@@ -21,27 +21,30 @@
       ]
     ))
 
+    # compilers/runtimes
     nodejs
     bun
     go
     gcc
     zig
     luajit
-
-    pipx
     rustc
-    cargo
-    clippy
-    rustfmt
 
-    # smh
-    luajitPackages.tiktoken_core
+    # package managers
+    # and build stuff
+    pipx
+    cargo
     pnpm
-    tree-sitter
     gnumake
-    delve
     maven
-    lombok
     cmake
+
+    # libs
+    lombok
+    luajitPackages.tiktoken_core
+    tree-sitter
+
+    # debug
+    delve
   ];
 }
