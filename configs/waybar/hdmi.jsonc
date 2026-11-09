@@ -3,7 +3,7 @@
   "output": "HDMI-A-1",
   "position": "top",
   "layer": "top",
-  "height": 23,
+  "height": 25,
   "spacing": 0,
   "margin-top": 0,
   "margin-right": 0,
@@ -220,7 +220,8 @@
   },
   // Custom Rofi launcher module
   "custom/rofi": {
-    "format": " ",
+    "format": "󱄅",
+    "justify": "center",
     "on-click": "~/.config/rofi/launcher/launcher.sh",
     "on-click-right": "~/.config/rofi/powermenu/powermenu.sh",
     "escape": true,

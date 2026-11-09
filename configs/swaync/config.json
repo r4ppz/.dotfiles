@@ -1,5 +1,5 @@
 {
-  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "$schema": "/etc/profiles/per-user/r4ppz/etc/xdg/swaync/configSchema.json",
   "ignore-gtk-theme": true,
   "positionX": "right",
   "positionY": "top",

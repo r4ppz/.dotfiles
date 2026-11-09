@@ -15,12 +15,16 @@ let
     variant = "Gruvbox-Dark-Blue";
   };
 
-  # Common GTK opts
-  gtkCommonConfig = {
+  # Xft options (X11 / XWayland only; GTK4 has no Xft support)
+  gtkXftConfig = {
     gtk-xft-antialias = 1;
     gtk-xft-hinting = 1;
-    gtk-xft-hintstyle = "hintslight";
-    gtk-xft-rgba = "rgb";
+    gtk-xft-hintstyle = "hintfull";
+    gtk-xft-rgba = "none";
+  };
+
+  # Common GTK opts (mighe be redundant idk)
+  gtkCommonConfig = {
     gtk-application-prefer-dark-theme = 1;
   };
 
@@ -31,8 +35,8 @@ let
       standard_dialogs = "xdgdesktopportal";
     };
     Fonts = {
-      general = ''"Inter,10"'';
-      fixed = ''"Inter,10"'';
+      general = ''"Inter,11"'';
+      fixed = ''"JetBrainsMono Nerd Font Mono,11"'';
     };
   };
 in
@@ -77,7 +81,7 @@ in
     font = {
       name = "Inter";
       package = pkgs.inter;
-      size = 10;
+      size = 11;
     };
 
     cursorTheme = {
@@ -89,11 +93,11 @@ in
     gtk2.extraConfig = ''
       gtk-xft-antialias=1
       gtk-xft-hinting=1
-      gtk-xft-hintstyle="hintslight"
-      gtk-xft-rgba="rgb"
+      gtk-xft-hintstyle="hintfull"
+      gtk-xft-rgba="none"
     '';
 
-    gtk3.extraConfig = gtkCommonConfig;
+    gtk3.extraConfig = gtkCommonConfig // gtkXftConfig;
     gtk4.extraConfig = gtkCommonConfig;
   };
 

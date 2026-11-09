@@ -16,8 +16,8 @@
     enable = true;
 
     antialiasing = true;
-    hinting = "slight";
-    subpixelRendering = "rgb";
+    hinting = "full";
+    subpixelRendering = "none";
 
     defaultFonts = {
       serif = [ "Noto Serif" ];
