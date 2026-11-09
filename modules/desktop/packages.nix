@@ -37,7 +37,7 @@
 
     bookokrat
     circumflex
-    bulletty
+    newsboat
     impala
     bluetui
     cliamp

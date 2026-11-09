@@ -50,15 +50,18 @@ return {
     },
 
     preset = "helix",
+
     icons = {
       group = "",
     },
+
     win = {
       border = "rounded",
       padding = { 1, 2 },
       title = false,
       title_pos = "center",
     },
+
     layout = {
       width = { min = 25, max = 50 },
       spacing = 4,

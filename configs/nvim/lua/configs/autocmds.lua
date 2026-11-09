@@ -75,9 +75,33 @@ autocmd({ "FileType", "BufEnter" }, {
     vim.opt_local.relativenumber = false
     vim.opt_local.number = false
     vim.opt_local.autocomplete = true
-    vim.opt_local.completeopt = { "menu", "menuone", "noselect", "popup" }
+    vim.opt_local.completeopt = { "menu", "menuone", "popup" }
     vim.opt_local.pumborder = "single"
     vim.opt_local.complete = ".,w,b,u,t"
+
+    map("i", "<Tab>", function()
+      if vim.fn.pumvisible() == 1 then
+        return "<C-n>"
+      end
+      return "<Tab>"
+    end, {
+      buffer = args.buf,
+      expr = true,
+      silent = true,
+      desc = "Next completion item",
+    })
+
+    map("i", "<S-Tab>", function()
+      if vim.fn.pumvisible() == 1 then
+        return "<C-p>"
+      end
+      return "<S-Tab>"
+    end, {
+      buffer = args.buf,
+      expr = true,
+      silent = true,
+      desc = "Previous completion item",
+    })
 
     map("i", "<C-l>", "", {
       buffer = args.buf,

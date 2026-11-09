@@ -91,11 +91,11 @@ opt.updatetime = 300
 
 opt.fdo = "search,tag,insert,undo"
 opt.synmaxcol = 200
-opt.timeoutlen = 300
+opt.timeoutlen = 500
 opt.undofile = true
 
 -- Misc
-opt.shortmess:append("sI")
+opt.shortmess:append("sIcC")
 opt.whichwrap:append("<>[]")
 
 opt.virtualedit = "block"

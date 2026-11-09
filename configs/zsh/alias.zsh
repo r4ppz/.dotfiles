@@ -17,12 +17,10 @@ alias lg='lazygit'
 alias ld='lazydocker'
 alias top='btop'
 alias news='clx -n --indent 3 --article-width 100 --comment-width 100 --graphics=always --pages 5 --show-images-on-open'
-alias rss='bulletty'
+alias rss='newsboat'
 alias restore="gtrash r"
-alias bm="bashmount"
 alias op='opencode'
 alias md='glow --pager'
-alias pac='pacseek'
 alias copy='wl-copy'
 alias blue='bluetuith'
 alias music='cliamp'

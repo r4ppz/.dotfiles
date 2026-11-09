@@ -100,11 +100,48 @@ return {
         keymap = {
           preset = "none",
 
-          ["<C-p>"] = { "select_prev", "fallback" },
-          ["<C-n>"] = { "select_next", "fallback" },
-
           ["<C-Up>"] = { "select_prev", "fallback" },
           ["<C-Down>"] = { "select_next", "fallback" },
+
+          ["<C-k>"] = {
+            function(cmp)
+              if not cmp.is_visible() then
+                return cmp.show()
+              end
+              return cmp.select_prev()
+            end,
+            "fallback",
+          },
+
+          ["<C-j>"] = {
+            function(cmp)
+              if not cmp.is_visible() then
+                return cmp.show()
+              end
+              return cmp.select_next()
+            end,
+            "fallback",
+          },
+
+          ["<C-p>"] = {
+            function(cmp)
+              if not cmp.is_visible() then
+                return cmp.show_and_insert()
+              end
+              return cmp.insert_prev()
+            end,
+            "fallback",
+          },
+
+          ["<C-n>"] = {
+            function(cmp)
+              if not cmp.is_visible() then
+                return cmp.show_and_insert()
+              end
+              return cmp.insert_next()
+            end,
+            "fallback",
+          },
 
           ["<S-Tab>"] = { "insert_prev", "snippet_forward", "fallback" },
           ["<Tab>"] = {

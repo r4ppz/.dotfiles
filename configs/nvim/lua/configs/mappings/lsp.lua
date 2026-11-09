@@ -213,7 +213,7 @@ local function handle_incremental_selection(is_expanding)
   end
 end
 
-map("n", "<CR>", function()
+map("n", { "<CR>", "<M-o>" }, function()
   if vim.bo.buftype ~= "" then
     return vim.api.nvim_feedkeys(
       vim.api.nvim_replace_termcodes("<CR>", true, false, true),
@@ -232,10 +232,10 @@ map("n", "<CR>", function()
   end
 end, { desc = "Select word or expand selection" })
 
-map({ "x", "o" }, "<CR>", function()
+map({ "x", "o" }, { "<CR>", "<M-o>" }, function()
   handle_incremental_selection(true)
 end, { desc = "Select parent treesitter node or LSP selection" })
-map({ "x", "o" }, "<BS>", function()
+map({ "x", "o" }, { "<BS>", "<M-i>" }, function()
   handle_incremental_selection(false)
 end, { desc = "Select child treesitter node or LSP selection" })
 

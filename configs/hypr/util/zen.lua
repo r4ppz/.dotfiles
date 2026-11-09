@@ -1,5 +1,6 @@
 local notify = require("util.notify")
 local process = require("util.process")
+local monitor = require("system.monitor")
 
 local M = {}
 
@@ -28,7 +29,7 @@ local function apply_config(mode)
     general = conf.general,
     decoration = conf.decoration,
   })
-  process.run("hyprctl hyprpaper wallpaper  HDMI-A-1," .. conf.wallpaper .. ",cover")
+  process.run("hyprctl hyprpaper wallpaper " .. monitor.external .. ", " .. conf.wallpaper .. ",cover")
   process.run("systemctl --user " .. conf.waybar .. " waybar.service")
 end
 

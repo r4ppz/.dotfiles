@@ -4,7 +4,7 @@ local map = vim.keymap.set
 -- Personal preference ?!!
 --------------------------------------------------------
 
--- Emacs style :p
+-- Emacs style in insert mode :p
 --
 -- command line mode
 map("c", "<C-a>", "<Home>", { desc = "Beginning of command line" })
@@ -18,17 +18,16 @@ map("c", "<M-b>", "<S-Left>", { desc = "Move backward one word" })
 map("c", "<M-f>", "<S-Right>", { desc = "Move forward one word" })
 
 -- insert mode
-map("i", { "<C-a>", "<C-S-Left>" }, "<Home>", { desc = "Beginning of line" })
-map("i", { "<C-e>", "<C-S-Right>" }, "<End>", { desc = "End of line" })
+map("i", "<C-a>", "<Home>", { desc = "Beginning of line" })
+map("i", "<C-e>", "<End>", { desc = "End of line" })
 map("i", "<C-b>", "<Left>", { desc = "Move backward" })
 map("i", "<C-f>", "<Right>", { desc = "Move forward" })
 map("i", "<C-n>", "<Down>", { desc = "Move down" })
 map("i", "<C-p>", "<Up>", { desc = "Move up" })
 map("i", "<C-d>", "<Del>", { desc = "Delete character under cursor" })
 map("i", "<C-h>", "<BS>", { desc = "Delete character before cursor" })
-map("i", "<C-w>", "<C-o>db", { desc = "Delete word backward" })
 map("i", "<M-b>", "<C-o>b", { desc = "Move backward one word" })
-map("i", "<M-f>", "<C-o>w", { desc = "Move forward one word" })
+map("i", "<M-f>", "<C-o>e<C-o>a", { desc = "Move forward one word" })
 map("i", "<C-k>", "<C-o>D", { desc = "Delete to end of line" })
 map("i", "<C-u>", "<C-o>d0", { desc = "Delete to beginning of line" })
 map("i", "<C-j>", "<CR>", { desc = "New line" })
@@ -102,22 +101,22 @@ map("i", "<Up>", "<C-o>gk", {
 -- Weird remaps ?!?
 --
 -- Next and previous using tab/Stab like n/N
-map({ "n", "v", "o" }, "<Tab>", "n", {
+map({ "n", "v", "o" }, { "<Tab>", "n" }, "nzz", {
   noremap = true,
   silent = true,
-  desc = "Next search result",
+  desc = "Next search result and center",
 })
-map({ "n", "v", "o" }, "<S-Tab>", "N", {
+map({ "n", "v", "o" }, { "<S-Tab>", "N" }, "Nzz", {
   noremap = true,
   silent = true,
-  desc = "Previous search result",
+  desc = "Previous search result and center",
 })
 
 -- Insert below and above
-map("n", { "<M-Up>", "<M-O>" }, "O", { desc = "Insert above" })
-map("n", { "<M-Down>", "<M-o>" }, "o", { desc = "Insert below" })
-map("i", { "<M-Up>", "<M-O>" }, "<C-o>O", { desc = "Insert above" })
-map("i", { "<M-Down>", "<M-o>" }, "<C-o>o", { desc = "Insert below" })
+map("n", { "<M-Up>", "<M-k>" }, "O", { desc = "Insert above" })
+map("n", { "<M-Down>", "<M-j>" }, "o", { desc = "Insert below" })
+map("i", { "<M-Up>", "<M-k>" }, "<C-o>O", { desc = "Insert above" })
+map("i", { "<M-Down>", "<M-j>" }, "<C-o>o", { desc = "Insert below" })
 
 -- Undo and redo (this is like 10x better)
 map("n", "<M-a>", "u", { desc = "Undo" })
@@ -162,16 +161,16 @@ map("i", "<S-Right>", "<C-o>E<C-o>a", {
 })
 
 -- Jump last and first char of the line
-map({ "n", "v" }, "!", "0", {
+map({ "n", "v" }, { "!", "gh" }, "0", {
+  desc = "Jump to absolute first character of the line",
+})
+map({ "n", "v" }, { "@", "gl" }, "$", {
+  desc = "Jump to absolute last character of line",
+})
+map({ "n", "v" }, { "g<Left>", "H", "<C-S-Left>" }, "^", {
   desc = "Jump to first non-blank character of the line",
 })
-map({ "n", "v" }, "@", "$", {
-  desc = "Jump to last non-blank character of line",
-})
-map({ "n", "v" }, { "g<Left>", "gh", "H", "<C-S-Left>" }, "^", {
-  desc = "Jump to first non-blank character of the line",
-})
-map({ "n", "v" }, { "g<Right>", "gl", "L", "<C-S-Right>" }, "g_", {
+map({ "n", "v" }, { "g<Right>", "L", "<C-S-Right>" }, "g_", {
   desc = "Jump to last non-blank character of line",
 })
 

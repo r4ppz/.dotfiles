@@ -90,7 +90,7 @@
     "input.submit": "return",
     "input.newline": "shift+return,ctrl+return,alt+return",
     "input.move.left": "left,ctrl+b",
-    "input.move.right": "right,ctrk+f",
+    "input.move.right": "right,ctrl+f",
     "input.move.up": "up,ctrl+p",
     "input.move.down": "down,ctrl+n",
     "input.select.left": "none",
