@@ -2,6 +2,7 @@
 
 {
   home.packages = with pkgs; [
+    # Hypr stuff
     hyprpolkitagent
     hypridle
     hyprlock
@@ -11,13 +12,13 @@
 
     tetro-tui # < game :0
 
+    # Browsers
     chromium
     helium
     firefox
 
-    swaynotificationcenter
+    # GUI apps
     kdePackages.okular
-    quickshell
     bitwarden-desktop
     gsimplecal
     onlyoffice-desktopeditors
@@ -27,14 +28,18 @@
     goldendict-ng
     qbittorrent
     bottles
-
     vlc
     imv
     mpv
+
+    # Layers
     rofi
     grim
     slurp
+    swaynotificationcenter
+    quickshell
 
+    # TUIs
     bookokrat
     circumflex
     newsboat
@@ -43,6 +48,7 @@
     cliamp
     concord-tui
 
+    # CLIs
     pinentry-tty
     rbw
     ollama

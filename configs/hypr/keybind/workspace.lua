@@ -32,10 +32,10 @@ hl.workspace_rule({
   workspace = "special:window2",
   gaps_in = 3,
   gaps_out = {
-    top = 180,
-    bottom = 180,
-    right = 350,
-    left = 350,
+    top = 200,
+    bottom = 200,
+    right = 390,
+    left = 390,
   },
   layout = "dwindle",
 })

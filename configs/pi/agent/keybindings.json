@@ -47,14 +47,18 @@
     "pageDown",
     "ctrl+pageDown"
   ],
-  "tui.editor.deleteCharBackward": "backspace",
+  "tui.editor.deleteCharBackward": [
+    "backspace",
+    "ctrl+h"
+  ],
   "tui.editor.deleteCharForward": [
     "delete",
     "ctrl+d"
   ],
   "tui.editor.deleteWordBackward": [
     "ctrl+w",
-    "alt+backspace"
+    "alt+backspace",
+    "alt+h"
   ],
   "tui.editor.deleteWordForward": [
     "alt+d",

@@ -32,7 +32,7 @@ in
   };
 
   wayland.windowManager.hyprland = {
-    enable = false;
+    enable = false; # see modules/home/links.nix:17
     systemd.enable = true;
   };
 

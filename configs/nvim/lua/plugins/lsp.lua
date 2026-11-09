@@ -86,7 +86,7 @@ return {
       },
 
       stack_limit = 10,
-      select_first = false,
+      select_first = true, -- 90% of the time its the same location :/
 
       keymaps = {
         close = "q",

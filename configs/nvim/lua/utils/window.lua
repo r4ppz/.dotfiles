@@ -18,6 +18,7 @@ local SIDE_PANEL_FTS = {
   "DiffviewFiles",
 }
 
+-- Do not perform actions on these ft/bt
 local EXCLUDED_FILETYPES = {
   "copilot-chat",
   "NvimTree",
@@ -32,6 +33,7 @@ local EXCLUDED_FILETYPES = {
   "dapui_scopes",
   "DiffviewFileHistory",
   "DiffviewFiles",
+  "snacks_dashboard",
 }
 
 local EXCLUDED_BUFTYPES = {

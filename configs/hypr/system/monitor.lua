@@ -29,7 +29,9 @@ local monitors = {
 
 function M.apply_config()
   local external_connected = hl.get_monitor(M.external)
-  local internal_disabled = external_connected
+  local internal_connected = hl.get_monitor(M.internal)
+
+  local dual = external_connected and internal_connected
 
   for _, cfg in ipairs(monitors) do
     local final_cfg = {}
@@ -38,8 +40,7 @@ function M.apply_config()
       final_cfg[k] = v
     end
 
-    -- Only disable the internal monitor when
-    -- the external monitor is connected.
+    -- Prevent to fuck my shit
     if cfg.output == M.internal then
       final_cfg.disabled = external_connected and cfg.disabled or false
     end
@@ -49,7 +50,6 @@ function M.apply_config()
 
   hl.exec_scheduled_prop_refresh_immediately()
 
-  local dual = external_connected and not internal_disabled
   local fallback = external_connected and M.external or M.internal
 
   for id = 1, 10 do
