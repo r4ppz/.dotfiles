@@ -126,9 +126,20 @@ hl.window_rule({
 })
 
 hl.window_rule({
+  name = "just float but should stay focused",
+  match = {
+    class = "gsimplecal",
+  },
+  pin = true,
+  float = true,
+  center = true,
+  stay_focused = true,
+})
+
+hl.window_rule({
   name = "just float",
   match = {
-    class = "gsimplecal|warp-taskbar|org.qbittorrent.qBittorrent",
+    class = "warp-taskbar|org.qbittorrent.qBittorrent",
   },
   pin = true,
   float = true,

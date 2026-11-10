@@ -4,33 +4,56 @@ local monitor = require("system.monitor")
 
 local M = {}
 
-local zen = false
-
 local dotfiles = os.getenv("DOTFILES") or os.getenv("HOME") .. "/.dotfiles"
 
-local config = {
-  normal = {
-    general = { gaps_in = 10, gaps_out = 20, border_size = 2 },
-    decoration = { rounding = 1, rounding_power = 5 },
-    wallpaper = dotfiles .. "/assets/wallpaper2.png",
-    waybar = "start",
-  },
-  zen = {
-    general = { gaps_out = 0, gaps_in = 1, border_size = 0 },
-    decoration = { rounding = 0, rounding_power = 1 },
-    wallpaper = dotfiles .. "/assets/plain-wallpaper.png",
-    waybar = "stop",
-  },
+local ZEN = {
+  general = { gaps_in = 1, gaps_out = 0, border_size = 0 },
+  decoration = { rounding = 0, rounding_power = 1 },
+  wallpaper = dotfiles .. "/assets/plain-wallpaper.png",
+  waybar = "stop",
+  bezier = "easeOutQuint",
 }
 
-local function apply_config(mode)
-  local conf = config[mode]
+-- Souce: configs/hypr/appearance/animation.lua
+local function normal_config()
+  return {
+    general = {
+      gaps_in = hl.get_config("general.gaps_in"),
+      gaps_out = hl.get_config("general.gaps_out"),
+      border_size = hl.get_config("general.border_size"),
+    },
+    decoration = {
+      rounding = hl.get_config("decoration.rounding"),
+      rounding_power = hl.get_config("decoration.rounding_power"),
+    },
+    wallpaper = dotfiles .. "/assets/wallpaper2.png",
+    waybar = "start",
+    bezier = "bouncy",
+  }
+end
+
+local zen = false
+local baseline -- cached, captured on the first toggle
+
+local function apply(conf)
   hl.config({
     general = conf.general,
     decoration = conf.decoration,
   })
-  process.run("hyprctl hyprpaper wallpaper " .. monitor.external .. ", " .. conf.wallpaper .. ",cover")
+
+  for _, mon in ipairs({ monitor.external, monitor.internal }) do
+    process.run("hyprctl hyprpaper wallpaper " .. mon .. ", " .. conf.wallpaper .. ",cover")
+  end
+
   process.run("systemctl --user " .. conf.waybar .. " waybar.service")
+
+  hl.animation({
+    leaf = "workspaces",
+    enabled = true,
+    speed = 4,
+    bezier = conf.bezier,
+    style = "slide",
+  })
 end
 
 function M.is_zen()
@@ -38,39 +61,17 @@ function M.is_zen()
 end
 
 function M.toggle()
-  if M.is_zen() then
-    apply_config("normal")
-    zen = false
-    notify.send("Normal Mode", nil, {
-      timeout = 1000,
-      app_name = "Zen Mode",
-      icon = "dialog-information",
-      transient = true,
-    })
-    hl.animation({
-      leaf = "workspaces",
-      enabled = true,
-      speed = 4,
-      bezier = "bouncy",
-      style = "slide",
-    })
-  else
-    apply_config("zen")
-    zen = true
-    notify.send("Zen Mode", nil, {
-      timeout = 1000,
-      app_name = "Zen Mode",
-      icon = "dialog-information",
-      transient = true,
-    })
-    hl.animation({
-      leaf = "workspaces",
-      enabled = true,
-      speed = 4,
-      bezier = "easeOutQuint",
-      style = "slide",
-    })
-  end
+  baseline = baseline or normal_config()
+  zen = not zen
+
+  apply(zen and ZEN or baseline)
+
+  notify.send(zen and "Zen Mode" or "Normal Mode", nil, {
+    timeout = 1000,
+    app_name = "Zen Mode",
+    icon = "dialog-information",
+    transient = true,
+  })
 end
 
 return M
