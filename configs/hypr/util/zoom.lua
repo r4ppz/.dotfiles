@@ -1,27 +1,27 @@
 local M = {}
 
-function M.zoom_in()
-  local current = hl.get_config("cursor.zoom_factor")
-  if current < 1 then
-    current = 1
-  end
-  hl.config({ cursor = { zoom_factor = current * 1.25 } })
+local MIN_ZOOM = 1.0
+local MAX_ZOOM = 10.0
+local STEP = 1.25
+
+local function set_zoom(value)
+  hl.config({
+    cursor = {
+      zoom_factor = math.max(MIN_ZOOM, math.min(MAX_ZOOM, value)),
+    },
+  })
 end
 
-function M.zoom_out()
-  local current = hl.get_config("cursor.zoom_factor")
-  if current < 1 then
-    current = 1
-  end
-  local new_zoom = current / 1.25
-  if new_zoom < 1 then
-    new_zoom = 1.0
-  end
-  hl.config({ cursor = { zoom_factor = new_zoom } })
+function M.up()
+  set_zoom(hl.get_config("cursor.zoom_factor") * STEP)
 end
 
-function M.zoom_reset()
-  hl.config({ cursor = { zoom_factor = 1.0 } })
+function M.down()
+  set_zoom(hl.get_config("cursor.zoom_factor") / STEP)
+end
+
+function M.reset()
+  set_zoom(MIN_ZOOM)
 end
 
 return M
