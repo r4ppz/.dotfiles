@@ -97,9 +97,6 @@ map("i", "<Up>", "<C-o>gk", {
   desc = "Move up by screen lines in insert mode",
 })
 
---------------------------------------------------------
--- Weird remaps ?!?
---
 -- Next and previous using tab/Stab like n/N
 map({ "n", "v", "o" }, { "<Tab>", "n" }, "nzz", {
   noremap = true,
@@ -111,6 +108,9 @@ map({ "n", "v", "o" }, { "<S-Tab>", "N" }, "Nzz", {
   silent = true,
   desc = "Previous search result and center",
 })
+
+--------------------------------------------------------
+-- Weird remaps ?!?
 
 -- Insert below and above
 map("n", { "<M-Up>", "<M-k>" }, "O", { desc = "Insert above" })
@@ -131,8 +131,8 @@ map("n", "u", "<Nop>", { desc = "Disable default undo" })
 map("n", "<C-r>", "<Nop>", { desc = "Disable default redo" })
 
 -- Jump by paragraph while selecting
-map("v", "<S-Up>", "{", { desc = "Jump to previous paragraph" })
-map("v", "<S-Down>", "}", { desc = "Jump to next paragraph" })
+map("v", { "<S-Up>", "K" }, "{", { desc = "Jump to previous paragraph" })
+map("v", { "<S-Down>", "J" }, "}", { desc = "Jump to next paragraph" })
 
 -- Ctrl+Left/Right word navigation (like any other GUI's)
 map({ "n", "v", "o" }, "<C-Left>", "b", {

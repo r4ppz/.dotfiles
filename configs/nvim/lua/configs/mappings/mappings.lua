@@ -25,7 +25,7 @@ require("configs.mappings.bufwin")
 -- t = terminal
 
 ---------------------------------------------
--- SUMMARY (not complete)
+-- SUMMARY
 -- MAJOR CHANGES:
 --
 -- p = Paste only
@@ -36,36 +36,20 @@ require("configs.mappings.bufwin")
 -- c, s, d, p = no yanking
 -- I hate the idea of delete/everything is cut/copy.
 --
--- Arrow keys centric mappings.
--- hjkl                 = Left/Down/Up/Right
--- Insert below/above   = M-Down / M-Up
--- Hover                = C-S-Up
--- Peek Definition      = C-S-Down (n)
--- Completion           = C-S-Down (i)
--- Switch buffer        = M-Left / M-Right
--- Move buffer          = C-M-Left / C-M-Right
--- Scroll half-page     = S-Down / S-Up        == (C-d/C-u + zz)
--- Scroll one line      = C-Down / C-Up        == (C-e/C-y)
--- Word navigation      = C-Right / C-Left     == (b/e)
--- WORD navigation      = S-Left / S-Right     == (W/B)
--- Jump to line ends    = C-S-Left / C-S-Right == (^/g_)
---
--- Jump to line ends    = ! / @     ==  (^/g_)
--- Match bracket        = ~         ==  (%)
--- Highlight (no jump)  = #         ==  (Case-insensitive, works on n, v)
---
 -- Alt is underrated:
 -- M-f = File Picker (Snacks)
 -- M-g = Git Client (LazyGit)
 -- M-e = File Manager (NvimTree)
--- M-b = Task Manager (Btop)
--- M-c = AI (CopilotChat)
+-- M-c = LLM (CopilotChat)
 -- M-v = Vertical Terminal
 -- M-s = Horizontal Terminal
 -- M-w = Floating Terminal
 -- M-q = Close buffer
 -- M-a = Undo
 -- M-d = Redo
+-- M-o/i = Incremental selection (using treesitter)
+-- M-S-b = Task Manager (Btop)
+-- M-S-d = Docker Client (Lazydocker)
 --
 -- Nice to have:
 -- Copy all        = C-c
@@ -77,7 +61,7 @@ require("configs.mappings.bufwin")
 -- Reference              = gr
 -- Definition             = gd
 -- Implementation         = gi
--- Incremental Selection  = enter
+-- Incremental Selection  = enter/M-o
 -- more lsp stuff  = leader + l
 --
 -- ...and many more (leader, see mappings/ and plugins/)
@@ -86,11 +70,12 @@ require("configs.mappings.bufwin")
 -- - Macros (Skill issue) - Not for me
 -- - Shada (cleaner imo)
 -- - f and t (used for picker and tabs)
--- - ; and ' (used for marks/marks.nvim)
+-- - ctrl+r/u - I am used to my custom remap: M-a/d
 --
--- Standard Vim motions/text objects still works fine (ciw, daw, yi(, ci{, etc.).
--- I still use vim bindings for heavy editing but arrow keys are just convinient most of the time.
+-- Standard Vim motions/bindings still works fine (ciw, daw, yi(, ci{, etc.).
+-- I mostly use vim bindingss, emacs on insert mode and sometimes arrowkeys just for the convenience
 -- I try to not remove the default mappings as much as possible for compatibility.
 --
 -- System-wide rebinds (see: nixos/configuration.nix:282)
 -- CapsLock = Esc
+-- Ctrl+M = Enter

@@ -1,5 +1,6 @@
 local const = require("util.constant")
 local monitor = require("system.monitor")
+local workspace = require("util.workspace")
 
 -- Switch focus between monitors
 hl.bind(const.mod .. " + BRACKETLEFT", hl.dsp.focus({ monitor = monitor.external }))
@@ -26,6 +27,11 @@ end
 -- -----------------------------------------------------------
 -- Special workspace (scratchpad)
 -- -----------------------------------------------------------
+
+-- Close active workspace
+hl.bind(const.mod .. " + ESCAPE", function()
+  workspace.close_active_special()
+end)
 
 hl.workspace_rule({
   monitor = hl.get_monitor(monitor.external) and monitor.external or monitor.internal,

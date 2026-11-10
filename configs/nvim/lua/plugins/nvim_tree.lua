@@ -83,6 +83,48 @@ return {
 
         api.map.on_attach.default(bufnr)
 
+        -- open/expand directory or preview file (like Tab)
+        local function open_or_preview()
+          local node = api.tree.get_node_under_cursor()
+          if not node then
+            return
+          end
+
+          if node.type == "directory" then
+            api.node.open.edit(node)
+          else
+            api.node.open.preview(node)
+          end
+        end
+
+        local function collapse_all_except_current()
+          local node = api.tree.get_node_under_cursor()
+          if not node then
+            return
+          end
+
+          api.tree.collapse_all()
+
+          api.tree.find_file({
+            buf = node.absolute_path,
+            focus = true,
+          })
+        end
+
+        map("n", "w", collapse_all_except_current, {
+          buffer = bufnr,
+          desc = "Collapse all except current",
+        })
+
+        map("n", "h", api.node.navigate.parent_close, {
+          buffer = bufnr,
+          desc = "Close Directory",
+        })
+        map("n", "l", open_or_preview, {
+          buffer = bufnr,
+          desc = "Open Directory or Preview File",
+        })
+
         map("n", "<ESC>", "<nop>", { buffer = bufnr, desc = "fucking nothing" })
         map("n", { "<C-S-Up>", "<leader>k", "<gK>" }, api.node.show_info_popup, {
           buffer = bufnr,

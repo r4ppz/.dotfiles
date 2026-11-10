@@ -1,5 +1,14 @@
 local M = {}
 
+function M.close_active_special()
+  local active_special = hl.get_active_special_workspace()
+  if not active_special then
+    return
+  end
+  local name = active_special.name:gsub("^special:", "")
+  hl.dispatch(hl.dsp.workspace.toggle_special(name))
+end
+
 function M.get_layout()
   local workspaces = hl.get_active_special_workspace() or hl.get_active_workspace()
   return workspaces and workspaces.tiled_layout

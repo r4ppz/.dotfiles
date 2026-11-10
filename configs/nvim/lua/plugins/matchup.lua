@@ -11,6 +11,8 @@ return {
     vim.g.matchup_treesitter_disable_virtual_text = true
     vim.g.matchup_treesitter_enable = 0
 
-    vim.keymap.set({ "n", "x", "o" }, "~", "<Plug>(matchup-%)", { desc = "Jump to matching pair" })
+    vim.keymap.set({ "n", "x", "o" }, { "~", "M" }, "<Plug>(matchup-%)", {
+      desc = "Jump to matching pair",
+    })
   end,
 }

@@ -103,26 +103,6 @@ return {
           ["<C-Up>"] = { "select_prev", "fallback" },
           ["<C-Down>"] = { "select_next", "fallback" },
 
-          ["<C-k>"] = {
-            function(cmp)
-              if not cmp.is_visible() then
-                return cmp.show()
-              end
-              return cmp.select_prev()
-            end,
-            "fallback",
-          },
-
-          ["<C-j>"] = {
-            function(cmp)
-              if not cmp.is_visible() then
-                return cmp.show()
-              end
-              return cmp.select_next()
-            end,
-            "fallback",
-          },
-
           ["<C-p>"] = {
             function(cmp)
               if not cmp.is_visible() then
