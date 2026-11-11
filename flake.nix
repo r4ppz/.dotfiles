@@ -67,10 +67,19 @@
                   mesonFlags = (old.mesonFlags or [ ]) ++ [ "-Dtests=disabled" ];
                 });
 
-                bookokrat = bookokrat.packages.${prev.stdenv.hostPlatform.system}.default.overrideAttrs (old: {
+                # https://github.com/bugzmanov/bookokrat/releases/tag/v0.3.14
+                bookokrat = bookokrat.packages.${prev.stdenv.hostPlatform.system}.default.overrideAttrs (old: rec {
+                  version = "0.3.14";
+                  src = prev.fetchFromGitHub {
+                    owner = "bugzmanov";
+                    repo = "bookokrat";
+                    tag = "v${version}";
+                    hash = "sha256-mnP7GChMKEvCGV+Gb0X8twx4w/IDChOtcLZBbrCDMJQ=";
+                  };
                   doCheck = false;
                 });
 
+                # https://github.com/chojs23/concord/releases/tag/v2.7.0
                 concord-tui = prev.concord-tui.overrideAttrs (old: rec {
                   version = "2.7.0";
                   src = prev.fetchFromGitHub {

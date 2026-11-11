@@ -2,7 +2,7 @@ version: 3
 theme: "My Custom Gruvbox"
 margin: 0
 transparent_background: true
-pdf_scale: 1
+pdf_scale: 0.70108694
 pdf_pan_shift: 0
 pdf_render_mode: scroll
 pdf_show_link_underlines: false
@@ -15,6 +15,11 @@ justify_text: false
 invert_scroll_direction: false
 zen_hide_border: false
 book_sort_order: by_name
+show_inline_annotations: true
+nav_panel_width: null
+lookup_command: null
+lookup_display: popup
+synctex_editor: null
 
 # ============================================================================
 # Lookup Command
@@ -79,7 +84,7 @@ book_sort_order: by_name
 #     base0F: "D27E99"    # Brown/Pink
 
 custom_themes:
-  - scheme: "My Custom Gruvbox"
+  - scheme: "Gruv?"
     author: "r4ppz"
     base00: "282828" # Main background
     base01: "3C3836" # Lighter background (status bars)

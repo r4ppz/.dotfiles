@@ -26,6 +26,7 @@ alias blue='bluetuith'
 alias music='cliamp'
 alias pn='pnpm'
 alias speedtest='speedtest-go'
+alias reader='bookokrat'
 
 # Script
 alias t="$DOTFILES/scripts/bin/tmux-init.sh"
