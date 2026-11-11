@@ -44,6 +44,18 @@ local function bind_exits()
   hl.bind("escape", hl.dsp.submap("reset"))
 end
 
+--- Runs an action, then leaves the current submap.
+local function once(action)
+  return function()
+    if type(action) == "function" then
+      action()
+    else
+      hl.dispatch(action)
+    end
+    hl.dispatch(hl.dsp.submap("reset"))
+  end
+end
+
 -- ============================================================================
 -- AI APPLICATIONS SUBMAP
 -- ============================================================================
@@ -174,16 +186,27 @@ hl.bind(const.mod .. " + U", function()
   enter_submap("Util", false)
 end)
 
-hl.define_submap("Util", "reset", function()
-  hl.bind("SHIFT + S", hl.dsp.exec_cmd(const.scripts.screenshot .. " --full"))
-  hl.bind("S", hl.dsp.exec_cmd(const.scripts.screenshot .. " --region --copy"))
-  hl.bind("T", hl.dsp.exec_cmd(const.scripts.screenshot .. " --region --tmp --copy"))
-  hl.bind("O", hl.dsp.exec_cmd(const.scripts.ocr))
-  hl.bind("R", record.toggle)
-  hl.bind("P", hl.dsp.exec_cmd(const.apps.colorpicker))
-  hl.bind("C", hl.dsp.exec_cmd(const.apps.calendar))
-  hl.bind("L", hl.dsp.exec_cmd(const.apps.lockscreen))
+hl.define_submap("Util", function()
+  hl.bind("SHIFT + S", once(hl.dsp.exec_cmd(const.scripts.screenshot .. " --full")))
+  hl.bind("S", once(hl.dsp.exec_cmd(const.scripts.screenshot .. " --region --copy")))
+  hl.bind("T", once(hl.dsp.exec_cmd(const.scripts.screenshot .. " --region --tmp --copy")))
+  hl.bind("O", once(hl.dsp.exec_cmd(const.scripts.ocr)))
+  hl.bind("P", once(hl.dsp.exec_cmd(const.apps.colorpicker)))
+  hl.bind("C", once(hl.dsp.exec_cmd(const.apps.calendar)))
+  hl.bind("L", once(hl.dsp.exec_cmd(const.apps.lockscreen)))
+  hl.bind("R", once(record.toggle))
+
   hl.bind("E", eyetemp.toggle)
+  hl.bind("1", hl.dsp.exec_cmd(const.scripts.mediactl .. " mute"))
+  hl.bind("2", hl.dsp.exec_cmd(const.scripts.mediactl .. " mic-mute"))
+  hl.bind("3", hl.dsp.exec_cmd(const.scripts.mediactl .. " volume-down"), { repeating = true })
+  hl.bind("4", hl.dsp.exec_cmd(const.scripts.mediactl .. " volume-up"), { repeating = true })
+  hl.bind("5", hl.dsp.exec_cmd(const.scripts.mediactl .. " brightness-down"), { repeating = true })
+  hl.bind("6", hl.dsp.exec_cmd(const.scripts.mediactl .. " brightness-up"), { repeating = true })
+  hl.bind("7", hl.dsp.exec_cmd("playerctl previous"))
+  hl.bind("8", hl.dsp.exec_cmd("playerctl next"))
+  hl.bind("9", hl.dsp.exec_cmd("playerctl play-pause"))
+
   bind_exits()
 end)
 
