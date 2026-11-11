@@ -79,21 +79,7 @@ return {
     event = "LspAttach",
     dev = true,
     opts = {
-      window = {
-        width = 70,
-        height = 15,
-        border = "single",
-      },
-
-      stack_limit = 10,
       select_first = true, -- 90% of the time its the same location :/
-
-      keymaps = {
-        close = "q",
-        split = "s",
-        vsplit = "v",
-        enter = "<CR>",
-      },
     },
   },
 }

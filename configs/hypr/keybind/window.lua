@@ -62,6 +62,7 @@ hl.bind(const.mod .. " + SHIFT + LEFT", hl.dsp.window.move({ direction = "l" }))
 hl.bind(const.mod .. " + SHIFT + RIGHT", hl.dsp.window.move({ direction = "r" }))
 hl.bind(const.mod .. " + SHIFT + UP", hl.dsp.window.move({ direction = "u" }))
 hl.bind(const.mod .. " + SHIFT + DOWN", hl.dsp.window.move({ direction = "d" }))
+
 hl.bind(const.mod .. " + SHIFT + H", hl.dsp.window.move({ direction = "l" }))
 hl.bind(const.mod .. " + SHIFT + L", hl.dsp.window.move({ direction = "r" }))
 hl.bind(const.mod .. " + SHIFT + K", hl.dsp.window.move({ direction = "u" }))
@@ -72,6 +73,7 @@ hl.bind(const.mod .. " + CTRL + LEFT", hl.dsp.window.move({ direction = "l" }), 
 hl.bind(const.mod .. " + CTRL + RIGHT", hl.dsp.window.move({ direction = "r" }), { repeating = true })
 hl.bind(const.mod .. " + CTRL + UP", hl.dsp.window.move({ direction = "u" }), { repeating = true })
 hl.bind(const.mod .. " + CTRL + DOWN", hl.dsp.window.move({ direction = "d" }), { repeating = true })
+
 hl.bind(const.mod .. " + CTRL + H", hl.dsp.window.move({ direction = "l" }), { repeating = true })
 hl.bind(const.mod .. " + CTRL + L", hl.dsp.window.move({ direction = "r" }), { repeating = true })
 hl.bind(const.mod .. " + CTRL + K", hl.dsp.window.move({ direction = "u" }), { repeating = true })
