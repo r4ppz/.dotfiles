@@ -7,16 +7,16 @@ local monitors = {
   {
     output = M.external,
     mode = "1920x1080@100",
-    position = "0x0",
+    position = "auto-left",
     scale = 1,
     -- mirror = M.internal,
   },
   {
     output = M.internal,
     mode = "1366x768@60",
-    position = "1920x0",
+    position = "auto-right",
     scale = 1,
-    disabled = true,
+    disabled = false,
     -- mirror = M.external,
   },
   {
@@ -29,9 +29,6 @@ local monitors = {
 
 function M.apply_config()
   local external_connected = hl.get_monitor(M.external)
-  local internal_connected = hl.get_monitor(M.internal)
-
-  local dual = external_connected and internal_connected
 
   for _, cfg in ipairs(monitors) do
     local final_cfg = {}
@@ -54,12 +51,13 @@ function M.apply_config()
 
   for id = 1, 10 do
     local workspace = tostring(id)
-    local target = dual and (id == 10 and M.internal or M.external) or fallback
+    -- 10 always belongs to the internal panel
+    local target = (id == 10) and M.internal or fallback
 
     hl.workspace_rule({
       workspace = workspace,
       monitor = target,
-      default = (id == 1) or (dual and id == 10),
+      default = (id == 1) or (id == 10),
     })
 
     if hl.get_workspace(workspace) then
