@@ -109,6 +109,14 @@ map({ "n", "v", "o" }, { "<S-Tab>", "N" }, "Nzz", {
   desc = "Previous search result and center",
 })
 
+map({ "n", "i" }, "<C-l>", function()
+  vim.cmd("nohlsearch")
+  vim.api.nvim_echo({}, false, {})
+  vim.cmd("redraw!")
+end, {
+  desc = "Clear highlights, redraw, and clear command line",
+})
+
 --------------------------------------------------------
 -- Weird remaps ?!?
 
@@ -126,7 +134,7 @@ map("v", "<M-d>", "<C-r>", { desc = "Redo" })
 map("i", "<M-d>", "<Esc><C-r>", { desc = "Redo" })
 map("i", "<M-a>", "<Esc>u", { desc = "Undo" })
 
--- Disable default undo/redo (this is too err prone)
+-- Disable default undo/redo (?)
 map("n", "u", "<Nop>", { desc = "Disable default undo" })
 map("n", "<C-r>", "<Nop>", { desc = "Disable default redo" })
 
@@ -220,10 +228,3 @@ map(
     desc = "Highlight selection (no jump, smart-case)",
   }
 )
-
--- Hide the annoying error msg
-map("n", "gx", function()
-  pcall(function()
-    vim.ui.open(vim.fn.expand("<cfile>"))
-  end)
-end, { desc = "Open URL under cursor" })
