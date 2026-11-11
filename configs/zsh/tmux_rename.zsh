@@ -52,6 +52,7 @@ typeset -gA DIR_MAP_UNIQUE=(
   "$HOME/Repositories/projects/minidm" MINIDM
   "$HOME/Repositories/nvplug/lspeek.nvim" LSPEEK
   "$HOME/Repositories/projects/minidm" MINIDM
+  "$HOME/Repositories/m!ne/hyprland-wiki" HYPRWIKI
 
   # School projects
 
@@ -89,6 +90,10 @@ typeset -gA DIR_MAP_PREFIX=(
   "$HOME/Documents/notes" NOTES
 
   "$HOME/Repositories" REPOS
+  "$HOME/Repositories/m!ne" M!NE
+  "$HOME/Repositories/mine" MINE
+  "$HOME/Repositories/nvplug" NVPLUG
+  "$HOME/Repositories/practice" PRACT
   "$HOME/.config" DOTS
 )
 
