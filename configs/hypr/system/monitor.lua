@@ -16,7 +16,7 @@ local monitors = {
     mode = "1366x768@60",
     position = "auto-right",
     scale = 1,
-    disabled = false,
+    disabled = true,
     -- mirror = M.external,
   },
   {

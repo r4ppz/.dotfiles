@@ -14,7 +14,7 @@ hl.window_rule({
 
 hl.window_rule({
   name = "main browser in workspace 1",
-  match = { class = "helium" },
+  match = { class = "brave-origin" },
   workspace = 1,
 })
 
@@ -28,7 +28,7 @@ hl.window_rule({
 
 hl.window_rule({
   name = "school stuff in workspace 4",
-  match = { class = "chromium-browser" },
+  match = { class = "helium" },
   workspace = 4,
 })
 

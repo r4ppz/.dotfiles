@@ -13,9 +13,9 @@
     tetro-tui # < game :0
 
     # Browsers
-    chromium
     helium
     firefox
+    vivaldi
 
     # GUI apps
     kdePackages.okular
@@ -23,7 +23,6 @@
     gsimplecal
     onlyoffice-desktopeditors
     gnome-disk-utility
-    obsidian
     obs-studio
     goldendict-ng
     qbittorrent
