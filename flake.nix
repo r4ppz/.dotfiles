@@ -9,11 +9,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    waybar = {
-      url = "github:Alexays/Waybar/377f4cd4f9300c19d99e4c66b0cd1a2f4fd09870";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     helium-browser = {
       url = "github:oxcl/nix-flake-helium-browser";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -32,7 +27,6 @@
       nixpkgs,
       home-manager,
       bookokrat,
-      waybar,
       helium-browser,
       neovim-nightly-overlay,
       ...
@@ -57,7 +51,6 @@
         modules = [
           {
             nixpkgs.overlays = [
-              waybar.overlays.default
               helium-browser.overlays.default
               neovim-nightly-overlay.overlays.default
 
