@@ -21,7 +21,7 @@ map("n", "<C-a>", "ggVG", { desc = "Select all" })
 
 --------------------------------------------------------
 -- Toggle
-map("n", "<leader>tt", "<CMD>ToggleBool<CR>", { desc = "Toggle Boolean" })
+map("n", "<leader>tt", "<CMD>ToggleBool<CR>", { desc = "Toggle boolean" })
 
 map("n", "<leader>tw", function()
   vim.wo.wrap = not vim.wo.wrap
