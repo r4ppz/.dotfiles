@@ -129,10 +129,25 @@ hl.define_submap("Dev Tools", "reset", function()
   bind_site(const.apps.browser, "Z", const.websites.zig)
   bind_site(const.apps.browser, "L", const.websites.leetcode)
   bind_site(const.apps.browser, "X", const.websites.learnxinyminutes)
-  bind_site(const.apps.browser, "N", const.websites.nixossearch)
-  bind_site(const.apps.browser, "M", const.websites.hmoptsearch)
   bind_site(const.apps.browser, "T", const.websites.picoctf)
   bind_site(const.apps.browser, "C", const.websites.oklch)
+
+  bind_exits()
+end)
+
+-- ============================================================================
+-- NIX SUBMAP
+-- ============================================================================
+hl.bind(const.mod .. " + N", function()
+  enter_submap("Nix", true)
+end)
+
+hl.define_submap("Nix", "reset", function()
+  bind_site(const.apps.browser, "P", const.websites.nixos_pkg)
+  bind_site(const.apps.browser, "O", const.websites.nixos_opt)
+  bind_site(const.apps.browser, "N", const.websites.noggle)
+  bind_site(const.apps.browser, "W", const.websites.nixos_wiki)
+  bind_site(const.apps.browser, "S", const.websites.channel_status)
 
   bind_exits()
 end)
@@ -194,6 +209,7 @@ hl.define_submap("Util", function()
   hl.bind("P", once(hl.dsp.exec_cmd(const.apps.colorpicker)))
   hl.bind("C", once(hl.dsp.exec_cmd(const.apps.calendar)))
   hl.bind("L", once(hl.dsp.exec_cmd(const.apps.lockscreen)))
+  hl.bind("N", once(hl.dsp.exec_cmd(const.apps.notifpanel)))
   hl.bind("R", once(record.toggle))
 
   hl.bind("E", eyetemp.toggle)
@@ -218,19 +234,20 @@ hl.bind(const.mod .. " + R", function()
 end)
 
 hl.define_submap("resize", function()
-  hl.bind("right", hl.dsp.window.resize({ x = 20, y = 0, relative = true }), { repeating = true })
-  hl.bind("left", hl.dsp.window.resize({ x = -20, y = 0, relative = true }), { repeating = true })
-  hl.bind("up", hl.dsp.window.resize({ x = 0, y = -20, relative = true }), { repeating = true })
-  hl.bind("down", hl.dsp.window.resize({ x = 0, y = 20, relative = true }), { repeating = true })
+  local step = 20
 
-  hl.bind("l", hl.dsp.window.resize({ x = 20, y = 0, relative = true }), { repeating = true })
-  hl.bind("h", hl.dsp.window.resize({ x = -20, y = 0, relative = true }), { repeating = true })
-  hl.bind("k", hl.dsp.window.resize({ x = 0, y = -20, relative = true }), { repeating = true })
-  hl.bind("j", hl.dsp.window.resize({ x = 0, y = 20, relative = true }), { repeating = true })
+  hl.bind("right", hl.dsp.window.resize({ x = step, y = 0, relative = true }), { repeating = true })
+  hl.bind("left", hl.dsp.window.resize({ x = -step, y = 0, relative = true }), { repeating = true })
+  hl.bind("up", hl.dsp.window.resize({ x = 0, y = -step, relative = true }), { repeating = true })
+  hl.bind("down", hl.dsp.window.resize({ x = 0, y = step, relative = true }), { repeating = true })
+
+  hl.bind("l", hl.dsp.window.resize({ x = step, y = 0, relative = true }), { repeating = true })
+  hl.bind("h", hl.dsp.window.resize({ x = -step, y = 0, relative = true }), { repeating = true })
+  hl.bind("k", hl.dsp.window.resize({ x = 0, y = -step, relative = true }), { repeating = true })
+  hl.bind("j", hl.dsp.window.resize({ x = 0, y = step, relative = true }), { repeating = true })
 
   hl.bind("escape", hl.dsp.submap("reset"))
 end)
-
 -- ============================================================================
 -- MOUSE MODE SUBMAP
 -- ============================================================================

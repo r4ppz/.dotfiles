@@ -74,8 +74,11 @@ M.websites = {
   psypost = "https://www.psypost.org",
 
   -- nix stuff
-  nixossearch = "https://search.nixos.org/packages",
-  hmoptsearch = "https://home-manager-options.extranix.com",
+  nixos_wiki = "https://wiki.nixos.org/wiki/NixOS_Wiki",
+  nixos_pkg = "https://search.nixos.org/packages?channel=unstable",
+  nixos_opt = "https://search.nixos.org/options?channel=unstable",
+  noggle = "https://noogle.dev",
+  channel_status = "https://status.nixos.org",
 
   picoctf = "https://learn.cylabacademy.org/dashboard",
 
