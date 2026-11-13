@@ -27,7 +27,9 @@
     jq
     bc
     fswatch
+
     nvd
+    nix-tree
 
     ast-grep
     ripgrep
