@@ -1,3 +1,8 @@
+-- Size of a float win as a % relative to monitor.
+local function scaled_size(w, h)
+  return { "monitor_w * " .. (w / 100), "monitor_h * " .. (h / 100) }
+end
+
 -- Pin window to a specific workspace
 
 hl.window_rule({
@@ -39,7 +44,7 @@ hl.window_rule({
   match = {
     initial_class = "^.*(xdg-desktop-portal-gtk|DesktopEditors).*$",
   },
-  size = { "monitor_w * 0.3646", "monitor_h * 0.4630" },
+  size = scaled_size(36.46, 46.30),
   pin = true,
   float = true,
   center = true,
@@ -50,7 +55,7 @@ hl.window_rule({
   match = {
     initial_title = "^.*(Open File|Open Files|Save File|Open Folder|Choose Files|Choose Folder|Create Folder|Select Folder|Open Document|Save As).*$",
   },
-  size = { "monitor_w * 0.3646", "monitor_h * 0.4630" },
+  size = scaled_size(36.46, 46.30),
   pin = true,
   float = true,
   center = true,
@@ -61,7 +66,7 @@ hl.window_rule({
   match = {
     initial_title = "^(Rename|Move|File Operation Progress).*$",
   },
-  size = { "monitor_w * 0.1823", "monitor_h * 0.1204" },
+  size = scaled_size(18.23, 12.04),
   float = true,
   center = true,
 })
@@ -79,7 +84,7 @@ hl.window_rule({
 hl.window_rule({
   name = "smt managers",
   match = { initial_class = "taskmanager|network|bluetooth" },
-  size = { "monitor_w * 0.5208", "monitor_h * 0.6481" },
+  size = scaled_size(60, 70),
   pin = true,
   float = true,
   center = true,
@@ -90,7 +95,7 @@ hl.window_rule({
   match = {
     initial_class = "^.*(nm-connection-editor|blueman-manager).*$",
   },
-  size = { "monitor_w * 0.4167", "monitor_h * 0.4630" },
+  size = scaled_size(41.67, 46.30),
   pin = true,
   float = true,
   center = true,
@@ -101,7 +106,7 @@ hl.window_rule({
   match = {
     initial_class = "brave-duck.ai__chat-Default|chrome-duck.ai__chat-Default",
   },
-  size = { "monitor_w * 0.4167", "monitor_h * 0.5556" },
+  size = scaled_size(41.67, 55.56),
   pin = true,
   float = true,
   center = true,
@@ -110,7 +115,7 @@ hl.window_rule({
 hl.window_rule({
   name = "tempai using a tag",
   match = { tag = "pi" },
-  size = { "monitor_w * 0.4167", "monitor_h * 0.5556" },
+  size = scaled_size(41.67, 55.56),
   pin = true,
   float = true,
   center = true,
