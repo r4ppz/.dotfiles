@@ -46,5 +46,6 @@
 
     # debug
     delve
+    lldb
   ];
 }

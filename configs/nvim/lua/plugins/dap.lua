@@ -12,6 +12,9 @@ return {
 
     dapui.setup()
 
+    dap.defaults.lldb.terminal_win_cmd = "tabnew"
+    dap.defaults.lldb.focus_terminal = false
+
     require("nvim-dap-virtual-text").setup({
       enabled = true,
       highlight_changed_variables = true,
