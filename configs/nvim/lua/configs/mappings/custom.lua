@@ -4,7 +4,7 @@ local map = vim.keymap.set
 -- Personal preference ?!!
 --------------------------------------------------------
 
--- Emacs style in insert mode :p
+-- Emacs style :p
 --
 -- command line mode
 map("c", "<C-a>", "<Home>", { desc = "Beginning of command line" })
@@ -31,6 +31,10 @@ map("i", "<M-f>", "<C-o>e<C-o>a", { desc = "Move forward one word" })
 map("i", "<C-k>", "<C-o>D", { desc = "Delete to end of line" })
 map("i", "<C-u>", "<C-o>d0", { desc = "Delete to beginning of line" })
 map("i", "<C-j>", "<CR>", { desc = "New line" })
+
+map({ "n", "x", "o" }, { "M", "~" }, "%", {
+  desc = "Jump to matching pair",
+})
 
 -- Scroll half page and center
 map("n", { "<S-Up>", "<C-u>" }, "<C-u>zz", { desc = "Scroll half a page up and center" })

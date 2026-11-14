@@ -9,21 +9,6 @@ local function set_highlights()
     bg = "#444444",
   })
 
-  vim.api.nvim_set_hl(0, "MatchParenCur", {
-    fg = "#83A598",
-    bg = "#444444",
-  })
-
-  vim.api.nvim_set_hl(0, "MatchWord", {
-    fg = "",
-    bg = "#444444",
-  })
-
-  vim.api.nvim_set_hl(0, "MatchWordCur", {
-    fg = "",
-    bg = "#444444",
-  })
-
   vim.api.nvim_set_hl(0, "NvimDapVirtualText", { fg = "#56b6c2", italic = true })
   vim.api.nvim_set_hl(0, "NvimDapVirtualTextChanged", { fg = "#d19a66" })
   vim.api.nvim_set_hl(0, "NvimDapVirtualTextError", { link = "ErrorMsg" })
