@@ -23,18 +23,22 @@ return {
     opts = function()
       local spec = require("markview.spec")
 
-      -- Highlight group used for ALL links
+      -- Highlight group and icon used for ALL links
       local link_hl = "MarkviewHyperlink"
+      local link_icon = "󰌷 "
 
-      -- Strips icons and enforces a unified highlight
-      local function unify_links(path, hl)
+      -- Enforces a unified icon and highlight
+      local function unify_links(path, hl, icon)
         local original = spec.get(path, { fallback = {} })
         local modified = {}
         for pattern, conf in pairs(original) do
           if type(conf) == "table" then
             modified[pattern] = vim.tbl_extend("force", conf, {
-              icon = "",
+              icon = icon ~= nil and icon or conf.icon,
               hl = hl or conf.hl,
+              icon_hl = hl or conf.icon_hl,
+              file_hl = conf.file_hl and (hl or conf.file_hl) or nil,
+              block_hl = conf.block_hl and (hl or conf.block_hl) or nil,
             })
           else
             modified[pattern] = conf
@@ -64,12 +68,12 @@ return {
             enable = true,
             shift_width = 0,
 
-            heading_1 = { style = "simple", icon = "# " },
-            heading_2 = { style = "simple", icon = "## " },
-            heading_3 = { style = "simple", icon = "### " },
-            heading_4 = { style = "simple", icon = "#### " },
-            heading_5 = { style = "simple", icon = "##### " },
-            heading_6 = { style = "simple", icon = "###### " },
+            heading_1 = { style = "simple" },
+            heading_2 = { style = "simple" },
+            heading_3 = { style = "simple" },
+            heading_4 = { style = "simple" },
+            heading_5 = { style = "simple" },
+            heading_6 = { style = "simple" },
           },
 
           list_items = {
@@ -96,7 +100,10 @@ return {
             },
           },
 
-          reference_definitions = unify_links({ "markdown", "reference_definitions" }, link_hl),
+          reference_definitions = unify_links({
+            "markdown",
+            "reference_definitions",
+          }, link_hl, link_icon),
 
           tables = {
             enable = true,
@@ -121,9 +128,40 @@ return {
         },
 
         markdown_inline = {
-          hyperlinks = unify_links({ "markdown_inline", "hyperlinks" }, link_hl),
-          uri_autolinks = unify_links({ "markdown_inline", "uri_autolinks" }, link_hl),
-          images = unify_links({ "markdown_inline", "images" }, nil),
+          hyperlinks = unify_links({
+            "markdown_inline",
+            "hyperlinks",
+          }, link_hl, link_icon),
+
+          uri_autolinks = unify_links({
+            "markdown_inline",
+            "uri_autolinks",
+          }, link_hl, link_icon),
+
+          internal_links = unify_links({
+            "markdown_inline",
+            "internal_links",
+          }, link_hl, link_icon),
+
+          embed_files = unify_links({
+            "markdown_inline",
+            "embed_files",
+          }, link_hl, link_icon),
+
+          emails = unify_links({
+            "markdown_inline",
+            "emails",
+          }, link_hl, link_icon),
+
+          images = unify_links({
+            "markdown_inline",
+            "images",
+          }, nil, ""),
+
+          block_references = unify_links({
+            "markdown_inline",
+            "block_references",
+          }, link_hl, link_icon),
         },
       }
     end,
