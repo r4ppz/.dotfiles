@@ -12,7 +12,6 @@
     tailspin
     lnav
 
-    pgcli
     fastfetch
     fzf
     atuin

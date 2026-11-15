@@ -31,7 +31,6 @@ in
 
     "atuin".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/atuin";
     "gdu".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/gdu";
-    "pgcli".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/pgcli";
 
     "bookokrat".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/bookokrat";
 

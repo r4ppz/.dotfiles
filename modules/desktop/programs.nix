@@ -32,6 +32,41 @@ _:
       ];
     };
 
+    pgcli = {
+      enable = true;
+      settings = {
+        main = {
+          multi_line = true;
+          table_format = "fancy_grid";
+          syntax_style = "vim";
+          multiline_continuation_char = "' '";
+          prompt = "' \\n \\u:  \\d[\\p]\\n '";
+        };
+
+        colors = {
+          "Token.Menu.Completions.Completion.Current" = "'bg:#ebdbb2 #282828'";
+          "Token.Menu.Completions.Completion" = "'bg:#3c3836 #ebdbb2'";
+          "Token.Menu.Completions.Meta.Current" = "'bg:#83a598 #282828'";
+          "Token.Menu.Completions.Meta" = "'bg:#458588 #282828'";
+          "Token.Menu.Completions.MultiColumnMeta" = "'bg:#458588 #282828'";
+          "Token.Menu.Completions.ProgressButton" = "'bg:#fabd2f'";
+          "Token.Menu.Completions.ProgressBar" = "'bg:#83a598'";
+          "Token.SelectedText" = "'#ebdbb2 bg:#b16286'";
+          "Token.SearchMatch" = "'#ebdbb2 bg:#b16286'";
+          "Token.SearchMatch.Current" = "'#ebdbb2 bg:#b8bb26'";
+          "Token.Toolbar" = "'bg:#282828 #aaaaaa'";
+          "Token.Toolbar.Off" = "'bg:#282828 #888888'";
+          "Token.Toolbar.On" = "'bg:#282828 #ebdbb2'";
+          "Token.Toolbar.Transaction.Valid" = "'bg:#282828 #b8bb26 bold'";
+          "Token.Toolbar.Transaction.Failed" = "'bg:#282828 #fb4934 bold'";
+          "Token.Output.Header" = "'#fabd2f bold'";
+          "literal.string" = "'#b8bb26'";
+          "literal.number" = "'#d3869b'";
+          "keyword" = "'bold #fabd2f'";
+        };
+      };
+    };
+
     btop = {
       enable = true;
       settings = {
