@@ -79,6 +79,7 @@ M.websites = {
   nixos_opt = "https://search.nixos.org/options?channel=unstable",
   noggle = "https://noogle.dev",
   channel_status = "https://status.nixos.org",
+  nixpkg_traker = "https://nixpkgs-tracker.ocfox.me",
 
   picoctf = "https://learn.cylabacademy.org/dashboard",
 

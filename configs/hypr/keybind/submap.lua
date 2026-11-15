@@ -148,6 +148,7 @@ hl.define_submap("Nix", "reset", function()
   bind_site(const.apps.browser, "N", const.websites.noggle)
   bind_site(const.apps.browser, "W", const.websites.nixos_wiki)
   bind_site(const.apps.browser, "S", const.websites.channel_status)
+  bind_site(const.apps.browser, "T", const.websites.nixpkg_traker)
 
   bind_exits()
 end)
