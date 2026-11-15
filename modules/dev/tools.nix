@@ -56,5 +56,14 @@
     unzip
     zip
     unrar
+
+    gh
+    git
+    delta
+    git-filter-repo
+    diff-so-fancy
+    difftastic
+    lazygit
+    git-lfs
   ];
 }

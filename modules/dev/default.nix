@@ -7,6 +7,6 @@
     ./formatters.nix
     ./linters.nix
     ./tools.nix
-    ./git.nix
+    ./programs.nix
   ];
 }
