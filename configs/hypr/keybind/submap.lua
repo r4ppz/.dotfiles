@@ -208,8 +208,6 @@ hl.define_submap("Util", function()
   hl.bind("O", once(hl.dsp.exec_cmd(const.scripts.ocr)))
   hl.bind("P", once(hl.dsp.exec_cmd(const.apps.colorpicker)))
   hl.bind("C", once(hl.dsp.exec_cmd(const.apps.calendar)))
-  hl.bind("L", once(hl.dsp.exec_cmd(const.apps.lockscreen)))
-  hl.bind("N", once(hl.dsp.exec_cmd(const.apps.notifpanel)))
   hl.bind("R", once(record.toggle))
 
   hl.bind("E", eyetemp.toggle)
