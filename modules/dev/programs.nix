@@ -122,5 +122,41 @@
         };
       };
     };
+
+    atuin = {
+      enable = true;
+      settings = {
+        inline_height = 15;
+        invert = true;
+        show_help = false;
+        enter_accept = true;
+        theme.name = "gruvbox";
+        ui.columns = [ "command" ];
+      };
+
+      themes.gruvbox = {
+        theme = {
+          name = "gruvbox";
+          parent = "default";
+        };
+
+        colors = {
+          Important = "#83a598";
+          Annotation = "#928374";
+          Guidance = "#b8bb26";
+          AlertInfo = "#83a598";
+          AlertWarn = "#fabd2f";
+          AlertError = "#fb4934";
+          Title = "#d79921";
+          Muted = "#928374";
+          SyntaxCommand = "#b8bb26";
+          SyntaxFlag = "#fabd2f";
+          SyntaxString = "#b8bb26";
+          SyntaxVariable = "#83a598";
+          SyntaxOperator = "#fe8019";
+          SyntaxComment = "#928374";
+        };
+      };
+    };
   };
 }

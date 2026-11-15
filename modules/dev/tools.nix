@@ -14,7 +14,6 @@
 
     fastfetch
     fzf
-    atuin
     gdu
     witr
     lazydocker

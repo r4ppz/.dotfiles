@@ -29,7 +29,6 @@ in
     "yazi".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/yazi";
     "kitty".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/kitty";
 
-    "atuin".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/atuin";
     "gdu".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/gdu";
 
     "bookokrat".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/bookokrat";
