@@ -5,7 +5,6 @@ let
 in
 {
   home.file = {
-    ".gitconfig".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/git/.gitconfig";
     ".tmux.conf".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/tmux/.tmux.conf";
     ".zshrc".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/zsh/.zshrc";
     ".zprofile".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/zsh/.zprofile";
