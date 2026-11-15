@@ -309,6 +309,7 @@
           settings = {
             main = {
               capslock = "esc";
+              esc = "grave";
             };
             control = {
               m = "enter";
