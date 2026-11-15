@@ -19,7 +19,6 @@ in
     };
 
     "rofi".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/rofi";
-    "btop".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/btop";
     "swaync".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/swaync";
     "waybar".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/waybar";
 

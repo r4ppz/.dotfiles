@@ -13,7 +13,6 @@
     lnav
 
     pgcli
-    btop
     fastfetch
     fzf
     atuin
