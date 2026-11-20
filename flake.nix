@@ -72,16 +72,16 @@
                   doCheck = false;
                 });
 
-                # https://github.com/chojs23/concord/releases/tag/v2.7.0
+                # https://github.com/chojs23/concord/releases/tag/v2.7.1
                 concord-tui = prev.concord-tui.overrideAttrs (old: rec {
-                  version = "2.7.0";
+                  version = "2.7.1";
                   src = prev.fetchFromGitHub {
                     owner = "chojs23";
                     repo = "concord";
                     tag = "v${version}";
-                    hash = "sha256-Ck5BE1U5vajr0nE2KDeTfWZg1xBDbs0yCnpMZTIt/pU=";
+                    hash = "sha256-DMbs4rfIIvmkw1DA81r3IAwlOafZHu+MeHhajgeIB/k=";
                   };
-                  cargoHash = "sha256-rupp7IH/90/QHwK4gmYPQDdlsNOwXGYiwL7ODEdUZDE=";
+                  cargoHash = "sha256-5svgbFG/ErFBJJ9BqKZx0vAxotJi2nAxaKEa1IXfe8Y=";
                   doCheck = false;
                   nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [
                     prev.git

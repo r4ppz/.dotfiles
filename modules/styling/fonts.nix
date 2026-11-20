@@ -8,6 +8,7 @@
     liberation_ttf
     carlito
     caladea
+    corefonts
     noto-fonts-cjk-sans
     noto-fonts-color-emoji
   ];

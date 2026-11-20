@@ -38,7 +38,7 @@ opt.belloff = "all"
 opt.splitkeep = "screen"
 opt.winborder = "single"
 opt.clipboard = "unnamedplus"
-opt.cursorlineopt = "both"
+opt.cursorlineopt = vim.api.nvim_buf_get_name(0) == "" and "number" or "both"
 opt.inccommand = "nosplit"
 
 opt.foldmethod = "expr"

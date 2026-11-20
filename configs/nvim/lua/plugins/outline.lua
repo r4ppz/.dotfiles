@@ -11,9 +11,9 @@ return {
       },
 
       keymaps = {
-        fold = "<Left>",
-        unfold = "<Right>",
-        hover_symbol = "<C-S-Up>",
+        fold = { "<Left>", "h" },
+        unfold = { "<Right>", "l" },
+        hover_symbol = { "<C-S-Up>", "<leader>k" },
       },
     })
   end,

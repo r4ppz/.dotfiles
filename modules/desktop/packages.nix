@@ -18,6 +18,7 @@
     vivaldi
 
     # GUI apps
+    vscode
     kdePackages.okular
     bitwarden-desktop
     gsimplecal

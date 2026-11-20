@@ -1,9 +1,9 @@
 {
 	"name": "Vimium C",
-	"@time": "11/9/2026, 2:50:34 PM",
-	"time": 1794207034354,
+	"@time": "11/16/2026, 9:22:55 PM",
+	"time": 1794835375529,
 	"environment": {
-		"extension": "2.12.2",
+		"extension": "2.13.1",
 		"platform": "linux",
 		"chromium": 157
 	},
@@ -16,7 +16,12 @@
 		"",
 		"map g? showHelp",
 		"",
+		"map i enterInsertMode",
+		"map v enterVisualMode",
+		"map V enterVisualLineMode",
+		"",
 		"map <space> LinkHints.activate",
+		"map <s-space> LinkHints.activateFocus",
 		"",
 		"map <a-c> passNextKey",
 		"",
@@ -54,6 +59,7 @@
 		"map <a-c-l> moveTabRight",
 		""
 	],
+	"linkHintCharacters": "qweasdfghjkl",
 	"smoothScroll": false,
 	"vimSync": true
 }

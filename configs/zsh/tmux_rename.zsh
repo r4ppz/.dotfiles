@@ -44,15 +44,15 @@ typeset -gA DIR_MAP=(
 )
 
 typeset -gA DIR_MAP_UNIQUE=(
-  # Configs - portable via $HOME / $DOTFILES
   "${DOTFILES:-$HOME/.dotfiles}" DOTS
   "${DOTFILES:-$HOME/.dotfiles}/nvim" VDOTS
+  "${DOTFILES:-$HOME/.dotfiles}/hypr" HDOTS
 
   "$HOME/Repositories/projects/r4ppz.github.io" PWEB
   "$HOME/Repositories/projects/minidm" MINIDM
   "$HOME/Repositories/nvplug/lspeek.nvim" LSPEEK
   "$HOME/Repositories/projects/minidm" MINIDM
-  "$HOME/Repositories/m!ne/hyprland-wiki" HYPRWIKI
+  "$HOME/Repositories/m!ne/hyprland-wiki" HWIKI
 
   # School projects
 
@@ -94,7 +94,7 @@ typeset -gA DIR_MAP_PREFIX=(
   "$HOME/Repositories/mine" MINE
   "$HOME/Repositories/nvplug" NVPLUG
   "$HOME/Repositories/practice" PRACT
-  "$HOME/.config" DOTS
+  "$HOME/.config" CONF
 )
 
 # Helpers

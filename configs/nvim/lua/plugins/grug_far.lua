@@ -67,8 +67,10 @@ return {
       ["astgrep-rules"] = { placeholders = { enabled = false } },
     },
     keymaps = {
-      applyNext = { n = "<localleader><down>" },
-      applyPrev = { n = "<localleader><up>" },
+      applyNext = { n = "<localleader><j>" },
+      applyPrev = { n = "<localleader><k>" },
+      openNextLocation = { n = "<c-n>" },
+      openPrevLocation = { n = "<c-p>" },
       close = { n = "q" },
     },
   },

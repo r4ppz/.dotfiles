@@ -1,6 +1,6 @@
 version: 3
-theme: "My Custom Gruvbox"
-margin: 0
+theme: "Gruv?"
+margin: 1
 transparent_background: true
 pdf_scale: 0.70108694
 pdf_pan_shift: 0
@@ -8,12 +8,12 @@ pdf_render_mode: scroll
 pdf_show_link_underlines: false
 pdf_page_layout_mode: single
 epub_column_mode: single
-epub_image_size: adaptive
+epub_image_size: compact
 pdf_enabled: true
 pdf_settings_configured: true
 justify_text: false
 invert_scroll_direction: false
-zen_hide_border: false
+zen_hide_border: true
 book_sort_order: by_name
 show_inline_annotations: true
 nav_panel_width: null

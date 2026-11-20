@@ -2,6 +2,22 @@ local mygroup = vim.api.nvim_create_augroup("smh", { clear = true })
 local autocmd = vim.api.nvim_create_autocmd
 local map = vim.keymap.set
 
+autocmd({
+  "BufEnter",
+  "WinEnter",
+  "BufFilePost",
+  "BufWritePost",
+}, {
+  group = mygroup,
+  desc = "Only highlight the number on unnamed/no file buffers",
+  callback = function()
+    local want = vim.api.nvim_buf_get_name(0) == "" and "number" or "both"
+    if vim.wo.cursorlineopt ~= want then
+      vim.wo.cursorlineopt = want
+    end
+  end,
+})
+
 autocmd("FileType", {
   group = mygroup,
   desc = "No conceal in gayson cause its annoying",
@@ -75,7 +91,7 @@ autocmd({ "FileType", "BufEnter" }, {
     vim.opt_local.relativenumber = false
     vim.opt_local.number = false
     vim.opt_local.autocomplete = true
-    vim.opt_local.completeopt = { "menu", "menuone", "popup" }
+    vim.opt_local.completeopt = { "menu", "menuone", "noselect", "popup" }
     vim.opt_local.pumborder = "single"
     vim.opt_local.complete = ".,w,b,u,t"
 
