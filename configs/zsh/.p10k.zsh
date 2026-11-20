@@ -1831,6 +1831,10 @@
   # really need it.
   typeset -g POWERLEVEL9K_DISABLE_HOT_RELOAD=true
 
+  # Emit OSC 133 prompt marks so the terminal can keep the prompt intact on resize.
+  # Mitigation documented at https://github.com/romkatv/powerlevel10k#horrific-mess-when-resizing-terminal-window
+  typeset -g POWERLEVEL9K_TERM_SHELL_INTEGRATION=true
+
   # If p10k is already loaded, reload configuration.
   # This works even with POWERLEVEL9K_DISABLE_HOT_RELOAD=true.
   (( ! $+functions[p10k] )) || p10k reload
