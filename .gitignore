@@ -13,6 +13,8 @@ configs/pi/agent/crashes.json
 
 configs/pgcli/log
 
+configs/yazi/plugins/
+
 configs/lazydocker/development.log
 
 # sshhhh!
