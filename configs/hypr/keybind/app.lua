@@ -7,9 +7,6 @@ hl.bind(const.mod .. " + V", hl.dsp.exec_cmd(const.apps.ide))
 hl.bind(const.mod .. " + E", hl.dsp.exec_cmd(const.apps.filemanager_gui))
 hl.bind(const.mod .. " + P", hl.dsp.exec_cmd(const.apps.passmanager))
 
-hl.bind(const.mod .. " + ALT + L", hl.dsp.exec_cmd(const.apps.lockscreen))
-hl.bind(const.mod .. " + ALT + N", hl.dsp.exec_cmd(const.apps.notifpanel))
-
 hl.bind(const.mod .. " + SHIFT + RETURN", hl.dsp.exec_cmd(const.apps.terminal .. " -e zsh -lic 't'"), {
   tag = "+tmux",
 })
@@ -18,7 +15,7 @@ hl.bind(
   "ALT + SHIFT + E",
   hl.dsp.exec_cmd(
     const.apps.terminal
-      .. " -e zsh -lic 'exec pi --no-session \"explain this in simple words, do not use analogies:\n$(wl-paste -n)\"'",
+      .. " -e zsh -lic 'exec pi --no-tools --no-session \"explain this in simple words, do not use analogies:\n$(wl-paste -n)\"'",
     {
       tag = "+pi",
     }
@@ -27,7 +24,7 @@ hl.bind(
 
 hl.bind(
   const.mod .. " + C",
-  hl.dsp.exec_cmd(const.apps.terminal .. " -e zsh -lic 'exec pi --no-session'", {
+  hl.dsp.exec_cmd(const.apps.terminal .. " -e zsh -lic 'exec pi --no-session --no-tools'", {
     tag = "+pi",
   })
 )

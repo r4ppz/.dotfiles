@@ -102,6 +102,9 @@ hl.define_submap("Applications", "reset", function()
   hl.bind(const.mod .. " + D", hl.dsp.exec_cmd(const.apps.dictionary))
   hl.bind(const.mod .. " + B", hl.dsp.exec_cmd(const.apps.browser))
   hl.bind(const.mod .. " + SPACE", hl.dsp.exec_cmd(const.scripts.launcher))
+  hl.bind(const.mod .. " + P", hl.dsp.exec_cmd(const.scripts.powermenu))
+  hl.bind(const.mod .. " + L", hl.dsp.exec_cmd(const.apps.lockscreen))
+  hl.bind(const.mod .. " + N", hl.dsp.exec_cmd(const.apps.notifpanel))
 
   bind_exits()
 end)
@@ -247,6 +250,7 @@ hl.define_submap("resize", function()
 
   hl.bind("escape", hl.dsp.submap("reset"))
 end)
+
 -- ============================================================================
 -- MOUSE MODE SUBMAP
 -- ============================================================================
@@ -330,6 +334,12 @@ hl.define_submap("Mouse Mode", function()
     mouse.click("middle")
   end)
   hl.bind("R", mouse.toggle)
+
+  -- I dont have an arrowkeys :(
+  hl.bind("Alt_R", hl.dsp.send_shortcut({ mods = "", key = "Left" }))
+  hl.bind("slash", hl.dsp.send_shortcut({ mods = "", key = "Up" }))
+  hl.bind("Menu", hl.dsp.send_shortcut({ mods = "", key = "Down" }))
+  hl.bind("Control_L", hl.dsp.send_shortcut({ mods = "", key = "Right" }))
 
   hl.bind("escape", mouse.reset)
 end)

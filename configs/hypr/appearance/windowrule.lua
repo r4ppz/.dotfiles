@@ -6,76 +6,78 @@ end
 -- Pin window to a specific workspace
 
 hl.window_rule({
-  name = "bitwarden",
-  match = { class = "bitwarden" },
-  workspace = "special:window2",
-})
-
-hl.window_rule({
-  name = "music",
-  match = { class = "musicplayer|brave-music.youtube.com__-Default|chrome-music.youtube.com__-Default" },
+  name = "Belongs to special:window2",
+  match = {
+    initial_class = "(?i).*(music|bitwarden).*",
+  },
   workspace = "special:window2",
 })
 
 hl.window_rule({
   name = "main browser in workspace 1",
-  match = { class = "brave-origin" },
+  match = { initial_class = "(?i)brave-origin" },
   workspace = 1,
 })
 
 hl.window_rule({
   name = "random bs in workspace 3",
   match = {
-    initial_class = "com.obsproject.Studio|Visual Studio Code|ONLYOFFICE|md.obsidian.Obsidian|com.usebottles.bottles|com.belmoussaoui.Authenticator|org.kde.krita",
+    initial_class = "(?i).*(obsproject|ONLYOFFICE|obsidian|bottles|authenticator|krita|tlauncher|code).*",
   },
   workspace = 3,
 })
 
 hl.window_rule({
   name = "school stuff in workspace 4",
-  match = { class = "helium" },
+  match = { class = "(?i)helium" },
   workspace = 4,
 })
 
 -- Floating win rules
 
 hl.window_rule({
-  name = "xdg-desktop-portal-gtk|ONLYOFFICE|etc popups",
+  name = "float-modals",
   match = {
-    initial_class = "^.*(xdg-desktop-portal-gtk|DesktopEditors).*$",
+    modal = true,
   },
-  size = scaled_size(36.46, 46.30),
+  float = true,
+  center = true,
+})
+
+hl.window_rule({
+  name = "portal",
+  match = {
+    initial_class = "(?i).*xdg-desktop-portal-gtk.*",
+  },
+  size = scaled_size(35, 45),
   pin = true,
   float = true,
   center = true,
 })
 
 hl.window_rule({
-  name = "common-dialogs",
+  name = "other common-dialogs",
   match = {
-    initial_title = "^.*(Open File|Open Files|Save File|Open Folder|Choose Files|Choose Folder|Create Folder|Select Folder|Open Document|Save As).*$",
+    initial_title = "(?i).*(Open File|Open Files|Save File|Open Folder|Choose Files|Choose Folder|Create Folder|Select Folder|Open Document|Save As).*",
   },
-  size = scaled_size(36.46, 46.30),
+  size = scaled_size(35, 45),
   pin = true,
   float = true,
-  center = true,
 })
 
 hl.window_rule({
   name = "file-ops",
   match = {
-    initial_title = "^(Rename|Move|File Operation Progress).*$",
+    initial_title = "(?i).*(Rename|Move|File Operation Progress).*",
   },
-  size = scaled_size(18.23, 12.04),
+  size = scaled_size(18, 12),
   float = true,
-  center = true,
 })
 
 hl.window_rule({
   name = "other popups",
   match = {
-    initial_title = "^.*(export-download|codeload|wants to).*$",
-    modal = true,
+    initial_title = "(?i).*(export-download|codeload|wants to).*$",
   },
   float = true,
   center = true,
@@ -93,9 +95,9 @@ hl.window_rule({
 hl.window_rule({
   name = "network dialog GUI",
   match = {
-    initial_class = "^.*(nm-connection-editor|blueman-manager).*$",
+    initial_class = "(?i).*(nm-connection-editor|blueman-manager).*$",
   },
-  size = scaled_size(41.67, 46.30),
+  size = scaled_size(40, 45),
   pin = true,
   float = true,
   center = true,
@@ -104,9 +106,9 @@ hl.window_rule({
 hl.window_rule({
   name = "tempai",
   match = {
-    initial_class = "brave-duck.ai__chat-Default|chrome-duck.ai__chat-Default",
+    initial_class = "(?i).*ai__chat.*",
   },
-  size = scaled_size(41.67, 55.56),
+  size = scaled_size(40, 55),
   pin = true,
   float = true,
   center = true,
@@ -115,7 +117,7 @@ hl.window_rule({
 hl.window_rule({
   name = "tempai using a tag",
   match = { tag = "pi" },
-  size = scaled_size(41.67, 55.56),
+  size = scaled_size(40, 55),
   pin = true,
   float = true,
   center = true,
@@ -144,7 +146,7 @@ hl.window_rule({
 hl.window_rule({
   name = "just float",
   match = {
-    class = "warp-taskbar|org.qbittorrent.qBittorrent",
+    class = "(?i).*(warp-taskbar|qbittorrent).*",
   },
   pin = true,
   float = true,
@@ -154,13 +156,7 @@ hl.window_rule({
 -- Prevent screen idle/sleep
 hl.window_rule({
   match = {
-    initial_class = "brave-music.youtube.com__-Default",
+    initial_class = [[(?i).*(music\.youtube\.com|musicplayer).*]],
   },
   idle_inhibit = "always",
-})
-hl.window_rule({
-  match = {
-    initial_class = "brave-www.youtube.com__-Default|musicplayer",
-  },
-  idle_inhibit = "focus",
 })

@@ -50,7 +50,7 @@ local function apply(conf)
   hl.animation({
     leaf = "workspaces",
     enabled = true,
-    speed = 4,
+    speed = 3,
     bezier = conf.bezier,
     style = "slide",
   })

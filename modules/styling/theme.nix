@@ -45,7 +45,7 @@ in
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
       gtk-theme = "Colloid-Dark-Gruvbox";
-      enable-animations = false;
+      enable-animations = true;
       gtk-key-theme = "Emacs";
     };
   };
