@@ -80,6 +80,23 @@
       "resource": "*",
       "effect": "ask"
     },
+    // Scratch space: full read/write in /tmp without prompts
+    // (must come after the broad 'ask' rules above; last match wins)
+    {
+      "action": "external_directory",
+      "resource": "/tmp/*",
+      "effect": "allow"
+    },
+    {
+      "action": "read",
+      "resource": "/tmp/*",
+      "effect": "allow"
+    },
+    {
+      "action": "edit",
+      "resource": "/tmp/*",
+      "effect": "allow"
+    },
     // =========================================================================
     // SHELL EXECUTION (Ask by default)
     // =========================================================================
