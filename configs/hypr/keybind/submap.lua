@@ -100,11 +100,22 @@ hl.define_submap("Applications", "reset", function()
   bind_site(const.apps.browser, "S", const.websites.speedtest)
 
   hl.bind(const.mod .. " + D", hl.dsp.exec_cmd(const.apps.dictionary))
+  hl.bind("D", hl.dsp.exec_cmd(const.apps.dictionary))
+
   hl.bind(const.mod .. " + B", hl.dsp.exec_cmd(const.apps.browser))
+  hl.bind("B", hl.dsp.exec_cmd(const.apps.browser))
+
   hl.bind(const.mod .. " + SPACE", hl.dsp.exec_cmd(const.scripts.launcher))
+  hl.bind("SPACE", hl.dsp.exec_cmd(const.scripts.launcher))
+
   hl.bind(const.mod .. " + P", hl.dsp.exec_cmd(const.scripts.powermenu))
+  hl.bind("P", hl.dsp.exec_cmd(const.scripts.powermenu))
+
   hl.bind(const.mod .. " + L", hl.dsp.exec_cmd(const.apps.lockscreen))
+  hl.bind("L", hl.dsp.exec_cmd(const.apps.lockscreen))
+
   hl.bind(const.mod .. " + N", hl.dsp.exec_cmd(const.apps.notifpanel))
+  hl.bind("N", hl.dsp.exec_cmd(const.apps.notifpanel))
 
   bind_exits()
 end)
