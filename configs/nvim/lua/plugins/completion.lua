@@ -140,8 +140,19 @@ return {
           ["<C-u>"] = { "scroll_documentation_up", "fallback" },
 
           ["<C-S-Down>"] = { "show", "show_documentation", "hide_documentation", "fallback" },
-          ["<C-Space>"] = { "show", "show_documentation", "hide_documentation", "fallback" },
           ["<C-c>"] = { "hide", "fallback" },
+
+          ["<C-Space>"] = {
+            function(cmp)
+              if cmp.is_menu_visible() then
+                return cmp.hide()
+              end
+              return cmp.show()
+            end,
+            "show_documentation",
+            "hide_documentation",
+            "fallback",
+          },
 
           ["<CR>"] = { "accept", "fallback" },
         },

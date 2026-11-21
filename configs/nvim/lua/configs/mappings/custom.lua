@@ -8,10 +8,10 @@ local map = vim.keymap.set
 --
 -- command line mode
 map("c", "<C-a>", "<Home>", { desc = "Beginning of command line" })
-map("c", "<C-b>", "<Left>", { desc = "Move backward" })
-map("c", "<C-d>", "<Del>", { desc = "Delete character under cursor" })
 map("c", "<C-e>", "<End>", { desc = "End of command line" })
+map("c", "<C-b>", "<Left>", { desc = "Move backward" })
 map("c", "<C-f>", "<Right>", { desc = "Move forward" })
+map("c", "<C-d>", "<Del>", { desc = "Delete character under cursor" })
 map("c", "<C-n>", "<Down>", { desc = "Next command history" })
 map("c", "<C-p>", "<Up>", { desc = "Previous command history" })
 map("c", "<M-b>", "<S-Left>", { desc = "Move backward one word" })
@@ -22,8 +22,6 @@ map("i", "<C-a>", "<Home>", { desc = "Beginning of line" })
 map("i", "<C-e>", "<End>", { desc = "End of line" })
 map("i", "<C-b>", "<Left>", { desc = "Move backward" })
 map("i", "<C-f>", "<Right>", { desc = "Move forward" })
-map("i", "<C-n>", "<Down>", { desc = "Move down" })
-map("i", "<C-p>", "<Up>", { desc = "Move up" })
 map("i", "<C-d>", "<Del>", { desc = "Delete character under cursor" })
 map("i", "<C-h>", "<BS>", { desc = "Delete character before cursor" })
 map("i", "<M-b>", "<C-o>b", { desc = "Move backward one word" })
@@ -31,6 +29,10 @@ map("i", "<M-f>", "<C-o>e<C-o>a", { desc = "Move forward one word" })
 map("i", "<C-k>", "<C-o>D", { desc = "Delete to end of line" })
 map("i", "<C-u>", "<C-o>d0", { desc = "Delete to beginning of line" })
 map("i", "<C-j>", "<CR>", { desc = "New line" })
+
+-- conclic with comp
+map("i", "<C-n>", "<Down>", { desc = "Move down" })
+map("i", "<C-p>", "<Up>", { desc = "Move up" })
 
 map({ "n", "x", "o" }, { "M", "~" }, "%", {
   desc = "Jump to matching pair",
