@@ -50,6 +50,7 @@
     tesseract
     pkg-config
     imagemagick
+    lm_sensors
 
     p7zip
     unzip
