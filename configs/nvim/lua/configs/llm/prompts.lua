@@ -338,7 +338,6 @@ local prompts = {
   Idiomatic = {
     prompt = string.dedent([[
       #selection
-      #buffer:active
       Review the code for idiomatic style and conventions.
 
       Requirements:
