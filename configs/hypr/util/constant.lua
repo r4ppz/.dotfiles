@@ -98,7 +98,8 @@ M.websites = {
   oklch = "https://www.oklch.co/generator",
 
   hl_wiki = "https://wiki.hypr.land",
-  qs_wiki = "https://quickshell.org/docs/v0.3.2/guide/introduction",
+  qs_wiki = "https://quickshell.org/docs/v0.3.2/types",
+  qml_wiki = "https://doc.qt.io/qt-6/reference-overview.html",
   nvim_docs = "https://neovim.io/doc",
   zig = "https://ziglang.org/documentation/0.16.0/",
   react_aria = "https://react-aria.adobe.com/getting-started",
