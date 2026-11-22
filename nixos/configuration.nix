@@ -174,7 +174,6 @@
     VISUAL = "nvim";
     SYSTEMD_EDITOR = "nvim";
     NIXOS_OZONE_WL = "1";
-    FREETYPE_PROPERTIES = "cff:no-stem-darkening=1 autofitter:no-stem-darkening=1";
   };
 
   environment.systemPackages = with pkgs; [
