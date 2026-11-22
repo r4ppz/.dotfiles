@@ -33,7 +33,6 @@ local EXCLUDED_FILETYPES = {
   "dapui_scopes",
   "DiffviewFileHistory",
   "DiffviewFiles",
-  "snacks_dashboard",
 }
 
 local EXCLUDED_BUFTYPES = {
