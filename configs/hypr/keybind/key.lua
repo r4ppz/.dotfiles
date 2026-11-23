@@ -27,21 +27,21 @@ end)
 
 -- Zoom in and out
 bind({
-  const.mod .. "+ ALT + mouse_up",
+  const.mod .. "+ SHIFT + mouse_up",
   const.mod .. "+ EQUAL",
 }, function()
   zoom.up()
 end)
 
 bind({
-  const.mod .. "+ ALT + mouse_down",
+  const.mod .. "+ SHIFT + mouse_down",
   const.mod .. "+ MINUS",
 }, function()
   zoom.down()
 end)
 
 bind({
-  const.mod .. "+ ALT + mouse:272",
+  const.mod .. "+ SHIFT + mouse:272",
   const.mod .. "+ BACKSPACE",
 }, function()
   zoom.reset()

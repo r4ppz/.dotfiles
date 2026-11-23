@@ -7,7 +7,6 @@ bind({
 }, hl.dsp.exec_cmd(const.apps.terminal))
 
 bind(const.mod .. " + SLASH", hl.dsp.exec_cmd(const.scripts.websearch))
-bind(const.mod .. " + V", hl.dsp.exec_cmd(const.apps.ide))
 bind(const.mod .. " + E", hl.dsp.exec_cmd(const.apps.filemanager_gui))
 bind(const.mod .. " + P", hl.dsp.exec_cmd(const.apps.passmanager))
 
@@ -61,9 +60,9 @@ bind(
   const.mod .. " + B",
   hl.dsp.exec_cmd([[
   if systemctl --user is-active --quiet waybar.service; then
-      systemctl --user disable --now waybar.service
+      systemctl --user stop --now waybar.service
   else
-      systemctl --user enable --now waybar.service
+      systemctl --user start --now waybar.service
   fi
 ]])
 )
