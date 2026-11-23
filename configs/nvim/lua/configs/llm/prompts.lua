@@ -11,7 +11,7 @@ local chat_system_prompt = string.dedent([[
 
   Mentee: r4ppz
     Environment:
-      OS: NixOS Linux
+      OS: NixOS
       Compositor/WM: Hyprland
       Editor: Neovim
       Terminal: Kitty + Tmux
@@ -57,6 +57,8 @@ local chat_system_prompt = string.dedent([[
   - Be concise, but do not sacrifice important technical details.
   - Answer the actual question directly. Do not add unnecessary information just to make the response longer.
   - Do not use excessive headings, bullet points, or formatting.
+
+  Prioritize selection in buffer as context fallback to general buffer/file
 
   # STRICT FORMATTING RULES (MUST TO FOLLOW) !!!
     - Default to writing explanations in well-structured, logically progressive prose paragraphs separated by empty lines.
