@@ -89,7 +89,7 @@ return {
 
           {
             "n",
-            "<M-Right>",
+            "<M-l>",
             function()
               require("diffview.actions").select_next_entry()
             end,
@@ -97,7 +97,7 @@ return {
           },
           {
             "n",
-            "<M-Left>",
+            "<M-h>",
             function()
               require("diffview.actions").select_prev_entry()
             end,
@@ -114,7 +114,7 @@ return {
 
           {
             "n",
-            "<M-Right>",
+            "<M-l>",
             function()
               require("diffview.actions").select_next_entry()
             end,
@@ -122,7 +122,7 @@ return {
           },
           {
             "n",
-            "<M-Left>",
+            "<M-h>",
             function()
               require("diffview.actions").select_prev_entry()
             end,
@@ -138,7 +138,7 @@ return {
 
           {
             "n",
-            "<M-Right>",
+            "<M-l>",
             function()
               require("diffview.actions").select_next_entry()
             end,
@@ -146,7 +146,7 @@ return {
           },
           {
             "n",
-            "<M-Left>",
+            "<M-h>",
             function()
               require("diffview.actions").select_prev_entry()
             end,
