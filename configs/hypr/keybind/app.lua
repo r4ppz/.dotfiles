@@ -1,17 +1,21 @@
 local const = require("util.constant")
+local bind = require("util.bind")
 
-hl.bind(const.mod .. " + RETURN", hl.dsp.exec_cmd(const.apps.terminal))
-hl.bind(const.mod .. " + T", hl.dsp.exec_cmd(const.apps.terminal))
-hl.bind(const.mod .. " + SLASH", hl.dsp.exec_cmd(const.scripts.websearch))
-hl.bind(const.mod .. " + V", hl.dsp.exec_cmd(const.apps.ide))
-hl.bind(const.mod .. " + E", hl.dsp.exec_cmd(const.apps.filemanager_gui))
-hl.bind(const.mod .. " + P", hl.dsp.exec_cmd(const.apps.passmanager))
+bind({
+  const.mod .. " + RETURN",
+  const.mod .. " + T",
+}, hl.dsp.exec_cmd(const.apps.terminal))
 
-hl.bind(const.mod .. " + SHIFT + RETURN", hl.dsp.exec_cmd(const.apps.terminal .. " -e zsh -lic 't'"), {
+bind(const.mod .. " + SLASH", hl.dsp.exec_cmd(const.scripts.websearch))
+bind(const.mod .. " + V", hl.dsp.exec_cmd(const.apps.ide))
+bind(const.mod .. " + E", hl.dsp.exec_cmd(const.apps.filemanager_gui))
+bind(const.mod .. " + P", hl.dsp.exec_cmd(const.apps.passmanager))
+
+bind(const.mod .. " + SHIFT + RETURN", hl.dsp.exec_cmd(const.apps.terminal .. " -e zsh -lic 't'"), {
   tag = "+tmux",
 })
 
-hl.bind(
+bind(
   "ALT + SHIFT + E",
   hl.dsp.exec_cmd(
     const.apps.terminal
@@ -22,41 +26,38 @@ hl.bind(
   )
 )
 
-hl.bind(
+bind(
   const.mod .. " + C",
   hl.dsp.exec_cmd(const.apps.terminal .. " -e zsh -lic 'exec pi --no-session --no-tools'", {
     tag = "+pi",
   })
 )
 
-hl.bind(
+bind(
   const.mod .. " + SHIFT + B",
   hl.dsp.exec_cmd(const.apps.terminal .. " -e --class bluetooth " .. const.apps.bluetooth)
 )
 
-hl.bind(
-  const.mod .. " + SHIFT + N",
-  hl.dsp.exec_cmd(const.apps.terminal .. " -e --class network " .. const.apps.network)
-)
+bind(const.mod .. " + SHIFT + N", hl.dsp.exec_cmd(const.apps.terminal .. " -e --class network " .. const.apps.network))
 
-hl.bind(
+bind(
   const.mod .. " + SHIFT + E",
   hl.dsp.exec_cmd(const.apps.terminal .. " -e --class filemanager_tui " .. const.apps.filemanager_tui)
 )
 
-hl.bind(
+bind(
   const.mod .. " + SHIFT + T",
   hl.dsp.exec_cmd(const.apps.terminal .. " -e --class taskmanager " .. const.apps.taskmanager)
 )
 
-hl.bind(
+bind(
   const.mod .. " + SHIFT + M",
   hl.dsp.exec_cmd(
     const.apps.terminal .. " -d ~/Music/Better/OLD --class musicplayer " .. const.apps.musicplayer .. " ."
   )
 )
 
-hl.bind(
+bind(
   const.mod .. " + B",
   hl.dsp.exec_cmd([[
   if systemctl --user is-active --quiet waybar.service; then

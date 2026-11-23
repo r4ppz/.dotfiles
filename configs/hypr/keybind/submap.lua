@@ -4,6 +4,7 @@ local eyetemp = require("util.eyetemp")
 local notify = require("util.notify")
 local zen = require("util.zen")
 local record = require("util.record")
+local bind = require("util.bind")
 
 --- Starts or restarts a 2-second inactivity timer.
 local submap_timer = nil
@@ -35,13 +36,8 @@ end
 
 --- Binds a key to open a URL in a browser
 local function bind_site(browser, key, site_url)
-  hl.bind(key, hl.dsp.exec_cmd(browser .. " --new-tab " .. site_url))
-  hl.bind(const.mod .. " + " .. key, hl.dsp.exec_cmd(browser .. " --app=" .. site_url))
-end
-
-local function bind_exits()
-  hl.bind("catchall", hl.dsp.submap("reset"))
-  hl.bind("escape", hl.dsp.submap("reset"))
+  bind(key, hl.dsp.exec_cmd(browser .. " --new-tab " .. site_url))
+  bind(const.mod .. " + " .. key, hl.dsp.exec_cmd(browser .. " --app=" .. site_url))
 end
 
 --- Runs an action, then leaves the current submap.
@@ -59,7 +55,7 @@ end
 -- ============================================================================
 -- AI APPLICATIONS SUBMAP
 -- ============================================================================
-hl.bind(const.mod .. " + A", function()
+bind(const.mod .. " + A", function()
   enter_submap("AI Slop", true)
 end)
 
@@ -81,13 +77,13 @@ hl.define_submap("AI Slop", "reset", function()
   bind_site(const.apps.browser, "Z", const.websites.zai)
   bind_site(const.apps.browser, "L", const.websites.lumo)
 
-  bind_exits()
+  bind({ "catchall", "ESCAPE" }, hl.dsp.submap("reset"))
 end)
 
 -- ============================================================================
 -- APPLICATIONS SUBMAP
 -- ============================================================================
-hl.bind(const.mod .. " + SPACE", function()
+bind(const.mod .. " + SPACE", function()
   enter_submap("Applications", true)
 end)
 
@@ -99,31 +95,20 @@ hl.define_submap("Applications", "reset", function()
   bind_site(const.apps.browser, "G", const.websites.gdocs)
   bind_site(const.apps.browser, "S", const.websites.speedtest)
 
-  hl.bind(const.mod .. " + D", hl.dsp.exec_cmd(const.apps.dictionary))
-  hl.bind("D", hl.dsp.exec_cmd(const.apps.dictionary))
+  bind({ const.mod .. " + D", "D" }, hl.dsp.exec_cmd(const.apps.dictionary))
+  bind({ const.mod .. " + B", "B" }, hl.dsp.exec_cmd(const.apps.browser))
+  bind({ const.mod .. " + SPACE", "SPACE" }, hl.dsp.exec_cmd(const.scripts.launcher))
+  bind({ const.mod .. " + P", "P" }, hl.dsp.exec_cmd(const.scripts.powermenu))
+  bind({ const.mod .. " + L", "L" }, hl.dsp.exec_cmd(const.apps.lockscreen))
+  bind({ const.mod .. " + N", "N" }, hl.dsp.exec_cmd(const.apps.notifpanel))
 
-  hl.bind(const.mod .. " + B", hl.dsp.exec_cmd(const.apps.browser))
-  hl.bind("B", hl.dsp.exec_cmd(const.apps.browser))
-
-  hl.bind(const.mod .. " + SPACE", hl.dsp.exec_cmd(const.scripts.launcher))
-  hl.bind("SPACE", hl.dsp.exec_cmd(const.scripts.launcher))
-
-  hl.bind(const.mod .. " + P", hl.dsp.exec_cmd(const.scripts.powermenu))
-  hl.bind("P", hl.dsp.exec_cmd(const.scripts.powermenu))
-
-  hl.bind(const.mod .. " + L", hl.dsp.exec_cmd(const.apps.lockscreen))
-  hl.bind("L", hl.dsp.exec_cmd(const.apps.lockscreen))
-
-  hl.bind(const.mod .. " + N", hl.dsp.exec_cmd(const.apps.notifpanel))
-  hl.bind("N", hl.dsp.exec_cmd(const.apps.notifpanel))
-
-  bind_exits()
+  bind({ "catchall", "ESCAPE" }, hl.dsp.submap("reset"))
 end)
 
 -- ============================================================================
 -- DEVTOOLS SUBMAP
 -- ============================================================================
-hl.bind(const.mod .. " + D", function()
+bind(const.mod .. " + D", function()
   enter_submap("Dev Tools", true)
 end)
 
@@ -147,13 +132,13 @@ hl.define_submap("Dev Tools", "reset", function()
   bind_site(const.apps.browser, "T", const.websites.picoctf)
   bind_site(const.apps.browser, "C", const.websites.oklch)
 
-  bind_exits()
+  bind({ "catchall", "ESCAPE" }, hl.dsp.submap("reset"))
 end)
 
 -- ============================================================================
 -- NIX SUBMAP
 -- ============================================================================
-hl.bind(const.mod .. " + N", function()
+bind(const.mod .. " + N", function()
   enter_submap("Nix", true)
 end)
 
@@ -165,13 +150,13 @@ hl.define_submap("Nix", "reset", function()
   bind_site(const.apps.browser, "S", const.websites.channel_status)
   bind_site(const.apps.browser, "T", const.websites.nixpkg_traker)
 
-  bind_exits()
+  bind({ "catchall", "ESCAPE" }, hl.dsp.submap("reset"))
 end)
 
 -- ============================================================================
 -- MEDIA SUBMAP
 -- ============================================================================
-hl.bind(const.mod .. " + M", function()
+bind(const.mod .. " + M", function()
   enter_submap("Media", true)
 end)
 
@@ -187,13 +172,13 @@ hl.define_submap("Media", "reset", function()
   bind_site(const.apps.browser, "I", const.websites.medium)
   bind_site(const.apps.browser, "P", const.websites.psypost)
 
-  bind_exits()
+  bind({ "catchall", "ESCAPE" }, hl.dsp.submap("reset"))
 end)
 
 -- ============================================================================
 -- SCHOOL WORKS SUBMAP
 -- ============================================================================
-hl.bind(const.mod .. " + S", function()
+bind(const.mod .. " + S", function()
   enter_submap("School", true)
 end)
 
@@ -205,153 +190,128 @@ hl.define_submap("School", "reset", function()
   bind_site(const.apps.browser_school, "G", const.websites.gdocs)
   bind_site(const.apps.browser_school, "A", const.websites.claude)
 
-  hl.bind(const.mod .. " + S", hl.dsp.exec_cmd(const.apps.browser_school))
+  bind(const.mod .. " + S", hl.dsp.exec_cmd(const.apps.browser_school))
 
-  bind_exits()
+  bind({ "catchall", "ESCAPE" }, hl.dsp.submap("reset"))
 end)
 
 -- ============================================================================
 -- UTILITIES SUBMAP
 -- ============================================================================
-hl.bind(const.mod .. " + U", function()
+bind(const.mod .. " + U", function()
   enter_submap("Util", false)
 end)
 
 hl.define_submap("Util", function()
-  hl.bind("SHIFT + S", once(hl.dsp.exec_cmd(const.scripts.screenshot .. " --full")))
-  hl.bind("S", once(hl.dsp.exec_cmd(const.scripts.screenshot .. " --region --copy")))
-  hl.bind("T", once(hl.dsp.exec_cmd(const.scripts.screenshot .. " --region --tmp --copy")))
-  hl.bind("O", once(hl.dsp.exec_cmd(const.scripts.ocr)))
-  hl.bind("P", once(hl.dsp.exec_cmd(const.apps.colorpicker)))
-  hl.bind("C", once(hl.dsp.exec_cmd(const.apps.calendar)))
-  hl.bind("R", once(record.toggle))
+  bind("SHIFT + S", once(hl.dsp.exec_cmd(const.scripts.screenshot .. " --full")))
+  bind("S", once(hl.dsp.exec_cmd(const.scripts.screenshot .. " --region --copy")))
+  bind("T", once(hl.dsp.exec_cmd(const.scripts.screenshot .. " --region --tmp --copy")))
+  bind("O", once(hl.dsp.exec_cmd(const.scripts.ocr)))
+  bind("P", once(hl.dsp.exec_cmd(const.apps.colorpicker)))
+  bind("C", once(hl.dsp.exec_cmd(const.apps.calendar)))
+  bind("R", once(record.toggle))
 
-  hl.bind("E", eyetemp.toggle)
-  hl.bind("1", hl.dsp.exec_cmd(const.scripts.mediactl .. " mute"))
-  hl.bind("2", hl.dsp.exec_cmd(const.scripts.mediactl .. " mic-mute"))
-  hl.bind("3", hl.dsp.exec_cmd(const.scripts.mediactl .. " volume-down"), { repeating = true })
-  hl.bind("4", hl.dsp.exec_cmd(const.scripts.mediactl .. " volume-up"), { repeating = true })
-  hl.bind("5", hl.dsp.exec_cmd(const.scripts.mediactl .. " brightness-down"), { repeating = true })
-  hl.bind("6", hl.dsp.exec_cmd(const.scripts.mediactl .. " brightness-up"), { repeating = true })
-  hl.bind("7", hl.dsp.exec_cmd("playerctl previous"))
-  hl.bind("8", hl.dsp.exec_cmd("playerctl next"))
-  hl.bind("9", hl.dsp.exec_cmd("playerctl play-pause"))
+  bind("E", eyetemp.toggle)
+  bind("1", hl.dsp.exec_cmd(const.scripts.mediactl .. " mute"))
+  bind("2", hl.dsp.exec_cmd(const.scripts.mediactl .. " mic-mute"))
+  bind("3", hl.dsp.exec_cmd(const.scripts.mediactl .. " volume-down"), { repeating = true })
+  bind("4", hl.dsp.exec_cmd(const.scripts.mediactl .. " volume-up"), { repeating = true })
+  bind("5", hl.dsp.exec_cmd(const.scripts.mediactl .. " brightness-down"), { repeating = true })
+  bind("6", hl.dsp.exec_cmd(const.scripts.mediactl .. " brightness-up"), { repeating = true })
+  bind("7", hl.dsp.exec_cmd("playerctl previous"))
+  bind("8", hl.dsp.exec_cmd("playerctl next"))
+  bind("9", hl.dsp.exec_cmd("playerctl play-pause"))
 
-  bind_exits()
+  bind({ "catchall", "ESCAPE" }, hl.dsp.submap("reset"))
 end)
 
 -- ============================================================================
 -- RESIZE WINDOWS SUBMAP
 -- ============================================================================
-hl.bind(const.mod .. " + R", function()
+bind(const.mod .. " + R", function()
   enter_submap("resize", false)
 end)
 
 hl.define_submap("resize", function()
   local step = 20
 
-  hl.bind("right", hl.dsp.window.resize({ x = step, y = 0, relative = true }), { repeating = true })
-  hl.bind("left", hl.dsp.window.resize({ x = -step, y = 0, relative = true }), { repeating = true })
-  hl.bind("up", hl.dsp.window.resize({ x = 0, y = -step, relative = true }), { repeating = true })
-  hl.bind("down", hl.dsp.window.resize({ x = 0, y = step, relative = true }), { repeating = true })
+  bind({ "right", "l" }, hl.dsp.window.resize({ x = step, y = 0, relative = true }), { repeating = true })
+  bind({ "left", "h" }, hl.dsp.window.resize({ x = -step, y = 0, relative = true }), { repeating = true })
+  bind({ "up", "k" }, hl.dsp.window.resize({ x = 0, y = -step, relative = true }), { repeating = true })
+  bind({ "down", "j" }, hl.dsp.window.resize({ x = 0, y = step, relative = true }), { repeating = true })
 
-  hl.bind("l", hl.dsp.window.resize({ x = step, y = 0, relative = true }), { repeating = true })
-  hl.bind("h", hl.dsp.window.resize({ x = -step, y = 0, relative = true }), { repeating = true })
-  hl.bind("k", hl.dsp.window.resize({ x = 0, y = -step, relative = true }), { repeating = true })
-  hl.bind("j", hl.dsp.window.resize({ x = 0, y = step, relative = true }), { repeating = true })
-
-  hl.bind("escape", hl.dsp.submap("reset"))
+  bind("escape", hl.dsp.submap("reset"))
 end)
 
 -- ============================================================================
 -- MOUSE MODE SUBMAP
 -- ============================================================================
-hl.bind(const.mod .. " + Q", function()
+bind(const.mod .. " + Q", function()
   enter_submap("Mouse Mode", false)
 end)
 
 hl.define_submap("Mouse Mode", function()
   -- Normal speed
-  hl.bind("left", function()
+  bind({ "left", "h" }, function()
     mouse.move("left")
   end, { repeating = true })
-  hl.bind("down", function()
+
+  bind({ "down", "j" }, function()
     mouse.move("down")
   end, { repeating = true })
-  hl.bind("right", function()
+
+  bind({ "right", "l" }, function()
     mouse.move("right")
   end, { repeating = true })
-  hl.bind("up", function()
+
+  bind({ "up", "k" }, function()
     mouse.move("up")
   end, { repeating = true })
 
-  hl.bind("h", function()
-    mouse.move("h")
-  end, { repeating = true })
-  hl.bind("j", function()
-    mouse.move("j")
-  end, { repeating = true })
-  hl.bind("l", function()
-    mouse.move("l")
-  end, { repeating = true })
-  hl.bind("k", function()
-    mouse.move("k")
-  end, { repeating = true })
-
   -- Slow speed
-  hl.bind("SHIFT + left", function()
+  bind({ "SHIFT + left", "SHIFT + h" }, function()
     mouse.move("left", "slow")
   end, { repeating = true })
-  hl.bind("SHIFT + down", function()
+
+  bind({ "SHIFT + down", "SHIFT + j" }, function()
     mouse.move("down", "slow")
   end, { repeating = true })
-  hl.bind("SHIFT + right", function()
+
+  bind({ "SHIFT + right", "SHIFT + l" }, function()
     mouse.move("right", "slow")
   end, { repeating = true })
-  hl.bind("SHIFT + up", function()
+
+  bind({ "SHIFT + up", "SHIFT + k" }, function()
     mouse.move("up", "slow")
   end, { repeating = true })
 
-  hl.bind("SHIFT + h", function()
-    mouse.move("h", "slow")
-  end, { repeating = true })
-  hl.bind("SHIFT + j", function()
-    mouse.move("j", "slow")
-  end, { repeating = true })
-  hl.bind("SHIFT + l", function()
-    mouse.move("l", "slow")
-  end, { repeating = true })
-  hl.bind("SHIFT + k", function()
-    mouse.move("k", "slow")
-  end, { repeating = true })
-
-  hl.bind("KP_Insert", function()
+  bind("KP_Insert", function()
     mouse.click("left")
   end)
-  hl.bind("KP_Enter", function()
+  bind("KP_Enter", function()
     mouse.click("right")
   end)
-  hl.bind("KP_Delete", function()
+  bind("KP_Delete", function()
     mouse.click("middle")
   end)
-  hl.bind("KP_End", mouse.toggle)
+  bind("KP_End", mouse.toggle)
 
-  hl.bind("Q", function()
+  bind("Q", function()
     mouse.click("left")
   end)
-  hl.bind("W", function()
+  bind("W", function()
     mouse.click("right")
   end)
-  hl.bind("E", function()
+  bind("E", function()
     mouse.click("middle")
   end)
-  hl.bind("R", mouse.toggle)
+  bind("R", mouse.toggle)
 
   -- I dont have an arrowkeys :(
-  hl.bind("Alt_R", hl.dsp.send_shortcut({ mods = "", key = "Left" }))
-  hl.bind("slash", hl.dsp.send_shortcut({ mods = "", key = "Up" }))
-  hl.bind("Menu", hl.dsp.send_shortcut({ mods = "", key = "Down" }))
-  hl.bind("Control_L", hl.dsp.send_shortcut({ mods = "", key = "Right" }))
+  bind("Alt_R", hl.dsp.send_shortcut({ mods = "", key = "Left" }))
+  bind("slash", hl.dsp.send_shortcut({ mods = "", key = "Up" }))
+  bind("Menu", hl.dsp.send_shortcut({ mods = "", key = "Down" }))
+  bind("Control_L", hl.dsp.send_shortcut({ mods = "", key = "Right" }))
 
-  hl.bind("escape", mouse.reset)
+  bind("escape", mouse.reset)
 end)

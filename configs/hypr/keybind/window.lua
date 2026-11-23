@@ -1,17 +1,18 @@
 local const = require("util.constant")
 local workspace = require("util.workspace")
+local bind = require("util.bind")
 
-hl.bind(const.mod .. " + SHIFT + Q", hl.dsp.window.close())
-hl.bind(const.mod .. " + SHIFT + CTRL + Q", hl.dsp.window.kill())
-hl.bind(const.mod .. " + SHIFT + SPACE", hl.dsp.window.float({ action = "toggle" }))
+bind(const.mod .. " + SHIFT + Q", hl.dsp.window.close())
+bind(const.mod .. " + SHIFT + CTRL + Q", hl.dsp.window.kill())
+bind(const.mod .. " + SHIFT + SPACE", hl.dsp.window.float({ action = "toggle" }))
 
-hl.bind(const.mod .. " + SHIFT + P", function()
+bind(const.mod .. " + SHIFT + P", function()
   hl.dispatch(hl.dsp.window.float({ action = "toggle" }))
   hl.dispatch(hl.dsp.window.pin())
 end)
 
 -- Focus previous window and bring to top
-hl.bind("ALT + TAB", function()
+bind("ALT + TAB", function()
   if workspace.has_floating_windows() then
     hl.dispatch(hl.dsp.window.cycle_next({
       next = true,
@@ -21,7 +22,8 @@ hl.bind("ALT + TAB", function()
     hl.dispatch(hl.dsp.layout("rollnext"))
   end
 end)
-hl.bind("ALT + SHIFT + TAB", function()
+
+bind("ALT + SHIFT + TAB", function()
   if workspace.has_floating_windows() then
     hl.dispatch(hl.dsp.window.cycle_next({
       next = false,
@@ -33,11 +35,11 @@ hl.bind("ALT + SHIFT + TAB", function()
 end)
 
 -- Center floating window
-hl.bind(const.mod .. " + SHIFT + C", hl.dsp.window.center())
+bind(const.mod .. " + SHIFT + C", hl.dsp.window.center())
 
 -- Fullscreen
-hl.bind(const.mod .. " + F", hl.dsp.window.fullscreen({ action = "toggle" }))
-hl.bind(
+bind(const.mod .. " + F", hl.dsp.window.fullscreen({ action = "toggle" }))
+bind(
   const.mod .. " + SHIFT + F",
   hl.dsp.window.fullscreen_state({
     internal = 0,
@@ -47,38 +49,68 @@ hl.bind(
 )
 
 -- Move focus with arrow keys
-hl.bind(const.mod .. " + LEFT", hl.dsp.focus({ direction = "l" }))
-hl.bind(const.mod .. " + RIGHT", hl.dsp.focus({ direction = "r" }))
-hl.bind(const.mod .. " + UP", hl.dsp.focus({ direction = "u" }))
-hl.bind(const.mod .. " + DOWN", hl.dsp.focus({ direction = "d" }))
+bind({
+  const.mod .. " + LEFT",
+  const.mod .. " + H",
+}, hl.dsp.focus({ direction = "l" }))
 
-hl.bind(const.mod .. " + H", hl.dsp.focus({ direction = "l" }))
-hl.bind(const.mod .. " + L", hl.dsp.focus({ direction = "r" }))
-hl.bind(const.mod .. " + K", hl.dsp.focus({ direction = "u" }))
-hl.bind(const.mod .. " + J", hl.dsp.focus({ direction = "d" }))
+bind({
+  const.mod .. " + RIGHT",
+  const.mod .. " + L",
+}, hl.dsp.focus({ direction = "r" }))
+
+bind({
+  const.mod .. " + UP",
+  const.mod .. " + K",
+}, hl.dsp.focus({ direction = "u" }))
+
+bind({
+  const.mod .. " + DOWN",
+  const.mod .. " + J",
+}, hl.dsp.focus({ direction = "d" }))
 
 -- Move windows with arrow keys
-hl.bind(const.mod .. " + SHIFT + LEFT", hl.dsp.window.move({ direction = "l" }))
-hl.bind(const.mod .. " + SHIFT + RIGHT", hl.dsp.window.move({ direction = "r" }))
-hl.bind(const.mod .. " + SHIFT + UP", hl.dsp.window.move({ direction = "u" }))
-hl.bind(const.mod .. " + SHIFT + DOWN", hl.dsp.window.move({ direction = "d" }))
+bind({
+  const.mod .. " + SHIFT + LEFT",
+  const.mod .. " + SHIFT + H",
+}, hl.dsp.window.move({ direction = "l" }))
 
-hl.bind(const.mod .. " + SHIFT + H", hl.dsp.window.move({ direction = "l" }))
-hl.bind(const.mod .. " + SHIFT + L", hl.dsp.window.move({ direction = "r" }))
-hl.bind(const.mod .. " + SHIFT + K", hl.dsp.window.move({ direction = "u" }))
-hl.bind(const.mod .. " + SHIFT + J", hl.dsp.window.move({ direction = "d" }))
+bind({
+  const.mod .. " + SHIFT + RIGHT",
+  const.mod .. " + SHIFT + L",
+}, hl.dsp.window.move({ direction = "r" }))
+
+bind({
+  const.mod .. " + SHIFT + UP",
+  const.mod .. " + SHIFT + K",
+}, hl.dsp.window.move({ direction = "u" }))
+
+bind({
+  const.mod .. " + SHIFT + DOWN",
+  const.mod .. " + SHIFT + J",
+}, hl.dsp.window.move({ direction = "d" }))
 
 -- Move floating windows
-hl.bind(const.mod .. " + CTRL + LEFT", hl.dsp.window.move({ direction = "l" }), { repeating = true })
-hl.bind(const.mod .. " + CTRL + RIGHT", hl.dsp.window.move({ direction = "r" }), { repeating = true })
-hl.bind(const.mod .. " + CTRL + UP", hl.dsp.window.move({ direction = "u" }), { repeating = true })
-hl.bind(const.mod .. " + CTRL + DOWN", hl.dsp.window.move({ direction = "d" }), { repeating = true })
+bind({
+  const.mod .. " + CTRL + LEFT",
+  const.mod .. " + CTRL + H",
+}, hl.dsp.window.move({ direction = "l" }), { repeating = true })
 
-hl.bind(const.mod .. " + CTRL + H", hl.dsp.window.move({ direction = "l" }), { repeating = true })
-hl.bind(const.mod .. " + CTRL + L", hl.dsp.window.move({ direction = "r" }), { repeating = true })
-hl.bind(const.mod .. " + CTRL + K", hl.dsp.window.move({ direction = "u" }), { repeating = true })
-hl.bind(const.mod .. " + CTRL + J", hl.dsp.window.move({ direction = "d" }), { repeating = true })
+bind({
+  const.mod .. " + CTRL + RIGHT",
+  const.mod .. " + CTRL + L",
+}, hl.dsp.window.move({ direction = "r" }), { repeating = true })
+
+bind({
+  const.mod .. " + CTRL + UP",
+  const.mod .. " + CTRL + K",
+}, hl.dsp.window.move({ direction = "u" }), { repeating = true })
+
+bind({
+  const.mod .. " + CTRL + DOWN",
+  const.mod .. " + CTRL + J",
+}, hl.dsp.window.move({ direction = "d" }), { repeating = true })
 
 -- Mouse window movement and resizing
-hl.bind(const.mod .. " + mouse:272", hl.dsp.window.drag())
-hl.bind(const.mod .. " + mouse:273", hl.dsp.window.resize())
+bind(const.mod .. " + mouse:272", hl.dsp.window.drag())
+bind(const.mod .. " + mouse:273", hl.dsp.window.resize())
