@@ -20,6 +20,7 @@
     # GUI apps
     vscode
     kdePackages.okular
+    zathura
     bitwarden-desktop
     gsimplecal
     onlyoffice-desktopeditors
