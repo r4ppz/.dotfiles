@@ -26,6 +26,7 @@ _:
       "text/x-c" = [ "nvim.desktop" ];
       "text/x-c++" = [ "nvim.desktop" ];
       "text/x-python" = [ "nvim.desktop" ];
+
       "application/json" = [ "nvim.desktop" ];
       "application/x-shellscript" = [ "nvim.desktop" ];
       "application/x-yaml" = [ "nvim.desktop" ];
@@ -42,11 +43,20 @@ _:
       "video/x-matroska" = [ "mpv.desktop" ];
       "video/webm" = [ "mpv.desktop" ];
 
-      # Images
-      "image/png" = [ "imv.desktop" ];
+      # Audio
+      "audio/mpeg" = [ "mpv.desktop" ];
+      "audio/flac" = [ "mpv.desktop" ];
+      "audio/ogg" = [ "mpv.desktop" ];
+      "audio/wav" = [ "mpv.desktop" ];
+      "audio/aac" = [ "mpv.desktop" ];
+      "audio/opus" = [ "mpv.desktop" ];
+
+      # Image
       "image/jpeg" = [ "imv.desktop" ];
+      "image/png" = [ "imv.desktop" ];
       "image/webp" = [ "imv.desktop" ];
       "image/gif" = [ "imv.desktop" ];
+      "image/svg+xml" = [ "imv.desktop" ];
 
       # Documents
       "application/pdf" = [ "okularApplication_pdf.desktop" ];
