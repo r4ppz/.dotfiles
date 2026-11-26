@@ -15,12 +15,14 @@ bind({
   "Page_Up",
   const.mod .. "+ COMMA",
   const.mod .. " + mouse_up",
+  const.mod .. " + I",
 }, hl.dsp.focus({ workspace = "e-1" }))
 
 bind({
   "Page_Down",
   const.mod .. "+ PERIOD",
   const.mod .. " + mouse_down",
+  const.mod .. " + O",
 }, hl.dsp.focus({ workspace = "e+1" }))
 
 -- Switch workspaces
