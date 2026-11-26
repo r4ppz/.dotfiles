@@ -18,6 +18,8 @@ in
       recursive = true;
     };
 
+    "quickshell".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/quickshell";
+
     "rofi".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/rofi";
     "swaync".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/swaync";
     "waybar".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/waybar";

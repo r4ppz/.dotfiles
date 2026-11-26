@@ -17,5 +17,7 @@ configs/yazi/plugins/
 
 configs/lazydocker/development.log
 
+configs/quickshell/ref.md
+
 # sshhhh!
 .env*
