@@ -43,6 +43,21 @@ return {
       pattern = "grug-far",
       callback = function()
         vim.bo.buflisted = false
+        vim.keymap.set("n", "<c-j>", "<c-n>", {
+          buffer = true,
+          remap = true,
+          desc = "Grug Far: next location",
+        })
+        vim.keymap.set("n", "<c-k>", "<c-p>", {
+          buffer = true,
+          remap = true,
+          desc = "Grug Far: prev location",
+        })
+        vim.keymap.set("n", "o", "<enter>", {
+          buffer = true,
+          remap = true,
+          desc = "Grug Far: goto location",
+        })
       end,
     })
   end,

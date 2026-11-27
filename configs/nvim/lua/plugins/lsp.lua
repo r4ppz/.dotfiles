@@ -80,6 +80,9 @@ return {
     dev = true,
     opts = {
       select_first = true, -- 90% of the time its the same location :/
+      keymaps = {
+        enter = { "<CR>", "o" },
+      },
     },
   },
 }

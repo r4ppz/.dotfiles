@@ -104,12 +104,12 @@ map("i", "<Up>", "<C-o>gk", {
 })
 
 -- Next and previous using tab/Stab like n/N
-map({ "n", "v", "o" }, { "<Tab>", "n" }, "nzz", {
+map({ "n", "v", "o" }, { "n" }, "nzz", {
   noremap = true,
   silent = true,
   desc = "Next search result and center",
 })
-map({ "n", "v", "o" }, { "<S-Tab>", "N" }, "Nzz", {
+map({ "n", "v", "o" }, { "N" }, "Nzz", {
   noremap = true,
   silent = true,
   desc = "Previous search result and center",

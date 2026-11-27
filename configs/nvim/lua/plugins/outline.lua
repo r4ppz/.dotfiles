@@ -14,6 +14,8 @@ return {
         fold = { "<Left>", "h" },
         unfold = { "<Right>", "l" },
         hover_symbol = { "<C-S-Up>", "<leader>k" },
+        toggle_preview = { "p" },
+        goto_location = { "<Cr>", "o" },
       },
     })
   end,
