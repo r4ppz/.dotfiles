@@ -88,20 +88,24 @@ bind(const.mod .. " + SPACE", function()
 end)
 
 hl.define_submap("Applications", "reset", function()
+  -- web apps
   bind_site(const.apps.browser, "M", const.websites.mail)
   bind_site(const.apps.browser, "E", const.websites.getemoji)
   bind_site(const.apps.browser, "T", const.websites.monkeytype)
-  bind_site(const.apps.browser, "W", const.websites.wifi)
+  bind_site(const.apps.browser, "I", const.websites.wifi)
   bind_site(const.apps.browser, "G", const.websites.gdocs)
   bind_site(const.apps.browser, "S", const.websites.speedtest)
+  bind_site(const.apps.browser, "W", const.websites.wikipedia)
 
-  bind({ const.mod .. " + D", "D" }, hl.dsp.exec_cmd(const.apps.dictionary))
-  bind({ const.mod .. " + V", "V" }, hl.dsp.exec_cmd(const.apps.ide))
-  bind({ const.mod .. " + B", "B" }, hl.dsp.exec_cmd(const.apps.browser))
+  -- layer apps
   bind({ const.mod .. " + SPACE", "SPACE" }, hl.dsp.exec_cmd(const.scripts.launcher))
   bind({ const.mod .. " + P", "P" }, hl.dsp.exec_cmd(const.scripts.powermenu))
   bind({ const.mod .. " + L", "L" }, hl.dsp.exec_cmd(const.apps.lockscreen))
   bind({ const.mod .. " + N", "N" }, hl.dsp.exec_cmd(const.apps.notifpanel))
+
+  -- native apps
+  bind({ const.mod .. " + V", "V" }, hl.dsp.exec_cmd(const.apps.ide))
+  bind({ const.mod .. " + B", "B" }, hl.dsp.exec_cmd(const.apps.browser))
   bind({ const.mod .. " + C", "C" }, hl.dsp.exec_cmd(const.apps.calendar))
 
   bind({ "catchall", "ESCAPE" }, hl.dsp.submap("reset"))

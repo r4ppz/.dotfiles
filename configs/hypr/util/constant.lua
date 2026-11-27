@@ -96,6 +96,7 @@ M.websites = {
   leetcode = "https://leetcode.com",
   oklch = "https://www.oklch.co/generator",
 
+  wikipedia = "https://en.wikipedia.org/wiki/Main_Page",
   hl_wiki = "https://wiki.hypr.land",
   qs_wiki = "https://quickshell.org/docs/v0.3.2/types",
   qml_wiki = "https://doc.qt.io/qt-6/reference-overview.html",
