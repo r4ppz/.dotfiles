@@ -312,6 +312,9 @@ hl.define_submap("Mouse Mode", function()
   end)
   bind("R", mouse.toggle)
 
+  bind("d", once(mouse.hide))
+  bind("c", once(mouse.center))
+
   -- I dont have an arrowkeys :(
   bind("Alt_R", hl.dsp.send_shortcut({ mods = "", key = "Left" }))
   bind("slash", hl.dsp.send_shortcut({ mods = "", key = "Up" }))

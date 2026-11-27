@@ -76,4 +76,28 @@ function M.move(direction, speed)
   end
 end
 
+--- Move the pointer in the bottom-right outer gap and hides it.
+function M.hide()
+  hl.config({ ["cursor.invisible"] = true })
+  local monitor = hl.get_active_monitor()
+  if monitor then
+    hl.dispatch(hl.dsp.cursor.move({
+      x = monitor.x + monitor.width - 1,
+      y = monitor.y + monitor.height - 1,
+    }))
+  end
+end
+
+--- Shows the pointer again, centered on the active monitor.
+function M.center()
+  hl.config({ ["cursor.invisible"] = false })
+  local monitor = hl.get_active_monitor()
+  if monitor then
+    hl.dispatch(hl.dsp.cursor.move({
+      x = math.floor(monitor.x + monitor.width / 2),
+      y = math.floor(monitor.y + monitor.height / 2),
+    }))
+  end
+end
+
 return M
