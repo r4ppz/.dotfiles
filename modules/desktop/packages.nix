@@ -26,7 +26,6 @@
     onlyoffice-desktopeditors
     gnome-disk-utility
     obs-studio
-    goldendict-ng
     qbittorrent
     bottles
     vlc

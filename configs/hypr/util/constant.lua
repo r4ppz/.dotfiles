@@ -17,7 +17,6 @@ M.apps = {
   musicplayer = "cliamp",
   bluetooth = "bluetui",
   network = "impala",
-  dictionary = "goldendict",
   calendar = "gsimplecal",
 }
 
